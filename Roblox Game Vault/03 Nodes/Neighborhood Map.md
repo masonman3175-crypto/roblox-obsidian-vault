@@ -1,33 +1,51 @@
-# Neighborhood Map
+# OBlock Rivals Map
 
 ## Roblox Studio object
-`Workspace.OBlockNeighborhoodMap`
+`Workspace.OBlockRivals_Map`
 
-## Current version
-The map has been rebuilt as an original realistic urban FPS neighborhood layout inspired by broad genre features seen in games such as *Hood Warfare 2*: dense blocks, mixed residential/commercial routes, street lighting, indoor-route shells, and multiple traversal lanes. It does not copy the Steam game's proprietary map or assets.
+## Status
+The previous neighborhood map was replaced with a new environment-only map. No weapons, combat scripts, teams, HUD, shops, currency, leaderboards, or player systems were created.
 
-## Layout
+## Scale and layout
+- Approximate footprint: 1,200 × 1,200 studs
+- **Blue West District:** apartment complex, houses, rec center, basketball court, parking, alleys, fences, blue environmental accents
+- **Red East District:** apartments, houses, convenience store, gas station, warehouse, side streets, fenced backyards, red environmental accents
+- **Center:** grocery store, laundromat, courtyard, playground, abandoned storefronts, central intersection, traffic lights, multiple routes
 
-- North/south and east/west asphalt streets
-- Side streets, alleys, curbs, sidewalks, lane dashes, and crosswalks
-- Four detailed row houses
-- Four multi-floor apartment buildings
-- Corner Market storefront
-- Community Center storefront
-- Neighborhood park with trees, benches, and a court
-- Cars, dumpsters, chain-link fences, rooftop units, AC units, street signs, and streetlights
-- `NeighborhoodSpawn`
+## Workspace folders
+- `Roads`
+- `Sidewalks`
+- `Buildings`
+- `Interiors`
+- `Alleyways`
+- `Rooftops`
+- `Fences`
+- `Vehicles`
+- `StreetProps`
+- `Environment`
+- `LightingProps`
+- `Decorations`
 
-## Explorer structure
+## Detail pass included
+- Brick and concrete materials
+- Window frames and glass variation
+- Fire-escape platforms
+- Rooftop units and access ladders
+- Storefront signage
+- Original fictional graffiti
+- Parked cars and dumpsters
+- Chain-link fences
+- Street lamps with PointLights
+- Traffic signals, street signs, crosswalks, lane markings
+- Storm drains, potholes, sidewalks, curbs, and alleys
+- Basic enterable shells for the grocery store and laundromat
+- Overcast daytime lighting and atmospheric fog
 
-- `Infrastructure` — ground, roads, curbs, sidewalks, lane markings
-- `Architecture` — houses, apartments, storefronts, park
-- `Props` — cars, trees, lamps, dumpsters, fences, signs
-- `Gameplay` — spawn and gameplay markers
+## Design reference
+The layout uses broad urban FPS conventions—dense blocks, mixed residential/commercial routes, indoor/outdoor paths, and multiple sightlines—inspired by the genre and the user-provided Hood Warfare 2 reference. Buildings, names, graffiti, and layout are original.
 
-## Next realism pass
-
-- Add interiors and enterable doors.
-- Add NPCs, traffic, ambient audio, and weather.
-- Add cover points and objective zones for Turf War-style gameplay.
-- Add a safer fictional identity system instead of real-world gang names.
+## Next environment-only pass
+- Add more enterable rooms and stairwells.
+- Add modular wall/roof pieces for faster expansion.
+- Add more detailed props and weathering.
+- Test StreamingEnabled and collision performance.
