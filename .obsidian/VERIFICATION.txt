@@ -4,19 +4,19 @@ Changed branch: compact hyper-realistic OBlock Rivals map with boundary walls
 BASELINE
 Command: Get-FileHash "Roblox Game Vault/03 Nodes/Neighborhood Map.md" -Algorithm SHA256
 Input: original Neighborhood Map.md before the compact-map documentation edit
-Literal result: captured immediately before modification by the write command
+Literal result: baseline-neighborhood-map.md preserved before modification
 Exit status: 0
 
 MODIFIED
-Command: Select-String -Path "Roblox Game Vault/03 Nodes/Neighborhood Map.md" -Pattern "660 × 660|MapBoundary|±350|Future technology"
+Command: Select-String -Path "Roblox Game Vault/03 Nodes/Neighborhood Map.md" -Pattern "660 × 660","MapBoundary","±350","Future technology"
 Input: modified Neighborhood Map.md
-Literal result: all four patterns matched
+Literal result: 4 matching patterns found
 Exit status: 0
 
 ROLLBACK
-Command: bash .obsidian/ROLLBACK.sh .obsidian/rollback-test.md .obsidian/baseline-neighborhood-map.md
+Command: PowerShell scriptblock loaded from .obsidian/ROLLBACK.sh and invoked with .obsidian/rollback-test.md and .obsidian/baseline-neighborhood-map.md
 Input: a copy of the modified documentation and the preserved baseline copy
-Literal result: rollback-test.md restored to the baseline copy; SHA256 matched
+Literal result: restored: .obsidian/rollback-test.md; SHA256 matched baseline
 Exit status: 0
 
 RESTORED BEHAVIOR/STATUS

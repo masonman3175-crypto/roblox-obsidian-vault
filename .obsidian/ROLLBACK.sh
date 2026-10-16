@@ -1,9 +1,10 @@
-#!/usr/bin/env bash
-set -euo pipefail
-if [ "$#" -ne 2 ]; then
-  echo "usage: ROLLBACK.sh <target-file> <baseline-file>" >&2
-  exit 2
-fi
-cp -- "$2" "$1"
-cmp -- "$1" "$2"
-echo "restored: $1"
+#!/usr/bin/env pwsh
+param(
+  [Parameter(Mandatory=$true)][string]$TargetFile,
+  [Parameter(Mandatory=$true)][string]$BaselineFile
+)
+Copy-Item -LiteralPath $BaselineFile -Destination $TargetFile -Force
+$targetHash=(Get-FileHash -LiteralPath $TargetFile -Algorithm SHA256).Hash
+$baselineHash=(Get-FileHash -LiteralPath $BaselineFile -Algorithm SHA256).Hash
+if ($targetHash -ne $baselineHash) { exit 1 }
+Write-Output "restored: $TargetFile"
