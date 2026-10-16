@@ -1,0 +1,4 @@
+# Obsidian vault files that should not be synchronized
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.trash/

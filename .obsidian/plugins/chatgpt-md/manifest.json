@@ -1,0 +1,11 @@
+{
+  "id": "chatgpt-md",
+  "name": "ChatGPT MD",
+  "version": "3.3.1",
+  "minAppVersion": "1.11.4",
+  "description": "Chat with cloud and local AI providers directly in your notes.",
+  "author": "Deniz Okcu (created by Bram Adams)",
+  "authorUrl": "https://www.bramadams.dev",
+  "fundingUrl": "https://www.bramadams.dev/#/portal/",
+  "isDesktopOnly": false
+}
