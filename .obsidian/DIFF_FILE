@@ -1,0 +1,6 @@
+DIFF_FILE
+- Approximate footprint: 1,200 x 1,200 studs
++ Approximate playable footprint: 660 x 660 studs after a 0.55 model scale pass
++ Added MapBoundary with four solid collision walls at approximately X/Z = +/-350
++ Added concrete pillars, metal fence caps, perimeter lamps, and boundary sign
++ Added restrained realistic lighting/color grading and Future technology when available
