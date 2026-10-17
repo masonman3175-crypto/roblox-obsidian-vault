@@ -39,7 +39,8 @@ Rules: see the Wiki schema section in `CLAUDE.md` / `AGENTS.md`. Timeline: [[log
 - [[Overcast Rowhouse Street]] - overcast haze, brick rowhouses, power lines, street cover (idea)
 
 ## Systems
-- [[Game Audio And Music]] - weapon/movement/UI audio and 25% drill instrumental, with isolated rollback (shipped)
+- [[Crouch And Compact Map]] - crouch/camera stance, tighter perimeter, floor repair and 5% music (shipped)
+- [[Game Audio And Music]] - weapon/movement/UI audio and 5% drill instrumental, with isolated rollback (shipped)
 - [[Current Test And Integration Backlog]] - verified work, multiplayer gaps and reusable session prompt (building)
 - [[Sprint Slide And Map Boundary]] - chainable slides, lower camera, longer sprint stamina and continuous perimeter walls (building)
 - [[Hood Warfare 2 Game Modes]] - six original mode patterns to prototype separately (idea)

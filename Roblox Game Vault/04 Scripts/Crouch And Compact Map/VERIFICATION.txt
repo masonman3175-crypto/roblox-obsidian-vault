@@ -1,0 +1,131 @@
+CROUCH / COMPACT MAP / FLOOR REPAIR / QUIET MUSIC -- 2026-10-17
+Place: hood warfare 1.2, 127865723083651
+Changed branch/field: five flow-owned ModuleScript sources, BackgroundMusic.Volume, Map.Ground surfaces, PerimeterBoundary geometry/minimap proxies, two existing spawn transforms, Baseplate.CFrame.
+
+MODIFIED_FILE C:/Users/mason/.codex/visualizations/2026/10/16/01a14317-0d61-7650-b711-1ea3626ed7b5/crouch_boundary_floor/MODIFIED_FILE.luau
+DIFF_FILE C:/Users/mason/.codex/visualizations/2026/10/16/01a14317-0d61-7650-b711-1ea3626ed7b5/crouch_boundary_floor/DIFF_FILE.md
+VERIFICATION.txt C:/Users/mason/.codex/visualizations/2026/10/16/01a14317-0d61-7650-b711-1ea3626ed7b5/crouch_boundary_floor/VERIFICATION.txt
+executable ROLLBACK.sh C:/Users/mason/.codex/visualizations/2026/10/16/01a14317-0d61-7650-b711-1ea3626ed7b5/crouch_boundary_floor/ROLLBACK.sh
+
+Original snapshot SHA256: 220D964F8B797C45D9DFD26820212B978398B76CC76F579B8D4F1993F962C1E9 (BASELINE.json)
+Modified installer SHA256: 876B6CB9B6E8F19155334FC7D85185CE44DBAB550220DD78B3A36707362A998C (MODIFIED_FILE.luau)
+Original video SHA256: 9CC9D54D36234E02933F3106550B7376CD12EFE21021B8048F51CADEC0FC4C18
+Original video was read only, not altered.
+
+VIDEO INSPECTION
+Input: C:\Users\mason\Videos\Screen Recordings\Screen Recording 2026-10-17 111235.mp4
+Command: bundled python inspect_video.py (source in this directory).
+Decoder: imageio-ffmpeg 0.6.0 installed locally under video_deps.
+Decoded 2.90 seconds, 704x680, 30 fps; six PNGs extracted at 2 fps. Actually opened clip_01.png, clip_04.png, clip_06.png with view_image.
+Observed aerial menu with flickering/speckled pavement and excessive perimeter setback. Live geometry inspection confirmed 12 broad coplanar floor pairs: 4 apron/baseplate, 7 slab/soil, 1 patch/patch.
+Screenshot after edits inspected in Studio at aerial position (40,210,145). Buildings retained; perimeter moved to building extents.
+
+BASELINE COMMAND / INPUT / OUTPUT
+Exact shell command: & '.\BASELINE_TEST.ps1'; exit $LASTEXITCODE
+cwd: C:/Users/mason/.codex/visualizations/2026/10/16/01a14317-0d61-7650-b711-1ea3626ed7b5/crouch_boundary_floor
+Input: original BASELINE.json plus BEFORE_FLOORS.json from live pre-update audit.
+Literal output: BASELINE PASS: music=0.25; crouch absent; inner footprint=534x300; detected floor overlaps=12
+Exit status: 0.
+Original sources/geometry were also copied into ServerStorage.CrouchCompactFloorBackup_20261017 before mutation.
+
+MODIFIED COMMAND / INPUT / OUTPUT
+Roblox_Studio.execute_luau(studio_id="a8c52bef-c6e7-4b6f-b818-37193fc2a609", datamodel_type="Edit", code=contents of MODIFIED_FILE.luau)
+Literal output: {"bounds":[-236,246,-122,122],"tiles":500,"hiddenPatches":1,"oldArea":160200,"music":0.05,"result":"INSTALL PASS","newArea":117608}
+Result: isError=false. MCP exposes no OS process exit code.
+Exact final verification input: VERIFY.luau through execute_luau in Edit, same studio.
+Literal output: {"wallRays":900,"spawnFloorSamples":242,"spawns":2,"oldArea":160200,"music":0.05,"result":"VERIFY PASS","area":117608}
+Result: isError=false.
+Exact floor audit input: AUDIT_FLOORS.luau through execute_luau in Edit.
+Literal output: {"coplanarOverlaps":0,"examples":[],"candidates":534}
+Result: isError=false.
+Eight source checks matched expected Source strings: five changed modules and three unchanged inspected modules. No weapon/damage source was edited.
+
+MUSIC
+Config MusicVolume and SoundService.BackgroundMusic.Volume changed .25 -> .05. Music mix group unchanged at 1.
+Actual playing client read 0.05000000074505806 (expected float32 representation), with MusicPlaying=true and UI label MUSIC 5%.
+Fivefold reduction in linear gain, approximately -14 dB relative to previous default.
+F8/click mute behavior retained; client initializes from new config.
+
+CROUCH / CAMERA
+Controls: C, Left Ctrl, or gamepad B toggles crouch when not sprinting. Sprint+C/B slides, retaining slide chaining. Touch CROUCH action uses the same context.
+Server CrouchSpeed=8, physical HipHeight drop=.60; client smoothly offsets camera down .95 more. Measured world camera height 5.3056569 -> 3.7556574, a 1.55-stud drop.
+Additive R15 knee/hip/ankle/waist presentation runs after animation and removes previous offsets before the next animation step. Motor6D.C0 is not modified.
+Entering crouch requires deployment, correct boolean payload, request budget and ground. Standing checks headroom. Sprint stands only if clearance allows.
+
+ACTUAL PLAY TESTS
+start_stop_play(is_start=true) -> Game Started. Menu PLAY clicked using user_mouse_input; keyboard C exercised with user_keyboard_input.
+Crouch literal result: {"state":{"CameraOffsetY":-0.949999988079071,"ShakeDegrees":1.912745023676776e-11,"Grounded":true,"FovOffset":-1.9994720811170897,"SlideBuffered":false,"WalkSpeed":8,"SlideReadyIn":0,"CameraY":3.755657434463501,"Stamina":100,"CameraDrop":0.9499999997276319,"Mode":"Crouching","HeadY":4.299192428588867,"Crouched":true},"hip":1.398025393486023,"result":"CROUCH PASS","rootY":2.798024892807007}
+Six-cycle input: TEST_CYCLES_CLIENT.luau via execute_luau Client.
+Literal result: {"hipAfter":1.9980254173278809,"hipBefore":1.9980254173278809,"cycles":6,"result":"CYCLE PASS","state":{"CameraOffsetY":-0.000008191746019292623,"ShakeDegrees":0,"Grounded":true,"FovOffset":-0.0010642647134247198,"SlideBuffered":false,"WalkSpeed":14,"SlideReadyIn":0,"CameraY":5.3056488037109379,"Stamina":100,"CameraDrop":0.000008191745750763829,"Mode":"Idle","HeadY":4.841587066650391,"Crouched":false}}
+Result: isError=false; HipHeight unchanged across repeated cycles; camera and walking speed recovered.
+
+Headroom setup: after entering crouch, a Play-only 5x0.3x5 anchored roof was placed above Head at Y=Head.Position.Y+Head.Size.Y/2+0.45. Client requested Crouch=false.
+Literal result: HEADROOM PASS: standing blocked under low ceiling; crouch/camera retained
+Roof removed. Literal release result: HEADROOM RELEASE PASS: standing restored after obstacle removal
+Result: isError=false. Roof absent in saved Edit state.
+
+Movement input: TEST_MOVEMENT_CLIENT.luau through execute_luau Client, on a temporary QA placement on clear existing central street.
+Literal result: {"chained":true,"crouchSpeed":8,"sprintSpeed":24,"slideOffset":-1.432370662689209,"result":"MOVEMENT PASS","final":{"CameraOffsetY":-0.000002408763748462661,"ShakeDegrees":0,"Grounded":true,"FovOffset":0.01743901246768568,"SlideBuffered":false,"WalkSpeed":14,"SlideReadyIn":0,"CameraY":5.125655174255371,"Stamina":93.5,"CameraDrop":0.0000024087638226896078,"Mode":"Idle","HeadY":4.722614765167236,"Crouched":false}}
+Crouch actual speed=8, sprint actual speed=24, slide camera offset=-1.43237, second slide timestamp changed. Final camera/hip restored. Render-step QA movement was unbound before completion.
+Combat input: TEST_COMBAT_CLIENT.luau via execute_luau Client.
+Literal result: COMBAT REGRESSION PASS: crouched ADS/fire/reload; ammo restored; standing restored; weapon source untouched
+Result: isError=false.
+
+Validation input: TEST_VALIDATION_SERVER.luau via existing server-only MovementControl BindableFunction.
+Literal result: {"state":{"Sliding":false,"Wants":false,"Hip":1.9980254173278809,"BaseHip":1.9980254173278809,"Crouched":false,"Stamina":100,"Mode":"Idle","WalkSpeed":14,"CanStand":true},"slideReject":"Invalid slide direction","result":"VALIDATION PASS","crouchReject":"Invalid crouch payload"}
+Extra client payload MovementRequest:FireServer("Crouch",true,"extra") rejected with Unexpected payload; state did not change.
+Result: isError=false.
+
+Actual death from active crouch: server set only the Play-test Humanoid.Health to 0. Existing menu auto-respawn created a fresh character.
+Literal result: {"result":"DEATH RESET PASS","newCharacterStanding":{"CameraOffsetY":0,"ShakeDegrees":0.000008661433628576642,"Grounded":true,"FovOffset":0,"SlideBuffered":false,"WalkSpeed":14,"SlideReadyIn":0,"CameraY":5.0274338722229,"Stamina":100,"CameraDrop":0,"Mode":"Idle","HeadY":4.899239540100098,"Crouched":false}}
+Then entered crouch again and pressed real M:
+ACTIVE MENU RESET PASS: returning to menu from crouch cleared stance and camera
+Results: isError=false.
+
+COMPACT BOUNDARY / SPAWNS
+Inner rectangle X[-236,246], Z[-122,122] matches measured outer building extents. Old inner rectangle X[-262,272], Z[-150,150].
+Area 160200 -> 117608 square studs, 26.5868% reduction. Buildings and internal routes were not moved.
+Existing four solids and architectural details resized/repositioned; height remains unchanged. Minimap boundary proxies match.
+Four redundant border aprons removed; continuous base floor retained.
+Blue existing spawn moved to (-186,.9,-115), red to (182,.7,108), still team-only and opposite corners. Three-second protection fields retained.
+242 spawn pad rays and 900 wall rays passed. Blue actual redeployment:
+{"state":{"CameraOffsetY":0,"ShakeDegrees":1.407545415774973e-8,"Grounded":true,"FovOffset":0,"SlideBuffered":false,"WalkSpeed":14,"SlideReadyIn":0,"CameraY":5.305656909942627,"Stamina":100,"CameraDrop":0,"Mode":"Idle","HeadY":4.897432327270508,"Crouched":false},"result":"REDEPLOY PASS","pos":"-189.2430877685547, 3.398024797439575, -114.30706787109375"}
+Red actual deployment:
+{"grounded":"Asphalt","result":"RED SPAWN PASS","pos":"183.6719207763672, 3.1980247497558594, 108.1963119506836"}
+Both actual characters grounded inside the tighter boundary.
+
+FLOOR REPAIR
+Continuous baseplate top lowered from 0 to -.16.
+Sidewalk support top separated from surface tiles. Tile top standardized at .80 and clipped around curb/soil rectangles rather than rendering coincident/near-coincident overlays.
+455 old tile parts -> 500 clipped pieces. Only one redundant overlapping road patch hidden; remaining street art/details retained.
+Detected broad coplanar floor pairs 12 -> 0. Audit covers horizontal opaque/near-opaque parts with X/Z >=2 studs, Y size <=3, and surface height -.3..1.1. It is not a proof about every tiny mark or all facade/shadow aliasing in the scene.
+No building or tree asset was replaced. No store assets/scripts inserted by this pass.
+
+QA CORRECTIONS
+Initial strict music equality failed because Sound.Volume is float32; verification now uses a tolerance.
+A Server floor sampler initially hit the active player's character; excluded all characters, then all 242 spawn rays passed.
+MCP Edit require cached old Config despite updated Source. Final Edit verification requires a temporary fresh clone, and actual new Play read the correct .05 value.
+These were test-harness corrections, not left-over runtime errors.
+
+ROLLBACK COMMAND / INPUT / OUTPUT
+Roblox_Studio.execute_luau(same studio,datamodel_type="Edit",code=contents of TEST_ROLLBACK.luau)
+Input: isolated clones of modified Ground, PerimeterBoundary, Spawns, Baseplate, music, boundary proxies and five changed sources; real RESTORE.luau function.
+Literal output: ROLLBACK PASS: original movement/menu/audio sources, 25% music, full-size walls, ground and spawn transforms restored; isolated copy restored; live compact/crouch/floor update retained at 5%
+Result: isError=false.
+Compared restored geometry fingerprints/source strings to original backups. Restored fixture behavior/state: original 25% music/config, original non-crouch modules, full-size perimeter/aprons/ground, old spawn transforms and eight old minimap boundary proxies.
+Live compact/crouch/floor update remained installed at 5%.
+
+Exact local command: & 'C:\Program Files\Git\bin\bash.exe' -c 'chmod +x ROLLBACK.sh && ./ROLLBACK.sh --self-test'; exit $LASTEXITCODE
+cwd: C:/Users/mason/.codex/visualizations/2026/10/16/01a14317-0d61-7650-b711-1ea3626ed7b5/crouch_boundary_floor
+Input: modified installer copied into separate ROLLBACK_TEST.json, overwritten with original BASELINE.json and byte-compared.
+Literal output: LOCAL ROLLBACK PASS: original snapshot restored on a separate file; live changes retained
+Exit status: 0.
+Shell helper does not directly edit Studio; normal invocation prints actual Studio restore instructions.
+
+FINAL STATE / LIMITATIONS
+Studio Edit, live fixes installed; all Play-only QA roofs/movement/death setup removed when Play stopped.
+No MovementClient / GameplayMovement / AudioPresentation runtime errors in the tested output.
+Unrelated concurrent Workspace.Dynamic Lighting...LightingScenary errors refer to missing ReplicatedStorage["Lighting System"], plus Cloud placement/count and existing UIBlox/asset 203785492 messages. No unrelated lighting scripts were altered; handoff to map owner.
+Simultaneous two-player posture/footfall replication was not tested.
+Let Team Create save and commit Studio drafts before partner testing. No public publish performed.
+

@@ -120,3 +120,8 @@ Recent: `grep "^## \[" log.md | tail -5`
 - New [[Game Audio And Music]] and source/test/asset archive; updated [[index]], [[2026-10-17]] and Codex session log.
 - All 14 sounds load; all five weapon shot/reload tests, movement/idle, hit confirmations, real F8, cancellation, teardown/restart and isolated rollback passed.
 - Existing nine inspected source strings unchanged; simultaneous two-client listening remains a follow-up.
+
+## [2026-10-17] update | Crouch, compact map, floor repair and quiet music (codex)
+- New [[Crouch And Compact Map]] and implementation/source/test archive; updated [[Sprint Slide And Map Boundary]], [[Main Street Block]], [[Game Audio And Music]], [[index]], devlog and session log.
+- Verified 1.55-stud crouch eye drop, speed 8, six-cycle recovery, headroom, slide chains, crouched combat, both spawns, death/menu resets, 900 wall rays and 242 pad rays. Floor pairs 12 -> 0; music 5%.
+- Isolated rollback restored original geometry/source fingerprints; unrelated dynamic-lighting error handed to map owner.

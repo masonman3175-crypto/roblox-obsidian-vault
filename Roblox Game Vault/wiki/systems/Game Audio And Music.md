@@ -17,13 +17,13 @@ Independent audio presentation for [[Main Menu And Locker]], [[Sprint Slide And 
 - Distinct rifle, pistol and shotgun reports for all five imported weapons; reloads, shotgun shell insertion/pump, equip, ADS, inspection, dry click and casings.
 - Spatial concrete/grass footfalls for walking/sprinting, quieter crouched movement, cloth slide/jump, landing/death. No idle or airborne footfalls.
 - Menu/UI clicks and server-confirmed hit, headshot and elimination cues.
-- Creator Store drill instrumental at **25%**. F8 or Music button mutes/unmutes without restarting the track; settings are session-local.
+- Creator Store drill instrumental at **5%**. F8 or Music button mutes/unmutes without restarting the track; settings are session-local.
 - Music: catalog ID 107491422176664 (DistrokidOfficial); APM trap fallback 9042281328. This is not a King Von recording.
 
 ## Instances and integration
 - ReplicatedStorage.AudioPresentation: Config, Client, Server, Assets (14 Sounds, zero scripts in imported assets), Emit RemoteEvent.
 - StarterPlayerScripts.AudioPresentation / ServerScriptService.AudioPresentation: thin bootstrap scripts.
-- SoundService.BackgroundMusic: Volume 0.25, Looped true; GameAudioMusic / GameAudioEffects SoundGroups each Volume 1.
+- SoundService.BackgroundMusic: Volume 0.05, Looped true; GameAudioMusic / GameAudioEffects SoundGroups each Volume 1.
 - Observes existing FPSWeaponId/FPSAmmo/FPSReloading/FPSAiming/FPSInspecting and movement attributes. Existing W1 sounds remap locally, not duplicate.
 - Audio-only peer fanout validates action, payload arity, liveness/deployed state, equipped weapon whitelist and cadence. Clients supply no SoundId/position/volume. Damage/ammo/rewards remain in existing systems.
 - Nearby player footfalls derive from observed displacement, raycast material and grounded state on each client. Native movement sounds are locally muted and restored on teardown.
@@ -44,3 +44,7 @@ Independent audio presentation for [[Main Menu And Locker]], [[Sprint Slide And 
 - Simultaneous two-client sound listening/falloff is not tested. Audio fanout is not new server weapon damage authority.
 - Existing UIBlox messages and asset 203785492 type mismatch remain unrelated.
 - Let Team Create save and commit Studio drafts. No public publish performed.
+
+## Later 2026-10-17: quieter default
+- User found 25% too loud. [[Crouch And Compact Map]] changes the current default to 5% in Config and BackgroundMusic; F8/click mute and 14 assets retained.
+- Earlier 25% test measurements above describe the initial audio pass, not the current default.

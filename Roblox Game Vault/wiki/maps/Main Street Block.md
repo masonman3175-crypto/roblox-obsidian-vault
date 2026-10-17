@@ -46,7 +46,7 @@ First real map block in **hood warfare 1.2** (place `127865723083651`). Geometry
 - Rowhouse builder: `ServerStorage.MapTools.RowhouseKit` (ModuleScript, edit-time only). `Kit.house(parent, {x1, x2, side, stories, color, doorBay, bay, roofBox, name})`.
 - About 2,025 parts, all anchored, zero scripts. Power lines are Beams between Attachments.
 - Old `Map_10v10` blockout was deleted on Cade's call. Roll back with File > Version History if needed.
-- Current spawns: Workspace.Map.Spawns.Spawn_West (blue NW) and Spawn_East (red SE), converted to team-only spawns on 2026-10-17; see follow-up below.
+- Current team-only spawns: Spawn_West blue (-186,.9,-115), Spawn_East red (182,.7,108), inside the later compact boundary; see [[Crouch And Compact Map]].
 
 ## Tested
 - Playtest: character lands on the ground in the rear alley, both cut-throughs, and the sidewalk. No map errors in Output.
@@ -149,3 +149,10 @@ Cade's notes after the realism pass: sewer fog looked bad, too many rusty cars, 
 - Restore function passed against isolated modified clones; live update retained. Backup: ServerStorage.GroundTeamSpawnsBackup_20261017.
 - Buildings, lighting, weapons, movement and menu sources unchanged. Simultaneous multiplayer balancing/combat remains untested.
 - Evidence: [[04 Scripts/Ground And Team Spawns/Implementation|Ground And Team Spawns Implementation]]. Related: [[Sprint Slide And Map Boundary]], [[2026-10-17]].
+
+## Later 2026-10-17: compact border and floor repair
+- [[Crouch And Compact Map]] supersedes the earlier corner-pad coordinates: current blue (-186,.9,-115), red (182,.7,108).
+- Wall inner faces X[-236,246], Z[-122,122] now touch outer building extents. Footprint area 26.5868% smaller; no buildings moved.
+- Removed apron/baseplate overlap, repaired sidewalk tile/soil/curb layering and hid a redundant road patch. Broad coplanar floor pairs 12 -> 0; full collision retained.
+- Both actual spawns passed; 242 pad rays and 900 boundary rays passed. Minimap boundary proxies updated.
+- Original geometry retained in ServerStorage.CrouchCompactFloorBackup_20261017; exact rollback passed on isolated copies.

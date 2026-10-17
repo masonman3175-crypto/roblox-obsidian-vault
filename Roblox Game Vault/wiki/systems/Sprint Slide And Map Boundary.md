@@ -3,16 +3,16 @@ type: system
 owner: flow
 status: building
 sources: []
-updated: 2026-10-16
+updated: 2026-10-17
 ---
 
 # Sprint Slide And Map Boundary
 
-User-requested gameplay follow-up to [[Main Menu And Locker]] and [[Hood Warfare 2 HUD and Presentation]]. This pass changes movement and the outside boundary of [[Main Street Block]], not the original spawn locations or internal routes.
+User-requested gameplay follow-up to [[Main Menu And Locker]] and [[Hood Warfare 2 HUD and Presentation]]. The original pass below preserved spawn locations; the later [[Crouch And Compact Map]] update adds crouch, compacts the perimeter and relocates both pads safely.
 
 ## Controls and feel
 
-- Hold **Shift** to sprint; press **C** or **Left Ctrl** to slide. Existing gamepad L3/B and touch actions remain.
+- Hold **Shift** to sprint. **C / Left Ctrl / B** toggles crouch when not sprinting; **Shift+C/B** slides. Gamepad/touch controls remain.
 - Press slide again during a slide to queue one follow-up. Each press queues one slide, not an automatic infinite loop.
 - No extra cooldown after a slide finishes. The live test chained three slides with approximately 0.066 seconds between entries (network/frame handoff).
 - Walking speed 14; sprint speed 24 studs/second.
@@ -30,13 +30,13 @@ Removed slide Motor6D.C0 manipulation to avoid automatic avatar-scaling feedback
 
 ## Continuous perimeter
 
-- New **Workspace.Map.PerimeterBoundary** model: four continuous colliding wall solids, four ground aprons, decorative caps/seams/buttresses.
-- Inner playable limits: X -262 to 272, Z -150 to 150.
+- **Workspace.Map.PerimeterBoundary**: four continuous colliding wall solids and decorative caps/seams/buttresses. The original four aprons were removed in the compact-floor update.
+- Current inner playable limits: X -236 to 246, Z -122 to 122; original pass was X -262 to 272, Z -150 to 150.
 - Walls span Y -14 to 84: **98 studs tall**, 8 studs thick.
-- Ground aprons fill the outside edges so players do not fall through a gap before reaching the wall.
+- Continuous baseplate collision supports the compact perimeter; the earlier aprons were removed to eliminate coplanar floor overlays.
 - Decorative parts are non-colliding; only wall solids and floor aprons affect movement.
 - Added boundary proxies to the existing minimap.
-- Original West/East SpawnLocations remain enabled at their original transforms. No edits to existing map asset folders or lighting.
+- Current team pads: blue (-186,.9,-115), red (182,.7,108). Their original locations were preserved only in the earlier pass; see [[Crouch And Compact Map]].
 
 ## Verification and restore
 
@@ -50,3 +50,6 @@ Removed slide Motor6D.C0 manipulation to avoid automatic avatar-scaling feedback
 - Current game changes are in the Studio Edit DataModel. Let Team Create save and commit any Studio drafts before partner testing; no public publish claimed.
 
 Related: [[Main Menu And Locker]], [[Main Street Routes and Cover]], [[2026-10-16]].
+
+## Later 2026-10-17 follow-up
+- [[Crouch And Compact Map]] is the current control/geometry specification: crouch speed 8, 1.55-stud eye drop, safe headroom, 27% smaller boundary, corrected floor overlaps and 5% music. Historical 2026-10-16 test figures above remain dated evidence.

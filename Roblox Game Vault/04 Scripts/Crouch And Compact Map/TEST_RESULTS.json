@@ -1,0 +1,141 @@
+{
+  "install": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"bounds\":[-236,246,-122,122],\"tiles\":500,\"hiddenPatches\":1,\"oldArea\":160200,\"music\":0.05,\"result\":\"INSTALL PASS\",\"newArea\":117608}"
+      }
+    ],
+    "isError": false
+  },
+  "floorAudit": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"coplanarOverlaps\":0,\"examples\":[],\"candidates\":534}"
+      }
+    ],
+    "isError": false
+  },
+  "verify": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"wallRays\":900,\"spawnFloorSamples\":242,\"spawns\":2,\"oldArea\":160200,\"music\":0.05,\"result\":\"VERIFY PASS\",\"area\":117608}"
+      }
+    ],
+    "isError": false
+  },
+  "crouch": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"state\":{\"CameraOffsetY\":-0.949999988079071,\"ShakeDegrees\":1.912745023676776e-11,\"Grounded\":true,\"FovOffset\":-1.9994720811170897,\"SlideBuffered\":false,\"WalkSpeed\":8,\"SlideReadyIn\":0,\"CameraY\":3.755657434463501,\"Stamina\":100,\"CameraDrop\":0.9499999997276319,\"Mode\":\"Crouching\",\"HeadY\":4.299192428588867,\"Crouched\":true},\"hip\":1.398025393486023,\"result\":\"CROUCH PASS\",\"rootY\":2.798024892807007}"
+      }
+    ],
+    "isError": false
+  },
+  "cycles": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"hipAfter\":1.9980254173278809,\"hipBefore\":1.9980254173278809,\"cycles\":6,\"result\":\"CYCLE PASS\",\"state\":{\"CameraOffsetY\":-0.000008191746019292623,\"ShakeDegrees\":0,\"Grounded\":true,\"FovOffset\":-0.0010642647134247198,\"SlideBuffered\":false,\"WalkSpeed\":14,\"SlideReadyIn\":0,\"CameraY\":5.3056488037109379,\"Stamina\":100,\"CameraDrop\":0.000008191745750763829,\"Mode\":\"Idle\",\"HeadY\":4.841587066650391,\"Crouched\":false}}"
+      }
+    ],
+    "isError": false
+  },
+  "headroom": {
+    "content": [
+      {
+        "type": "text",
+        "text": "HEADROOM PASS: standing blocked under low ceiling; crouch/camera retained"
+      }
+    ],
+    "isError": false
+  },
+  "movement": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"chained\":true,\"crouchSpeed\":8,\"sprintSpeed\":24,\"slideOffset\":-1.432370662689209,\"result\":\"MOVEMENT PASS\",\"final\":{\"CameraOffsetY\":-0.000002408763748462661,\"ShakeDegrees\":0,\"Grounded\":true,\"FovOffset\":0.01743901246768568,\"SlideBuffered\":false,\"WalkSpeed\":14,\"SlideReadyIn\":0,\"CameraY\":5.125655174255371,\"Stamina\":93.5,\"CameraDrop\":0.0000024087638226896078,\"Mode\":\"Idle\",\"HeadY\":4.722614765167236,\"Crouched\":false}}"
+      }
+    ],
+    "isError": false
+  },
+  "fire": {
+    "content": [
+      {
+        "type": "text",
+        "text": "COMBAT REGRESSION PASS: crouched ADS/fire/reload; ammo restored; standing restored; weapon source untouched"
+      }
+    ],
+    "isError": false
+  },
+  "validation": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"state\":{\"Sliding\":false,\"Wants\":false,\"Hip\":1.9980254173278809,\"BaseHip\":1.9980254173278809,\"Crouched\":false,\"Stamina\":100,\"Mode\":\"Idle\",\"WalkSpeed\":14,\"CanStand\":true},\"slideReject\":\"Invalid slide direction\",\"result\":\"VALIDATION PASS\",\"crouchReject\":\"Invalid crouch payload\"}"
+      }
+    ],
+    "isError": false
+  },
+  "menuReset": {
+    "content": [
+      {
+        "type": "text",
+        "text": "MENU RESET PASS: stance and camera cleared"
+      }
+    ],
+    "isError": false
+  },
+  "redeploy": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"state\":{\"CameraOffsetY\":0,\"ShakeDegrees\":1.407545415774973e-8,\"Grounded\":true,\"FovOffset\":0,\"SlideBuffered\":false,\"WalkSpeed\":14,\"SlideReadyIn\":0,\"CameraY\":5.305656909942627,\"Stamina\":100,\"CameraDrop\":0,\"Mode\":\"Idle\",\"HeadY\":4.897432327270508,\"Crouched\":false},\"result\":\"REDEPLOY PASS\",\"pos\":\"-189.2430877685547, 3.398024797439575, -114.30706787109375\"}"
+      }
+    ],
+    "isError": false
+  },
+  "redSpawn": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"grounded\":\"Asphalt\",\"result\":\"RED SPAWN PASS\",\"pos\":\"183.6719207763672, 3.1980247497558594, 108.1963119506836\"}"
+      }
+    ],
+    "isError": false
+  },
+  "rollback": {
+    "content": [
+      {
+        "type": "text",
+        "text": "ROLLBACK PASS: original movement/menu/audio sources, 25% music, full-size walls, ground and spawn transforms restored; isolated copy restored; live compact/crouch/floor update retained at 5%"
+      }
+    ],
+    "isError": false
+  },
+  "deathReset": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"result\":\"DEATH RESET PASS\",\"newCharacterStanding\":{\"CameraOffsetY\":0,\"ShakeDegrees\":0.000008661433628576642,\"Grounded\":true,\"FovOffset\":0,\"SlideBuffered\":false,\"WalkSpeed\":14,\"SlideReadyIn\":0,\"CameraY\":5.0274338722229,\"Stamina\":100,\"CameraDrop\":0,\"Mode\":\"Idle\",\"HeadY\":4.899239540100098,\"Crouched\":false}}"
+      }
+    ],
+    "isError": false
+  },
+  "activeMenuReset": {
+    "content": [
+      {
+        "type": "text",
+        "text": "ACTIVE MENU RESET PASS: returning to menu from crouch cleared stance and camera"
+      }
+    ],
+    "isError": false
+  },
+  "sourceCheck": {
+    "equal": 8,
+    "mismatches": []
+  }
+}
