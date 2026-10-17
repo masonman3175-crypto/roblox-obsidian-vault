@@ -38,3 +38,8 @@ Recent: `grep "^## \[" log.md | tail -5`
 - New: [[Hood Warfare 2 Reference Pack]]
 - Updated: [[index]]
 - Added branches to art direction, map, weapon, VFX, Blender, and Studio workflow pages.
+
+## [2026-10-16] update | Split Hood Warfare 2 pack into tiny pages (codex)
+- New: [[Hood Warfare 2 Urban Routes]], [[Hood Warfare 2 Blockout Workflow]], [[Hood Warfare 2 Game Modes]], [[Hood Warfare 2 Combat Tuning]], [[Hood Warfare 2 HUD and Presentation]], [[Hood Warfare 2 Roblox Build Plan]]
+- Updated: [[Hood Warfare 2 Reference Pack]], [[index]]
+- Added small linked branches for maps, modes, combat, HUD, build order, and Roblox architecture.

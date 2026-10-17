@@ -11,7 +11,7 @@ tags: [reference, fps, environment-design, gameplay-flow]
 
 # Hood Warfare 2 Reference Pack
 
-This source pack studies urban FPS readability, combat flow, weapon handling, and presentation for an original Roblox game. It is a design reference, not a request to copy maps, assets, audio, logos, or UI.
+This is a small-page hub for an urban FPS reference source. The source is for original Roblox design only; do not copy maps, assets, audio, logos, or UI.
 
 ## Branches
 
@@ -26,32 +26,18 @@ This source pack studies urban FPS readability, combat flow, weapon handling, an
 - [[08 AI Workflow/Studio MCP Reference]] — Roblox Studio bridge and testing workflow.
 - [[index]] — wiki catalog.
 
-## Design takeaways
+## Tiny pages
 
-- Build fictional districts with a readable primary road, a safer service route, and a riskier interior shortcut.
-- Use varied storefronts, houses, alleys, rooftops, windows, vehicles, curbs, utility details, and clear landmark silhouettes.
-- Protect spawns from immediate straight-line fire and keep narrow choke points readable.
-- Treat Turf War, team deathmatch, free-for-all, capture-the-object, attack/defend, and kill-confirmed collection as separate flow targets.
-- Keep exact damage, recoil, ADS, movement, spawn, and HUD values unverified until recorded gameplay confirms them.
-
-## How we'd build it in Roblox
-
-- **Instances:** `Model` blocks in `Workspace.Map`, `SpawnLocation` or named spawn `Part`s, `Folder`s for `Landmarks`, `Routes`, `Cover`, and `Objectives`, plus `Attachment`s for sightline debug markers.
-- **Services / APIs:** `CollectionService` tags for map roles, `StreamingEnabled` for district streaming, `RunService` for debug overlays, and `TweenService` for doors and objective feedback.
-- **Where it lives:** map modules in `ServerStorage.MapModules`, map geometry in `Workspace.Map`, objective rules in `ServerScriptService.GameModes`, and client HUD/viewmodel work in `StarterPlayerScripts` and `ReplicatedStorage.Client`.
-- **Client vs server:** the client renders camera, viewmodel, HUD, and debug visuals; the server validates spawns, objectives, damage, ammo, and round state.
-- **Tools:** use [[Blender MCP]] for original modular meshes and [[08 AI Workflow/Studio MCP Reference]] for Studio inspection. Use [[VFX Studio]] for original effects only.
-- **Perf budget:** keep static geometry anchored, use simple collision meshes, limit dynamic lights and particles, and test with StreamingEnabled on mobile-quality settings.
-- **Steps:**
-  1. Annotate an original 80x80-stud block with primary, secondary, and tertiary routes.
-  2. Place protected spawns, three landmarks, cover, and objective markers.
-  3. Test sightlines, navigation, and scale in Studio before expanding.
-  4. Add one polished mode and record screenshots for comparison.
+- [[Hood Warfare 2 Urban Routes]]
+- [[Hood Warfare 2 Blockout Workflow]]
+- [[Hood Warfare 2 Game Modes]]
+- [[Hood Warfare 2 Combat Tuning]]
+- [[Hood Warfare 2 HUD and Presentation]]
+- [[Hood Warfare 2 Roblox Build Plan]]
 
 ## Open questions
 
 - Exact weapon stats, movement transitions, map dimensions, spawn positions, and HUD behavior remain unverified.
-- Which original district theme and game mode should receive the first polished blockout?
 
 ## Related
 

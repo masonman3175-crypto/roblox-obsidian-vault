@@ -13,18 +13,22 @@ Rules: see the Wiki schema section in `CLAUDE.md` / `AGENTS.md`. Timeline: [[log
 - [[Art Direction]] - the look: gritty made-up city, realistic guns, color cosmetics (idea)
 
 ## UI
-_None yet._
+- [[Hood Warfare 2 HUD and Presentation]] - HUD, feedback, input, and presentation study list (idea)
 
 ## VFX
 _None yet._
 
 ## Maps
 - [[Hood Warfare 2 Reference Pack]] - original FPS reference pack: urban routes, modes, combat questions, and blockout plan (idea)
+- [[Hood Warfare 2 Urban Routes]] - primary, service, and interior route layers for readable urban combat (idea)
+- [[Hood Warfare 2 Blockout Workflow]] - small-block-first map building and testing sequence (planned)
 - [[Night Porch Firefight]] - night lighting: warm porch lights, hard shadows, muzzle flash light (idea)
 - [[Overcast Rowhouse Street]] - overcast haze, brick rowhouses, power lines, street cover (idea)
 
 ## Systems
-_None yet._
+- [[Hood Warfare 2 Game Modes]] - six original mode patterns to prototype separately (idea)
+- [[Hood Warfare 2 Combat Tuning]] - verified-vs-unverified combat variables and server authority (idea)
+- [[Hood Warfare 2 Roblox Build Plan]] - Roblox folders, services, ownership, and performance slice (planned)
 
 ## Weapons
 - [[Weapon Lineup]] - realistic guns, worn paint, swappable attachments (idea)
