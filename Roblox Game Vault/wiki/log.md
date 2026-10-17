@@ -125,3 +125,7 @@ Recent: `grep "^## \[" log.md | tail -5`
 - New [[Crouch And Compact Map]] and implementation/source/test archive; updated [[Sprint Slide And Map Boundary]], [[Main Street Block]], [[Game Audio And Music]], [[index]], devlog and session log.
 - Verified 1.55-stud crouch eye drop, speed 8, six-cycle recovery, headroom, slide chains, crouched combat, both spawns, death/menu resets, 900 wall rays and 242 pad rays. Floor pairs 12 -> 0; music 5%.
 - Isolated rollback restored original geometry/source fingerprints; unrelated dynamic-lighting error handed to map owner.
+## [2026-10-17] update | Latest game work synchronized to Obsidian (codex)
+- Updated [[00 Dashboard/Game Development Hub|Game Development Hub]], [[Current Test And Integration Backlog]] and [[index]] so current crouch, compact boundary, floor repair, team pads and 5% music are visible from the entry points.
+- Verified 52 archived implementation/source/test/evidence files against local originals: all SHA256 hashes match across the three latest bundles. Historical snapshots remain labeled; personal settings and unrelated notes are preserved.
+- Vault-only sync; no new Studio edits, gameplay tests or public publish claimed.

@@ -4,7 +4,7 @@ owner: flow
 status: building
 sources:
   []
-updated: 2026-10-16
+updated: 2026-10-17
 ---
 
 # Current Test And Integration Backlog
@@ -17,14 +17,20 @@ Entry point: [[00 Dashboard/Game Development Hub|Game Development Hub]]. Separat
 - [[Sprint Slide And Map Boundary]]: three chained slides, 1.45-stud camera dip and recovery, sprint 24 studs/sec, 20-second full stamina budget, wall collision and 840 boundary rays with zero gaps.
 - [[Claude AK]]: collaborator reports server raycast/damage, dummy kill and hit-marker tests. Re-test with two real clients before treating full combat/score integration as complete.
 
+- [[Crouch And Compact Map]]: six stance cycles, 1.55-stud eye drop, headroom protection, crouched ADS/fire/reload, death/menu recovery, server validation, 900 boundary rays and 242 spawn-floor samples. Broad coplanar floor pairs 12 -> 0; isolated rollback passed.
+- [[Game Audio And Music]]: 14 sound assets load in Client Play; five weapon shot/reload tests, footsteps/idle, F8 mute, cancellation, remote rejection and teardown passed. Current music is 5%, superseding the original 25% test snapshot.
+- [[Main Street Block]]: both team deployments tested at updated compact-map pads: blue (-186, 0.9, -115), red (182, 0.7, 108). Earlier spawn coordinates and wall dimensions are historical.
+
 ## Still to verify / implement
 - Multiplayer loadout synchronization, authoritative ammo/reload, death/respawn and friendly-fire behavior across every weapon, not W1 alone.
 - [[HUD Scores And Feed]] with a real match service, teams, valid kill credit and timer; no fake placeholder results.
 - Target capacity: later user request 10v10 (~20 players), older design 6v6. Resolve before changing team/round/spawn rules.
-- No new spawn placements were requested. Preserve original transforms unless the user explicitly asks otherwise.
-- HUD/mobile legibility, touch/gamepad sprint/slide and weapon controls, reduced-motion options, performance at 20 players.
+- Preserve the current tested team-only pads inside the compact boundary; new team/round logic and capacity still need agreement.
+- HUD/mobile legibility, touch/gamepad crouch/sprint/slide and weapon controls, reduced-motion options, performance at 20 players.
 - Persistent skins/wraps, XP/currency/shop and monetization are not supplied by session-only locker selections.
-- Audio/reload/bullet-hole polish and final imported W1 geometry remain tracked by [[Claude AK]].
+- Two simultaneous clients: verify remote crouch posture, audio falloff/listening and team presentation. Existing single-client evidence does not establish multiplayer acceptance.
+- New Dynamic Lighting/LightingScenary error (missing ReplicatedStorage Lighting System) and Cloud warnings are handed to the map owner in [[06 Tasks/Next Pass]]; unrelated to the tested movement/audio changes.
+- Remaining combat/bullet-hole polish and final imported W1 geometry stay tracked by [[Claude AK]]; the separate audio presentation pass is already implemented.
 - Commit Studio drafts / let Team Create save before partner testing. Git source snapshots do not publish the game.
 
 ## Reusable session prompt
