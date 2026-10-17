@@ -18,7 +18,7 @@ Entry point: [[00 Dashboard/Game Development Hub|Game Development Hub]]. Separat
 - [[Claude AK]]: collaborator reports server raycast/damage, dummy kill and hit-marker tests. Re-test with two real clients before treating full combat/score integration as complete.
 
 - [[Crouch And Compact Map]]: six stance cycles, 1.55-stud eye drop, headroom protection, crouched ADS/fire/reload, death/menu recovery, server validation, 900 boundary rays and 242 spawn-floor samples. Broad coplanar floor pairs 12 -> 0; isolated rollback passed.
-- [[Game Audio And Music]]: 14 sound assets load in Client Play; five weapon shot/reload tests, footsteps/idle, F8 mute, cancellation, remote rejection and teardown passed. Current music is 5%, superseding the original 25% test snapshot.
+- [[Game Audio And Music]]: 14 sound assets load in Client Play; five weapon shot/reload tests, footsteps/idle, F8 mute, cancellation, remote rejection and teardown passed. Latest effects-only repair removes music entirely; fresh tests cover 12 effect assets, native W1/W3 shot integration and teardown/restart 65 -> 65 connections.
 - [[Main Street Block]]: both team deployments tested at updated compact-map pads: blue (-186, 0.9, -115), red (182, 0.7, 108). Earlier spawn coordinates and wall dimensions are historical.
 
 ## Still to verify / implement

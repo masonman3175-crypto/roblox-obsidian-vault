@@ -1,0 +1,74 @@
+{
+  "weapons": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"audio\":{\"Connections\":65,\"MusicPlaying\":false,\"Started\":true,\"Loaded\":{\"rbxassetid://9113824230\":\"Success\",\"rbxassetid://136216209294970\":\"Success\",\"rbxassetid://135037154891351\":\"Success\",\"rbxassetid://87061775498714\":\"Success\",\"rbxassetid://6975483207\":\"Success\",\"rbxassetid://3102797479\":\"Success\",\"rbxassetid://138244068\":\"Success\",\"rbxassetid://139048584127232\":\"Success\",\"rbxassetid://127374386997069\":\"Success\",\"rbxassetid://82845990304289\":\"Success\",\"rbxassetid://9116714473\":\"Success\",\"rbxassetid://139827026287805\":\"Success\"},\"Voices\":2,\"Counts\":{\"ShellInsert\":3,\"Shot_W4\":1,\"Pump\":1,\"Shot_W5\":1,\"Reload\":5,\"Shot_W1\":1,\"Aim\":5,\"UI\":1,\"ReloadBolt\":5,\"Shot_W2\":1,\"Casing\":2,\"Equip\":10,\"Shot_W3\":1},\"MusicEnabled\":false},\"results\":[{\"stats\":{\"Reload\":1,\"ReloadBolt\":1,\"Shot_W1\":1,\"Equip\":2,\"UI\":1,\"Aim\":1},\"reserve\":149,\"ammo\":30,\"shotAudio\":true,\"reloadAudio\":true,\"weapon\":\"W1\"},{\"stats\":{\"Reload\":2,\"Shot_W1\":1,\"Aim\":2,\"ReloadBolt\":2,\"UI\":1,\"Shot_W2\":1,\"Equip\":4,\"Casing\":1},\"reserve\":149,\"ammo\":30,\"shotAudio\":true,\"reloadAudio\":true,\"weapon\":\"W2\"},{\"stats\":{\"Reload\":3,\"Shot_W2\":1,\"Aim\":3,\"Shot_W1\":1,\"ReloadBolt\":3,\"UI\":1,\"Casing\":1,\"Equip\":6,\"Shot_W3\":1},\"reserve\":89,\"ammo\":15,\"shotAudio\":true,\"reloadAudio\":true,\"weapon\":\"W3\"},{\"stats\":{\"Reload\":4,\"Shot_W4\":1,\"Shot_W1\":1,\"Aim\":4,\"Casing\":2,\"ReloadBolt\":4,\"UI\":1,\"Equip\":8,\"Shot_W2\":1,\"Shot_W3\":1},\"reserve\":101,\"ammo\":17,\"shotAudio\":true,\"reloadAudio\":true,\"weapon\":\"W4\"},{\"stats\":{\"ShellInsert\":3,\"Shot_W4\":1,\"Pump\":1,\"Shot_W5\":1,\"Reload\":5,\"Shot_W1\":1,\"Aim\":5,\"UI\":1,\"ReloadBolt\":5,\"Shot_W2\":1,\"Casing\":2,\"Equip\":10,\"Shot_W3\":1},\"reserve\":39,\"ammo\":8,\"shotAudio\":true,\"reloadAudio\":true,\"weapon\":\"W5\"}]}"
+      }
+    ],
+    "isError": false
+  },
+  "movement": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"result\":\"MOVEMENT PASS: footstep/slide/jump/land; anchored stationary idle silent; music absent\",\"stats\":{\"Connections\":65,\"MusicPlaying\":false,\"Started\":true,\"Loaded\":{\"rbxassetid://9113824230\":\"Success\",\"rbxassetid://136216209294970\":\"Success\",\"rbxassetid://135037154891351\":\"Success\",\"rbxassetid://87061775498714\":\"Success\",\"rbxassetid://6975483207\":\"Success\",\"rbxassetid://3102797479\":\"Success\",\"rbxassetid://138244068\":\"Success\",\"rbxassetid://139048584127232\":\"Success\",\"rbxassetid://127374386997069\":\"Success\",\"rbxassetid://82845990304289\":\"Success\",\"rbxassetid://9116714473\":\"Success\",\"rbxassetid://139827026287805\":\"Success\"},\"Voices\":0,\"Counts\":{\"ShellInsert\":3,\"Slide\":1,\"Shot_W4\":1,\"Land\":1,\"ReloadBolt\":5,\"Shot_W1\":1,\"Jump\":1,\"Pump\":1,\"Shot_W5\":1,\"Casing\":3,\"Aim\":6,\"Equip\":15,\"UI\":1,\"Shot_W2\":2,\"Footstep\":5,\"Reload\":6,\"Shot_W3\":1},\"MusicEnabled\":false}}"
+      }
+    ],
+    "isError": false
+  },
+  "lifecycle": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"connectionsBefore\":65,\"connectionsAfter\":65,\"defaultsRestored\":{\"Climbing\":0.6499999761581421,\"Died\":0.6499999761581421,\"GettingUp\":0.6499999761581421,\"Running\":0.6499999761581421,\"Splash\":0.6499999761581421,\"Landing\":0.6499999761581421,\"Swimming\":0.6499999761581421,\"FreeFalling\":0.6499999761581421,\"Jumping\":0.6499999761581421},\"result\":\"LIFECYCLE PASS: stopped all custom voices/connections; native Running volume restored; restart has no duplicate connections\",\"defaultsMuted\":{\"Climbing\":0,\"Died\":0,\"GettingUp\":0.6499999761581421,\"Running\":0,\"Splash\":0.6499999761581421,\"Landing\":0,\"Swimming\":0.6499999761581421,\"FreeFalling\":0,\"Jumping\":0}}"
+      }
+    ],
+    "isError": false
+  },
+  "validation": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"result\":\"VALIDATION PASS\",\"rejectedDelta\":3}"
+      }
+    ],
+    "isError": false
+  },
+  "confirmations": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"headshot\":1,\"elimination\":1,\"hit\":1,\"music\":false,\"result\":\"CONFIRMATION PASS\"}"
+      }
+    ],
+    "isError": false
+  },
+  "death": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"music\":false,\"result\":\"DEATH PASS\",\"death\":1}"
+      }
+    ],
+    "isError": false
+  },
+  "rollback": {
+    "content": [
+      {
+        "type": "text",
+        "text": "ROLLBACK PASS: original broken music dependency and 14 assets restored on isolated copy; live 12 effects/no music retained"
+      }
+    ],
+    "isError": false
+  },
+  "verify": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"nativeW1\":true,\"backgroundMusic\":false,\"concurrentChanges\":[\"StarterPlayer.StarterPlayerScripts.ClaudeAKClient\",\"ReplicatedStorage.ReferenceWeapons.WeaponConfig\"],\"protectedUnchanged\":14,\"result\":\"VERIFY PASS\",\"effects\":12}"
+      }
+    ],
+    "isError": false
+  }
+}

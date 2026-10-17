@@ -52,3 +52,5 @@ Follow-up to [[Sprint Slide And Map Boundary]], [[Game Audio And Music]] and [[M
 - Unrelated concurrent Workspace.Dynamic Lighting lighting scripts log missing ReplicatedStorage Lighting System, and Cloud placement/count messages. Left to map owner; no unrelated lighting edits.
 - Simultaneous multiplayer posture/footstep observation not tested.
 - Studio ended in Edit. Let Team Create save and commit Studio drafts before partner testing. No public publish performed.
+## Later audio-only follow-up
+- [[Game Audio And Music]] now restores effects with no background music. The 5% music setting in this pass is historical; use [[04 Scripts/Audio Effects Restore/Implementation|effects-only repair]] for current audio sources.

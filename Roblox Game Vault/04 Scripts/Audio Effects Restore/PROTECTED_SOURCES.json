@@ -1,0 +1,66 @@
+{
+  "ReplicatedStorage.GameplayPresentation.MovementConfig": {
+    "hash": 2989197432,
+    "length": 436
+  },
+  "ReplicatedStorage.GameplayPresentation.HUD": {
+    "hash": 2949681719,
+    "length": 17982
+  },
+  "ServerScriptService.GameplayMovement.Boot": {
+    "hash": 3508180744,
+    "length": 38
+  },
+  "ServerScriptService.ClaudeAKServer.Logic": {
+    "hash": 2406451786,
+    "length": 4422
+  },
+  "ServerScriptService.ClaudeAKServer": {
+    "hash": 780576766,
+    "length": 73
+  },
+  "StarterPlayer.StarterPlayerScripts.ClaudeAKClient": {
+    "hash": 848464263,
+    "length": 7701
+  },
+  "ServerScriptService.GameplayMovement.Service": {
+    "hash": 1266461236,
+    "length": 11598
+  },
+  "ReplicatedStorage.ReferenceWeapons.Controller": {
+    "hash": 4175647005,
+    "length": 29148
+  },
+  "ReplicatedStorage.ClaudeAK.Config": {
+    "hash": 3171817980,
+    "length": 2428
+  },
+  "ReplicatedStorage.MainMenu.Cosmetics": {
+    "hash": 9625929,
+    "length": 6256
+  },
+  "ReplicatedStorage.MainMenu.Client": {
+    "hash": 2900178918,
+    "length": 29851
+  },
+  "ReplicatedStorage.ReferenceWeapons.WeaponConfig": {
+    "hash": 3125653453,
+    "length": 3133
+  },
+  "ReplicatedStorage.MainMenu.MenuConfig": {
+    "hash": 851978201,
+    "length": 2344
+  },
+  "ReplicatedStorage.ClaudeAK.Fx": {
+    "hash": 2476032189,
+    "length": 11915
+  },
+  "ReplicatedStorage.GameplayPresentation.MovementClient": {
+    "hash": 830334395,
+    "length": 11374
+  },
+  "ReplicatedStorage.GameplayPresentation.MovementMath": {
+    "hash": 2287219378,
+    "length": 739
+  }
+}

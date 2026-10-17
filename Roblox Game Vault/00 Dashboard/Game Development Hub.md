@@ -13,7 +13,7 @@ updated: 2026-10-17
 
 ## Latest shipped pass (2026-10-17)
 - [[Crouch And Compact Map]] — C / Left Ctrl / B crouch with camera drop; sprint+C/B still slides. Speed 8; tested eye drop 1.55 studs.
-- [[Game Audio And Music]] — weapon, movement and UI sounds; background instrumental now **5%**, with F8 mute.
+- [[Game Audio And Music]] — weapon, movement and UI sounds; effects restored independently; **no background music**.
 - [[Main Street Block]] — tighter building-edge perimeter (26.6% less enclosed area), floor overlap repair and diagonal team spawns inside the new boundary.
 
 ## Playable presentation
@@ -34,8 +34,9 @@ updated: 2026-10-17
 - [[wiki/index|Full Wiki Index]] — all references, tools and implementation notes.
 
 ## Source and evidence
+- [[04 Scripts/Audio Effects Restore/Implementation|Latest effects-only audio source + tests + rollback]] — no background music.
 - [[04 Scripts/Crouch And Compact Map/Implementation|Latest crouch, compact-map and floor source + tests + rollback]].
-- [[04 Scripts/Game Audio And Music/Implementation|Audio source + asset IDs + tests + rollback]] — original 25% snapshot; latest pass overrides music to 5%.
+- [[04 Scripts/Game Audio And Music/Implementation|Audio source + asset IDs + tests + rollback]] — historical 25% snapshot; current effects-only repair removes music entirely.
 - [[04 Scripts/Ground And Team Spawns/Implementation|Ground/team-spawn baseline + tests]] — original pad positions are historical; latest compact-map pass supersedes them.
 - [[04 Scripts/Main Menu Source/Implementation|Menu source + tests]].
 - [[04 Scripts/Gameplay HUD Source/Implementation|HUD source]].

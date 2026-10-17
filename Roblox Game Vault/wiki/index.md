@@ -39,8 +39,8 @@ Rules: see the Wiki schema section in `CLAUDE.md` / `AGENTS.md`. Timeline: [[log
 - [[Overcast Rowhouse Street]] - overcast haze, brick rowhouses, power lines, street cover (idea)
 
 ## Systems
-- [[Crouch And Compact Map]] - crouch/camera stance, tighter perimeter, floor repair and 5% music (shipped)
-- [[Game Audio And Music]] - weapon/movement/UI audio and 5% drill instrumental, with isolated rollback (shipped)
+- [[Crouch And Compact Map]] - crouch/camera stance, tighter perimeter and floor repair; music later removed (shipped)
+- [[Game Audio And Music]] - restored weapon/movement/UI effects, no background music, with isolated rollback (shipped)
 - [[Current Test And Integration Backlog]] - verified work, multiplayer gaps and reusable session prompt (building)
 - [[Sprint Slide And Map Boundary]] - chainable slides, lower camera, longer sprint stamina and continuous perimeter walls (building)
 - [[Hood Warfare 2 Game Modes]] - six original mode patterns to prototype separately (idea)
@@ -72,7 +72,7 @@ Rules: see the Wiki schema section in `CLAUDE.md` / `AGENTS.md`. Timeline: [[log
 - `raw/2026-10-16-youtube-fps-reference.md` - YouTube FPS gameplay link for weapon feel (added by partner)
 
 ## Devlog
-- [[2026-10-17]] - ground/team spawns, weapon/movement audio, crouch/camera, compact walls, floor repair and 5% music (shipped)
+- [[2026-10-17]] - ground/team spawns, restored effects-only audio, crouch/camera, compact walls and floor repair (shipped)
 - [[2026-10-16]] - vault turned into an LLM wiki, refs ingested, map passes 1-4, graffiti, lighting + night variant
 
 ## Older notes (not migrated yet)

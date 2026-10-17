@@ -1,0 +1,107 @@
+More than one Cloud instance in workspace, first enabled one is used.
+Cloud instance must exist under Terrain node in workspace to be visible.
+More than one Cloud instance in workspace, first enabled one is used.
+Cloud instance must exist under Terrain node in workspace to be visible.
+Lighting System is not a valid member of ReplicatedStorage "ReplicatedStorage"
+Stack Begin
+Script 'Workspace.Dynamic Lighting.Ungroup in ServerScriptService.LightingScenary', Line 15
+Stack End
+Lighting System is not a valid member of ReplicatedStorage "ReplicatedStorage"
+Stack Begin
+Script 'Workspace.Dynamic Lighting.Ungroup in ServerScriptService.LightingScenary', Line 15
+Stack End
+Cloud instance must exist under Terrain node in workspace to be visible.
+Cloud instance must exist under Terrain node in workspace to be visible.
+[Roblox][CorePackages.Packages._Index.UIBlox.UIBlox.Logger] [UIBlox - Warning] - FoundationProvider not found. Please ensure that the FoundationProvider is present in the component tree.
+CorePackages.Packages._Index.UIBlox.UIBlox.App.Style.AppStyleProvider:178 function AppStyleProvider
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberHooks.new:3196 function renderWithHooks
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:209 function renderWithHooks
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:1577 function mountIndeterminateComponent
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:3485 function beginWork
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:255
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1977
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1953
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1896
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:915
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:860
+CorePackages.Packages._Index.Scheduler.Scheduler.Scheduler:320
+CorePackages.Packages._Index.Scheduler.Scheduler.Scheduler:268
+CorePackages.Packages._Index.Scheduler.Scheduler.forks.SchedulerHostConfig.default:260 function doWork
+CorePackages.Packages._Index.Scheduler.Scheduler.forks.SchedulerHostConfig.default:296 function performWorkUntilDeadline
+
+[Roblox][CorePackages.Packages._Index.UIBlox.UIBlox.Logger] [UIBlox - Warning] - FoundationProvider not found. Please ensure that the FoundationProvider is present in the component tree.
+CorePackages.Packages._Index.UIBlox.UIBlox.App.Style.AppStyleProvider:178 function AppStyleProvider
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberHooks.new:3196 function renderWithHooks
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:209 function renderWithHooks
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:1577 function mountIndeterminateComponent
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:3485 function beginWork
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:255
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1977
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1953
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1896
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:915
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:860
+CorePackages.Packages._Index.Scheduler.Scheduler.Scheduler:320
+CorePackages.Packages._Index.Scheduler.Scheduler.Scheduler:268
+CorePackages.Packages._Index.Scheduler.Scheduler.forks.SchedulerHostConfig.default:260 function doWork
+CorePackages.Packages._Index.Scheduler.Scheduler.forks.SchedulerHostConfig.default:296 function performWorkUntilDeadline
+
+[Roblox][CorePackages.Packages._Index.UIBlox.UIBlox.Logger] [UIBlox - Warning] - FoundationProvider not found. Please ensure that the FoundationProvider is present in the component tree.
+CorePackages.Packages._Index.UIBlox.UIBlox.App.Style.AppStyleProvider:178 function AppStyleProvider
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberHooks.new:3196 function renderWithHooks
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:209 function renderWithHooks
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:1577 function mountIndeterminateComponent
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:3485 function beginWork
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:255
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1977
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1953
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1896
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:915
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:860
+CorePackages.Packages._Index.Scheduler.Scheduler.Scheduler:320
+CorePackages.Packages._Index.Scheduler.Scheduler.Scheduler:268
+CorePackages.Packages._Index.Scheduler.Scheduler.forks.SchedulerHostConfig.default:260 function doWork
+CorePackages.Packages._Index.Scheduler.Scheduler.forks.SchedulerHostConfig.default:296 function performWorkUntilDeadline
+
+[Roblox][CorePackages.Packages._Index.UIBlox.UIBlox.Logger] [UIBlox - Warning] - FoundationProvider not found. Please ensure that the FoundationProvider is present in the component tree.
+CorePackages.Packages._Index.UIBlox.UIBlox.App.Style.AppStyleProvider:178 function AppStyleProvider
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberHooks.new:3196 function renderWithHooks
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:209 function renderWithHooks
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:1577 function mountIndeterminateComponent
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:3485 function beginWork
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:255
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1977
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1953
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1896
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:915
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:860
+CorePackages.Packages._Index.Scheduler.Scheduler.Scheduler:320
+CorePackages.Packages._Index.Scheduler.Scheduler.Scheduler:268
+CorePackages.Packages._Index.Scheduler.Scheduler.forks.SchedulerHostConfig.default:260 function doWork
+CorePackages.Packages._Index.Scheduler.Scheduler.forks.SchedulerHostConfig.default:296 function performWorkUntilDeadline
+
+[Roblox][CorePackages.Packages._Index.UIBlox.UIBlox.Logger] [UIBlox - Warning] - FoundationProvider not found. Please ensure that the FoundationProvider is present in the component tree.
+CorePackages.Packages._Index.UIBlox.UIBlox.App.Style.AppStyleProvider:178 function AppStyleProvider
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberHooks.new:3196 function renderWithHooks
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:209 function renderWithHooks
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:1577 function mountIndeterminateComponent
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:3485 function beginWork
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:255
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1977
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1953
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1896
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:915
+CorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:860
+CorePackages.Packages._Index.Scheduler.Scheduler.Scheduler:320
+CorePackages.Packages._Index.Scheduler.Scheduler.Scheduler:268
+CorePackages.Packages._Index.Scheduler.Scheduler.forks.SchedulerHostConfig.default:260 function doWork
+CorePackages.Packages._Index.Scheduler.Scheduler.forks.SchedulerHostConfig.default:296 function performWorkUntilDeadline
+
+ContentId: rbxassetid://203785492 failed due to: Asset type does not match requested type
+ContentId: rbxassetid://203785492 failed due to: Asset type does not match requested type
+ContentId: rbxassetid://203785492 failed due to: Asset type does not match requested type
+AssistantCommand:5: attempt to index nil with 'FindFirstChildOfClass'
+Stack Begin
+Script 'AssistantCommand', Line 5
+Stack End
+[Roblox][sabuiltin_Assistant.rbxm.Assistant.Packages._Index.AssistantUI.AssistantUI.Actions.ExecuteLuauActions] The execute_luau changed camera type. Resetting from Enum.CameraType.Custom back to Enum.CameraType.Scriptable

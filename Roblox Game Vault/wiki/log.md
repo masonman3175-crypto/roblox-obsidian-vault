@@ -129,3 +129,8 @@ Recent: `grep "^## \[" log.md | tail -5`
 - Updated [[00 Dashboard/Game Development Hub|Game Development Hub]], [[Current Test And Integration Backlog]] and [[index]] so current crouch, compact boundary, floor repair, team pads and 5% music are visible from the entry points.
 - Verified 52 archived implementation/source/test/evidence files against local originals: all SHA256 hashes match across the three latest bundles. Historical snapshots remain labeled; personal settings and unrelated notes are preserved.
 - Vault-only sync; no new Studio edits, gameplay tests or public publish claimed.
+
+## [2026-10-17] update | Restore sound effects without background music (codex)
+- Updated [[Game Audio And Music]], [[Crouch And Compact Map]], [[Current Test And Integration Backlog]], [[00 Dashboard/Game Development Hub|Game Development Hub]] and [[index]]; archived the effects-only repair, baseline, exact tests and rollback.
+- Fixed deleted-music startup dependency. Fresh Client Play: 12 effects decode, all five guns one shot cue/reload each, real movement/idle, confirmations/death, validation, cancel and restart 65 ->65 pass. Music/mix/button absent.
+- Retested after concurrent native gun updates; only audio-owned sources changed. Isolated rollback restores original broken baseline while live repair remains.

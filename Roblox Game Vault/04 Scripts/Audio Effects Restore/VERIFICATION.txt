@@ -1,0 +1,88 @@
+AUDIO EFFECTS RESTORE — 2026-10-17
+Place: hood warfare 1.2 (127865723083651)
+Changed branch/fields: AudioPresentation.Client.Start requires effects only; AudioPresentation.Config has no music settings/IDs; native shot schema W1/W3 recognized; native ClaudeReload locally muted during effects routing.
+Live retained result: 12 effects, no background music/mix/button/F8 hook. Backups are inert in ServerStorage.
+
+FOUR ARTIFACT PATHS (Obsidian mirrors of local originals)
+MODIFIED_FILE: C:/Users/mason/OneDrive/Documents/Obsidian Vault/Roblox Game Vault/04 Scripts/Audio Effects Restore/MODIFIED_FILE.luau
+DIFF_FILE: C:/Users/mason/OneDrive/Documents/Obsidian Vault/Roblox Game Vault/04 Scripts/Audio Effects Restore/DIFF_FILE.md
+VERIFICATION: C:/Users/mason/OneDrive/Documents/Obsidian Vault/Roblox Game Vault/04 Scripts/Audio Effects Restore/VERIFICATION.txt
+ROLLBACK: C:/Users/mason/OneDrive/Documents/Obsidian Vault/Roblox Game Vault/04 Scripts/Audio Effects Restore/ROLLBACK.sh
+
+BASELINE HASH / ORIGINAL PRESERVED
+BASELINE.json SHA256 BF08FBF84F463D6E45CCA889192B78AE1B981E79DB5C440CC9AABCAF2FD111EE
+MODIFIED_FILE.luau SHA256 0B18A8EE1FCDC1FAC2EA9582F0D955AC482E9DB533C52C2385CBC5316BF1AB5F
+Client.luau SHA256 43ED29B16312C3D0F4D24DD934E9CF21224975F2E65053EAB6CC89FC811DBA34
+Config.luau SHA256 4DE00EC3D5D8E299F99272ACADDA9354BBD7F775C2A9CC95A1B058EE1B47C7AA
+Original package assets and music mix metadata cloned before changes into ServerStorage.AudioSfxRestoreBackup_20261017.
+Audio boot/server source strings unchanged; no external source assignment performed.
+
+BASELINE — real Play
+Command: mcp__Roblox_Studio__start_stop_play({is_start:true,studio_id:"a8c52bef-c6e7-4b6f-b818-37193fc2a609"})
+Then mcp__Roblox_Studio__execute_luau({datamodel_type:"Client",studio_id:"a8c52bef-c6e7-4b6f-b818-37193fc2a609",code:<exact contents of BASELINE_TEST.luau>})
+Literal result:
+{"result":"BASELINE FAIL: sound effects startup blocked by missing BackgroundMusic","bridge":false,"backgroundMusic":false,"effectAssets":14}
+Tool isError:false (test reports failed behavior, not a tool error). OS exit status: not applicable to MCP.
+Console: ReplicatedStorage.AudioPresentation.Client:285: Audio mix objects missing.
+Cause: BackgroundMusic deleted; all effects hooks were installed after its wait/assert, so no effects started.
+
+MODIFIED — actual Edit install and fresh Client Play
+Command: execute_luau(Edit, code:<MODIFIED_FILE.luau>); start_stop_play(is_start:true).
+The installer embeds final Client/Config, preserves baseline, removes only the two music assets/group, and normalizes 12 effect templates. Never re-run while its backup already exists.
+Command: actual mouse click LocalPlayer.PlayerGui.MainMenuUI.Canvas.Home.PlayButton, then wait for a real character/Humanoid before weapon test.
+Command: execute_luau(Client, code:<TEST_WEAPONS_CLIENT.luau>).
+Literal output stored in TEST_RESULTS.json.weapons: W1/W2/W3/W4/W5 each shotAudio=true and reloadAudio=true; Counts Shot_W1=1, Shot_W2=1, Shot_W3=1, Shot_W4=1, Shot_W5=1, Reload=5, ShellInsert=3, Pump=1; full magazine ammo restored 30/30/15/17/8.
+All 12 effects PreloadAsync statuses Success in Client Play. Native W1 four pools decoded with remapped RifleShot; native W3 four pools decoded rbxassetid://74125264456927.
+Native ClaudeReload is locally muted (Volume0), while our one reload voice is used. Original native volume restored on teardown.
+
+Command: character_navigation(Client,x:0,y:3.2,z:-24); execute_luau(Client): MovementControl:Invoke("Sprint",true); Humanoid:MoveTo(Vector3.new(0,4,-60)); task.wait(.5); MovementControl:Invoke("Slide"); task.wait(.5); MovementControl:Invoke("Sprint",false).
+Slide result:true; Counts Footstep=5, Slide=1, Jump=1, Land=1.
+Jump/landing initiated by actual Space input. Keyboard W alone did not reliably drive the current character; actual navigation/MoveTo used for displacement. Real movement outputs supersede that failed input-only attempt.
+Command: execute_luau(Client, code:<TEST_MOVEMENT_CLIENT.luau>)
+Literal result: MOVEMENT PASS: footstep/slide/jump/land; anchored stationary idle silent; music absent
+Stationary test anchors a live character only for the sample, then restores its prior Anchored value. Initial unanchored idle check failed while the character still moved; not counted as an idle pass. PlayerModule controls lookup was absent and that QA attempt was abandoned without changes.
+
+Command: execute_luau(Client, code:<TEST_CANCEL_CLIENT.luau>)
+Literal output: CANCEL PASS: switching weapons stopped reload audio and canceled delayed bolt cue
+Command: execute_luau(Client, code:<TEST_LIFECYCLE_CLIENT.luau>)
+Literal result: LIFECYCLE PASS: stopped all custom voices/connections; native Running volume restored; restart has no duplicate connections
+Connections 65 ->65; native Running volume restored to 0.6499999761581421; music absent on restart.
+
+Command: execute_luau(Server, code:<TEST_VALIDATION_SERVER.luau>)
+Literal output: {"result":"VALIDATION PASS","rejectedDelta":3}
+Rejects arbitrary actions, extra args, duplicate-native W1/W3 Shot fanout; W2 Shot valid. No arbitrary sound IDs, damage, ammo or rewards granted.
+Command: execute_luau(Client): get AudioPresentationControl Stats, assert Hit/Headshot/Elimination counters.
+Literal output: {"headshot":1,"elimination":1,"hit":1,"music":false,"result":"CONFIRMATION PASS"}
+Command: execute_luau(Server): game.Players:GetPlayers()[1].Character.Humanoid.Health=0
+Then Client Stats assertion.
+Literal output: {"music":false,"result":"DEATH PASS","death":1}
+These are QA character/runtime changes, not saved game source.
+
+Command: execute_luau(Edit, code:<VERIFY.luau>)
+Literal final output:
+{"nativeW1":true,"backgroundMusic":false,"concurrentChanges":["StarterPlayer.StarterPlayerScripts.ClaudeAKClient","ReplicatedStorage.ReferenceWeapons.WeaponConfig"],"protectedUnchanged":14,"result":"VERIFY PASS","effects":12}
+The two listed sources changed concurrently, not by this task. Initially old ClaudeAKClient read missing Config.Sounds.Shot and errored; partner installed modern ClaudeShotW1/W3 client during our test. We adapted only our audio Config/Client and repeated all five gun tests against it. No attempt to revert collaborator changes.
+Command: execute_luau(Edit) assert Client.Source/Config.Source == final modified sources.
+Literal output: SOURCE PASS: live Client/Config exactly match final modified sources
+Modified MCP tests listed above: isError:false; OS exit status not applicable. Earlier QA failures are explicitly recorded and not presented as passes.
+
+ROLLBACK — isolated real package copies
+Command: execute_luau(Edit, code:<TEST_ROLLBACK.luau>), which invokes exact embedded RESTORE.luau against isolated package/mix clones.
+Literal output:
+ROLLBACK PASS: original broken music dependency and 14 assets restored on isolated copy; live 12 effects/no music retained
+Tool isError:false; OS exit status not applicable.
+Restored sources byte-equal backup; original14 sound IDs/volumes and previous mix presence matched. Baseline lacked BackgroundMusic, so baseline startup defect is intentionally restored on the fixture; no claim that rollback makes that broken baseline audible. Live modified package remains active, no music.
+
+LOCAL EXECUTABLE ROLLBACK HELPER
+Exact PowerShell command from C:/Users/mason/.codex/visualizations/2026/10/16/01a14317-0d61-7650-b711-1ea3626ed7b5/audio_sfx_restore:
+& 'C:\Program Files\Git\bin\bash.exe' -c 'chmod +x ROLLBACK.sh && ./ROLLBACK.sh --self-test'; exit $LASTEXITCODE
+Input: BASELINE.json and MODIFIED_FILE.luau; restores bytes on a separate mktemp copy only.
+Literal output:
+LOCAL ROLLBACK PASS: baseline restored on a separate copy; live effects-only update retained
+OS exit status:0.
+Normal mode prints Studio restoration instructions; shell does not remotely control Studio.
+
+CONSOLE / REMAINING
+Final Play console has no AudioPresentation / missing-music assertion / SoundId nil errors. CONSOLE.txt stores exact output.
+Existing Dynamic Lighting missing Lighting System, Cloud placement/duplication, UIBlox and asset203785492 messages remain unrelated.
+No simultaneous two-client spatial listening test. No public Roblox publish. End state Edit; commit Studio drafts and let Team Create save.
