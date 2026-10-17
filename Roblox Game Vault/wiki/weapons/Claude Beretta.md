@@ -37,6 +37,7 @@ Beretta M9 in the **Silver 9mm slot (`W3`)**. The model came from Cade's downloa
 
 ## Feel (per-weapon numbers in `ClaudeAK.Config.Weapons.W3`)
 - Semi-auto, 15 rounds, 1.9 s reload. Damage head 55 / body 25 / limb 20 (4 body shots), falloff to 60% from 60 to 220 studs.
+- Hip hold is straight: `WeaponConfig` W3 `Hip = (.42, -.72, -1.5)`, yaw 3°. The old pistol pose was turned 22° and looked crooked.
 - Recoil: climb 1.1° up per shot, stronger shake than the AK.
 - **Muzzle:** star flash, short tongue of fire (VFX Studio flame texture), side flicker, sparks, smoke puff, light flash.
 - **Screen fuzz:** the world blurs and pops brighter for a split second per shot. The gun stays sharp because it renders in the viewport GUI.
