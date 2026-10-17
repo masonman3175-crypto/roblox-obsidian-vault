@@ -40,3 +40,8 @@ Rain + puddle ripples, sparks from bullet hits on metal, brick dust puffs on wal
 - [[Lighting And Atmosphere]]
 - [[Map Tools]]
 - [[index]]
+
+## Pass 2: VFX Studio textures + gun VFX (2026-10-16)
+- All map effects retextured with VFX Studio library textures (no more default `fire_main`/`smoke_main`). Barrel fire = white flame tinted orange-red.
+- New `ServerStorage.MapTools.Vfx.Gun`: `MuzzleFlash` (flash + haze + 0.05 s light), `Impact_Brick`, `Impact_Concrete`, `Impact_Metal` (adds sparks), `Impact_Wood`. Emitters are off; fire them with `VfxPlayer.burst(template, cframe)` (ModuleScript in the same folder, client side, LookVector = surface normal). No blood or gore effects.
+- For partner/Codex: wire `VfxPlayer` into the gun client (visual only, server still decides hits).

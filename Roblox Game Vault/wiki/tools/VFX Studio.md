@@ -52,3 +52,9 @@ _Not verified yet. Fill in after trying it in Studio. Don't guess._
 - **Install (Cade):** open the store link, click **Get**, then in Studio: Toolbox > Inventory > My Plugins (or Plugins tab > Manage Plugins) > install, then restart Studio.
 - **What Claude can and cannot do:** the Studio MCP cannot click plugin UI. Claude can read and edit whatever the plugin puts in the place (ParticleEmitters, Attachments, Beams, any preset folders), copy those into `ServerStorage.MapTools.Vfx`, and wire them up. So: Cade builds or picks an effect in VFX Studio and drops it in the place, then Claude takes it from there.
 - First job for it: replace the default `fire_main.dds` and `smoke_main.dds` textures in [[Map VFX Library]] (BarrelFire) with VFX Studio fire and smoke.
+
+## Installed + vetted (2026-10-16)
+- Installed by Cade (`InstalledPlugins/135581141962270`). Claude read all 417 scripts via `game:GetObjects`: no `loadstring`, no remote `require`, no backdoor. Web calls are only GETs to the author's GitHub (Sytranom/VFXStudio): `latestversion.txt` and `VFXData.json` (a texture list). Safe.
+- Ships `Defaults.Meshes` (547 effect meshes: shockwaves, swirls, impacts, rings) and `VFXData.json` (9,178 textures tagged Fire, Smoke, Spec, Impact, Flare, Lightning, Swirl, Energy, Slashes, Ground, Water, Star...).
+- **How Claude uses it:** cannot click the plugin UI, but uses its texture library and meshes directly. A local copy of `VFXData.json` makes it searchable by name/keyword.
+- Good picks: flame `1058335870`, fire `883906867`, smoke `122434532`, spark `528280947`/`271370648`, dust `13388193136`, steam `114122485080069`, muzzle `12363834197` (+ `muzzle_flash_*` set), soft flash `9841273835`, wood debris `425665059`. New textures take a few seconds to stream in before they show.

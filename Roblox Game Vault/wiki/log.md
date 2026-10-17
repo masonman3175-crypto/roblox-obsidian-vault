@@ -91,3 +91,6 @@ Recent: `grep "^## \[" log.md | tail -5`
 ## [2026-10-16] ingest | 9 refs: FP guns, UI, VFX, skins (claude)
 - New: [[First Person Gun Feel]], [[Neon Sniper Skin And HUD]], [[Custom Shop UI]], [[Stylized VFX References]]
 - Updated: [[VFX Studio]] (install steps, how Claude uses it), [[index]]
+
+## [2026-10-16] update | VFX Studio installed, vetted, used (claude)
+- Updated [[VFX Studio]], [[Map VFX Library]] (retextured + gun VFX templates)
