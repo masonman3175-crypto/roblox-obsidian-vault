@@ -1,0 +1,86 @@
+MOVEMENT AND MAP BOUNDARY / 2026-10-16 / hood warfare 1.2
+
+Changed fields:
+- MovementConfig.SlideCooldown: 1.25 -> 0; duration .92 -> .82; end speed 12 -> 18; min speed 12 -> 10.
+- SlideCost: 17 -> 4; SlideBuffer=1.05. A second press queues the next grounded slide.
+- SprintDrain: 16 -> 5, giving 20 seconds instead of 6.25 seconds of continuous grounded sprint.
+- CameraDrop: .78 -> 1.45, now applied through Humanoid.CameraOffset before Roblox's camera update; camera shake remains.
+- Server slide drive: higher bounded constraint force, no forced zero WalkSpeed; chain retries wait for acknowledgement.
+- Hip height/AutoRotate restored only for active slides; no Motor6D.C0 slide modification (prevents avatar scaling/height drift).
+- Workspace.Map.PerimeterBoundary: 4 continuous wall colliders, 4 floor aprons, decorative caps/seams/buttresses. Inner bounds X[-262,272], Z[-150,150], bottom -14, top 84, height 98.
+- Existing West/East SpawnLocations and map routes unchanged. Minimap receives boundary proxies.
+
+Four artifact paths:
+MODIFIED_FILE: C:\Users\mason\OneDrive\Desktop\Roblox AI\movement_boundary\MODIFIED_FILE.luau
+DIFF_FILE: C:\Users\mason\OneDrive\Desktop\Roblox AI\movement_boundary\DIFF_FILE.patch
+VERIFICATION: C:\Users\mason\OneDrive\Desktop\Roblox AI\movement_boundary\VERIFICATION.txt
+ROLLBACK: C:\Users\mason\OneDrive\Desktop\Roblox AI\movement_boundary\ROLLBACK.sh
+
+Original file SHA256:
+BASELINE_Config.luau: cf8b772224169089c42166e08d1b517a3dc947fc8d30df2ff901276a4dceb627
+BASELINE_Client.luau: 8fa8ef733ca1c76954b3e3eb0b1c8555b73e76bf671e69a59d8cbec0c24638e0
+BASELINE_Server.luau: 2fd40bc689dc363ad6147de78181c825a6801864613fc98df083302109e936fd
+Modified client SHA256:
+17d07d65c2349814d77bdac45e4cf62e7b9169b10a8de938d7809a2f4173c673
+All preserved and changed file hashes are in HASHES.json.
+Exact live ModuleScript originals are also retained in ServerStorage.MovementBoundaryBackup_20261016.
+
+BASELINE
+CWD: C:\Users\mason\OneDrive\Desktop\Roblox AI\movement_boundary
+Exact command: python verify.py BASELINE
+Input: preserved BASELINE_Config.luau, BASELINE_Client.luau, BASELINE_Server.luau
+Literal output: BASELINE: PASS
+Exit status: 0 (old behavior confirmed, not the new feature set)
+Studio baseline result: SlideCooldown=1.25, CameraDrop=.78, SprintSeconds=6.25, Boundary=false, ExitStatus=0.
+
+MODIFIED
+Exact command: python verify.py MODIFIED
+Input: MODIFIED_FILE.luau, MovementConfig.luau, MovementServer.luau, BuildBoundary.luau
+Literal output: MODIFIED: PASS
+Exit status: 0
+Exact runtime command: execute_luau(datamodel_type="Client", code=contents of PhysicsTest.luau)
+Setup: Play, click PLAY; server creates temporary MovementTestFloor at (0,139,0), size (360,2,90), sets player's replication focus to it; client requests streaming and places its test avatar above the pad.
+Literal key results:
+PhysicalSprintSpeed=24
+FirstSlideRequested=true
+SlideEntries=3
+LowestCameraOffset=-1.4500000476837159
+MaxShake=1.7458882945640644
+Gaps=[0.06662790000018504,0.0659075000003213]
+Initial.Hip=1.9980254173278809
+RestoredHip=1.9980254173278809
+Final.CameraOffsetY=-6.17356507711872e-14
+Final.Mode=Idle, Final.WalkSpeed=14, Final.SlideReadyIn=0, Reject=""
+Tool result isError=false; test completed normally.
+
+Exact runtime command: execute_luau(datamodel_type="Client", code=contents of WallPhysicsTest.luau)
+Input: sprint +X into EastSolid, starting X=266, streamed EastGroundApron.
+Literal output/result: Phase=WALL_PHYSICS, MaxX=271.4253845214844, InnerFace=272, Blocked=true, Grounded=true, ExitStatus=0.
+
+Exact geometry command: execute_luau(datamodel_type="Edit", code=contents of GeometryTest.luau)
+Literal output/result: BoundaryRays=840, Misses=0, CameraDrop=1.45, StaminaSeconds=20, Cooldown=0, ExitStatus=0.
+Spawn_West CFrame remains: -190, .300000012, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1
+Spawn_East CFrame remains: 232, .400000006, -4, 1, 0, 0, 0, 1, 0, 0, 0, 1
+Both remain enabled.
+Invalid NaN slide direction rejected: "Invalid slide direction".
+Invalid sprint payload rejected: "Invalid sprint payload".
+No GameplayMovement/GameplayPresentation runtime errors in the tested console.
+Temporary test floor removed by stopping Play; Edit verification QAFloorClean=true.
+Current Studio state: Edit, all modified source and perimeter geometry retained.
+
+ROLLBACK
+Exact PowerShell command: & 'C:\Program Files\Git\bin\bash.exe' -c 'chmod +x ROLLBACK.sh && ./ROLLBACK.sh rollback-copy.luau'
+Inner command: ./ROLLBACK.sh rollback-copy.luau
+Input: BASELINE_Client.luau -> separate rollback-copy.luau
+Literal output: ROLLBACK: PASS
+Exit status: 0
+Restored behavior/status: copied the original post-camera-offset implementation with no slide buffer (the paired baseline config uses a .78-stud dip); modified live source/config remain unchanged. No runtime behavior is asserted for the source-only copy.
+The script refuses to overwrite MODIFIED_FILE.luau.
+
+Exact Studio command: execute_luau(datamodel_type="Edit", code=contents of RollbackFixtureTest.luau)
+Input: cloned gameplay package, server service, saved baseline modules, boundary and spawn sentinel.
+Literal output/result: Result="ROLLBACK: PASS", FixtureOnly=true, LiveModifiedRetained=true, SpawnsUntouched=true, ExitStatus=0.
+Restored behavior/status on isolated fixture: old config/client/server restored, added perimeter and its minimap proxies removed, spawn sentinel preserved.
+Live modified sources and perimeter remain installed.
+
+No public publish claimed. Let Team Create save and commit any Studio drafts.

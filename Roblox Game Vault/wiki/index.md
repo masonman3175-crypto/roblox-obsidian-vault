@@ -34,6 +34,7 @@ Rules: see the Wiki schema section in `CLAUDE.md` / `AGENTS.md`. Timeline: [[log
 - [[Overcast Rowhouse Street]] - overcast haze, brick rowhouses, power lines, street cover (idea)
 
 ## Systems
+- [[Sprint Slide And Map Boundary]] - chainable slides, lower camera, longer sprint stamina and continuous perimeter walls (building)
 - [[Hood Warfare 2 Game Modes]] - six original mode patterns to prototype separately (idea)
 - [[Hood Warfare 2 Combat Tuning]] - verified-vs-unverified combat variables and server authority (idea)
 - [[Hood Warfare 2 Roblox Build Plan]] - Roblox folders, services, ownership, and performance slice (planned)

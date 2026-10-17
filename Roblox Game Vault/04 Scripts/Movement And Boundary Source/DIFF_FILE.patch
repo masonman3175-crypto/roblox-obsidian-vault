@@ -1,0 +1,272 @@
+--- BASELINE_Config.luau
++++ MovementConfig.luau
+@@ -1,8 +1,8 @@
+ return {
+-    WalkSpeed=14, SprintSpeed=24, SlideSpeed=36, SlideEndSpeed=12,
+-    SlideDuration=.92, SlideCooldown=1.25, SlideCost=17, SlideMinSpeed=12,
+-    StaminaMax=100, SprintDrain=16, StaminaRegen=24, RegenDelay=.65,
+-    ExhaustionRecovery=25, HipDrop=.65, CameraDrop=.78,
++    WalkSpeed=14, SprintSpeed=24, SlideSpeed=36, SlideEndSpeed=18,
++    SlideDuration=.82, SlideCooldown=0, SlideCost=4, SlideMinSpeed=10, SlideBuffer=1.05,
++    StaminaMax=100, SprintDrain=5, StaminaRegen=25, RegenDelay=.45,
++    ExhaustionRecovery=15, HipDrop=.35, CameraDrop=1.45,
+     SprintFov=8, SlideFov=10, CameraShakeScale=1,
+     MinimapHeight=155, MinimapFov=70,
+ }
+--- BASELINE_Client.luau
++++ MODIFIED_FILE.luau
+@@ -15,6 +15,9 @@
+ local oldGrounded=true
+ local landing=0
+ local char,hum,root
++local baseCameraOffset=Vector3.zero
++local queuedSlideUntil=0
++local queuedSlideStamp,lastChainAttempt=0,-10
+ local function deployed()
+     return char and char.Parent and hum and hum.Health>0 and not p:GetAttribute('InMenu') and not p:GetAttribute('MenuClientOpen')
+ end
+@@ -28,26 +31,39 @@
+ end
+ function M.Slide()
+     if not deployed() then return false end
++    if p:GetAttribute('MovementState')=='Sliding' then
++        queuedSlideUntil=os.clock()+C.SlideBuffer
++        queuedSlideStamp=p:GetAttribute('SlideStartedAt') or 0
++        return true
++    end
+     local v=root.AssemblyLinearVelocity*Vector3.new(1,0,1)
+     if v.Magnitude<C.SlideMinSpeed or hum.FloorMaterial==Enum.Material.Air then return false end
+     remote:FireServer('Slide',v.Unit);return true
+ end
+-function M.CancelSlide()remote:FireServer('CancelSlide');return true end
++function M.CancelSlide()queuedSlideUntil=0;remote:FireServer('CancelSlide');return true end
+ function M.GetState()
+     return {Mode=p:GetAttribute('MovementState') or 'Idle',Stamina=p:GetAttribute('MovementStamina') or 100,
+         FovOffset=fov,CameraDrop=drop,ShakeDegrees=amount,SlideReadyIn=p:GetAttribute('SlideReadyIn') or 0,
+-        WalkSpeed=hum and hum.WalkSpeed,Grounded=hum and hum.FloorMaterial~=Enum.Material.Air}
++        WalkSpeed=hum and hum.WalkSpeed,Grounded=hum and hum.FloorMaterial~=Enum.Material.Air,
++        CameraOffsetY=hum and hum.CameraOffset.Y,SlideBuffered=queuedSlideUntil>os.clock(),
++        CameraY=workspace.CurrentCamera and workspace.CurrentCamera.CFrame.Y,HeadY=char and char:FindFirstChild('Head') and char.Head.Position.Y}
+ end
+ local function hook(c)
+     char=c;hum=c:WaitForChild('Humanoid');root=c:WaitForChild('HumanoidRootPart')
+     held,toggled,sent,forced=false,false,false,false
++    baseCameraOffset=hum.CameraOffset;queuedSlideUntil=0
+     drop,fov,landing=0,0,0
+ end
+ function M.Start()
+     if started then return M end;started=true
+     if p.Character then task.spawn(hook,p.Character)end
+     p.CharacterAdded:Connect(hook)
+-    p.CharacterRemoving:Connect(function(c)if char==c then char,hum,root=nil,nil,nil;sendSprint(false)end end)
++    p.CharacterRemoving:Connect(function(c)
++        if char==c then
++            if hum and hum.Parent then hum.CameraOffset=baseCameraOffset end
++            queuedSlideUntil=0;char,hum,root=nil,nil,nil;sendSprint(false)
++        end
++    end)
+     CAS:BindActionAtPriority('GameplaySprint',function(_,state,input)
+         if UIS:GetFocusedTextBox()then return Enum.ContextActionResult.Pass end
+         if input.KeyCode==Enum.KeyCode.ButtonL3 and state==Enum.UserInputState.Begin then toggled=not toggled
+@@ -66,7 +82,7 @@
+         if processed then return end
+         if input.KeyCode==Enum.KeyCode.Space and p:GetAttribute('MovementState')=='Sliding'then M.CancelSlide()end
+     end)
+-    UIS.WindowFocusReleased:Connect(function()held,toggled,forced=false,false,false;sendSprint(false)end)
++    UIS.WindowFocusReleased:Connect(function()held,toggled,forced=false,false,false;queuedSlideUntil=0;sendSprint(false)end)
+     p:GetAttributeChangedSignal('MovementFireInterrupt'):Connect(function()sendSprint(false)end)
+     local bridge=Instance.new('BindableFunction');bridge.Name='MovementControl'
+     bridge.OnInvoke=function(action,value)
+@@ -75,10 +91,19 @@
+         elseif action=='CancelSlide'then return M.CancelSlide()end
+         return M.GetState()
+     end;bridge.Parent=p:WaitForChild('PlayerScripts')
+-    RunService:BindToRenderStep('GameplayMovementClean',Enum.RenderPriority.Camera.Value-1,function()
++    RunService:BindToRenderStep('GameplayMovementClean',Enum.RenderPriority.Camera.Value-1,function(dt)
+         local camera=workspace.CurrentCamera
+         if camera then camera.CFrame=camera.CFrame*lastOffset:Inverse()end
+         lastOffset=CFrame.identity
++        -- CameraOffset is consumed by Roblox's first-person camera this same frame.
++        -- The later viewmodel pass sees the lowered camera without double-applying it.
++        local live=deployed()
++        local target=live and p:GetAttribute('MovementState')=='Sliding' and C.CameraDrop or 0
++        local rate=target>drop and 24 or 14
++        drop+=(target-drop)*(1-math.exp(-math.min(dt,.05)*rate))
++        if not live then drop=0 end
++        if hum and hum.Parent then hum.CameraOffset=baseCameraOffset+Vector3.new(0,-drop,0)end
++        p:SetAttribute('MovementCameraDrop',drop)
+     end)
+     RunService:BindToRenderStep('GameplayMovementCamera',Enum.RenderPriority.Camera.Value+1,function(dt)
+         dt=math.min(dt,.05)
+@@ -91,6 +116,17 @@
+         sendSprint(wants==true)
+         local state=live and p:GetAttribute('MovementState') or 'Idle'
+         local sprint,slide=state=='Sprinting',state=='Sliding'
++        if not live or not wants then queuedSlideUntil=0
++        elseif queuedSlideUntil>0 and slide and (p:GetAttribute('SlideStartedAt') or 0)~=queuedSlideStamp then
++            queuedSlideUntil=0
++        elseif queuedSlideUntil>0 and not slide then
++            if os.clock()<=queuedSlideUntil then
++                local v=root.AssemblyLinearVelocity*Vector3.new(1,0,1)
++                if hum.FloorMaterial~=Enum.Material.Air and v.Magnitude>=C.SlideMinSpeed and os.clock()-lastChainAttempt>.12 then
++                    lastChainAttempt=os.clock();remote:FireServer('Slide',v.Unit)
++                end
++            else queuedSlideUntil=0 end
++        end
+         if slide and previousMode~='Sliding'then slideAge=0 end
+         slideAge+=dt
+         local grounded=live and hum.FloorMaterial~=Enum.Material.Air
+@@ -99,9 +135,7 @@
+         previousMode=state
+         local targetFov=slide and C.SlideFov or sprint and C.SprintFov or 0
+         fov+=(targetFov-fov)*(1-math.exp(-dt*9))
+-        drop+=((slide and C.CameraDrop or 0)-drop)*(1-math.exp(-dt*16))
+         p:SetAttribute('MovementFovOffset',fov)
+-        p:SetAttribute('MovementCameraDrop',drop)
+         if not live then amount=0;drop=0;fov=0;return end
+         if camera.CameraType~=Enum.CameraType.Custom then camera.CameraType=Enum.CameraType.Custom;camera.CameraSubject=hum end
+         if not char:FindFirstChildOfClass('Tool')then camera.FieldOfView+=(72+fov-camera.FieldOfView)*(1-math.exp(-dt*10))end
+@@ -114,7 +148,7 @@
+         pitch,yaw,roll=pitch*scale,yaw*scale,roll*scale
+         amount=math.sqrt(pitch*pitch+yaw*yaw+roll*roll)
+         local bob=sprint and math.abs(math.sin(phase))*.025*scale or 0
+-        lastOffset=CFrame.new(0,-drop-bob,0)*CFrame.Angles(math.rad(pitch),math.rad(yaw),math.rad(roll))
++        lastOffset=CFrame.new(0,-bob,0)*CFrame.Angles(math.rad(pitch),math.rad(yaw),math.rad(roll))
+         camera.CFrame=camera.CFrame*lastOffset
+         -- The weapon controller consumes MovementFovOffset before rendering its viewmodel.
+     end)
+--- BASELINE_Server.luau
++++ MovementServer.luau
+@@ -18,16 +18,20 @@
+     if not r or not r.Parent or not h or h.Health<=0 then return nil end
+     local params=RaycastParams.new();params.FilterType=Enum.RaycastFilterType.Exclude
+     params.FilterDescendantsInstances={s.Char};params.RespectCanCollide=true
+-    local hit=workspace:Raycast(r.Position,Vector3.new(0,-(math.max(0,h.HipHeight)+r.Size.Y/2+2.4),0),params)
++    local legHeight=h.RigType==Enum.HumanoidRigType.R6 and 2 or 0
++    local standing=math.max(0,h.HipHeight)+r.Size.Y/2+legHeight
++    if r.AssemblyLinearVelocity.Y>6 then return nil end
++    local hit=workspace:Raycast(r.Position,Vector3.new(0,-(standing+.8),0),params)
+     return hit and hit.Normal.Y>.45 and hit or nil
+ end
+ local function finishSlide(p,s,reason)
++    local wasSliding=s.Mode=='Sliding' or s.Drive~=nil
++    if wasSliding then s.NextSlide=os.clock()+C.SlideCooldown end
+     if s.Drive then s.Drive:Destroy();s.Drive=nil end
+     if s.Attachment then s.Attachment:Destroy();s.Attachment=nil end
+-    if s.Hum and s.Hum.Parent then
++    if wasSliding and s.Hum and s.Hum.Parent then
+         s.Hum.HipHeight=s.BaseHip;s.Hum.AutoRotate=s.BaseRotate
+     end
+-    if s.Joint and s.Joint.Parent and s.BaseC0 then s.Joint.C0=s.BaseC0 end
+     for ob,value in pairs(s.Collision or {})do if ob.Parent then ob.CanCollide=value end end
+     s.Collision={}
+     if s.Mode=='Sliding'then mode(p,s,'Walking')end
+@@ -78,23 +82,23 @@
+     if not dir then return reject(p,s,'Invalid slide direction')end
+     if s.Mode=='Sliding' or now<(s.NextSlide or 0)then return reject(p,s,'Cooldown')end
+     if not s.Wants or s.Stamina<C.SlideCost or s.Exhausted then return reject(p,s,'Sprint and stamina required')end
+-    if not ground(s) or s.Hum.FloorMaterial==Enum.Material.Air then return reject(p,s,'Ground required')end
++    if not ground(s) then return reject(p,s,'Ground required')end
+     local velocity=s.Root.AssemblyLinearVelocity*Vector3.new(1,0,1)
+     if velocity.Magnitude<C.SlideMinSpeed then return reject(p,s,'Build sprint speed first')end
+     if velocity.Unit:Dot(dir)<.65 then return reject(p,s,'Direction must follow momentum')end
+-    s.Stamina-=C.SlideCost;s.LastEffort=now;s.NextSlide=now+C.SlideDuration+C.SlideCooldown
++    s.Stamina-=C.SlideCost;s.LastEffort=now;s.NextSlide=now
+     s.SlideStart=now;s.Direction=dir;s.AirTime=0;s.BaseHip=s.Hum.HipHeight;s.BaseRotate=s.Hum.AutoRotate
+-    s.Hum.HipHeight=s.BaseHip-C.HipDrop;s.Hum.AutoRotate=false;s.Hum.WalkSpeed=0
++    s.BaseC0=s.Joint and s.Joint.C0
++    s.Hum.HipHeight=s.BaseHip-C.HipDrop;s.Hum.AutoRotate=false;s.Hum.WalkSpeed=C.SlideEndSpeed
+     s.Collision={}
+     for _,o in ipairs(s.Char:GetDescendants())do if o:IsA('BasePart') and (o.Name:find('Leg') or o.Name:find('Foot'))then s.Collision[o]=o.CanCollide;o.CanCollide=false end end
+-    if s.Joint and s.BaseC0 then s.Joint.C0=s.BaseC0*CFrame.new(0,-.18,0)*CFrame.Angles(math.rad(-18),0,0)end
+     local attach=Instance.new('Attachment');attach.Name='GameplaySlideAttachment';attach.Parent=s.Root
+     local drive=Instance.new('LinearVelocity');drive.Name='GameplaySlideVelocity'
+     drive.Attachment0=attach;drive.RelativeTo=Enum.ActuatorRelativeTo.World
+     drive.VelocityConstraintMode=Enum.VelocityConstraintMode.Plane
+     drive.PrimaryTangentAxis=Vector3.xAxis;drive.SecondaryTangentAxis=Vector3.zAxis
+     drive.ForceLimitsEnabled=true;drive.ForceLimitMode=Enum.ForceLimitMode.PerAxis
+-    local force=s.Root.AssemblyMass*110
++    local force=math.max(50000,s.Root.AssemblyMass*1600)
+     drive.MaxPlanarAxesForce=Vector2.new(force,force)
+     drive.PlaneVelocity=Vector2.new(dir.X*C.SlideSpeed,dir.Z*C.SlideSpeed);drive.Parent=s.Root
+     s.Attachment,s.Drive=attach,drive
+@@ -127,7 +131,7 @@
+         if s.Exhausted and s.Stamina>=C.ExhaustionRecovery then s.Exhausted=false end
+         local sprint=s.Wants and not s.Exhausted and s.Stamina>0
+         s.Hum.WalkSpeed=sprint and C.SprintSpeed or C.WalkSpeed
+-        local grounded=s.Hum.FloorMaterial~=Enum.Material.Air
++        local grounded=ground(s)~=nil
+         if sprint and moving and grounded then
+             mode(p,s,'Sprinting');s.Stamina=Math.Stamina(s.Stamina,true,dt);s.LastEffort=now
+         else
+@@ -155,7 +159,7 @@
+     -- Server-local QA entry point; never exposed to clients.
+     local control=Instance.new('BindableFunction');control.Name='MovementControl'
+     control.OnInvoke=function(p,action,value)
+-        if action=='State'then local s=states[p];return s and {Mode=s.Mode,Stamina=s.Stamina,Wants=s.Wants,Sliding=s.Drive~=nil,WalkSpeed=s.Hum and s.Hum.WalkSpeed}end
++        if action=='State'then local s=states[p];return s and {Mode=s.Mode,Stamina=s.Stamina,Wants=s.Wants,Sliding=s.Drive~=nil,WalkSpeed=s.Hum and s.Hum.WalkSpeed,BaseHip=s.BaseHip,Hip=s.Hum and s.Hum.HipHeight}end
+         return S.Handle(p,action,value)
+     end
+     control.Parent=script.Parent
+--- /dev/null
++++ BuildBoundary.luau
+@@ -0,0 +1,59 @@
++local map=workspace:WaitForChild('Map')
++assert(not map:FindFirstChild('PerimeterBoundary'),'Boundary already exists; inspect before replacing')
++local model=Instance.new('Model');model.Name='PerimeterBoundary'
++local minX,maxX,minZ,maxZ=-262,272,-150,150
++local bottom,top,thickness=-14,84,8
++for k,v in pairs({MinX=minX,MaxX=maxX,MinZ=minZ,MaxZ=maxZ,Bottom=bottom,Top=top,Thickness=thickness})do model:SetAttribute(k,v)end
++model:SetAttribute('BuiltBy','Codex');model:SetAttribute('Purpose','Continuous playable-area boundary')
++local function part(name,size,cf,color,collide,parent)
++ local p=Instance.new('Part');p.Name=name;p.Size=size;p.CFrame=cf;p.Color=color
++ p.Material=Enum.Material.Concrete;p.Anchored=true;p.CanCollide=collide;p.CanTouch=collide;p.CanQuery=collide
++ p.TopSurface=Enum.SurfaceType.Smooth;p.BottomSurface=Enum.SurfaceType.Smooth;p.CastShadow=true;p.Parent=parent or model
++ return p
++end
++local height=top-bottom;local midY=(top+bottom)/2
++local grey=Color3.fromRGB(86,84,79);local cap=Color3.fromRGB(48,51,51)
++part('NorthSolid',Vector3.new(maxX-minX+thickness*2,height,thickness),CFrame.new((minX+maxX)/2,midY,minZ-thickness/2),grey,true)
++part('SouthSolid',Vector3.new(maxX-minX+thickness*2,height,thickness),CFrame.new((minX+maxX)/2,midY,maxZ+thickness/2),grey,true)
++part('WestSolid',Vector3.new(thickness,height,maxZ-minZ),CFrame.new(minX-thickness/2,midY,(minZ+maxZ)/2),grey,true)
++part('EastSolid',Vector3.new(thickness,height,maxZ-minZ),CFrame.new(maxX+thickness/2,midY,(minZ+maxZ)/2),grey,true)
++local details=Instance.new('Folder');details.Name='ArchitecturalDetails';details.Parent=model
++for _,side in ipairs({{Axis='X',Edge=minZ,Sign=1},{Axis='X',Edge=maxZ,Sign=-1},{Axis='Z',Edge=minX,Sign=1},{Axis='Z',Edge=maxX,Sign=-1}})do
++ local alongX=side.Axis=='X'
++ local a,b=alongX and minX or minZ,alongX and maxX or maxZ
++ local length=b-a
++ local outer=side.Edge-side.Sign*thickness/2
++ part('WallCap',alongX and Vector3.new(length+thickness*2,1.2,thickness+1) or Vector3.new(thickness+1,1.2,length+thickness*2),
++  CFrame.new(alongX and (a+b)/2 or outer,top+.3,alongX and outer or (a+b)/2),cap,false,details)
++ for x=a,b,28 do
++  local cf=CFrame.new(alongX and x or side.Edge+side.Sign*.45,midY,alongX and side.Edge+side.Sign*.45 or x)
++  part('VerticalButtress',alongX and Vector3.new(1.2,height,1.1) or Vector3.new(1.1,height,1.2),cf,Color3.fromRGB(69,71,69),false,details)
++ end
++ for _,y in ipairs({6,32,58})do
++  part('HorizontalSeam',alongX and Vector3.new(length,.12,.18) or Vector3.new(.18,.12,length),
++   CFrame.new(alongX and (a+b)/2 or side.Edge+side.Sign*.08,y,alongX and side.Edge+side.Sign*.08 or (a+b)/2),cap,false,details)
++ end
++ part('DarkPlinth',alongX and Vector3.new(length,5,.23) or Vector3.new(.23,5,length),
++  CFrame.new(alongX and (a+b)/2 or side.Edge+side.Sign*.12,2,alongX and side.Edge+side.Sign*.12 or (a+b)/2),Color3.fromRGB(57,60,57),false,details)
++end
++local function ground(name,size,position)
++ if model:FindFirstChild(name)then return end
++ local p=Instance.new('Part');p.Name=name;p.Size=size;p.Position=position
++ p.Anchored=true;p.CanCollide=true;p.CanQuery=true;p.CanTouch=true
++ p.Material=Enum.Material.Concrete;p.Color=Color3.fromRGB(69,70,64)
++ p.TopSurface=Enum.SurfaceType.Smooth;p.BottomSurface=Enum.SurfaceType.Smooth;p.Parent=model
++end
++ground('EastGroundApron',Vector3.new(26,2,300),Vector3.new(259,-1,0))
++ground('WestGroundApron',Vector3.new(26,2,300),Vector3.new(-249,-1,0))
++ground('NorthGroundApron',Vector3.new(482,2,20),Vector3.new(5,-1,-140))
++ground('SouthGroundApron',Vector3.new(482,2,20),Vector3.new(5,-1,140))
++
++model.Parent=map
++-- Match the minimap without changing its existing terrain/building proxy geometry.
++local mini=game.ReplicatedStorage.GameplayPresentation:FindFirstChild('MinimapWorld')
++if mini then
++ for _,p in ipairs(model:GetChildren())do if p:IsA('BasePart')then
++  local c=p:Clone();c.Name='Boundary_'..p.Name;c.CanCollide=false;c.CanTouch=false;c.CanQuery=false;c.Parent=mini
++ end end
++end
++return {Path=model:GetFullName(),SolidWalls=4,Height=height,Top=top,Parts=#model:GetDescendants(),Bounds={minX,maxX,minZ,maxZ}}

@@ -1,0 +1,52 @@
+---
+type: system
+owner: flow
+status: building
+sources: []
+updated: 2026-10-16
+---
+
+# Sprint Slide And Map Boundary
+
+User-requested gameplay follow-up to [[Main Menu And Locker]] and [[Hood Warfare 2 HUD and Presentation]]. This pass changes movement and the outside boundary of [[Main Street Block]], not the original spawn locations or internal routes.
+
+## Controls and feel
+
+- Hold **Shift** to sprint; press **C** or **Left Ctrl** to slide. Existing gamepad L3/B and touch actions remain.
+- Press slide again during a slide to queue one follow-up. Each press queues one slide, not an automatic infinite loop.
+- No extra cooldown after a slide finishes. The live test chained three slides with approximately 0.066 seconds between entries (network/frame handoff).
+- Walking speed 14; sprint speed 24 studs/second.
+- Slide speed starts at 36 and decays to 18 over .82 seconds. Minimum entry speed 10; direction follows existing momentum.
+- Slide cost 4 stamina. Grounded sprint drains 5/second from 100: approximately **20 seconds**, previously 6.25. Regeneration is 25/second after a .45-second delay.
+- Server still validates deployment, grounded state, momentum, stamina, input types and request rate. NaN direction and malformed sprint inputs were rejected.
+
+## Lower camera and rig stability
+
+The camera now smoothly lowers **1.45 studs through Humanoid.CameraOffset before Roblox's camera update**, rather than only applying a small transform afterward. Sprint/slide FOV and shake remain. Slide hip drop is .35 studs.
+
+The first physics test exposed insufficient slide-constraint force against Humanoid braking. Increased bounded constraint force and retained nonzero slide WalkSpeed. The slide buffer retries until the server acknowledges the next slide.
+
+Removed slide Motor6D.C0 manipulation to avoid automatic avatar-scaling feedback. Restore HipHeight and AutoRotate only when an active slide actually ends. Three-slide test retained the original R15 HipHeight (1.9980254) and restored CameraOffset essentially to zero; no cumulative sinking.
+
+## Continuous perimeter
+
+- New **Workspace.Map.PerimeterBoundary** model: four continuous colliding wall solids, four ground aprons, decorative caps/seams/buttresses.
+- Inner playable limits: X -262 to 272, Z -150 to 150.
+- Walls span Y -14 to 84: **98 studs tall**, 8 studs thick.
+- Ground aprons fill the outside edges so players do not fall through a gap before reaching the wall.
+- Decorative parts are non-colliding; only wall solids and floor aprons affect movement.
+- Added boundary proxies to the existing minimap.
+- Original West/East SpawnLocations remain enabled at their original transforms. No edits to existing map asset folders or lighting.
+
+## Verification and restore
+
+- 840 perimeter ray samples at six heights: zero gaps.
+- Actual avatar sprint into the east wall stopped at X 271.4254, inside inner face X 272, with grounded state true.
+- Actual sprint reached 24 studs/second; three consecutive slides; camera offset minimum -1.4500; peak measured shake about 1.75 degrees; correct height/offset restoration.
+- Invalid remote payload checks pass. No movement-script errors in the tested console.
+- Temporary QA floor existed only during Play and was removed when Play ended.
+- Exact baseline modules: ServerStorage.MovementBoundaryBackup_20261016. Restore logic tested against isolated clones, preserving the live modifications.
+- Source mirrors, hashes, test scripts and full commands: [[04 Scripts/Movement And Boundary Source/Implementation|Movement And Boundary Source]].
+- Current game changes are in the Studio Edit DataModel. Let Team Create save and commit any Studio drafts before partner testing; no public publish claimed.
+
+Related: [[Main Menu And Locker]], [[Main Street Routes and Cover]], [[2026-10-16]].

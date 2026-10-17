@@ -94,3 +94,7 @@ Recent: `grep "^## \[" log.md | tail -5`
 
 ## [2026-10-16] update | VFX Studio installed, vetted, used (claude)
 - Updated [[VFX Studio]], [[Map VFX Library]] (retextured + gun VFX templates)
+
+## [2026-10-16] update | Chainable slides and map perimeter (codex)
+- New [[Sprint Slide And Map Boundary]] and source/test mirrors in 04 Scripts/Movement And Boundary Source.
+- Updated [[index]], [[2026-10-16]] and Codex session log. Verified three chained slides, lower camera/restoration, 20-second sprint budget, wall collision, 840 gap checks and isolated rollback; original spawns retained.
