@@ -40,6 +40,7 @@ Rules: see the Wiki schema section in `CLAUDE.md` / `AGENTS.md`. Timeline: [[log
 - [[Hood Warfare 2 Roblox Build Plan]] - Roblox folders, services, ownership, and performance slice (planned)
 
 ## Weapons
+- [[Claude AK]] - Blender AKM replacing Walnut AK (W1): own flash, smoke, shells, tracers, impacts, recoil climb, server-checked damage (building)
 - [[First Person Gun Feel]] - viewmodel placement, muzzle, impacts, third-person hold (idea)
 - [[Neon Sniper Skin And HUD]] - glowing gradient skin + loadout slots + kill popup (idea)
 - [[Weapon Lineup]] - realistic guns, worn paint, swappable attachments (idea)
