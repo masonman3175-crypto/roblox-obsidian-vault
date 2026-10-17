@@ -156,3 +156,10 @@ Cade's notes after the realism pass: sewer fog looked bad, too many rusty cars, 
 - Removed apron/baseplate overlap, repaired sidewalk tile/soil/curb layering and hid a redundant road patch. Broad coplanar floor pairs 12 -> 0; full collision retained.
 - Both actual spawns passed; 242 pad rays and 900 boundary rays passed. Minimap boundary proxies updated.
 - Original geometry retained in ServerStorage.CrouchCompactFloorBackup_20261017; exact rollback passed on isolated copies.
+## Curb z-fight fix (2026-10-17, Claude)
+- Cause: each `Sidewalk` side facing the street sat in the same plane as the `Curb` face (e.g. both at z=-20). The 0.3-stud strip of curb above the road showed two materials fighting.
+- Fix: those sidewalk sides pulled back 0.05 under the curb (corner sidewalk at x=160 and z=20 too). Long sidewalks' x=148 ends left alone (hidden by the corner sidewalk).
+- Road decals re-layered so no two overlapping tops share a height: Gutter 0.23, Patch 0.26, OilStain 0.29, Crack 0.32 (0.34/0.39 where they overlap others or lines), ParkLine/CenterLine 0.35, Crosswalk 0.37, StormDrain/ManholeRing 0.36, Manhole 0.38. Road top is 0.2. Cylinders extended down to the road instead of floating.
+- Tree pits (16): side curb pieces shortened 0.6 so the corners don't overlap.
+- Scan of all Ground + tree pit faces: visible coplanar pairs 0 (left: hidden end faces at x=148/-200 and the boundary walls).
+- Backup: `ServerStorage.CurbZFightBackup_20261017` (Sidewalks, Street, RoadDetail, TreePits).

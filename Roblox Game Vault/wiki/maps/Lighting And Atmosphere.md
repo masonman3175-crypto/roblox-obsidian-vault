@@ -8,7 +8,7 @@ sources:
   - raw/2026-10-16-night-porch-firefight.png
   - raw/2026-10-16-lighting-pass1-street.jpg
   - raw/2026-10-16-lighting-pass1-alley.jpg
-updated: 2026-10-16
+updated: 2026-10-17
 tags: [lighting, atmosphere, map]
 ---
 
@@ -78,3 +78,16 @@ Matches [[Night Porch Firefight]]: dark blue moonlight, warm porch pools with ha
 - Night now: Brightness 0.6, Ambient 38,35,36, OutdoorAmbient 66,62,64, Exposure 0.3, Atmosphere Density 0.32 Haze 2.2 Color 84,64,50, grade Saturation -0.2. Streetlights Angle 105, Range 36, Brightness 2.8, sodium 255,168,92. Unlit areas dim but readable.
 - Spawn wall lights added in `Workspace.Map.Spawns`.
 - Ground fog is now a client-side ring around the player (`MapFogClient`), see [[Main Street Block]].
+
+## Dynamic time-of-day lighting (2026-10-17)
+Cade inserted the DevForum resource "[V1.1] Realistic Dynamic Lighting | Open Sourced" (by Maiq_S, Isla Natura showcase). It landed twice in `Workspace` as "Dynamic Lighting" folders and its Script was erroring there.
+
+- **Vetted:** read all 13 scripts. No `require(id)`, `loadstring`, `HttpService`, `getfenv`, attributes or tags. It only watches `Lighting.ClockTime` and tweens 7 presets. Clean. See [[Store Asset Vetting]].
+- **Kit bugs fixed in our port:** Night band never fired (`>23 and <=6` is impossible), `print` on every change, expects instance names we don't use (`Atmosphere`, `ColorCorrection`), Blur and near DepthOfField would blur the gun. The `;time X` command is from the showcase game, not in the kit.
+- **Where it lives now:** `ServerScriptService.MapLighting` = `MapLightingServer` (thin Script) + `DynamicLighting` (ModuleScript) + `LightingBands` (ModuleScript, all 7 bands in one table). Runs on the server so every player gets the same light and exploiters can't flip their own time.
+- **Bands:** Sunrise 6-8, Day 8-17, AfternoonGoldenHour 17-18.5, Sunset 18.5-20, Twilight 20-23, Night 23-6. Kit values retuned: OutdoorAmbient raised so shadows stay readable, no Blur/DOF, Night = our tuned Night preset. Sunset/Twilight/Night switch the practical lights to their Night values.
+- **Default now:** `ClockTime` 17.2 (AfternoonGoldenHour): warm low sun on the brick, street still clear. `Lighting` attributes: `DynamicLighting=true`, `MapPreset=Dynamic`, `LightingBand` = current band.
+- **Switching:** in Play, set `game.Lighting.ClockTime = X` on the server and the band tweens over 3 s. From the command bar: `require(game.ServerStorage.MapTools.LightingPresets).apply("Dynamic", nil, 17.2)`, or `apply("Overcast")` / `apply("Night")` for the old static looks (those turn `DynamicLighting` off).
+- **Backup:** `ServerStorage.MapTools.LightingBackup_20261017` (Lighting props as attributes, all children, Clouds, old LightingPresets). Untouched original kit: `ServerStorage.MapTools.DynamicLightingOriginal` (scripts disabled).
+- **To do by hand:** `Lighting.Technology` was ShadowMap when the file loaded (`RBX_OriginalTechnologyOnFileLoad = 3`). The realistic screenshots need **Future**. Set it in the Properties panel.
+- Tested in Play: start band AfternoonGoldenHour, 21 -> Twilight, 2 -> Night, back -> AfternoonGoldenHour. No new errors.

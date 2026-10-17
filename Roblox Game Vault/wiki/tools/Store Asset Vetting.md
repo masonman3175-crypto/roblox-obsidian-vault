@@ -5,7 +5,7 @@ owner: shared
 status: building
 sources:
   - Map pass 4 car hunt (2026-10-16)
-updated: 2026-10-16
+updated: 2026-10-17
 tags: [tool, security, assets, store]
 ---
 
@@ -45,3 +45,6 @@ All deleted before any Play test, so nothing ran (scripts don't run in Edit mode
 - [[Map Asset Registry]]
 - [[Studio MCP Gotchas]]
 - [[index]]
+
+## Community resources (2026-10-17)
+- "Realistic Dynamic Lighting" V1.1 (Maiq_S, DevForum): 13 scripts read, no `require(id)`, `loadstring`, `HttpService`, `getfenv`. Clean. Ported into `ServerScriptService.MapLighting`, see [[Lighting And Atmosphere]].

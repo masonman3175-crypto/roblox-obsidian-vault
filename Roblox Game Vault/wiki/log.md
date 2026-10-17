@@ -140,3 +140,7 @@ Recent: `grep "^## \[" log.md | tail -5`
 
 ## [2026-10-17] update | Beretta hands back to Roblox-blocky (claude)
 - Updated [[Claude Beretta]] (hands style rule)
+
+## [2026-10-17] update | Curb z-fight fix and dynamic lighting (claude)
+- Updated [[Main Street Block]], [[Lighting And Atmosphere]], [[Store Asset Vetting]]
+- Devlog [[2026-10-17]], session log 2026-10-17-claude
