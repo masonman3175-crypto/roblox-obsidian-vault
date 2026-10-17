@@ -20,7 +20,7 @@ _None yet._
 
 ## Maps
 - [[Main Street Block]] - hood warfare 1.2 map: street, rowhouses, alleys, landmarks, grime, real oaks + old cars, decal graffiti (building)
-- [[Graffiti Style]] - real spray-paint look, tag name list, 13 original pieces waiting on upload, store decals as placeholders (building)
+- [[Graffiti Style]] - real spray-paint look, tag name list, 13 original pieces in game, layered over tag walls (building)
 - [[Hood Warfare 2 Reference Pack]] - original FPS reference pack: urban routes, modes, combat questions, and blockout plan (idea)
 - [[Hood Warfare 2 Urban Routes]] - primary, service, and interior route layers for readable urban combat (idea)
 - [[Hood Warfare 2 Blockout Workflow]] - small-block-first map building and testing sequence (planned)

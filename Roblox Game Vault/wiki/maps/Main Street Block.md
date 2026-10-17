@@ -99,7 +99,7 @@ Cade's notes on pass 3: trees too small and fake (single straight trunk), graffi
   - Sources: `93702862785504` (old sedan), `4128316898` (white 70s sedan, bearduckmonkey), `8616820527` (rusty car pack, xavier2007, 7 used). All scripts removed.
   - **Rejected for hidden scripts:** `116549755605901` (22 scripts incl. "PoseLink", "Wave"), `84448302369434` (31 scripts), and `93702862785504` came with `Runtime` + `ScreenBuilder` scripts despite claiming none (backdoor pattern). Mesh kept, scripts deleted. Always strip and check store models.
   - Gotcha: GetBoundingBox follows the PrimaryPart's tilt, so use a world AABB from part corners to orient cars. One car ended up upside down from a bad rotation and was fixed.
-- **Graffiti:** see [[Graffiti Style]]. Font text removed. 19 panels now use 8 vetted store decals as placeholders; our 13 original pieces wait on upload permission.
+- **Graffiti:** see [[Graffiti Style]]. Font text removed. Our 13 original pieces uploaded and layered over tag walls on all 19 spots (45 panels), with a few store decals mixed in.
 - Templates: `ServerStorage.MapTools.PropMeshes` now has OakA-F and 9 `Car_*`. Old AI `Sedan90s`, `Sedan70s`, `StreetTree` removed. AI dumpster, wheelie bin, trash can, hydrant kept.
 - Playtest clean. Car collision works, 0 scripts in the map or templates, about 3,000 parts.
 

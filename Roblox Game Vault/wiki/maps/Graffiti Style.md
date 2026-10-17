@@ -51,6 +51,26 @@ Cade's call (2026-10-16): the first pass (font text like FRESH, NOVA) looked fak
 | color wildstyle | 1519360126 | 1519360121 |
 | sticker pile | 160092192 | 160092191 |
 
+## Our uploaded image ids
+| Piece | Image id |
+|---|---|
+| SPAT | 81209786795269 |
+| BRAKE | 130732601397786 |
+| LONER | 94392036837616 |
+| TYPE | 82049663093414 |
+| SKOT | 126543166347205 |
+| DONK | 116747513616636 |
+| DAPS | 90096331452807 |
+| BAK | 87988191350249 |
+| GROSE | 74025976728406 |
+| skull character | 82069148359228 |
+| blob character | 97704264839022 |
+| tag wall A | 109222159793441 |
+| tag wall B | 87108248546904 |
+
+![[2026-10-16-graffiti-ingame-cutthrough.jpg]]
+![[2026-10-16-graffiti-ingame-endwall.jpg]]
+
 ## How we'd build it in Roblox
 - **Instances:** invisible, non-collidable carrier `Part` flush with the wall, one `Decal` on its Front face. Templates in `ServerStorage.MapTools.GraffitiDecals` with an `Aspect` attribute.
 - **Gotcha:** a Decal inserted from the store gets the *decal* id. It must use the *image* id or it renders blank. Get it with `InsertService:LoadAsset(decalId)` in Edit mode and read the Decal's Texture.

@@ -64,3 +64,6 @@ Recent: `grep "^## \[" log.md | tail -5`
 ## [2026-10-16] ingest | Graffiti refs + map pass 4 fixes (claude)
 - raw: `2026-10-16-graffiti-ref-*.webp` (3), `2026-10-16-graffiti-generated/` (13 PNGs + generator), `2026-10-16-map-pass4-*.jpg`
 - New: [[Graffiti Style]]. Updated: [[Main Street Block]], [[Art Direction]], [[index]], [[2026-10-16]]
+
+## [2026-10-16] update | Original graffiti uploaded and placed (claude)
+- [[Graffiti Style]]: 13 image ids, 2 in-game screenshots. Updated [[Main Street Block]], [[index]], [[2026-10-16]]
