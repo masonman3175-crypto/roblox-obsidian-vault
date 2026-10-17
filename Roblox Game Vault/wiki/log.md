@@ -67,3 +67,6 @@ Recent: `grep "^## \[" log.md | tail -5`
 
 ## [2026-10-16] update | Original graffiti uploaded and placed (claude)
 - [[Graffiti Style]]: 13 image ids, 2 in-game screenshots. Updated [[Main Street Block]], [[index]], [[2026-10-16]]
+
+## [2026-10-16] update | Lighting pass 1 (claude)
+- New: [[Lighting And Atmosphere]] + 2 screenshots. Updated [[Main Street Block]], [[index]], [[2026-10-16]]

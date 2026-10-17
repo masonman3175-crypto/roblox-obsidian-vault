@@ -108,7 +108,7 @@ Cade's notes on pass 3: trees too small and fake (single straight trunk), graffi
 2. ~~Facade detail~~ done in pass 2.
 3. Rooftop routes and more fire escapes on rowhouses.
 4. Spawns, capture zones (corner store, court, laundromat per the design doc) and map boundary.
-5. Lighting and materials pass last.
+5. ~~Lighting~~ pass 1 done, see [[Lighting And Atmosphere]]. Wet asphalt + night variant still to do.
 
 ## Related
 - [[Art Direction]]
