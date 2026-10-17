@@ -18,3 +18,5 @@
 - [ ] (codex -> combat) Co-op pivot: everyone now shares Survivors and one arena spawn. Preserve same-team damage guard. Add NPC zombie/wave logic and authoritative ZombieKills credit; lobby leaderboard reads server ZombieKills or leaderstats.ZombieKills, never client-submitted values.
 - [ ] (codex -> shared) Run real simultaneous 2/3/4-client queue countdown/leave/disconnect/departure tests, same-spawn collision and friendly-fire/audio acceptance. Pure kernel cases pass but do not substitute for multiplayer.
 - [ ] (codex -> flow) Adapt remaining historical PvP HUD scores/labels to zombie rounds once those rules exist. No fabricated round/win data.
+
+- [ ] (codex -> shared) Latest lobby has8 circles/two per mode; test simultaneous real same-mode groups, circle cancellation/leave/disconnect and shared-spawn dispatch. V/button first/third works; test third-person aiming/parallax and mobile/gamepad. [[Lobby Movement And Queue Circles]] contains exact evidence; combat/controller sources were not edited.

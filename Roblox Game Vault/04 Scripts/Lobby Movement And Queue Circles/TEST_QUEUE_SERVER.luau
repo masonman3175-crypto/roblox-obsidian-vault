@@ -1,0 +1,22 @@
+local Queue=require(game.ServerScriptService.LobbySystem.Queue)
+local config=require(game.ReplicatedStorage.LobbySystem.Config)
+assert(#config.Queues==8)
+local q=Queue.new(config.Queues,15)
+local total=0
+for i,d in config.Queues do for j=1,d.Size do assert(q:Add(i*10+j,d.Id));total+=1 end end
+assert(#q:Step(100,function()return true end)==0)
+assert(#q:Step(114.99,function()return true end)==0)
+local launches=q:Step(115,function()return true end)
+assert(#launches==8)
+local members=0 for _,g in launches do members+=#g.Members end assert(members==20 and total==20)
+assert(#q:Step(116,function()return true end)==0)
+q=Queue.new(config.Queues,15)
+q:Add(1,"Duos_1");q:Add(2,"Duos_1");q:Add(3,"Duos_2");q:Add(4,"Duos_2")
+q:Step(0,function()return true end)
+q:Remove(2)
+local launch=q:Step(15,function()return true end)
+assert(#launch==1 and launch[1].Mode=="Duos_2")
+assert(q.Membership[1]=="Duos_1" and #q.Queues.Duos_1.Members==1)
+q:Remove(1);q:Add(1,"Duos_2");assert(q.Membership[1]=="Duos_2")
+assert(not q:Add(9,"arbitrary"))
+return "EIGHT QUEUE UNIT PASS: eight simultaneous full groups, 20 unique members, independent same-mode timers/cancellation and no duplicate dispatch"

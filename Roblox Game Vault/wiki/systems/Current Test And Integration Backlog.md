@@ -47,3 +47,7 @@ map/spawn/combat work unchanged. Test the requested feature, record exact result
 and remaining gaps, update only flow/shared notes, log the change, pull again,
 commit and push without force. Sync the actual open Obsidian vault too.
 ```
+
+## Latest lobby acceptance
+- [[Lobby Movement And Queue Circles]]: eight independent circles/two per mode, actual second-Solo departure and leave, radial membership and sprint-out cancellation; controlled lobby sprint24/slide/recovery; real V first/third plus M return; third-person visible avatar and single-shot cue. Top title banner removed.
+- Pure kernel tests cover8 full groups/20 unique simulated membership IDs and independent same-mode cancellation; these do not substitute for real simultaneous multiplayer. Third-person aiming/parallax, touch/gamepad and peer departure remain acceptance work.

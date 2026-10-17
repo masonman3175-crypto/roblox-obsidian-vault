@@ -1,0 +1,105 @@
+LOBBY MOVEMENT AND EIGHT QUEUE CIRCLES — 2026-10-17
+Place: hood warfare 1.2 (127865723083651)
+Changed branch/fields: lobby movement gate in MovementClient/GameplayMovement.Service; LobbySystem Config/Client/Service; Queues subtree. Server-owned InLobby enables movement, not weapon authority.
+
+FOUR ARTIFACT PATHS
+MODIFIED_FILE: C:/Users/mason/OneDrive/Documents/Obsidian Vault/Roblox Game Vault/04 Scripts/Lobby Movement And Queue Circles/MODIFIED_FILE.luau
+DIFF_FILE: C:/Users/mason/OneDrive/Documents/Obsidian Vault/Roblox Game Vault/04 Scripts/Lobby Movement And Queue Circles/DIFF_FILE.md
+VERIFICATION: C:/Users/mason/OneDrive/Documents/Obsidian Vault/Roblox Game Vault/04 Scripts/Lobby Movement And Queue Circles/VERIFICATION.txt
+ROLLBACK: C:/Users/mason/OneDrive/Documents/Obsidian Vault/Roblox Game Vault/04 Scripts/Lobby Movement And Queue Circles/ROLLBACK.sh
+
+PRESERVED ORIGINALS
+BASELINE.json SHA256 7918B4BA59E4EB82CE2E303D0F00AA670DDBA3B3BC229D93A58D4CFB194778C9
+MODIFIED_FILE.luau SHA256 DCE2E30912DE3C1393D928144A83AC18EABB0F6E7F278C28F3A6940C8507D018
+Studio backup: ServerStorage.LobbyMovementEightQueuesBackup_20261017 (5 exact original sources plus original 4-queue subtree).
+Reference actually opened via view_image before interpretation:
+C:/Users/mason/AppData/Local/Temp/codex-clipboard-c2af45b2-7d3b-451b-974f-c26826db6c88.png
+Reference SHA256 8855082FF0FB2A9170B2C1C282497B726165791B8934EEE11D15B6DA6F08027E
+Observed a glowing green circular/cylindrical walk-in zone, outlined 0/4 count and 15(sec) timer. Used native Parts/BillboardGui for interactive circles, no store imports/scripts/uploads and no changes to original image.
+
+BASELINE — actual fresh Client Play
+Command: start_stop_play({is_start:true,studio_id:"a8c52bef-c6e7-4b6f-b818-37193fc2a609"}), then execute_luau({datamodel_type:"Client",studio_id:"a8c52bef-c6e7-4b6f-b818-37193fc2a609",code:<BASELINE_TEST.luau exact contents>}).
+Literal output:
+BASELINE PASS: 4 rectangular queues; title banner visible; lobby sprint blocked at speed 14
+Tool isError:false; OS exit status not applicable to MCP.
+Stopped before Edit changes.
+
+MODIFIED — actual install and source checks
+Command: execute_luau(Edit,code:<MODIFIED_FILE.luau>).
+Final file includes all five final sources and the final queue-circle builder. It guards against overwriting a current task backup.
+Initial install followed by bounded corrections to camera reconciliation and label heights; final installed sources were checked for exact equality with final files.
+Complete final installer compiled as an isolated ModuleScript returning a function, without re-executing changes.
+Literal output: COMPILE PASS: final complete installer
+Tool isError:false; OS exit status not applicable.
+No combat/controller, audio, leaderboard, base-map building or Queue kernel source assignments.
+
+MODIFIED — fresh Client Play
+Command: execute_luau(Client,code:<TEST_START_CLIENT.luau>)
+Literal output:
+{"queues":8,"topBanner":false,"eachMode":2,"team":"Survivors","result":"START PASS","camera":{"MinZoom":7,"Connections":9,"MaxZoom":20,"QueueId":"","ThirdPerson":true,"ViewmodelVisible":false,"Banner":false,"Camera":"Classic"}}
+
+Command: real user_keyboard_input V +200/300ms waits; assert presentation state.
+Literal outputs:
+V FIRST-PERSON PASS
+V THIRD-PERSON PASS: visible avatar, first-person weapon viewport hidden, zoom 7-20
+DEPLOYED FIRST-PERSON PASS: V restores normal weapon view
+Camera selection also has a real GuiButton. Third-person reconciliation runs after existing weapon render/initialization without changing its source.
+
+Command: execute_luau(Server,code:<TEST_MOVEMENT_SERVER.luau>).
+Uses actual server movement Control Sprint/Slide API and actual Humanoid MoveTo. Temporarily assigns this QA character server network ownership, restores original owner automatically/explicitly; never edits movement state attributes directly.
+Literal successful output:
+{"staminaUsed":4.418500807136297,"standingHip":1.9980254173278809,"slideHip":1.648025393486023,"speed":24,"result":"CONTROLLED LOBBY MOVEMENT PASS"}
+Actual initial live Client control observation also recorded sprint24, ModeSprinting, then ModeSliding with CameraDrop1.3172662565221325. That observation preceded the camera-only reconciliation correction; movement sources stayed identical.
+No claim that an interrupted three-cycle client harness passed.
+
+Command: execute_luau(Client,code:<TEST_CIRCLES_CLIENT.luau>)
+Literal output:
+CIRCLE QUEUE PASS: same-mode slots independent, radial boundaries, sprint-out cancel, Solo 2 shared-spawn deployment
+Duos_1 count1/Duos_2 count0, then switched counts0/1; diagonal (6,6) outside radius7 does not count despite lying in the square bounding box. Sprinting out cancels Solos_1 deadline; Solos_2 counts down15s and deploys to the unchanged shared spawn.
+
+Command: execute_luau(Server,code:<TEST_QUEUE_SERVER.luau>)
+Literal output:
+EIGHT QUEUE UNIT PASS: eight simultaneous full groups, 20 unique members, independent same-mode timers/cancellation and no duplicate dispatch
+Pure kernel fixtures, not fabricated live multiplayer clients. Eight independent IDs reuse the original untouched Queue module.
+
+Command: actual user_mouse_input click LocalPlayer.PlayerGui.SurvivorLobbyUI.QueuePanel.LeaveQueue; then execute_luau(Client,code:<TEST_PRESENTATION_CLIENT.luau>).
+Literal output:
+{"visibleParts":27,"result":"LIVE PRESENTATION PASS: actual leave, second circle deploy, visible third-person avatar, no viewmodel overlay, one shot cue","camera":{"MinZoom":7,"Connections":9,"MaxZoom":20,"QueueId":"","ThirdPerson":true,"ViewmodelVisible":false,"Banner":false,"Camera":"Classic"}}
+Leave blocks immediate rejoin until exit; other same-mode circle can be joined separately. Actual W1 fire produced exactly one shot cue in deployed third person; test mode disabled afterward.
+
+Command: real V key returns to third person, then real M key returns to lobby, Client assertions.
+Literal output:
+RETURN PASS: M returns unarmed in third person with no banner
+
+All successful modified MCP tests above isError:false; OS exit status not applicable.
+Visual inspection: actual circle disc/light columns, white outlined counts/timers and absence of top banner checked through Studio captures. Staggered row label heights reduce overlapping labels; far/close views naturally differ.
+
+FINAL STATIC
+Command: execute_luau(Edit,code:<VERIFY.luau>).
+Literal output:
+{"countdown":15,"queues":8,"music":false,"queueFloorRays":232,"sourcesMatch":5,"unchangedQueueKernel":true,"result":"VERIFY PASS","perMode":2}
+232 floor rays inside circle radii; all distinct circles non-overlapping; each mode exactly two; native cylinders non-colliding. Survivors team/shared spawn unchanged, music absent.
+Tool isError:false; OS exit status not applicable.
+
+ROLLBACK — actual isolated source/world copies
+Command: execute_luau(Edit,code:<TEST_ROLLBACK.luau>) invokes exact embedded RESTORE.luau against isolated source targets and queue folders.
+Literal output:
+ROLLBACK PASS: original 4 queues, banner, camera and lobby movement gates restored on isolated copies; live 8-circle update retained
+Five original source strings restored byte-for-byte; original Solos/Duos/Trios/Squads scene nodes present, duplicate IDs absent; original title banner creation and countdown8 source restored.
+Tool isError:false; OS exit status not applicable. This verifies restored baseline sources/scene, not a separate full Play run of the fixture. Live new sources/8 circles remain.
+
+LOCAL EXECUTABLE ROLLBACK
+Exact PowerShell command in local lobby_movement_eight_queues directory:
+& 'C:\Program Files\Git\bin\bash.exe' -c 'chmod +x ROLLBACK.sh && ./ROLLBACK.sh --self-test'; exit $LASTEXITCODE
+Inputs BASELINE.json and MODIFIED_FILE.luau; temporary independent byte copy only.
+Literal output:
+LOCAL ROLLBACK PASS: original snapshot restored on separate bytes; live eight-circle update retained
+OS exit status:0. Normal mode prints Studio restore instructions; shell does not control Studio.
+
+QA CORRECTIONS / LIMITS
+- Native weapon initialization re-requested LockFirstPerson after initial camera setup. Late reconciliation now preserves the selected V/button mode; tested both lobby and deployed play.
+- Repeated-client movement QA was disturbed by live input/window-focus resets and Studio switching to Edit. Failed/interrupted attempts were not counted as passes. Controlled successful test above exercises real movement authority/physics and restores character ownership.
+- One early recovery-only sample had no observed slide/drop; it is not used as proof of sliding. Successful first live slide observation and controlled server Slide test are listed explicitly.
+- Body/first-person viewmodel presentation is local-only; weapon authority remains existing code. Third-person firing works in smoke test; comprehensive shoulder-aim/parallax/mobile/gamepad testing remains.
+- Real simultaneous multi-client launches of 2/3/4-member groups remain untested; pure eight-queue fixtures do not establish that acceptance.
+- No new zombie AI, wave rules, persistence or matchmaking services in this task. No public publish. Commit Studio drafts and allow Team Create to save.

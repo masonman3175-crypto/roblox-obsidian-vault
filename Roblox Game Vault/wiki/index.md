@@ -39,7 +39,8 @@ Rules: see the Wiki schema section in `CLAUDE.md` / `AGENTS.md`. Timeline: [[log
 - [[Overcast Rowhouse Street]] - overcast haze, brick rowhouses, power lines, street cover (idea)
 
 ## Systems
-- [[Zombie Lobby And Co-op Queues]] - compact physical lobby, leaderboard and cooperative 1/2/3/4-player queues; one team/shared spawn (shipped)
+- [[Lobby Movement And Queue Circles]] - lobby sprint/slide, V camera toggle, eight independent circular queues and no title banner (shipped)
+- [[Zombie Lobby And Co-op Queues]] - compact co-op lobby, leaderboard, two circles per 1/2/3/4-player mode and shared spawn (shipped)
 - [[Crouch And Compact Map]] - crouch/camera stance, tighter perimeter and floor repair; music later removed (shipped)
 - [[Game Audio And Music]] - restored weapon/movement/UI effects, no background music, with isolated rollback (shipped)
 - [[Current Test And Integration Backlog]] - verified work, multiplayer gaps and reusable session prompt (building)

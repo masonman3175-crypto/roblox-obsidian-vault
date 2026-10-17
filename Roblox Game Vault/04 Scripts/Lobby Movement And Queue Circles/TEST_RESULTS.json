@@ -1,0 +1,65 @@
+{
+  "start": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"queues\":8,\"topBanner\":false,\"eachMode\":2,\"team\":\"Survivors\",\"result\":\"START PASS\",\"camera\":{\"MinZoom\":7,\"Connections\":9,\"MaxZoom\":20,\"QueueId\":\"\",\"ThirdPerson\":true,\"ViewmodelVisible\":false,\"Banner\":false,\"Camera\":\"Classic\"}}"
+      }
+    ],
+    "isError": false
+  },
+  "camera": {
+    "content": [
+      {
+        "type": "text",
+        "text": "V THIRD-PERSON PASS: visible avatar, first-person weapon viewport hidden, zoom 7-20"
+      }
+    ],
+    "isError": false
+  },
+  "movement": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"staminaUsed\":4.418500807136297,\"standingHip\":1.9980254173278809,\"slideHip\":1.648025393486023,\"speed\":24,\"result\":\"CONTROLLED LOBBY MOVEMENT PASS\"}"
+      }
+    ],
+    "isError": false
+  },
+  "independentLiveQueues": {
+    "content": [
+      {
+        "type": "text",
+        "text": "CIRCLE QUEUE PASS: same-mode slots independent, radial boundaries, sprint-out cancel, Solo 2 shared-spawn deployment"
+      }
+    ],
+    "isError": false
+  },
+  "kernel": {
+    "content": [
+      {
+        "type": "text",
+        "text": "EIGHT QUEUE UNIT PASS: eight simultaneous full groups, 20 unique members, independent same-mode timers/cancellation and no duplicate dispatch"
+      }
+    ],
+    "isError": false
+  },
+  "presentation": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"visibleParts\":27,\"result\":\"LIVE PRESENTATION PASS: actual leave, second circle deploy, visible third-person avatar, no viewmodel overlay, one shot cue\",\"camera\":{\"MinZoom\":7,\"Connections\":9,\"MaxZoom\":20,\"QueueId\":\"\",\"ThirdPerson\":true,\"ViewmodelVisible\":false,\"Banner\":false,\"Camera\":\"Classic\"}}"
+      }
+    ],
+    "isError": false
+  },
+  "return": {
+    "content": [
+      {
+        "type": "text",
+        "text": "RETURN PASS: M returns unarmed in third person with no banner"
+      }
+    ],
+    "isError": false
+  }
+}

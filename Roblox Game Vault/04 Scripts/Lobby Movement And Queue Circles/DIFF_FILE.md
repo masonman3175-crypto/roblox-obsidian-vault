@@ -1,0 +1,11 @@
+# Lobby Movement, Third Person And Eight Queue Circles
+- Existing lobby weapon gating remains; movement client/server explicitly allow server-owned InLobby movement, so sprint24, slide/crouch/stamina/ground validation operate in the hub.
+- Queue Config now has 4 modes and 8 independent queue descriptors: Mode_1 / Mode_2, two circles per Solo/Duo/Trio/Squad. Countdown15 seconds follows the supplied reference.
+- Service uses independent queue IDs for membership/leave/cancel; public QueuedMode stays friendly mode name, QueuedQueueId and CoopQueueId disambiguate circles. All parties stay Survivors and retain shared gameplay spawn(0,4.6,0).
+- Zone membership uses radial distance, not a square bounding box. Circles radius7, two rows +/-9 with no overlapping membership.
+- Replaced 4 rectangular gates with 8 non-colliding glowing circular platforms/light columns and outlined floating count/timer labels. Labels stagger vertically for row readability.
+- Removed top title/status banner entirely; retained only contextual queue panel, small camera and return controls.
+- V/button selects first/third person in lobby and deployed play. Default third person has Classic camera zoom7-20, visible local avatar, hidden first-person weapon viewport. Late presentation reconciliation handles native weapon initialization without editing combat.
+- Teleports cancel leftover slide/crouch and zero root velocity; existing inventory/respawn/team handling preserved.
+- Changed only 5 flow-owned module sources plus Queues subtree. Queue kernel, combat/controller, main map buildings, leaderboard and audio source are not rewritten.
+- Backup: ServerStorage.LobbyMovementEightQueuesBackup_20261017. Actual isolated restore of 5 original sources and 4 original gates passed; live update retained.

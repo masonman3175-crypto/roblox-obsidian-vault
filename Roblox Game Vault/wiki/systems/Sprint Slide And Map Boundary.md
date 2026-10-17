@@ -53,3 +53,8 @@ Related: [[Main Menu And Locker]], [[Main Street Routes and Cover]], [[2026-10-1
 
 ## Later 2026-10-17 follow-up
 - [[Crouch And Compact Map]] is the current control/geometry specification: crouch speed 8, 1.55-stud eye drop, safe headroom, 27% smaller boundary, corrected floor overlaps and 5% music. Historical 2026-10-16 test figures above remain dated evidence.
+
+## Current co-op lobby movement
+- [[Lobby Movement And Queue Circles]] permits existing sprint/slide/crouch in the physical lobby. Server-owned InLobby overrides only movement menu gating; weapon authority remains gated and tools stashed.
+- Shift sprint24, sprint+C slide; V/button first/third person works in both lobby and deployed play. Stamina, ground/momentum, crouch/headroom and malformed-payload validation remain.
+- Controlled live lobby sprint/slide/standing recovery passed; initial live client slide showed camera dip. Main-map walls/geometry are unchanged.

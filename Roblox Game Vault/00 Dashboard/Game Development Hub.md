@@ -12,6 +12,7 @@ updated: 2026-10-17
 > Start here for the current co-op zombie direction, not the old PvP/menu or keyboard demo. Place: **hood warfare 1.2**, `127865723083651`. This is a notes/source archive, not a published Roblox place.
 
 ## Latest shipped pass (2026-10-17)
+- [[Lobby Movement And Queue Circles]] — lobby sprint/slide, V first/third person, eight independent glowing circles (two per mode), floating counts/15-second timers and no top banner.
 - [[Zombie Lobby And Co-op Queues]] — physical compact-map lobby, session leaderboard, 1/2/3/4-player co-op queues, one Survivors team and one shared gameplay spawn. Old Play/locker menu removed; zombie AI/waves are next work.
 - [[Crouch And Compact Map]] — C / Left Ctrl / B crouch with camera drop; sprint+C/B still slides. Speed 8; tested eye drop 1.55 studs.
 - [[Game Audio And Music]] — weapon, movement and UI sounds; effects restored independently; **no background music**.
@@ -36,6 +37,7 @@ updated: 2026-10-17
 - [[wiki/index|Full Wiki Index]] — all references, tools and implementation notes.
 
 ## Source and evidence
+- [[04 Scripts/Lobby Movement And Queue Circles/Implementation|Latest lobby movement, camera and eight-circle source + tests + rollback]].
 - [[04 Scripts/Zombie Lobby And Co-op Queues/Implementation|Current co-op lobby source, scene, exact tests and rollback]].
 - [[04 Scripts/Audio Effects Restore/Implementation|Latest effects-only audio source + tests + rollback]] — no background music.
 - [[04 Scripts/Crouch And Compact Map/Implementation|Latest crouch, compact-map and floor source + tests + rollback]].

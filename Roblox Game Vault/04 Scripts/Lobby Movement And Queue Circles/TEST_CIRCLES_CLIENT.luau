@@ -1,0 +1,22 @@
+local p=game.Players.LocalPlayer local c=p.Character local m=p.PlayerScripts.MovementControl
+local q=workspace.SurvivorLobby.Queues
+c:PivotTo(CFrame.new(979,4,-9));task.wait(.5)
+assert(p:GetAttribute("QueuedQueueId")=="Duos_1" and q.Duos_1:GetAttribute("QueueCount")==1 and q.Duos_2:GetAttribute("QueueCount")==0)
+assert(q.Duos_1.LabelAnchor.QueueLabel.Count.Text=="1/2")
+c:PivotTo(CFrame.new(979,4,9));task.wait(.5)
+assert(p:GetAttribute("QueuedQueueId")=="Duos_2" and q.Duos_1:GetAttribute("QueueCount")==0 and q.Duos_2:GetAttribute("QueueCount")==1)
+c:PivotTo(CFrame.new(985,4,15));task.wait(.5)
+assert(p:GetAttribute("QueuedQueueId")=="","Square corner incorrectly counted inside circular queue")
+c:PivotTo(CFrame.new(937,4,-9));task.wait(.5)
+assert(p:GetAttribute("QueuedQueueId")=="Solos_1" and q.Solos_1:GetAttribute("DepartureAt")>0)
+m:Invoke("Sprint",true);c.Humanoid:MoveTo(Vector3.new(959,4,-9));task.wait(.7)
+assert(p:GetAttribute("QueuedQueueId")=="" and q.Solos_1:GetAttribute("DepartureAt")==0)
+m:Invoke("Sprint",false);c.Humanoid:MoveTo(c.HumanoidRootPart.Position)
+c:PivotTo(CFrame.new(937,4,9));task.wait(.5)
+assert(p:GetAttribute("QueuedQueueId")=="Solos_2" and q.Solos_2:GetAttribute("DepartureAt")>0)
+assert(q.Solos_1:GetAttribute("QueueCount")==0)
+task.wait(15.3)
+assert(p:GetAttribute("LobbyPhase")=="Deployed" and p:GetAttribute("CoopQueueId")=="Solos_2" and p:GetAttribute("CoopMode")=="Solos")
+assert((p:GetAttribute("LastDeploymentSpawn")-Vector3.new(0,4.6,0)).Magnitude<.01)
+assert(p.Team.Name=="Survivors")
+return "CIRCLE QUEUE PASS: same-mode slots independent, radial boundaries, sprint-out cancel, Solo 2 shared-spawn deployment"
