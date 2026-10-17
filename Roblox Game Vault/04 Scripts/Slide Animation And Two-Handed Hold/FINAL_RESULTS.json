@@ -1,0 +1,112 @@
+{
+  "static": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"ReplicatedStorage.ReferenceWeapons.Controller\":{\"DJB2\":2948271393,\"Length\":29148},\"ServerScriptService.GameplayMovement.Service\":{\"DJB2\":3874657873,\"Length\":11850},\"ServerScriptService.ClaudeAKServer.Logic\":{\"DJB2\":3633508868,\"Length\":5537},\"ReplicatedStorage.GameplayPresentation.CharacterPose\":{\"DJB2\":3909914405,\"Length\":10831},\"StarterPlayer.StarterPlayerScripts.ClaudeThirdPerson\":{\"DJB2\":3427856213,\"Length\":3074},\"ContractPresent\":false,\"PlaceId\":127865723083651,\"ReplicatedStorage.ReferenceWeapons.WeaponConfig\":{\"DJB2\":157796188,\"Length\":3740},\"Backup\":{\"ReplicatedStorage.GameplayPresentation.MovementConfig\":{\"DJB2\":927149100,\"Length\":436},\"StarterPlayer.StarterPlayerScripts.ClaudeThirdPerson\":{\"DJB2\":2875680942,\"Length\":4538},\"ServerScriptService.GameplayMovement.Service\":{\"DJB2\":4265503702,\"Length\":11670},\"ReplicatedStorage.GameplayPresentation.MovementClient\":{\"DJB2\":3105524401,\"Length\":11446}},\"ReplicatedStorage.LobbySystem.Client\":{\"DJB2\":2216548880,\"Length\":9155},\"ReplicatedStorage.GameplayPresentation.MovementConfig\":{\"DJB2\":432269547,\"Length\":436},\"ReplicatedStorage.GameplayPresentation.MovementClient\":{\"DJB2\":133709571,\"Length\":9844}}"
+      }
+    ],
+    "isError": false
+  },
+  "checks": [
+    {
+      "path": "ReplicatedStorage.ReferenceWeapons.Controller",
+      "match": true
+    },
+    {
+      "path": "ReplicatedStorage.LobbySystem.Client",
+      "match": true
+    },
+    {
+      "path": "ReplicatedStorage.ReferenceWeapons.WeaponConfig",
+      "match": true
+    },
+    {
+      "path": "ServerScriptService.ClaudeAKServer.Logic",
+      "match": true
+    },
+    {
+      "path": "ReplicatedStorage.GameplayPresentation.MovementConfig",
+      "match": true
+    },
+    {
+      "path": "ReplicatedStorage.GameplayPresentation.MovementClient",
+      "match": true
+    },
+    {
+      "path": "StarterPlayer.StarterPlayerScripts.ClaudeThirdPerson",
+      "match": true
+    },
+    {
+      "path": "ReplicatedStorage.GameplayPresentation.CharacterPose",
+      "match": true
+    },
+    {
+      "path": "ServerScriptService.GameplayMovement.Service",
+      "match": true
+    }
+  ],
+  "rollback": {
+    "content": [
+      {
+        "type": "text",
+        "text": "PASS: 4 sources patched + CharacterPose created; originals backed up; PASS: 4 original sources restored; CharacterPose removed; live modified sources unchanged; isolated fixture deleted"
+      }
+    ],
+    "isError": false
+  },
+  "lobby": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"Recovered\":0.00003253045364108355,\"Rows\":[{\"Distance\":3.1274197101593019,\"Time\":0.1,\"Slide\":0.8646647328966093,\"Speed\":34.47317123413086,\"Mode\":\"Sliding\",\"Hip\":0.9480254054069519,\"Reason\":\"Cancelled\"},{\"Distance\":6.415775775909424,\"Time\":0.2,\"Slide\":0.9944834371575407,\"Speed\":31.384462356567384,\"Mode\":\"Sliding\",\"Hip\":0.9480254054069519,\"Reason\":\"Cancelled\"},{\"Distance\":9.338881492614746,\"Time\":0.30000000000000007,\"Slide\":0.9997751327776849,\"Speed\":28.583683013916017,\"Mode\":\"Sliding\",\"Hip\":0.9480254054069519,\"Reason\":\"Cancelled\"},{\"Distance\":12.431918144226075,\"Time\":0.4,\"Slide\":0.9999946227527646,\"Speed\":25.264389038085939,\"Mode\":\"Sliding\",\"Hip\":0.9480254054069519,\"Reason\":\"Cancelled\"},{\"Distance\":15.215775489807129,\"Time\":0.5,\"Slide\":0.9999998714139503,\"Speed\":22.977039337158204,\"Mode\":\"Sliding\",\"Hip\":0.9480254054069519,\"Reason\":\"Cancelled\"},{\"Distance\":17.459075927734376,\"Time\":0.6000000000000001,\"Slide\":0.9999999954128228,\"Speed\":20.969655990600587,\"Mode\":\"Sliding\",\"Hip\":0.9480254054069519,\"Reason\":\"Cancelled\"},{\"Distance\":19.670265197753908,\"Time\":0.7000000000000001,\"Slide\":0.9999999998746613,\"Speed\":18.958648681640626,\"Mode\":\"Sliding\",\"Hip\":0.9480254054069519,\"Reason\":\"Cancelled\"},{\"Distance\":21.806171417236329,\"Time\":0.8,\"Slide\":0.9999999999970028,\"Speed\":18.009912490844728,\"Mode\":\"Sliding\",\"Hip\":0.9480254054069519,\"Reason\":\"Cancelled\"}]}"
+      }
+    ],
+    "isError": false
+  },
+  "arena": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"Recovered\":0.000016701691208532725,\"Rows\":[{\"Distance\":3.8445863723754885,\"Time\":0.1,\"Slide\":0.9391899453488183,\"Speed\":33.3469123840332,\"Mode\":\"Sliding\",\"Hip\":0.9480254054069519,\"Reason\":\"Cancelled\"},{\"Distance\":7.500394821166992,\"Time\":0.2,\"Slide\":0.998545849880275,\"Speed\":29.96324348449707,\"Mode\":\"Sliding\",\"Hip\":0.9480254054069519,\"Reason\":\"Cancelled\"},{\"Distance\":10.338878631591797,\"Time\":0.30000000000000007,\"Slide\":0.999940725646097,\"Speed\":27.234066009521486,\"Mode\":\"Sliding\",\"Hip\":0.9480254054069519,\"Reason\":\"Cancelled\"},{\"Distance\":13.337164878845215,\"Time\":0.4,\"Slide\":0.9999985825730742,\"Speed\":24.819162368774415,\"Mode\":\"Sliding\",\"Hip\":0.9480254054069519,\"Reason\":\"Cancelled\"},{\"Distance\":15.661927223205567,\"Time\":0.5,\"Slide\":0.9999999422225642,\"Speed\":22.61202049255371,\"Mode\":\"Sliding\",\"Hip\":0.9480254054069519,\"Reason\":\"Cancelled\"},{\"Distance\":18.115097045898439,\"Time\":0.6000000000000001,\"Slide\":0.9999999986183689,\"Speed\":20.148767471313478,\"Mode\":\"Sliding\",\"Hip\":0.9480254054069519,\"Reason\":\"Cancelled\"},{\"Distance\":20.360788345336915,\"Time\":0.7000000000000001,\"Slide\":0.9999999999669611,\"Speed\":18.693378448486329,\"Mode\":\"Sliding\",\"Hip\":0.9480254054069519,\"Reason\":\"Cancelled\"},{\"Distance\":22.635456085205079,\"Time\":0.8,\"Slide\":0.5134171011802208,\"Speed\":24.009292602539064,\"Mode\":\"Sprinting\",\"Hip\":1.9980254173278809,\"Reason\":\"Completed\"}]}"
+      }
+    ],
+    "isError": false
+  },
+  "guns": {
+    "content": [
+      {
+        "type": "text",
+        "text": "[{\"Pitch\":-35,\"SupportError\":4.378127584914182e-7,\"BarrelPitch\":-35.00000097901323,\"Pose\":{\"LeftError\":2.9802322387695315e-8,\"JointCount\":15,\"Support\":null,\"Crouch\":0,\"Slide\":0,\"RightError\":7.450580596923828e-9,\"Weapon\":\"W1\"},\"Weapon\":\"W1\"},{\"Pitch\":0,\"SupportError\":2.9295091508174666e-7,\"BarrelPitch\":0.000009818396931893379,\"Pose\":{\"LeftError\":2.9802322387695315e-8,\"JointCount\":15,\"Support\":null,\"Crouch\":0,\"Slide\":0,\"RightError\":1.862645149230957e-8,\"Weapon\":\"W1\"},\"Weapon\":\"W1\"},{\"Pitch\":35,\"SupportError\":9.996002745538136e-7,\"BarrelPitch\":35.00001765525787,\"Pose\":{\"LeftError\":6.143906006172983e-8,\"JointCount\":15,\"Support\":null,\"Crouch\":0,\"Slide\":0,\"RightError\":1.4901161193847657e-8,\"Weapon\":\"W1\"},\"Weapon\":\"W1\"},{\"Pitch\":-35,\"SupportError\":8.178687949111918e-7,\"BarrelPitch\":-35.00002182431957,\"Pose\":{\"LeftError\":0,\"JointCount\":15,\"Support\":null,\"Crouch\":0,\"Slide\":0,\"RightError\":2.2351741790771486e-8,\"Weapon\":\"W2\"},\"Weapon\":\"W2\"},{\"Pitch\":0,\"SupportError\":3.765308349557017e-7,\"BarrelPitch\":-0.000004268868231257973,\"Pose\":{\"LeftError\":0,\"JointCount\":15,\"Support\":null,\"Crouch\":0,\"Slide\":0,\"RightError\":6.146728992462158e-8,\"Weapon\":\"W2\"},\"Weapon\":\"W2\"},{\"Pitch\":35,\"SupportError\":7.024518708931282e-7,\"BarrelPitch\":35.000013486196397,\"Pose\":{\"LeftError\":6.143906006172983e-8,\"JointCount\":15,\"Support\":null,\"Crouch\":0,\"Slide\":0,\"RightError\":9.064022776783531e-8,\"Weapon\":\"W2\"},\"Weapon\":\"W2\"},{\"Pitch\":-35,\"SupportError\":8.012492571651819e-7,\"BarrelPitch\":-34.99998013371219,\"Pose\":{\"LeftError\":5.960464477539063e-8,\"JointCount\":15,\"Support\":null,\"Crouch\":0,\"Slide\":0,\"RightError\":2.9802322387695315e-8,\"Weapon\":\"W3\"},\"Weapon\":\"W3\"},{\"Pitch\":0,\"SupportError\":3.575114249088074e-7,\"BarrelPitch\":-0.000012806604693774014,\"Pose\":{\"LeftError\":1.4901161193847657e-8,\"JointCount\":15,\"Support\":null,\"Crouch\":0,\"Slide\":0,\"RightError\":2.2351741790771486e-8,\"Weapon\":\"W3\"},\"Weapon\":\"W3\"},{\"Pitch\":35,\"SupportError\":6.735464808116376e-7,\"BarrelPitch\":35.00002599338147,\"Pose\":{\"LeftError\":2.9802322387695315e-8,\"JointCount\":15,\"Support\":null,\"Crouch\":0,\"Slide\":0,\"RightError\":0,\"Weapon\":\"W3\"},\"Weapon\":\"W3\"},{\"Pitch\":-35,\"SupportError\":5.369718678593927e-7,\"BarrelPitch\":-35.000013486196397,\"Pose\":{\"LeftError\":5.960464477539063e-8,\"JointCount\":15,\"Support\":null,\"Crouch\":0,\"Slide\":0,\"RightError\":0,\"Weapon\":\"W4\"},\"Weapon\":\"W4\"},{\"Pitch\":0,\"SupportError\":9.77844365479541e-8,\"BarrelPitch\":0.000021344341156290343,\"Pose\":{\"LeftError\":8.940696716308594e-8,\"JointCount\":15,\"Support\":null,\"Crouch\":0,\"Slide\":0,\"RightError\":0,\"Weapon\":\"W4\"},\"Weapon\":\"W4\"},{\"Pitch\":35,\"SupportError\":4.536449296210776e-7,\"BarrelPitch\":35.00002599338147,\"Pose\":{\"LeftError\":6.664001972467304e-8,\"JointCount\":15,\"Support\":null,\"Crouch\":0,\"Slide\":0,\"RightError\":1.862645149230957e-8,\"Weapon\":\"W4\"},\"Weapon\":\"W4\"},{\"Pitch\":-35,\"SupportError\":0.017604414373636247,\"BarrelPitch\":-34.999955119357959,\"Pose\":{\"LeftError\":0.017604287713766099,\"JointCount\":15,\"Support\":null,\"Crouch\":0,\"Slide\":0,\"RightError\":2.9802322387695315e-8,\"Weapon\":\"W5\"},\"Weapon\":\"W5\"},{\"Pitch\":0,\"SupportError\":0.0000016267707678707666,\"BarrelPitch\":-0.0000119528310475224,\"Pose\":{\"LeftError\":1.1920928955078126e-7,\"JointCount\":15,\"Support\":null,\"Crouch\":0,\"Slide\":0,\"RightError\":7.450580596923828e-9,\"Weapon\":\"W5\"},\"Weapon\":\"W5\"},{\"Pitch\":35,\"SupportError\":0.00000187519435712602,\"BarrelPitch\":35.000080191205579,\"Pose\":{\"LeftError\":2.9802322387695315e-8,\"JointCount\":15,\"Support\":null,\"Crouch\":0,\"Slide\":0,\"RightError\":2.2351741790771486e-8,\"Weapon\":\"W5\"},\"Weapon\":\"W5\"}]"
+      }
+    ],
+    "isError": false
+  },
+  "crouch": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"FinalHip\":1.9980254173278809,\"FinalPose\":{\"LeftError\":6.064333035737946e-8,\"JointCount\":15,\"Support\":null,\"Crouch\":0.004760466899132908,\"RightError\":3.725290298461914e-8,\"Slide\":0,\"ClearanceLift\":0.23351092576980593,\"Weapon\":\"W1\"},\"Cycles\":[{\"Cycle\":1,\"CameraY\":-0.9421669840812683,\"Crouch\":0.9687790784835358,\"Hip\":1.398025393486023,\"SupportError\":0.000001623218054191966},{\"Cycle\":2,\"CameraY\":-0.9446283578872681,\"Crouch\":0.9761535000016378,\"Hip\":1.398025393486023,\"SupportError\":7.16844965609198e-7},{\"Cycle\":3,\"CameraY\":-0.9448003172874451,\"Crouch\":0.9761742016937713,\"Hip\":1.398025393486023,\"SupportError\":0.000001832433895287977},{\"Cycle\":4,\"CameraY\":-0.9448143243789673,\"Crouch\":0.9761742027676785,\"Hip\":1.398025393486023,\"SupportError\":0.0000012139875025241054}]}"
+      }
+    ],
+    "isError": false
+  },
+  "fire": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"Before\":30,\"Pose\":\"W1\",\"After\":29,\"Reloaded\":30}"
+      }
+    ],
+    "isError": false
+  },
+  "cleanup": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"InLobby\":true,\"Tools\":0,\"Hip\":1.9980254173278809,\"Pose\":{\"JointCount\":15,\"Support\":null,\"Crouch\":7.35532760296743e-308,\"Slide\":0.000008574933885105723,\"ClearanceLift\":0.16344810962677004},\"Drive\":false}"
+      }
+    ],
+    "isError": false
+  }
+}

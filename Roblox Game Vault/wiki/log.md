@@ -160,3 +160,8 @@ Recent: `grep "^## \[" log.md | tail -5`
 
 ## [2026-10-17] update | Third person combat (claude)
 - New [[Third Person Combat]]. Updated [[index]], [[2026-10-17]], session log, Next Pass
+
+## [2026-10-17] update | Slide animation and two-handed hold (codex)
+- New [[Slide Animation And Two-Handed Hold]], immutable clip descriptor and source/test/rollback archive; updated index, lobby-camera supersession note, hub, tasks, devlog and session log.
+- Real AnimationConstraint rig, normal client-owned arena/lobby travel,15 weapon/pitch cases, crouch cycles, fire/reload and return pass; bounded pose integration explicitly approved by user.
+- Isolated installer/rollback and executable copy rollback pass; five live modified sources retained, four unrelated combat/camera sources unchanged.

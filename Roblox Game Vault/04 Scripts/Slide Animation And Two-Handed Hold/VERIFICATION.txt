@@ -1,0 +1,83 @@
+SLIDE ANIMATION AND TWO-HANDED HOLD — 2026-10-17
+Place: hood warfare 1.2 / 127865723083651
+Changed branch: Ground probe keeps original standing range during slide; joint type guard accepts AnimationConstraint; single pose writer
+Changed fields: HipDrop=.35 -> 1.05; CameraDrop=1.45 -> .65; body poses + two-hand weapon profiles
+User explicitly approved bounded combat pose/grip integration; firing/damage left intact.
+Four deliverables:
+C:\Users\mason\.codex\visualizations\2026\10\16\01a14317-0d61-7650-b711-1ea3626ed7b5\slide_pose_repair\MODIFIED_FILE.luau
+C:\Users\mason\.codex\visualizations\2026\10\16\01a14317-0d61-7650-b711-1ea3626ed7b5\slide_pose_repair\DIFF_FILE.md
+C:\Users\mason\.codex\visualizations\2026\10\16\01a14317-0d61-7650-b711-1ea3626ed7b5\slide_pose_repair\VERIFICATION.txt
+C:\Users\mason\.codex\visualizations\2026\10\16\01a14317-0d61-7650-b711-1ea3626ed7b5\slide_pose_repair\ROLLBACK.sh
+
+SOURCE PRESERVATION
+BASELINE.json SHA256: 3AC53757CFE9236D1A4544077FDE6E28151689084975F8E4926B8B7F560EF52D
+MODIFIED_FILE.luau SHA256: A3C8F598A19208D3339700F64E9DE8DBBAD316E9D2C9EB52A4825EA57C7AD6FE
+Original video SHA256: 41F91F961F3F08A19D2AE1DC3FDB3C8EAB09EC81C34CAC4048E42B3FF4548254
+Video read-only, duration35.90s/30fps; extracted12 viewed frames. No video/animation upload.
+Live originals: ServerStorage.SlideAndGripBackup_20261017 (4 source copies).
+ServerStorage.README_CONTRACT was absent; no fabricated contract installed.
+
+BASELINE
+Command: Roblox_Studio.execute_luau(Client, place above), input:
+local p=game.Players.LocalPlayer;local c=p.Character;local j=c.RightUpperLeg.RightHip;return game.HttpService:JSONEncode({slidePoseExists=game.ReplicatedStorage.GameplayPresentation:FindFirstChild('CharacterPose')~=nil,legacyCrouchJointAccepted=j:IsA('Motor6D'),jointType=j.ClassName,cameraDistance=p.CameraMaxZoomDistance,rootY=c.HumanoidRootPart.Position.Y,hip=c.Humanoid.HipHeight})
+Literal output:
+{"rootY":2.9980251789093019,"legacyCrouchJointAccepted":false,"jointType":"AnimationConstraint","hip":1.9980254173278809,"slidePoseExists":false,"cameraDistance":8}
+Exit/status: tool isError=false (MCP has no process exit status).
+Baseline live W1 left hand was1.6502726 studs from root, at(-1.610635,.351403,.075962) in gun space.
+An intermediate client-owned slide reproduced Airborne cancellation within.2s. That failure led to the server ground-probe fix.
+Rejected/invalid QA attempts (startup race, blocked arena position, user mode switches and incomplete slide) are not counted as passes.
+
+MODIFIED — commands and literal results
+1. Roblox_Studio.execute_luau(Edit), input TEST_ROLLBACK.luau:
+PASS: 4 sources patched + CharacterPose created; originals backed up; PASS: 4 original sources restored; CharacterPose removed; live modified sources unchanged; isolated fixture deleted
+Exit/status: isError=false. This runs the complete final installer on an isolated source fixture, then real RESTORE.luau, and checks live sources remain modified.
+
+2. Roblox_Studio.execute_luau(Client), input TEST_CLIENT_SLIDE.luau, normal client-owned character (RenderStep Humanoid movement through actual MovementControl, not synthetic position increments).
+Lobby literal output:
+{"Recovered":0.00003253045364108355,"Rows":[{"Distance":3.1274197101593019,"Time":0.1,"Slide":0.8646647328966093,"Speed":34.47317123413086,"Mode":"Sliding","Hip":0.9480254054069519,"Reason":"Cancelled"},{"Distance":6.415775775909424,"Time":0.2,"Slide":0.9944834371575407,"Speed":31.384462356567384,"Mode":"Sliding","Hip":0.9480254054069519,"Reason":"Cancelled"},{"Distance":9.338881492614746,"Time":0.30000000000000007,"Slide":0.9997751327776849,"Speed":28.583683013916017,"Mode":"Sliding","Hip":0.9480254054069519,"Reason":"Cancelled"},{"Distance":12.431918144226075,"Time":0.4,"Slide":0.9999946227527646,"Speed":25.264389038085939,"Mode":"Sliding","Hip":0.9480254054069519,"Reason":"Cancelled"},{"Distance":15.215775489807129,"Time":0.5,"Slide":0.9999998714139503,"Speed":22.977039337158204,"Mode":"Sliding","Hip":0.9480254054069519,"Reason":"Cancelled"},{"Distance":17.459075927734376,"Time":0.6000000000000001,"Slide":0.9999999954128228,"Speed":20.969655990600587,"Mode":"Sliding","Hip":0.9480254054069519,"Reason":"Cancelled"},{"Distance":19.670265197753908,"Time":0.7000000000000001,"Slide":0.9999999998746613,"Speed":18.958648681640626,"Mode":"Sliding","Hip":0.9480254054069519,"Reason":"Cancelled"},{"Distance":21.806171417236329,"Time":0.8,"Slide":0.9999999999970028,"Speed":18.009912490844728,"Mode":"Sliding","Hip":0.9480254054069519,"Reason":"Cancelled"}]}
+Arena command: same input with start CFrame(-120,3.3,0) and movement Vector3(-1,0,0).
+Arena literal output:
+{"Recovered":0.000016701691208532725,"Rows":[{"Distance":3.8445863723754885,"Time":0.1,"Slide":0.9391899453488183,"Speed":33.3469123840332,"Mode":"Sliding","Hip":0.9480254054069519,"Reason":"Cancelled"},{"Distance":7.500394821166992,"Time":0.2,"Slide":0.998545849880275,"Speed":29.96324348449707,"Mode":"Sliding","Hip":0.9480254054069519,"Reason":"Cancelled"},{"Distance":10.338878631591797,"Time":0.30000000000000007,"Slide":0.999940725646097,"Speed":27.234066009521486,"Mode":"Sliding","Hip":0.9480254054069519,"Reason":"Cancelled"},{"Distance":13.337164878845215,"Time":0.4,"Slide":0.9999985825730742,"Speed":24.819162368774415,"Mode":"Sliding","Hip":0.9480254054069519,"Reason":"Cancelled"},{"Distance":15.661927223205567,"Time":0.5,"Slide":0.9999999422225642,"Speed":22.61202049255371,"Mode":"Sliding","Hip":0.9480254054069519,"Reason":"Cancelled"},{"Distance":18.115097045898439,"Time":0.6000000000000001,"Slide":0.9999999986183689,"Speed":20.148767471313478,"Mode":"Sliding","Hip":0.9480254054069519,"Reason":"Cancelled"},{"Distance":20.360788345336915,"Time":0.7000000000000001,"Slide":0.9999999999669611,"Speed":18.693378448486329,"Mode":"Sliding","Hip":0.9480254054069519,"Reason":"Cancelled"},{"Distance":22.635456085205079,"Time":0.8,"Slide":0.5134171011802208,"Speed":24.009292602539064,"Mode":"Sprinting","Hip":1.9980254173278809,"Reason":"Completed"}]}
+Exit/status: both isError=false. Actual speeds~34->18, >19studs at.7s, recovery pose<.00004; no stranded slide constraint.
+Separate server-owned road instrumentation:27 samples, minimum mid-slide body clearance0.0794stud, ~20studs before ending. See TEST_RESULTS.json for exact raw samples. This is a scoped road measurement, not proof for all terrain/avatar scales.
+
+3. Roblox_Studio.execute_luau(Client), input TEST_GUNS.luau:
+15 live cases (W1-W5, pitch-35/0/+35), all assertions passed; maximum support-hand target error0.017604414stud and barrel pitch error<.001degree.
+Literal results in FINAL_RESULTS.json / guns.content[0].text. Test assertions are SupportError<.25stud and pitch error<2degrees.
+Exit/status: isError=false. Live side screenshot inspected (actual player, not clone-only).
+No gun imports, no uploaded assets, no damage/shot-network edits.
+
+4. Roblox_Studio.execute_luau(Client), input TEST_CROUCH.luau:
+4 crouch/release cycles, speed8, Hip1.3980254, support-hand error<.000002stud; finalHip1.9980254 and final crouch blend.00476047.
+Literal results in FINAL_RESULTS.json / crouch.content[0].text.
+Exit/status: isError=false.
+
+5. Roblox_Studio.execute_luau(Client), input TEST_FIRE_RELOAD.luau:
+{"Before":30,"Pose":"W1","After":29,"Reloaded":30}
+Exit/status: isError=false. TestMode restored false.
+
+6. Lobby cleanup, actual Return control:
+{"InLobby":true,"Tools":0,"Hip":1.9980254173278809,"Pose":{"JointCount":15,"Support":null,"Crouch":7.35532760296743e-308,"Slide":0.000008574933885105723,"ClearanceLift":0.16344810962677004},"Drive":false}
+Exit/status: isError=false; unarmed lobby, original standing Hip restored, no slide drive.
+
+7. Roblox_Studio.execute_luau(Edit), input VERIFY.luau:
+9/9 UTF-8 source length+DJB2 fingerprints match:5 final sources and4 unchanged combat/camera modules. JSON fingerprints in FINAL_RESULTS.json. Sources also compared exactly by isolated installer/rollback test.
+No CharacterPose/MovementClient/GameplayMovement stack errors in console. Existing cloud, Roblox UI and asset203785492 type warnings remain unrelated.
+
+ROLLBACK
+Command (PowerShell):
+& 'C:\Program Files\Git\bin\bash.exe' -c 'chmod +x ./ROLLBACK.sh && test -x ./ROLLBACK.sh && ./ROLLBACK.sh --self-test'
+Working directory: C:\Users\mason\.codex\visualizations\2026\10\16\01a14317-0d61-7650-b711-1ea3626ed7b5\slide_pose_repair
+Input: disposable JSON copy of MODIFIED_SOURCES.json, baseline from immutable BASELINE.json.
+Literal output:
+PASS: rollback copy restored 4 original sources; CharacterPose absent; modified artifact unchanged
+Process exit status:0.
+Studio isolated rollback command/output: item1 above; isError=false.
+Restored behavior/status: original Motor6D-only crouch guard, old aim pose writer, original ground probe and HipDrop.35/CameraDrop1.45 restored on fixture; new pose module absent.
+Live modified game and MODIFIED_FILE remain changed. ROLLBACK.sh --emit-studio prints tested RESTORE.luau; Studio restoration is through Roblox MCP, not a shell modifying the live game.
+
+LIMITS / HANDOFF
+Clip used for close shoulder presentation and two-handed weapon support; not a pixel-identical recreation of another game or a claim to its original animation assets.
+Live acceptance: one actual R15 AnimationConstraint avatar, client-owned arena+lobby slides, crouch, all5 weapon holds, fire/reload and return. Motor6D compatibility branch exists but a real second rig/avatar and real 2-client replication still need acceptance.
+Camera remains third-person-only with existing shoulder offset/zoom8; no background music added.
+Edit place retains changes; commit Studio drafts and let Team Create save.

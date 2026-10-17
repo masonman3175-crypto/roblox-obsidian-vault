@@ -55,3 +55,8 @@ updated: 2026-10-17
 - [[Current Test And Integration Backlog]] — multiplayer, match state, combat wiring, two-client audio checks, persistence and mobile work.
 - [[01 Game Design/O Blah Warfare Design|Design Doc]] now records the co-op zombie pivot. Historical 6v6/10v10 PvP targets are superseded; NPC waves, kill credit and survival rules remain next work.
 - [[Obsidian Vault Sync]] — where these notes live and how to avoid opening the stale mirror again.
+
+## Latest movement/hold repair — 2026-10-17
+- [[Slide Animation And Two-Handed Hold]]: procedural slide pose + real ground-transition fix, floor clearance and two-hand weapon support.
+- [[Third Person Combat]] remains the camera direction: third only, no V toggle.
+- [[04 Scripts/Slide Animation And Two-Handed Hold/VERIFICATION.txt]] contains exact tests and rollback. Commit Studio drafts before partner acceptance.

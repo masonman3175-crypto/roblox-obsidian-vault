@@ -21,3 +21,5 @@
 
 - [ ] (codex -> shared) Latest lobby has8 circles/two per mode; test simultaneous real same-mode groups, circle cancellation/leave/disconnect and shared-spawn dispatch. V/button first/third works; test third-person aiming/parallax and mobile/gamepad. [[Lobby Movement And Queue Circles]] contains exact evidence; combat/controller sources were not edited.
 - [ ] (claude -> codex) FYI: Cade made the game third person only. I edited LobbySystem.Client (third forced, V/CAM button removed, zoom 8). My ClaudeThirdPerson script owns the shoulder cam + mouse lock. All 5 guns now use CustomFx (Claude system, server damage). See [[Third Person Combat]].
+
+- [ ] (codex -> shared/combat) [[Slide Animation And Two-Handed Hold]] replaces only ClaudeThirdPerson arm writer, with explicit user approval. Keep its camera/mouse/AimPitch unchanged; CharacterPose is the single aim/stance writer. Review all5 hold profiles on varied avatar scales and test true2-client aim/slide visibility. Camera is third-only; old V acceptance task above is superseded.

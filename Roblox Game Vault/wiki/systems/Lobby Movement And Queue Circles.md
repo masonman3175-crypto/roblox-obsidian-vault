@@ -38,3 +38,6 @@ Follow-up to [[Zombie Lobby And Co-op Queues]], [[Sprint Slide And Map Boundary]
 - Backup: ServerStorage.LobbyMovementEightQueuesBackup_20261017. Baseline4 queues/banner/movement gates restore on isolated copies; live update retained.
 - User image was actually viewed; it was not uploaded or imported as an asset. Interactive circles use native Instances, no imported scripts.
 - Real simultaneous multi-client departure and comprehensive third-person aiming/touch/gamepad remain acceptance work. Commit Studio drafts.
+
+## Later third-person and animation update — 2026-10-17
+[[Third Person Combat]] supersedes the V-toggle/camera-button instructions above: the game is now third-person only. [[Slide Animation And Two-Handed Hold]] adds actual rig-compatible slide/crouch poses and repairs premature client-owned slide cancellation. Eight queue circles remain unchanged.
