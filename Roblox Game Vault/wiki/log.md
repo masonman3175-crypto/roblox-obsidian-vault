@@ -149,3 +149,6 @@ Recent: `grep "^## \[" log.md | tail -5`
 - New [[Zombie Lobby And Co-op Queues]] and source/scene/test/rollback archive. Updated design direction, retired [[Main Menu And Locker]], hub/index/backlog, [[Main Street Block]], [[Game Audio And Music]], tasks, devlog and session log.
 - Physical compact lobby, session leaderboard, cooperative 1/2/3/4-player queues, one Survivors team and shared spawn. Verified fresh join, actual Leave/M return, Solo deploy, larger waiting pads, pure full-group dispatch cases, audio/combat/respawn and 140 floor rays.
 - Original menu/teams/spawns/audio restore on isolated copies; live co-op lobby retained. No zombie AI/waves, persistence or cross-server matching claimed; multiplayer acceptance remains.
+
+## [2026-10-17] update | Gritty lighting retune (claude)
+- Updated [[Lighting And Atmosphere]]

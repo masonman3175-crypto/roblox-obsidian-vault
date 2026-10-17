@@ -91,3 +91,11 @@ Cade inserted the DevForum resource "[V1.1] Realistic Dynamic Lighting | Open So
 - **Backup:** `ServerStorage.MapTools.LightingBackup_20261017` (Lighting props as attributes, all children, Clouds, old LightingPresets). Untouched original kit: `ServerStorage.MapTools.DynamicLightingOriginal` (scripts disabled).
 - **To do by hand:** `Lighting.Technology` was ShadowMap when the file loaded (`RBX_OriginalTechnologyOnFileLoad = 3`). The realistic screenshots need **Future**. Set it in the Properties panel.
 - Tested in Play: start band AfternoonGoldenHour, 21 -> Twilight, 2 -> Night, back -> AfternoonGoldenHour. No new errors.
+
+### Gritty retune (2026-10-17, Cade feedback)
+Cade: the first pass looked "more vibrant and less hood like". Bands retuned for real shadows and heavy atmosphere:
+- Day/golden/sunrise/sunset: ShadowSoftness 0.08-0.12 (crisp sun shadows), lower Ambient/OutdoorAmbient (shade is dark, not black), EnvironmentDiffuseScale 0.5.
+- Atmosphere Density ~0.4, Offset 0.15, Haze 2.4-2.6, grey-brown color. Clouds Cover ~0.78, grey.
+- Grade: Saturation -0.22 to -0.32, Contrast 0.2. Bloom threshold up to 1.5-1.6 so only bulbs glow.
+- Default is now **ClockTime 15.5 (Day band)**: sun high enough that trees and poles throw shadows across the street, stormy grey sky.
+- Night unchanged.
