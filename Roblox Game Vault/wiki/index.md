@@ -13,6 +13,7 @@ Rules: see the Wiki schema section in `CLAUDE.md` / `AGENTS.md`. Timeline: [[log
 - [[Art Direction]] - the look: gritty made-up city, realistic guns, color cosmetics (idea)
 
 ## UI
+- [[Main Menu And Locker]] - reference-style menu, live aerial map background, session skins/wraps and direct PLAY deployment (building)
 - [[Hood Warfare 2 HUD and Presentation]] - HUD, feedback, input, and presentation study list (idea)
 
 ## VFX

@@ -1,0 +1,78 @@
+MAIN MENU / 2026-10-16 / hood warfare 1.2 (127865723083651)
+
+Changed branch/fields:
+- MainMenu.Client.build: reference-style stacked navigation, rank panel (no XP yet), feature weapon card, icon rail, toolbar and detailed red starter character.
+- MainMenu.Client camera BackgroundMode=LiveBirdsEye; local camera height=214, FOV=60, slow motion toggle.
+- Server CharacterAutoLoads=false; validated Deploy/Menu/Skin/Wrap/Weapon requests.
+- Player.ReplicationFocus=MainMenuStreamingFocus in menu; nil on successful deployment.
+- Menu-only local daylight is captured/restored; gameplay/server lighting and spawn transforms are not edited.
+- Original weapon controller preserved; menu input/HUD gating and session cosmetic/preferred weapon hooks only.
+
+Four artifacts:
+MODIFIED_FILE: C:\Users\mason\OneDrive\Desktop\Roblox AI\main_menu\MODIFIED_FILE.luau
+DIFF_FILE: C:\Users\mason\OneDrive\Desktop\Roblox AI\main_menu\DIFF_FILE.patch
+VERIFICATION: C:\Users\mason\OneDrive\Desktop\Roblox AI\main_menu\VERIFICATION.txt
+ROLLBACK: C:\Users\mason\OneDrive\Desktop\Roblox AI\main_menu\ROLLBACK.sh
+
+Original baseline MenuClient SHA256:
+F733EF89FCFC3004011B63ED54C87FC5492BF3859668148AA809C7ADCF6EB1C6
+Modified MenuClient SHA256:
+343F9D732C4A1C19709FB556E2301E67A4F9E6CD3C484D9F30285DC99C0C513F
+Pre-menu weapon Controller SHA256:
+FBEA4073F3571D7EA43770143C210922F27B186CA4BBC2177F3926FC679D467A
+
+BASELINE
+CWD: C:\Users\mason\OneDrive\Desktop\Roblox AI\main_menu
+Exact command: python verify.py BASELINE
+Input: BASELINE_MenuClient.luau (preserved minimal-menu source)
+Literal output: BASELINE: minimal layout; no aerial background; selection collision detected
+Exit status: 0 (baseline condition confirmed; not a passing game UI)
+Original menu runtime error was: attempt to index boolean with 'Visible'.
+Cause: TextButton.Selected is a boolean property, not the child label.
+
+MODIFIED
+Exact command: python verify.py MODIFIED
+Input: MODIFIED_FILE.luau, MenuConfig.luau, Server.luau
+Literal output: MODIFIED: detailed layout; live aerial view; 4 skins / 6 wraps; source checks PASS
+Exit status: 0
+Runtime tests used the actual running MainMenuControl BindableFunction and actual UI clicks:
+- Fresh join: Open=true, HasCharacter=false, HasPreview=true, MapLoaded=true, height=214.
+- AllFourSkins=true, AllSixWraps=true, AllFivePreviews=true.
+- InvalidSkinRejected=true, InvalidPayloadRejected=true, InvalidAction=true.
+- DuplicateOk=true, NoDuplicate=true, CosmeticEditInGameRejected=true.
+- Play button spawned at the existing East spawn, Tool=Silver 9mm, CameraType=Custom, FirstPerson=LockFirstPerson.
+- Selected NIGHT/COBALT matches hand color and five visible weapon material groups: 0.152941, 0.352941, 0.623529.
+- Silver 9mm ammo 15 -> 14 -> 15, reserve 90 -> 89 after reload.
+- M returns to menu: Open=true, HasCharacter=false, Mouse=Default, camera Scriptable.
+- Client lighting 14.5 while menu; restored to server night 0.4000000059604645 on deployment.
+- Player.ReplicationFocus=nil after deployment.
+- Death respawn: Alive=true, preferred W3, NIGHT skin and COBALT wrap retained.
+- Existing enabled spawns retained:
+  Spawn_West: -190, 0.30000001192092896, 0
+  Spawn_East: 232, 0.4000000059604645, -4
+- Five installed modules compile.
+- Native Studio window visual review confirms aerial map and red starter character on a fresh join.
+- Studio MCP captures intermittently omitted 3D while Studio was backgrounded; native foreground capture was used for final visual QA.
+- Console: no menu/weapon script runtime errors after repairs; existing Roblox Core UI warnings/asset mismatch messages remain.
+
+ROLLBACK (source-copy fixture, not the live menu)
+Exact PowerShell command: & 'C:\Program Files\Git\bin\bash.exe' -c 'chmod +x ROLLBACK.sh && ./ROLLBACK.sh rollback-copy.luau'
+Input: BASELINE_MenuClient.luau -> rollback-copy.luau
+Literal output: ROLLBACK: baseline SHA256 restored on copy; live MODIFIED_FILE untouched
+Exit status: 0
+Restored copy SHA256:
+F733EF89FCFC3004011B63ED54C87FC5492BF3859668148AA809C7ADCF6EB1C6
+Restored behavior/status: the separate copy contains the original minimal-menu behavior, including its known selection defect. MODIFIED_FILE remains changed.
+
+ROLLBACK (actual Studio restoration logic on isolated cloned services)
+Exact tool command: execute_luau(datamodel_type="Edit", code=contents of restore_fixture_test.luau)
+Input: cloned ReplicatedStorage/ServerScriptService/StarterPlayer plus MainMenuBackup_20261016 and a spawn sentinel.
+Literal result: ROLLBACK: auto-spawn restored; menu removed; original weapon controller restored; spawns untouched
+ExitStatus=0, IsolatedFixture=true, LiveModifiedRetained=true.
+Restored behavior/status: CharacterAutoLoads=true; menu package, boot scripts and streaming focus removed on fixture; pre-menu weapon source restored. Live menu stays installed.
+
+Limitations:
+- Cosmetics are session-only, with no DataStore, currency, purchases or XP system.
+- Desktop/ultrawide UI tested; mobile/controller-specific navigation remains unverified.
+- Existing weapons retain their current presentation-only behavior; no new damage or audio system added.
+- Game edits are in the Studio Edit DataModel. Let Team Create save and commit any Studio drafts. No public publish claimed.

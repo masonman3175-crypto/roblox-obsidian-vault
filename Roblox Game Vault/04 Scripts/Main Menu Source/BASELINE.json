@@ -1,0 +1,11 @@
+{
+  "CharacterAutoLoads": true,
+  "spawns": [
+    [
+      "SpawnLocation",
+      "0, 0.5, 0",
+      true
+    ]
+  ],
+  "hasMenu": false
+}

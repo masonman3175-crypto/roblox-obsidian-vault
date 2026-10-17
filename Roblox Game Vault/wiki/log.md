@@ -83,3 +83,7 @@ Recent: `grep "^## \[" log.md | tail -5`
 
 ## [2026-10-16] update | Pass 6 + Map VFX Library (claude)
 - New [[Map VFX Library]]. Updated [[Main Street Block]], [[index]], session log
+
+## [2026-10-16] update | Main menu, locker and aerial map view (codex)
+- New [[Main Menu And Locker]], immutable main-menu reference image and source mirrors in 04 Scripts/Main Menu Source.
+- Updated [[index]], [[2026-10-16]] and Codex session log. Tested four skins, six wraps, five previews, direct deploy, validation, respawn and isolated rollback; existing spawn transforms retained.
