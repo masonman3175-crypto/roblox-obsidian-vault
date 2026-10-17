@@ -26,12 +26,13 @@ Beretta M9 in the **Silver 9mm slot (`W3`)**. The model came from Cade's downloa
   - The gun parts got their transform applied twice in Blender. That was fixed in Studio by undoing the rotation and scale per part.
 
 ## Hands
-- The partner's blocky IK arms are hidden for guns with `CustomArms` (hook in `ReferenceWeapons.Controller`).
-- Instead, posed gloved hands modeled around the real grip (measured: 55 mm deep, 35 mm wide, 12° rake):
-  - **Right hand:** wraps the grip, index finger on the trigger, thumb forward along the left side under the slide.
-  - **Left hand:** cups the right fingers, left thumb forward under the right thumb (thumbs-forward grip).
-- Built as tapered tubes per finger (real phalanx lengths) + a curved palm. A skin-modifier first try made spiky blobs at the finger joints.
-- Roblox materials: gloves `Leather` (62,60,58), sleeves `Fabric` (44,54,68). No texture uploads.
+- The partner's IK arms are hidden for guns with `CustomArms` (hook in `ReferenceWeapons.Controller`).
+- **Style rule (Cade, 2026-10-17):** hands stay Roblox-blocky. They should just make sense, not look realistic. Realistic gloved finger meshes were tried and rejected ("noodles"). They're kept in `ServerStorage.ClaudeBerettaBackup_20261017.MeshHands`.
+- Now: plain Parts per arm.
+  - **Right:** a block hand that swallows the middle of the grip (grip top and bottom still show), tilted with the grip rake.
+  - **Left:** a block hand cupping from the left.
+  - Each arm has a forearm block running back toward the camera and a sleeve block over its back half.
+- Colors: parts tagged `ArmPart = Skin/Sleeve` take the player's `EquippedHandColor` / `EquippedSleeveColor` (or BodyColors), painted by `ClaudeAKClient`.
 - Reload: the mag drops and returns, the hands stay put. A real reload animation comes later.
 
 ## Feel (per-weapon numbers in `ClaudeAK.Config.Weapons.W3`)

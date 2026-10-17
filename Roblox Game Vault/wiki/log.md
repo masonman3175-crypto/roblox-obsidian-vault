@@ -137,3 +137,6 @@ Recent: `grep "^## \[" log.md | tail -5`
 
 ## [2026-10-17] update | Claude Beretta in W3 (claude)
 - New [[Claude Beretta]]. Updated [[index]], [[2026-10-17]], session log
+
+## [2026-10-17] update | Beretta hands back to Roblox-blocky (claude)
+- Updated [[Claude Beretta]] (hands style rule)
