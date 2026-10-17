@@ -133,3 +133,9 @@ Cade's notes after the realism pass: sewer fog looked bad, too many rusty cars, 
 - **Store interiors:** deli and laundromat panes now show a bare dim room (`win_dark`). Signs, neon OPEN and posters stay. Real interiors later.
 - **Night:** lamps Angle 105, Range 36, Brightness 2.8; ambient raised so unlit areas are dim, not black. Values in [[Lighting And Atmosphere]].
 - Playtest: spawned at the east spawn, fog ring follows the camera, no errors.
+
+## Pass 6 (2026-10-16)
+- Active look set to **Overcast (day)** so the fog shows.
+- Last old cars replaced: 2 modern crossovers (store 116917516767193, no scripts, aligned by its body part because its bounding box is almost square) and a silver modern sedan. All 10 cars are modern now. Old car templates deleted.
+- Night brightened: Brightness 0.8, Ambient 52,48,50, OutdoorAmbient 88,84,88, Exposure 0.5.
+- New [[Map VFX Library]]: burn barrels, transformer sparks, dryer vent steam, gusting leaves, lamp dust.

@@ -80,3 +80,6 @@ Recent: `grep "^## \[" log.md | tail -5`
 
 ## [2026-10-16] update | Map pass 5: hood not ghost town (claude)
 - Updated [[Main Street Block]] (pass 5), session log, [[2026-10-16]]
+
+## [2026-10-16] update | Pass 6 + Map VFX Library (claude)
+- New [[Map VFX Library]]. Updated [[Main Street Block]], [[index]], session log
