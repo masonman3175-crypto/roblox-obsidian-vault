@@ -51,8 +51,21 @@ Lighting pass 1 for [[Main Street Block]] (2026-10-16). Goal: the grey overcast 
 - 50 lights, 27 shadow-casting. 60 fps in a Studio playtest on Cade's PC (this is not a phone test).
 - If mobile struggles: turn shadows off on porch lights and wall packs first, keep streetlights.
 
+## Night variant (2026-10-16)
+Matches [[Night Porch Firefight]]: dark blue moonlight, warm porch pools with hard shadows on the brick, tight sodium pools on the street with dark gaps between them.
+
+![[2026-10-16-lighting-night-street.jpg]]
+![[2026-10-16-lighting-night-porch.jpg]]
+
+- **Switching:** `ServerStorage.MapTools.LightingPresets` (ModuleScript). `require(it).apply("Overcast")` or `.apply("Night")`. Sets Lighting, `MapAtmosphere`, Clouds, `MapGrade`, Bloom, every practical light, and the night-only windows. Writes the active name to `Lighting:GetAttribute("MapPreset")`.
+- Each light has `DayBrightness`/`DayRange`/`NightBrightness`/`NightRange` attributes. 69 extra windows are tagged `NightWindow` (glow only at night, `DayColor`/`NightColor` stored).
+- Night values: ClockTime 0.4, Brightness 0.9, Ambient 32,36,50, OutdoorAmbient 70,80,108, Exposure 0.55, ShadowSoftness 0.15, Atmosphere Density 0.33 dark blue, Clouds Cover 0.65 dark, grade Saturation -0.12 cool tint, Bloom 1.1 / threshold 1.15.
+- Streetlights at night: Brightness 2.2, Range 34, Angle 95. **Shadows off on streetlights** (both presets) because the oak canopy was swallowing their light. Porch lights at night: Brightness 3, Range 16, shadows on (they make the hard brick shadows).
+- Tested: 60 fps, worst frame 19 ms, 21 shadow lights, switching both ways restores everything.
+- Gotcha: in Studio, lights only render near your real viewport camera. Screenshots taken far from it look unlit. Not a game bug.
+- Runtime switching (map rotation, night mode) is GAME FLOW's call. Move the module to ServerScriptService or ReplicatedStorage when they wire it.
+
 ## Next
-- A true night variant (ClockTime ~0) where the practical lights carry the scene, for a night mode or map rotation.
 - Wet asphalt (MaterialVariant) and puddles to catch the sodium light.
 - Streetlight flicker and a couple of dead streetlights for mood (needs a client script, GAME FLOW to sign off).
 

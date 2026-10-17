@@ -70,3 +70,6 @@ Recent: `grep "^## \[" log.md | tail -5`
 
 ## [2026-10-16] update | Lighting pass 1 (claude)
 - New: [[Lighting And Atmosphere]] + 2 screenshots. Updated [[Main Street Block]], [[index]], [[2026-10-16]]
+
+## [2026-10-16] update | Night lighting variant (claude)
+- [[Lighting And Atmosphere]]: Night preset, LightingPresets module, 2 screenshots. Updated [[index]], [[2026-10-16]]
