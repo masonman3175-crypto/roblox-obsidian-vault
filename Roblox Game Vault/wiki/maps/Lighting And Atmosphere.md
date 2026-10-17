@@ -73,3 +73,8 @@ Matches [[Night Porch Firefight]]: dark blue moonlight, warm porch pools with ha
 - [[Main Street Block]]
 - [[Art Direction]]
 - [[index]]
+
+## Update (pass 5)
+- Night now: Brightness 0.6, Ambient 38,35,36, OutdoorAmbient 66,62,64, Exposure 0.3, Atmosphere Density 0.32 Haze 2.2 Color 84,64,50, grade Saturation -0.2. Streetlights Angle 105, Range 36, Brightness 2.8, sodium 255,168,92. Unlit areas dim but readable.
+- Spawn wall lights added in `Workspace.Map.Spawns`.
+- Ground fog is now a client-side ring around the player (`MapFogClient`), see [[Main Street Block]].

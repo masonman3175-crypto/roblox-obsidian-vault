@@ -77,3 +77,6 @@ Recent: `grep "^## \[" log.md | tail -5`
 ## [2026-10-16] update | Documented everything from the map session (claude)
 - New: [[Map Tools]], [[Map Asset Registry]], [[Studio MCP Gotchas]], [[Store Asset Vetting]], [[Graffiti Generator]], [[Main Street Routes and Cover]]
 - Updated: [[index]], Home dashboard, [[Main Street Block]] links, [[2026-10-16]]
+
+## [2026-10-16] update | Map pass 5: hood not ghost town (claude)
+- Updated [[Main Street Block]] (pass 5), session log, [[2026-10-16]]

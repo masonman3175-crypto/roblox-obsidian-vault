@@ -120,3 +120,16 @@ Cade's notes on pass 3: trees too small and fake (single straight trunk), graffi
 - [[Graffiti Style]]
 - [[01 Game Design/O Blah Warfare Design]]
 - [[index]]
+
+## Pass 5: "it's a hood, not a ghost town" (2026-10-16, Cade's feedback)
+Cade's notes after the realism pass: sewer fog looked bad, too many rusty cars, textures too contrasty and cracked, same red wall everywhere, sidewalks black/white, fake store interiors, too much like NY brownstones, night lights too broad, needs two spawns, whole scene too run down.
+
+- **Spawns:** `Workspace.Map.Spawns.Spawn_West` (-190, 0, 0, dead end in front of the apartment block) and `Spawn_East` (232, 0, -4, east alley gap). Invisible, non-colliding, neutral, attribute `Side`. Old center `SpawnLocation` removed. Each has a wall light. Team logic is GAME FLOW's job.
+- **Fog:** manhole steam and fixed fog bands removed. New client-only `StarterPlayer.StarterPlayerScripts.MapFogClient` keeps a low fog ring ~26 studs around the camera (attributes `Radius`, `Height`). Visual only.
+- **Cars:** 10 total (8 street, 2 west lot), mostly everyday cars: modern sedan in white/grey/maroon/black (repaintable, store 140665250936542, 7 config scripts removed) and a blue sedan (store 951086064, 71 chassis scripts removed), plus 3 older ones.
+- **Less run-down:** 444 boarded panels removed (2 back buildings keep boards), all grime streaks gone, 150 fence pieces painted black, fire escapes black, every porch bulb on, about half the road cracks and patches gone, no cracked/tilted slabs, flies only on dumpsters, 51 more windows lit at night.
+- **Textures:** new `HW_BrickMuted` on almost every building with per-building tints, `HW_PaintedBrick` on 2 houses, `HW_VinylSiding` on the upper floors of 3 townhomes. Road back to plain Roblox asphalt (generated asphalt failed). Sidewalks on plain `HW_ConcreteGrey`. Stone trim and stoops on plain concrete.
+- **Townhomes:** 10 rowhouses (N1-3, N8-10, S3-5, S11) converted to porch townhomes like [[Night Porch Firefight]]: cornice and stoop removed, raised concrete porch with steps, porch roof on white posts, railing, chain-link with a gate along the sidewalk. Tagged `Townhome`.
+- **Store interiors:** deli and laundromat panes now show a bare dim room (`win_dark`). Signs, neon OPEN and posters stay. Real interiors later.
+- **Night:** lamps Angle 105, Range 36, Brightness 2.8; ambient raised so unlit areas are dim, not black. Values in [[Lighting And Atmosphere]].
+- Playtest: spawned at the east spawn, fog ring follows the camera, no errors.
