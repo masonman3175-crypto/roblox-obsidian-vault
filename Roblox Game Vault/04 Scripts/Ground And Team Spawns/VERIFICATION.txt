@@ -1,0 +1,55 @@
+Ground and opposite-corner team spawns -- 2026-10-17
+Place: hood warfare 1.2 / 127865723083651
+Changed branch/field: Baseplate.Material/Color/MaterialVariant and texture Transparency; two legacy SpawnLocation transforms and team fields; two Team objects. No gameplay code was changed.
+
+MODIFIED_FILE C:/Users/mason/.codex/visualizations/2026/10/16/01a14317-0d61-7650-b711-1ea3626ed7b5/ground_team_spawns/MODIFIED_FILE.luau
+DIFF_FILE C:/Users/mason/.codex/visualizations/2026/10/16/01a14317-0d61-7650-b711-1ea3626ed7b5/ground_team_spawns/DIFF_FILE.md
+VERIFICATION.txt C:/Users/mason/.codex/visualizations/2026/10/16/01a14317-0d61-7650-b711-1ea3626ed7b5/ground_team_spawns/VERIFICATION.txt
+executable ROLLBACK.sh C:/Users/mason/.codex/visualizations/2026/10/16/01a14317-0d61-7650-b711-1ea3626ed7b5/ground_team_spawns/ROLLBACK.sh
+
+Original state preserved in BASELINE.json SHA256 D54A122C68384C6F38DA5AB8C01D47CDCB26FE64C3A0E57EA69178EB16ECAC0B
+Modified installer SHA256 DADB5CBB9B0D11A7CB93E592263FB3C9B9CA52DFD262314E09AD0EFB5CAD6D65
+Studio backup: ServerStorage.GroundTeamSpawnsBackup_20261017
+
+BASELINE exact command/input:
+Roblox_Studio.execute_luau(studio_id="a8c52bef-c6e7-4b6f-b818-37193fc2a609", datamodel_type="Edit", code=contents of BASELINE_TEST.luau)
+literal output: BASELINE PASS: visible checker textures=1; enabled neutral spawns=2; teams=0
+result: isError=false (MCP does not expose an OS exit code).
+
+MODIFIED exact command/input:
+Roblox_Studio.execute_luau(studio_id="a8c52bef-c6e7-4b6f-b818-37193fc2a609", datamodel_type="Edit", code=contents of MODIFIED_FILE.luau)
+literal output: MODIFIED PASS: checker hidden; Asphalt; Crips NW (-235,0.5,-135); Bloods SE (245,0.5,135); two automatic teams; legacy spawn paths retained
+result: isError=false.
+Roblox_Studio.execute_luau(same studio, datamodel_type="Edit", code=contents of VERIFY.luau)
+literal output: VERIFY PASS: checker hidden; two team-only spawns; diagonal corners; 162 clear grounded spawn samples; 1590 floor rays; unchanged baseplate collision/transform; three-second protection
+result: isError=false; repeated after stopping Play, modifications remain.
+
+PLAYTEST exact commands/inputs:
+Roblox_Studio.start_stop_play(same studio, is_start=true) => Game Started; isError=false.
+Native automatic assignment observed: Crips, Neutral=false, no character until PLAY.
+For each team: client MainMenu.Request:InvokeServer("Menu"); server player.Team=game.Teams[team], Neutral=false, RespawnLocation=nil; client executes PLAYTEST_CLIENT.luau.
+literal outputs:
+PLAYTEST PASS: Crips deployed via live PLAY remote at -233.68641662597656, 2.997908115386963, -134.13687133789062; correct opposite corner; initial protection=true; expired=true
+PLAYTEST PASS: Bloods deployed via live PLAY remote at 247.73728942871094, 2.9979848861694336, 131.95314025878906; correct opposite corner; initial protection=true; expired=true
+result: both isError=false.
+Roblox_Studio.start_stop_play(same studio, is_start=false) => Game Stopped; isError=false.
+
+ROLLBACK exact command/input:
+Roblox_Studio.execute_luau(same studio, datamodel_type="Edit", code=contents of TEST_ROLLBACK.luau)
+literal output: ROLLBACK PASS: original checker texture, Plastic baseplate, neutral original spawn transforms, and prior teams restored; live modified objects retained
+result: isError=false. Actual restore function ran against isolated modified clones; compared original Material/Color/Texture.Transparency and all changed SpawnLocation fields. Teams restored to empty. Temporary fixture destroyed; live modified state retained.
+
+Local executable smoke-test exact command:
+& 'C:\Program Files\Git\bin\bash.exe' -c 'chmod +x ROLLBACK.sh && ./ROLLBACK.sh --self-test'; exit $LASTEXITCODE
+cwd: C:/Users/mason/.codex/visualizations/2026/10/16/01a14317-0d61-7650-b711-1ea3626ed7b5/ground_team_spawns
+input: modified installer copied into ROLLBACK_TEST.json, overwritten with original BASELINE.json, compared byte-for-byte.
+literal output: LOCAL ROLLBACK PASS: original baseline bytes restored to separate test copy
+exit status: 0.
+Restored behavior/status: isolated fixture had the original visible checker, Plastic ground, neutral original west/east spawns and no Teams; live place still has the fixed ground and diagonal team spawns.
+
+Visual inspection: before/after Studio overhead screenshots confirmed checker removal inside and outside the perimeter; no change to buildings, lighting, perimeter, weapons, menu or movement sources.
+Existing console findings: UIBlox FoundationProvider messages and rbxassetid://203785492 type mismatch; not caused or changed by this property-only update.
+QA corrections: initial floor sampler hit noncollidable decorative geometry; rerun with RespectCanCollide=true passed 1590 rays. Initial direct require(Service) from MCP's isolated module environment returned Player not ready; testing the existing live PLAY RemoteFunction passed both deployments. No project source changes were needed.
+Contract: ServerStorage.README_CONTRACT absent in this place; not fabricated. User explicitly confirmed place and requested this bounded map/spawn change.
+Limit: sequential single-client spawn tests, not simultaneous two-player team balancing/combat tests. No public publish performed.
+

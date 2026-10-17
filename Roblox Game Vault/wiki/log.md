@@ -111,3 +111,8 @@ Recent: `grep "^## \[" log.md | tail -5`
 
 ## [2026-10-16] update | Claude AK installed in game (claude)
 - Updated [[Claude AK]] (installed, offsets, status shipped)
+
+## [2026-10-17] update | Ground finish and diagonal team spawns (codex)
+- Updated [[Main Street Block]], [[index]], [[2026-10-17]] and Codex session log for the confirmed property-only ground/spawn change.
+- Archived baseline, installer, tests, verification and isolated rollback in [[04 Scripts/Ground And Team Spawns/Implementation|implementation evidence]].
+- Both actual PLAY deployments/protection expiry, 162 spawn samples and 1590 floor rays passed. Live update retained after isolated restore test.

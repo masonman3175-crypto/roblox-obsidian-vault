@@ -11,7 +11,7 @@ sources:
   - raw/2026-10-16-map-pass1-overhead.jpg
   - raw/2026-10-16-map-pass1-rear-alley.jpg
   - raw/2026-10-16-map-pass1-cut-through.jpg
-updated: 2026-10-16
+updated: 2026-10-17
 tags: [map, blockout, environment]
 ---
 
@@ -46,7 +46,7 @@ First real map block in **hood warfare 1.2** (place `127865723083651`). Geometry
 - Rowhouse builder: `ServerStorage.MapTools.RowhouseKit` (ModuleScript, edit-time only). `Kit.house(parent, {x1, x2, side, stories, color, doorBay, bay, roofBox, name})`.
 - About 2,025 parts, all anchored, zero scripts. Power lines are Beams between Attachments.
 - Old `Map_10v10` blockout was deleted on Cade's call. Roll back with File > Version History if needed.
-- `Workspace.SpawnLocation` still sits in the middle of the road at 0,0,0. Spawns are not placed yet.
+- Current spawns: Workspace.Map.Spawns.Spawn_West (blue NW) and Spawn_East (red SE), converted to team-only spawns on 2026-10-17; see follow-up below.
 
 ## Tested
 - Playtest: character lands on the ground in the rear alley, both cut-throughs, and the sidewalk. No map errors in Output.
@@ -139,3 +139,13 @@ Cade's notes after the realism pass: sewer fog looked bad, too many rusty cars, 
 - Last old cars replaced: 2 modern crossovers (store 116917516767193, no scripts, aligned by its body part because its bounding box is almost square) and a silver modern sedan. All 10 cars are modern now. Old car templates deleted.
 - Night brightened: Brightness 0.8, Ambient 52,48,50, OutdoorAmbient 88,84,88, Exposure 0.5.
 - New [[Map VFX Library]]: burn barrels, transformer sparks, dryer vent steam, gusting leaves, lamp dust.
+
+## Ground and opposite-corner team spawns (2026-10-17, Codex)
+- User-confirmed bounded update to place 127865723083651. Checker came from Workspace.Baseplate.Texture, not missing collision geometry.
+- Baseplate.Material now Asphalt, matching MainRoad color (#58585a); checker texture hidden. Dimensions, transform and collision unchanged.
+- Spawn_West blue at (-235,.5,-135); Spawn_East red at (245,.5,135). Both face center, are non-neutral and retain three-second native protection.
+- Two native AutoAssignable Teams using requested labels; no new scripts or map signage.
+- Tested 162 clear spawn footprint samples and 1590 collidable floor rays; native automatic team assignment and actual PLAY deployment/protection expiry for both teams passed sequentially in one client session.
+- Restore function passed against isolated modified clones; live update retained. Backup: ServerStorage.GroundTeamSpawnsBackup_20261017.
+- Buildings, lighting, weapons, movement and menu sources unchanged. Simultaneous multiplayer balancing/combat remains untested.
+- Evidence: [[04 Scripts/Ground And Team Spawns/Implementation|Ground And Team Spawns Implementation]]. Related: [[Sprint Slide And Map Boundary]], [[2026-10-17]].

@@ -1,7 +1,7 @@
 ---
 type: index
 owner: shared
-updated: 2026-10-16
+updated: 2026-10-17
 ---
 
 # Wiki Index
@@ -70,6 +70,7 @@ Rules: see the Wiki schema section in `CLAUDE.md` / `AGENTS.md`. Timeline: [[log
 - `raw/2026-10-16-youtube-fps-reference.md` - YouTube FPS gameplay link for weapon feel (added by partner)
 
 ## Devlog
+- [[2026-10-17]] - checker ground fixed and opposite-corner team spawns verified (shipped)
 - [[2026-10-16]] - vault turned into an LLM wiki, refs ingested, map passes 1-4, graffiti, lighting + night variant
 
 ## Older notes (not migrated yet)
