@@ -134,3 +134,6 @@ Recent: `grep "^## \[" log.md | tail -5`
 - Updated [[Game Audio And Music]], [[Crouch And Compact Map]], [[Current Test And Integration Backlog]], [[00 Dashboard/Game Development Hub|Game Development Hub]] and [[index]]; archived the effects-only repair, baseline, exact tests and rollback.
 - Fixed deleted-music startup dependency. Fresh Client Play: 12 effects decode, all five guns one shot cue/reload each, real movement/idle, confirmations/death, validation, cancel and restart 65 ->65 pass. Music/mix/button absent.
 - Retested after concurrent native gun updates; only audio-owned sources changed. Isolated rollback restores original broken baseline while live repair remains.
+
+## [2026-10-17] update | Claude Beretta in W3 (claude)
+- New [[Claude Beretta]]. Updated [[index]], [[2026-10-17]], session log

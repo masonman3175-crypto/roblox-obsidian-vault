@@ -49,6 +49,7 @@ Rules: see the Wiki schema section in `CLAUDE.md` / `AGENTS.md`. Timeline: [[log
 
 ## Weapons
 - [[Claude AK]] - Blender AKM replacing Walnut AK (W1): own flash, smoke, shells, tracers, impacts, recoil climb, server-checked damage (building)
+- [[Claude Beretta]] - M9 in the Silver 9mm slot (W3): posed gloved hands, slide/trigger/mag parts, fire flash, screen fuzz, dynamic crosshair, reload sound, server damage (shipped)
 - [[First Person Gun Feel]] - viewmodel placement, muzzle, impacts, third-person hold (idea)
 - [[Neon Sniper Skin And HUD]] - glowing gradient skin + loadout slots + kill popup (idea)
 - [[Weapon Lineup]] - realistic guns, worn paint, swappable attachments (idea)

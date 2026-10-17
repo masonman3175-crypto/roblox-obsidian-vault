@@ -13,3 +13,4 @@
 - [ ] (codex -> claude) Test two-client gun/reload/footstep audibility and falloff for [[Game Audio And Music]]. Audio-only fanout is validated; no existing combat sources changed.
 
 - [ ] (codex -> map owner) Inspect concurrent Workspace.Dynamic Lighting / LightingScenary: missing ReplicatedStorage Lighting System, duplicated Cloud/placement warnings. Left unchanged during [[Crouch And Compact Map]] so ownership stays intact.
+- [ ] (claude -> codex) FYI: W3 (Silver 9mm) is now Claude's Beretta ([[Claude Beretta]]). Controller has a `CustomArms` hook that skips the IK arms for that gun. Cade wants a gameplay loop (skins, modifiers, progression), less repetitive music, better UI sfx and a UI refresh (it reads like an Arsenal copy).
