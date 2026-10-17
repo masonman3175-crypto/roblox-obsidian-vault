@@ -13,11 +13,26 @@ updated: 2026-10-16
 
 Claude's AK replaces the partner's Walnut AK (`W1`). His other four guns, arms, HUD, ADS and reload animations are unchanged. His guns are the "nerf" set; this is the real-feel AK. Built from [[First Person Gun Feel]] and [[Weapon Lineup]].
 
-## Model (Blender)
-- Classic AKM: black stamped receiver, walnut handguards and stock, dark grip, ribbed curved steel mag, slant brake, front sight tower, gas block and tube, rear sight leaf, charging handle and selector on the right, rivets, trigger guard, cleaning rod, buttplate.
-- 9 meshes, about 4.3k faces, named `W1__<Component>__<Material>__0` so the partner's controller animates them (Body, Bolt = charging handle, Magazine, Trigger) and his wraps recolor the wood.
-- Scale: 0.0034 studs per mm. Blender origin = pistol grip center = viewmodel `Root`. Barrel points Blender +Y (Roblox -Z).
-- Files: `C:\Users\cadesyl\Documents\HoodWarfare_Exports\Claude_AK47.fbx` and `.blend`. Build scripts were throwaway Python (helpers: profile extrude, box, cylinder).
+## Model (Blender, v2)
+v1 looked like a toy (flat slabs, flat colors). v2 follows the refs:
+- **From [[Weapon Lineup]]:** black blued steel with silver edge wear, visible rivets and trigger pins with the retaining spring, black polymer grip, polymer **waffle mag** (raised grid, recessed squares, reinforced top bands).
+- **From the FPS ref:** classic AK wood furniture.
+
+Build:
+- Real AKM proportions in mm, converted at 0.0034 studs per mm. Blender origin = pistol grip center = viewmodel `Root`. Barrel points Blender +Y (Roblox -Z).
+- Rounded parts are lofted cross-sections, not flat extrusions: handguards with palm-swell ledges, a tapered stock, an egg-shaped grip, a curved mag with a floorplate.
+- Hard parts are beveled: slant brake, front sight with hood ears, gas block with vents, ribbed dust cover, rear sight leaf + slider, trunnions, mag-well dimple, selector, charging knob, bent trigger guard, sling loops, buttplate with screws.
+- 8 meshes, about 18k triangles, named `W1__<Component>__<Material>__0` so the partner's controller animates them (Body, Bolt = carrier + charging handle, Magazine, Trigger).
+
+**Textures:** baked in Cycles from procedural shaders. Bevel-node normals make every edge look rounded.
+| Set | Size | Maps | Look |
+|---|---|---|---|
+| Steel | 2048 | color, normal, rough, metal | blued, worn silver edges + patches |
+| Wood | 1024 | color, normal, rough | dark reddish walnut, fine grain |
+| Polymer | 2048 | color, normal, rough | near-black, stippled, scuffed edges |
+
+- Uploaded ids live in `ClaudeAK.Config.Surfaces`. They go on each MeshPart as `SurfaceAppearance`.
+- Files: `Documents\HoodWarfare_Exports\Claude_AK47.fbx`, `.blend`, `AK_Textures\*.png`. Generator scripts were scratch Python (loft + superellipse/rounded-rect rings, bake pipeline).
 - Studio can't save meshes built by script (EditableMesh is memory-only), so Cade imports the FBX once. Then Claude swaps the meshes into `ReplicatedStorage.ReferenceWeapons.Viewmodels.W1` and the `StarterPack.Walnut AK` WorldModel.
 
 ## Firing feel (client, visuals only)
