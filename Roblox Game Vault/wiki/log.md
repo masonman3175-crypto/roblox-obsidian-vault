@@ -23,3 +23,6 @@ Recent: `grep "^## \[" log.md | tail -5`
 
 ## [2026-10-16] update | Frequent pull/push rule (claude)
 - Added git sync rule to `CLAUDE.md`, `AGENTS.md`, [[08 AI Workflow/Two Dev Rules|Two Dev Rules]]
+
+## [2026-10-16] update | Attachments can be bought (claude)
+- [[Weapon Lineup]]: recorded Cade's answer, flagged stat attachments must use earned currency, not Robux

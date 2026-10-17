@@ -39,8 +39,9 @@ This is the target look for the base arsenal: realistic proportions, worn paint,
   3. Add one attachment (extended mag) end to end, including server stats.
 
 ## Open questions
-- Do attachments come from progression, or are they visual only?
--a: attachemnts can fore sure be bought
+- ~~Do attachments come from progression, or are they visual only?~~ **Answered (Cade, 2026-10-16):** attachments can be bought.
+- Bought with what? If an attachment changes stats (mag size, recoil), it must cost in-game currency earned by playing. Selling stat attachments for Robux breaks the no pay-to-win rule. Robux is fine for cosmetic-only attachment skins.
+
 ## Related
 - [[Color Grip Pistols Key Art]]
 - [[Pink Sniper Skin]]
