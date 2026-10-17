@@ -35,6 +35,7 @@ Source: create.roblox.com/docs/studio/mcp
 | Sessions | `list_roblox_studios` | Which Studio windows are connected |
 
 ## Tips
+- **Claude Code on Windows, tested 2026-10-16:** use the full-path command above (`cmd.exe /c "%LOCALAPPDATA%\Roblox\mcp.bat"`). The Quick connect form `cmd.exe /c "cd /d %LOCALAPPDATA%\Roblox && .\mcp.bat"` failed: the `cd` doesn't stick, so `mcp.bat` isn't found and the server never answers. Working setup shows 28 tools and `list_roblox_studios` finds the open place.
 - If 2 Studio windows are open, the AI must use `list_roblox_studios` and target the right one.
 - Always scope `search_game_tree` / `script_grep` to our folders, not the whole game (core scripts eat context).
 - `multi_edit` breaks on invisible extra spaces. Don't align `=` signs with spaces.

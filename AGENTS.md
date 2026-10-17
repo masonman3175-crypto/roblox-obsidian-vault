@@ -64,6 +64,8 @@ All paths below are inside `Roblox Game Vault/`.
 - One topic per page, Title Case file names. Link with `[[wikilinks]]`. Every page links to at least one other page and is listed in `index.md`.
 - Ownership still applies: only edit pages whose `owner` is your side or `shared`. Put requests for the other side in `06 Tasks/Next Pass.md`.
 - Mark guesses as `(unverified)`. Never invent plugin features, asset IDs, or API behavior.
+- **Look at images, never guess from file names.** Before you describe, ingest, or model from anything in `raw/`, open the actual image file with your image tool (Claude Code: Read the file. Codex: `view_image`). If you cannot open it, say so and stop. Every reference note embeds its image and has a written breakdown, so text-only readers still get the details.
+- **Modeling from a reference:** Blender MCP: load the `raw/` image as an Image Empty with `execute_blender_code`, then check your work with `look`. Studio MCP: `generate_procedural_model` and `upload_image` can take a reference image, but `upload_image`/`store_image` upload to Roblox, so ask first.
 - Same content rules as the game: no real gang names, hand signs, real locations, gore, or blood.
 
 ### Operations

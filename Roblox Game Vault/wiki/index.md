@@ -32,6 +32,13 @@ _None yet._
 
 ## Tools
 - [[VFX Studio]] - free all-in-one VFX plugin for Studio, features still to verify (planned)
+- [[Blender MCP]] - AI drives Blender: model from raw/ refs, viewport screenshots (building, tested 2026-10-16)
+- [[08 AI Workflow/Studio MCP Reference]] - Roblox Studio MCP setup and tools (tested 2026-10-16)
+
+## Raw, not ingested yet
+- `raw/2026-10-16-weapon-kit-reference.png` - Roblox Weapons kit docs thumbnails (AK, shotgun, pistol) (added by partner)
+- `raw/2026-10-16-fps-reference.png` - FPS gameplay screenshot, first-person AK in a street (added by partner)
+- `raw/2026-10-16-youtube-fps-reference.md` - YouTube FPS gameplay link for weapon feel (added by partner)
 
 ## Devlog
 - [[2026-10-16]] - vault turned into an LLM wiki, first 5 references ingested

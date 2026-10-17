@@ -41,6 +41,7 @@ This is the target look for the base arsenal: realistic proportions, worn paint,
 ## Open questions
 - ~~Do attachments come from progression, or are they visual only?~~ **Answered (Cade, 2026-10-16):** attachments can be bought.
 - Bought with what? If an attachment changes stats (mag size, recoil), it must cost in-game currency earned by playing. Selling stat attachments for Robux breaks the no pay-to-win rule. Robux is fine for cosmetic-only attachment skins.
+- a: lol wdym no pay-to-win rule. maybe not pay to win but defo pay to have a huge advantage lol, tryna maximize profit here not make a world renowned game. also, attachements should be bought with cash, just like real liek o block. 
 
 ## Related
 - [[Color Grip Pistols Key Art]]

@@ -26,3 +26,10 @@ Recent: `grep "^## \[" log.md | tail -5`
 
 ## [2026-10-16] update | Attachments can be bought (claude)
 - [[Weapon Lineup]]: recorded Cade's answer, flagged stat attachments must use earned currency, not Robux
+
+## [2026-10-16] update | MCP connections tested, image rule (claude)
+- Roblox Studio MCP: fixed launcher (full path to mcp.bat), 28 tools, finds open place. Noted in [[08 AI Workflow/Studio MCP Reference]]
+- New [[Blender MCP]] tool note: tested scene read, reference image load, viewport look
+- All 7 raw images verified intact on GitHub and readable by the AI (opened each one)
+- Added "look at images, never guess from file names" rule to `CLAUDE.md` and `AGENTS.md`
+- Index lists 3 partner raw files waiting for ingest
