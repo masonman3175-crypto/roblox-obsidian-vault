@@ -1,13 +1,15 @@
 ---
 type: ui
 owner: flow
-status: building
+status: dropped
 sources:
   - raw/2026-10-16-main-menu-reference.png
-updated: 2026-10-16
+updated: 2026-10-17
 ---
 
 # Main Menu And Locker
+
+> Retired 2026-10-17 at the user's request. [[Zombie Lobby And Co-op Queues]] is the live entry flow. Original objects are preserved in ServerStorage.ZombieLobbyBackup_20261017; the implementation/reference below is historical, not the current join screen.
 
 ![[2026-10-16-main-menu-reference.png]]
 

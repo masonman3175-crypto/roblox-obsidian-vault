@@ -2,7 +2,11 @@
 
 Working title. Replaces the old keyboard demo in [[Game Overview]].
 
-## Pitch
+## Current direction — 2026-10-17
+The user changed the game to **cooperative zombies**. Everyone is on Survivors and shares one gameplay spawn. [[Zombie Lobby And Co-op Queues]] replaces the Play/locker menu with a compact physical lobby, server-session leaderboard and cooperative party-size queues (1/2/3/4).
+The former PvP pitch, team sizes, objective modes and monetization roadmap below are historical proposals, not the current implementation. Zombie AI/waves/progression still need separate design and combat implementation.
+
+## Historical PvP Pitch
 Modern Warfare-style objective shooter. Gritty urban theme. Red vs Blue, 6v6, ~10 min matches.
 Differentiator vs other hood games: real objective modes + polish.
 

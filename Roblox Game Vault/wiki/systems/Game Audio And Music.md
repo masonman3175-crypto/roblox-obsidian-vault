@@ -54,3 +54,6 @@ Independent audio presentation for [[Main Menu And Locker]], [[Sprint Slide And 
 ## Later 2026-10-17: quieter default
 - User found 25% too loud. [[Crouch And Compact Map]] changes the current default to 5% in Config and BackgroundMusic; F8/click mute and 14 assets retained.
 - Earlier 25% test measurements above describe the initial audio pass, not the current default.
+## Co-op lobby follow-up
+- [[Zombie Lobby And Co-op Queues]] replaces the old menu. Two movement-gating clauses now allow lobby footstep/jump/land sounds while weapon use remains gated and weapons stashed.
+- Latest integration source/original audio are archived with the lobby. Background music remains absent. Actual lobby walking produced footsteps; deployed W1 fired one shot cue and reloaded successfully.

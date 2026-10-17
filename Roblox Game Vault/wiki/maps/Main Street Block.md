@@ -163,3 +163,7 @@ Cade's notes after the realism pass: sewer fog looked bad, too many rusty cars, 
 - Tree pits (16): side curb pieces shortened 0.6 so the corners don't overlap.
 - Scan of all Ground + tree pit faces: visible coplanar pairs 0 (left: hidden end faces at x=148/-200 and the boundary walls).
 - Backup: `ServerStorage.CurbZFightBackup_20261017` (Sidewalks, Street, RoadDetail, TreePits).
+
+## Co-op zombie direction — 2026-10-17
+- [[Zombie Lobby And Co-op Queues]] reuses 18 copies of this map's existing assets in a separate 212x158 lobby at X=1000; original street geometry is retained.
+- Previous blue/red split pads are now disabled. Everyone is Survivors; every co-op party deploys at the same (0,4.6,0) transform. Historical spawn coordinates above no longer define current join/deploy flow.

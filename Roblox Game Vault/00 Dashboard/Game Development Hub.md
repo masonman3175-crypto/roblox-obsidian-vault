@@ -9,15 +9,17 @@ updated: 2026-10-17
 
 # Game Development Hub
 
-> Start here for the current shooter, not the old keyboard demo. Place: **hood warfare 1.2**, `127865723083651`. This is a notes/source archive, not a published Roblox place.
+> Start here for the current co-op zombie direction, not the old PvP/menu or keyboard demo. Place: **hood warfare 1.2**, `127865723083651`. This is a notes/source archive, not a published Roblox place.
 
 ## Latest shipped pass (2026-10-17)
+- [[Zombie Lobby And Co-op Queues]] — physical compact-map lobby, session leaderboard, 1/2/3/4-player co-op queues, one Survivors team and one shared gameplay spawn. Old Play/locker menu removed; zombie AI/waves are next work.
 - [[Crouch And Compact Map]] — C / Left Ctrl / B crouch with camera drop; sprint+C/B still slides. Speed 8; tested eye drop 1.55 studs.
 - [[Game Audio And Music]] — weapon, movement and UI sounds; effects restored independently; **no background music**.
-- [[Main Street Block]] — tighter building-edge perimeter (26.6% less enclosed area), floor overlap repair and diagonal team spawns inside the new boundary.
+- [[Main Street Block]] — tighter building-edge perimeter (26.6% less enclosed area), floor overlap repair and repaired floors inside the compact boundary; old split-team pads are now disabled by the co-op lobby.
 
 ## Playable presentation
-- [[Main Menu And Locker]] — detailed menu, aerial live-map background, PLAY, character/weapon previews, four session skins and six wraps.
+- [[Zombie Lobby And Co-op Queues]] — join directly into the physical lobby; queue together, deploy to the shared map, M returns to the hub.
+- [[Main Menu And Locker]] — retired historical menu/locker archive, no longer active.
 - [[Gameplay HUD]] — handwritten gameplay overlay and its implementation branches.
 - [[HUD Minimap]] — circular map and teammate markers.
 - [[HUD Ammo And Weapon Display]] — real weapon/ammo display, shortcuts and crosshair.
@@ -34,11 +36,12 @@ updated: 2026-10-17
 - [[wiki/index|Full Wiki Index]] — all references, tools and implementation notes.
 
 ## Source and evidence
+- [[04 Scripts/Zombie Lobby And Co-op Queues/Implementation|Current co-op lobby source, scene, exact tests and rollback]].
 - [[04 Scripts/Audio Effects Restore/Implementation|Latest effects-only audio source + tests + rollback]] — no background music.
 - [[04 Scripts/Crouch And Compact Map/Implementation|Latest crouch, compact-map and floor source + tests + rollback]].
 - [[04 Scripts/Game Audio And Music/Implementation|Audio source + asset IDs + tests + rollback]] — historical 25% snapshot; current effects-only repair removes music entirely.
 - [[04 Scripts/Ground And Team Spawns/Implementation|Ground/team-spawn baseline + tests]] — original pad positions are historical; latest compact-map pass supersedes them.
-- [[04 Scripts/Main Menu Source/Implementation|Menu source + tests]].
+- [[04 Scripts/Main Menu Source/Implementation|Historical menu source + tests]] — retired, do not reinstall over current lobby.
 - [[04 Scripts/Gameplay HUD Source/Implementation|HUD source]].
 - [[04 Scripts/Movement And Boundary Source/Implementation|Movement/boundary source + tests]].
 - [[04 Scripts/Current Runtime Snapshot/Implementation|Read-only runtime snapshot]] — includes collaborator integration; not an installer.
@@ -48,5 +51,5 @@ updated: 2026-10-17
 
 ## Next, not already shipped
 - [[Current Test And Integration Backlog]] — multiplayer, match state, combat wiring, two-client audio checks, persistence and mobile work.
-- [[01 Game Design/O Blah Warfare Design|Design Doc]] still says 6v6; the later user map request was about **10v10 / 20 players**. Resolve the target before round implementation; do not silently change spawns.
+- [[01 Game Design/O Blah Warfare Design|Design Doc]] now records the co-op zombie pivot. Historical 6v6/10v10 PvP targets are superseded; NPC waves, kill credit and survival rules remain next work.
 - [[Obsidian Vault Sync]] — where these notes live and how to avoid opening the stale mirror again.

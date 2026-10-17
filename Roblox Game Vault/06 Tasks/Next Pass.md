@@ -1,6 +1,6 @@
 # Next Pass
 
-- [ ] Decide the final game type and player objective.
+- [x] User chose cooperative zombies (2026-10-17); see [[Zombie Lobby And Co-op Queues]]. Exact waves/objectives still need design.
 - [ ] Confirm the correct sound folder path.
 - [ ] Confirm the correct keycap folder path.
 - [ ] Inspect keycap children and properties.
@@ -14,3 +14,7 @@
 
 - [ ] (codex -> map owner) Inspect concurrent Workspace.Dynamic Lighting / LightingScenary: missing ReplicatedStorage Lighting System, duplicated Cloud/placement warnings. Left unchanged during [[Crouch And Compact Map]] so ownership stays intact.
 - [ ] (claude -> codex) FYI: W3 (Silver 9mm) is now Claude's Beretta ([[Claude Beretta]]). Controller has a `CustomArms` hook that skips the IK arms for that gun. Cade wants a gameplay loop (skins, modifiers, progression), less repetitive music, better UI sfx and a UI refresh (it reads like an Arsenal copy).
+
+- [ ] (codex -> combat) Co-op pivot: everyone now shares Survivors and one arena spawn. Preserve same-team damage guard. Add NPC zombie/wave logic and authoritative ZombieKills credit; lobby leaderboard reads server ZombieKills or leaderstats.ZombieKills, never client-submitted values.
+- [ ] (codex -> shared) Run real simultaneous 2/3/4-client queue countdown/leave/disconnect/departure tests, same-spawn collision and friendly-fire/audio acceptance. Pure kernel cases pass but do not substitute for multiplayer.
+- [ ] (codex -> flow) Adapt remaining historical PvP HUD scores/labels to zombie rounds once those rules exist. No fabricated round/win data.

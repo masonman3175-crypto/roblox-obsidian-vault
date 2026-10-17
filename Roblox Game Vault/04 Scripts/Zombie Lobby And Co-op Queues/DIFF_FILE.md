@@ -1,0 +1,12 @@
+# Zombie Lobby And Co-op Queues
+- User superseded PvP matchmaking with cooperative zombies: everyone shares Survivors and the same deployment transform (0,4.6,0).
+- Removed active MainMenu package, MainMenuSystem and MainMenuClient, preserving original instances under ServerStorage.ZombieLobbyBackup_20261017. No Play/locker screen in the running game.
+- Archived old two teams and disabled their original spawn pads; created one Survivors team and one lobby spawn at (1000,.15,20).
+- Added ReplicatedStorage.LobbySystem Config/Client/Request, ServerScriptService.LobbySystem Queue/Service/Boot and StarterPlayerScripts.SurvivorLobby.
+- Added Workspace.SurvivorLobby: 212x158 footprint, 18 script-stripped copies of existing map assets, four colored walk-in queue gates, session leaderboard and clear shared arrival.
+- Cooperative queues require 1/2/3/4 players, 8-second ready countdown, leave/step-out cancel, no instant rejoin after Leave, party IDs and the same main-map shared spawn for every queue.
+- Lobby unarmed inventory/ForceField, per-life inventory reset, third-person/free cursor, first-person weapon deployment, M return, death-to-lobby and per-player listener cleanup.
+- Server accepts only validated/rate-limited Leave/Return requests; no remote Join or client-selected spawn/mode/party members.
+- AudioPresentation.Client changed only at two movement gating lines so real lobby footfalls/jump/landing play while weapons remain gated. Background music remains absent.
+- Leaderboard shows server-provided ZombieKills (zero until real zombie kills exist) and measured best deployed-life duration. Session-local; no fabricated scores or new persistence.
+- No zombie AI/waves added; no cross-server matchmaking or invitation/party UI. Larger-group dispatch verified via pure kernel; simultaneous multi-client Studio test remains outstanding.

@@ -19,7 +19,7 @@ Rules: see the Wiki schema section in `CLAUDE.md` / `AGENTS.md`. Timeline: [[log
 - [[HUD Ammo And Weapon Display]] - ammo, silhouettes, slot controls and reticle (building)
 - [[HUD Scores And Feed]] - score/timer/event data contract and integration gaps (building)
 - [[Custom Shop UI]] - themed shop panel structure (cards, prices, currency) to reskin in our style (idea)
-- [[Main Menu And Locker]] - reference-style menu, live aerial map background, session skins/wraps and direct PLAY deployment (building)
+- [[Main Menu And Locker]] - retired historical menu/locker implementation; replaced by co-op lobby (dropped)
 - [[Hood Warfare 2 HUD and Presentation]] - HUD, feedback, input, and presentation study list (idea)
 
 ## VFX
@@ -39,6 +39,7 @@ Rules: see the Wiki schema section in `CLAUDE.md` / `AGENTS.md`. Timeline: [[log
 - [[Overcast Rowhouse Street]] - overcast haze, brick rowhouses, power lines, street cover (idea)
 
 ## Systems
+- [[Zombie Lobby And Co-op Queues]] - compact physical lobby, leaderboard and cooperative 1/2/3/4-player queues; one team/shared spawn (shipped)
 - [[Crouch And Compact Map]] - crouch/camera stance, tighter perimeter and floor repair; music later removed (shipped)
 - [[Game Audio And Music]] - restored weapon/movement/UI effects, no background music, with isolated rollback (shipped)
 - [[Current Test And Integration Backlog]] - verified work, multiplayer gaps and reusable session prompt (building)
@@ -73,7 +74,7 @@ Rules: see the Wiki schema section in `CLAUDE.md` / `AGENTS.md`. Timeline: [[log
 - `raw/2026-10-16-youtube-fps-reference.md` - YouTube FPS gameplay link for weapon feel (added by partner)
 
 ## Devlog
-- [[2026-10-17]] - ground/team spawns, restored effects-only audio, crouch/camera, compact walls and floor repair (shipped)
+- [[2026-10-17]] - co-op zombie lobby/queues, one team/shared spawn, effects-only audio, crouch and compact-map fixes (shipped)
 - [[2026-10-16]] - vault turned into an LLM wiki, refs ingested, map passes 1-4, graffiti, lighting + night variant
 
 ## Older notes (not migrated yet)

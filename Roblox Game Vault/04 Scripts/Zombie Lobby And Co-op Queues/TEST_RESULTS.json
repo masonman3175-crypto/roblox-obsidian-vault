@@ -1,0 +1,110 @@
+{
+  "baseline": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"teams\":2,\"result\":\"BASELINE PASS: old Play/locker menu active; no lobby queues\",\"menu\":\"MainMenuUI\"}"
+      }
+    ],
+    "isError": false
+  },
+  "start": {
+    "content": [
+      {
+        "type": "text",
+        "text": "LOBBY START PASS: no menu/locker; Survivors; shared lobby arrival; no weapons; music absent"
+      }
+    ],
+    "isError": false
+  },
+  "cancel": {
+    "content": [
+      {
+        "type": "text",
+        "text": "CANCEL/WAIT PASS: Solo countdown cancels on step-out; Duos waits for 2; forged Join sent for rejection test"
+      }
+    ],
+    "isError": false
+  },
+  "deploy": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"team\":\"Survivors\",\"mode\":\"Solos\",\"result\":\"LIVE QUEUE PASS: actual Leave button; blocked rejoin; queue switching; Solo deploy; shared spawn; weapons restored\",\"spawn\":\"0, 4.599999904632568, 0\"}"
+      }
+    ],
+    "isError": false
+  },
+  "return": {
+    "content": [
+      {
+        "type": "text",
+        "text": "RETURN PASS: real M key returns to lobby, third-person/free cursor restored, all weapons holstered"
+      }
+    ],
+    "isError": false
+  },
+  "audio": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"music\":false,\"result\":\"LOBBY AUDIO PASS\",\"footsteps\":2}"
+      }
+    ],
+    "isError": false
+  },
+  "kernel": {
+    "content": [
+      {
+        "type": "text",
+        "text": "QUEUE UNIT PASS: 1/2/3/4-person co-op launches, capacity, cancellation/restart, disconnect pruning, switch and no duplicate dispatch"
+      }
+    ],
+    "isError": false
+  },
+  "larger": {
+    "content": [
+      {
+        "type": "text",
+        "text": "LARGER QUEUE LIVE PASS: Duos/Trios/Squads each waits for its full 2/3/4-person party"
+      }
+    ],
+    "isError": false
+  },
+  "combat": {
+    "content": [
+      {
+        "type": "text",
+        "text": "DEPLOYED COMBAT AUDIO PASS: W1 fire/reload functional after menu removal; one shot cue; music absent"
+      }
+    ],
+    "isError": false
+  },
+  "respawn": {
+    "content": [
+      {
+        "type": "text",
+        "text": "RESPAWN PASS: alive back at shared lobby spawn; no menu, stale queue or armed tools"
+      }
+    ],
+    "isError": false
+  },
+  "rollback": {
+    "content": [
+      {
+        "type": "text",
+        "text": "ROLLBACK PASS: old menu/locker, two teams, original enabled spawns and audio source restored on isolated copy; live co-op lobby retained"
+      }
+    ],
+    "isError": false
+  },
+  "verify": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"stableSources\":14,\"changedSources\":[\"ReplicatedStorage.AudioPresentation.Client\"],\"queueFloorRays\":140,\"coOpSizes\":[1,2,3,4],\"teams\":1,\"sharedSpawn\":\"0, 4.599999904632568, 0\",\"clonedAssets\":18,\"music\":false,\"result\":\"VERIFY PASS\",\"importedScripts\":0}"
+      }
+    ],
+    "isError": false
+  }
+}

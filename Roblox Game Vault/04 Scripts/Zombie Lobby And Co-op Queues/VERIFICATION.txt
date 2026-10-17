@@ -1,0 +1,128 @@
+ZOMBIE LOBBY AND CO-OP QUEUES — 2026-10-17
+Place: hood warfare 1.2 (127865723083651)
+User correction: no opposing teams. Everyone is a Survivor; Solos/Duos/Trios/Squads mean 1/2/3/4 cooperative players, not 1v1/2v2/3v3/4v4.
+
+CHANGED BRANCH / FIELDS
+Removed active MainMenu, MainMenuSystem and MainMenuClient to inert original-object backup.
+One team: Survivors, non-neutral; original two split-team spawns disabled.
+LobbySystem queue kernel/server/client/config, character/spawn/inventory flow and physical map/leaderboard.
+Shared gameplay spawn CFrame position (0,4.6,0) for all queue modes/parties.
+AudioPresentation.Client: two movement gating clauses admit InLobby sounds without admitting weapon fire.
+Background music remains absent.
+
+FOUR ARTIFACT PATHS
+MODIFIED_FILE: C:/Users/mason/OneDrive/Documents/Obsidian Vault/Roblox Game Vault/04 Scripts/Zombie Lobby And Co-op Queues/MODIFIED_FILE.luau
+DIFF_FILE: C:/Users/mason/OneDrive/Documents/Obsidian Vault/Roblox Game Vault/04 Scripts/Zombie Lobby And Co-op Queues/DIFF_FILE.md
+VERIFICATION: C:/Users/mason/OneDrive/Documents/Obsidian Vault/Roblox Game Vault/04 Scripts/Zombie Lobby And Co-op Queues/VERIFICATION.txt
+ROLLBACK: C:/Users/mason/OneDrive/Documents/Obsidian Vault/Roblox Game Vault/04 Scripts/Zombie Lobby And Co-op Queues/ROLLBACK.sh
+
+BASELINE / ORIGINAL HASH
+BASELINE.json SHA256 C413DA3854B40B47E76415A9571CDA225883563400D5F9EA3CA264318AFFA8B9
+MODIFIED_FILE.luau SHA256 1E0C266C54D64B47714EC0893F34AF00D9363A93EB59F77D1B7DEE261E28ED4A
+Original active objects, teams, spawn enable manifest and complete audio source preserved in ServerStorage.ZombieLobbyBackup_20261017.
+Original menu sources retained in BASELINE.json; AUDIO_ORIGINAL.luau retains complete pre-integration sound source. Original map buildings/routes were cloned, not reassigned.
+
+BASELINE — real Client Play
+Exact commands: start_stop_play({is_start:true,studio_id:"a8c52bef-c6e7-4b6f-b818-37193fc2a609"}); execute_luau({datamodel_type:"Client",studio_id:"a8c52bef-c6e7-4b6f-b818-37193fc2a609",code:<BASELINE_TEST.luau exact contents>}).
+Literal output:
+{"teams":2,"result":"BASELINE PASS: old Play/locker menu active; no lobby queues","menu":"MainMenuUI"}
+MCP isError:false; OS exit status not applicable.
+Stopped before Edit changes.
+
+MODIFIED — actual installation and compile
+Installed the sources/backup section and BUILD_LOBBY.luau through execute_luau(Edit).
+MODIFIED_FILE.luau combines the final source installer and final scene builder as one fresh-baseline entry point. Do not re-run over a current task backup.
+Final complete script was syntax-checked with an isolated ModuleScript wrapping it in a returned function, without executing it again.
+Literal output: COMPILE PASS: complete final installer parses without executing again
+All four final live Config/Client/Service/Queue sources compared exactly with archived final strings.
+Literal output: SOURCE PASS: all four live lobby modules equal final archived sources
+MCP isError:false; OS exit status not applicable.
+
+World: Workspace.SurvivorLobby, foundation212x158, 18 reused current-map models (rowhouses, store, laundromat, oaks, bus shelter), 1890 descendants after leaderboard column polish.
+Imported/copied scripts found and stripped:0. No new store character or weapon.
+Viewed actual overview, queue street and leaderboard captures. Moved tree away from arrival/queue sightlines and leaderboard; separate leaderboard columns/alternating rows visually verified.
+One lobby SpawnLocation at (1000,.15,20); server arrival transform (1000,4.5,20). Exact gameplay pivot (0,4.6,0) is shared.
+Survivor characters share a non-self-colliding collision group, so a common arrival does not push teammates apart.
+
+MODIFIED — fresh real Play commands/results
+Command: execute_luau(Client,code:<TEST_START_CLIENT.luau>)
+Literal output:
+LOBBY START PASS: no menu/locker; Survivors; shared lobby arrival; no weapons; music absent
+
+Command: execute_luau(Client,code:<TEST_CANCEL_CLIENT.luau>)
+Literal output:
+CANCEL/WAIT PASS: Solo countdown cancels on step-out; Duos waits for 2; forged Join sent for rejection test
+
+Command: user_mouse_input(Client,actions:[{action:"mouseButtonClick",instance_path:"LocalPlayer.PlayerGui.SurvivorLobbyUI.QueuePanel.LeaveQueue",mouse_button:"left"},{action:"wait",wait_time_ms:500}])
+Then execute_luau(Client,code:<TEST_DEPLOY_CLIENT.luau>).
+Literal output:
+{"team":"Survivors","mode":"Solos","result":"LIVE QUEUE PASS: actual Leave button; blocked rejoin; queue switching; Solo deploy; shared spawn; weapons restored","spawn":"0, 4.599999904632568, 0"}
+Actual solo countdown8 seconds. The recorded position is measured immediately after server PivotTo, not inferred from a later player-controlled position.
+
+Command: execute_luau(Server,code:<TEST_QUEUE_SERVER.luau>)
+Literal output:
+QUEUE UNIT PASS: 1/2/3/4-person co-op launches, capacity, cancellation/restart, disconnect pruning, switch and no duplicate dispatch
+These use opaque simulated membership IDs in a pure queue kernel, not fabricated multiplayer clients.
+
+Command: real user_keyboard_input key M, then Client assertions for InLobby, Classic camera, free cursor, no equipped/backpack weapons.
+Literal output:
+RETURN PASS: real M key returns to lobby, third-person/free cursor restored, all weapons holstered
+
+Command: character_navigation(Client,x:1013,y:3.5,z:20), then read live audio stats.
+Literal output:
+{"music":false,"result":"LOBBY AUDIO PASS","footsteps":2}
+
+Command: live Client W1 ReferenceFPSControl TestMode(true), Fire, one-shot count assertion, Reload, wait2.4, TestMode(false).
+Literal output:
+DEPLOYED COMBAT AUDIO PASS: W1 fire/reload functional after menu removal; one shot cue; music absent
+
+Command: Client enter each Duos/Trios/Squads pad with one real player and verify Count1, expected party size, no deadline; step out.
+Literal output:
+LARGER QUEUE LIVE PASS: Duos/Trios/Squads each waits for its full 2/3/4-person party
+
+Command: Server verifies three malformed request rejections, leaderboard row matches actual connected player, real best-life duration >0; triggers death.
+Client wait4 and asserts new alive unarmed lobby character, no queue/menu.
+Literal output:
+RESPAWN PASS: alive back at shared lobby spawn; no menu, stale queue or armed tools
+Additional final Server test: two consecutive death/respawn cycles, #stashedWeapons==5, Backpack0 each cycle.
+Literal output:
+RESPAWN INVENTORY PASS: two death/respawn cycles; exactly 5 stashed weapons each; none armed
+
+Command: final Client leaderboard NameCell/Kills/Best assertion after fresh spawn.
+Literal output:
+{"kills":"0","name":"01   lightningbrown17","oldMenu":false,"result":"FINAL UI PASS","best":"00:00"}
+Kills0 is not a placeholder reward: no zombie kill authority was added; the board reads real server ZombieKills if present. Best run is measured deployed-life time. Both are session-only.
+
+Command: execute_luau(Edit,code:<VERIFY.luau>)
+Literal output:
+{"stableSources":14,"changedSources":["ReplicatedStorage.AudioPresentation.Client"],"queueFloorRays":140,"coOpSizes":[1,2,3,4],"teams":1,"sharedSpawn":"0, 4.599999904632568, 0","clonedAssets":18,"music":false,"result":"VERIFY PASS","importedScripts":0}
+Fourteen existing protected source fingerprints unchanged, including combat/controller/HUD/movement. Only the documented audio gating integration changed. No combat code rewritten.
+All final successful MCP tests above: isError:false; OS exit status not applicable.
+
+ROLLBACK — exact isolated original-object restoration
+Command: execute_luau(Edit,code:<TEST_ROLLBACK.luau>), invoking exact embedded RESTORE.luau against isolated roots, archived menu/team clones, original spawn copies and audio source.
+Literal output:
+ROLLBACK PASS: old menu/locker, two teams, original enabled spawns and audio source restored on isolated copy; live co-op lobby retained
+MCP isError:false; OS exit status not applicable.
+Restored menu Client/Service and audio Source equality, old menu boot location, two teams, enabled old spawn pads and no fixture lobby asserted. Live new lobby retained. Original baseline Play behavior was independently tested before edits; rollback test does not claim another full Play run of the fixture.
+
+LOCAL EXECUTABLE ROLLBACK HELPER
+Exact PowerShell command in local zombie_lobby evidence directory:
+& 'C:\Program Files\Git\bin\bash.exe' -c 'chmod +x ROLLBACK.sh && ./ROLLBACK.sh --self-test'; exit $LASTEXITCODE
+Inputs: BASELINE.json, MODIFIED_FILE.luau; restores only a separate mktemp copy.
+Literal output:
+LOCAL ROLLBACK PASS: baseline restored on separate bytes; live co-op lobby retained
+OS exit status:0.
+Normal shell mode prints Studio restore instructions; it does not remotely edit Studio.
+
+QA CORRECTIONS / LIMITS
+- Initial Backpack listener attached before LoadCharacter replaced that Backpack; now new Backpack instances are observed.
+- Death tests exposed inventory duplication from fresh StarterPack copies; old stash is cleared before a fresh character load. Exactly5 after two final cycles.
+- Native camera could leave cursor locked in physical lobby; late lobby-only cursor pass fixed actual Leave-button clicks. M provides a desktop return key from first-person combat.
+- Some QA attempts began after a prior Solo countdown had already deployed; reset phase before retesting. Final observed immediate shared pivot is authoritative, not a later moved character.
+- MCP direct require(Service) can return a separate unstarted module cache; use actual server LobbySystem.Control for live state.
+- Blank first-frame SurfaceGui captures settled on recapture; final leaderboard columns visibly verified.
+- Existing Cloud/UIBlox/asset203785492 messages remain unrelated; no lobby/menu/audio runtime errors in final observed Play.
+- Same-server cooperative grouping, shared arena, no cross-server matchmaking or invitation UI. No NPC zombie AI, waves, rewards or persistence implemented in this lobby task.
+- Real simultaneous 2/3/4-client departure, mobile/gamepad and load/performance still require multiplayer acceptance testing.
+- No public Roblox publish. End state Edit; let Team Create save and commit Studio drafts.
