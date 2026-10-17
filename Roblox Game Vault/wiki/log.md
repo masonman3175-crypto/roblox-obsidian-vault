@@ -33,3 +33,8 @@ Recent: `grep "^## \[" log.md | tail -5`
 - All 7 raw images verified intact on GitHub and readable by the AI (opened each one)
 - Added "look at images, never guess from file names" rule to `CLAUDE.md` and `AGENTS.md`
 - Index lists 3 partner raw files waiting for ingest
+
+## [2026-10-16] ingest | Hood Warfare 2 reference pack (codex)
+- New: [[Hood Warfare 2 Reference Pack]]
+- Updated: [[index]]
+- Added branches to art direction, map, weapon, VFX, Blender, and Studio workflow pages.

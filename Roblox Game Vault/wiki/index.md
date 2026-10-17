@@ -19,6 +19,7 @@ _None yet._
 _None yet._
 
 ## Maps
+- [[Hood Warfare 2 Reference Pack]] - original FPS reference pack: urban routes, modes, combat questions, and blockout plan (idea)
 - [[Night Porch Firefight]] - night lighting: warm porch lights, hard shadows, muzzle flash light (idea)
 - [[Overcast Rowhouse Street]] - overcast haze, brick rowhouses, power lines, street cover (idea)
 
