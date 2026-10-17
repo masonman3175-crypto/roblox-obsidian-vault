@@ -23,10 +23,13 @@ This is the working brain for the Roblox place **hood warfare 1.2** (moved from 
 ## Rule of thumb
 Roblox Studio contains the playable game. This vault contains the plans, explanations, decisions, bugs, assets, and tasks that help us build it.
 
-## Current snapshot
+## Current snapshot (2026-10-16)
 - Place ID: `127865723083651` (old 1.1 place: `80506494260443`)
-- Studio mode inspected: Edit
-- Main mechanic: walking over keyboard keycaps
-- Main script: `Workspace.KeyboardSystem.KeyBoardSystem`
-
-- [[wiki/maps/Main Street Block|Main Street Block]] (current map)
+- Game: urban FPS (see [[01 Game Design/O Blah Warfare Design]]). The keyboard keycap demo notes are from the old 1.1 place.
+- Assignment: Cade + Claude on the map, partner + Codex on guns. Assets first, no gameplay yet.
+- **Map:** [[wiki/maps/Main Street Block|Main Street Block]] in `Workspace.Map`, about 3,170 parts, 0 scripts.
+  - Look: [[wiki/maps/Lighting And Atmosphere|Lighting And Atmosphere]] (Night preset active), [[wiki/maps/Graffiti Style|Graffiti Style]]
+  - Gameplay read: [[wiki/maps/Main Street Routes and Cover|Main Street Routes and Cover]]
+  - Assets + credits: [[wiki/maps/Map Asset Registry|Map Asset Registry]]
+- **Tools:** [[wiki/tools/Map Tools|Map Tools]], [[wiki/tools/Studio MCP Gotchas|Studio MCP Gotchas]], [[wiki/tools/Store Asset Vetting|Store Asset Vetting]], [[wiki/tools/Graffiti Generator|Graffiti Generator]], [[wiki/tools/Blender MCP|Blender MCP]]
+- **To do by hand:** set `Lighting.Technology` to Future in Studio.

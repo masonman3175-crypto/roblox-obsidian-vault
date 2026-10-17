@@ -22,6 +22,8 @@ _None yet._
 - [[Main Street Block]] - hood warfare 1.2 map: street, rowhouses, alleys, landmarks, grime, real oaks + old cars, decal graffiti (building)
 - [[Graffiti Style]] - real spray-paint look, tag name list, 13 original pieces in game, layered over tag walls (building)
 - [[Lighting And Atmosphere]] - Overcast + Night presets (switchable module), sodium streetlights, porch lights, alley lights, lit windows (building)
+- [[Main Street Routes and Cover]] - lanes, landmarks, cover inventory, spawn/zone suggestions for GAME FLOW (idea)
+- [[Map Asset Registry]] - every store/AI/uploaded asset id in the map, rejected assets, Workspace.Map folder counts (building)
 - [[Hood Warfare 2 Reference Pack]] - original FPS reference pack: urban routes, modes, combat questions, and blockout plan (idea)
 - [[Hood Warfare 2 Urban Routes]] - primary, service, and interior route layers for readable urban combat (idea)
 - [[Hood Warfare 2 Blockout Workflow]] - small-block-first map building and testing sequence (planned)
@@ -42,6 +44,10 @@ _None yet._
 - [[VFX Studio]] - free all-in-one VFX plugin for Studio, features still to verify (planned)
 - [[Blender MCP]] - AI drives Blender: model from raw/ refs, viewport screenshots (building, tested 2026-10-16)
 - [[08 AI Workflow/Studio MCP Reference]] - Roblox Studio MCP setup and tools (tested 2026-10-16)
+- [[Map Tools]] - ServerStorage.MapTools: RowhouseKit, WallOverlay, LightingPresets, prop + graffiti templates, lighting backup (building)
+- [[Studio MCP Gotchas]] - pivots, decal vs image ids, light culling, rate limits, Play-mode limits (building)
+- [[Store Asset Vetting]] - hidden-script backdoors found in free cars + checklist for every store asset (building)
+- [[Graffiti Generator]] - HTML canvas tool that made our 13 graffiti pieces, how to make more (building)
 
 ## Raw, not ingested yet
 - `raw/2026-10-16-weapon-kit-reference.png` - Roblox Weapons kit docs thumbnails (AK, shotgun, pistol) (added by partner)
@@ -49,7 +55,7 @@ _None yet._
 - `raw/2026-10-16-youtube-fps-reference.md` - YouTube FPS gameplay link for weapon feel (added by partner)
 
 ## Devlog
-- [[2026-10-16]] - vault turned into an LLM wiki, first 5 references ingested
+- [[2026-10-16]] - vault turned into an LLM wiki, refs ingested, map passes 1-4, graffiti, lighting + night variant
 
 ## Older notes (not migrated yet)
 - [[00 Dashboard/Home]] - vault home and place snapshot

@@ -113,5 +113,10 @@ Cade's notes on pass 3: trees too small and fake (single straight trunk), graffi
 ## Related
 - [[Art Direction]]
 - [[Hood Warfare 2 Blockout Workflow]]
+- [[Main Street Routes and Cover]]
+- [[Map Asset Registry]]
+- [[Map Tools]]
+- [[Lighting And Atmosphere]]
+- [[Graffiti Style]]
 - [[01 Game Design/O Blah Warfare Design]]
 - [[index]]

@@ -73,3 +73,7 @@ Recent: `grep "^## \[" log.md | tail -5`
 
 ## [2026-10-16] update | Night lighting variant (claude)
 - [[Lighting And Atmosphere]]: Night preset, LightingPresets module, 2 screenshots. Updated [[index]], [[2026-10-16]]
+
+## [2026-10-16] update | Documented everything from the map session (claude)
+- New: [[Map Tools]], [[Map Asset Registry]], [[Studio MCP Gotchas]], [[Store Asset Vetting]], [[Graffiti Generator]], [[Main Street Routes and Cover]]
+- Updated: [[index]], Home dashboard, [[Main Street Block]] links, [[2026-10-16]]
