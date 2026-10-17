@@ -43,3 +43,8 @@ Recent: `grep "^## \[" log.md | tail -5`
 - New: [[Hood Warfare 2 Urban Routes]], [[Hood Warfare 2 Blockout Workflow]], [[Hood Warfare 2 Game Modes]], [[Hood Warfare 2 Combat Tuning]], [[Hood Warfare 2 HUD and Presentation]], [[Hood Warfare 2 Roblox Build Plan]]
 - Updated: [[Hood Warfare 2 Reference Pack]], [[index]]
 - Added small linked branches for maps, modes, combat, HUD, build order, and Roblox architecture.
+
+## [2026-10-16] update | Map pass 1: Main Street Block (claude)
+- New: [[Main Street Block]], 4 screenshots in `raw/2026-10-16-map-pass1-*.jpg`
+- Built in Studio (hood warfare 1.2) from [[Overcast Rowhouse Street]], [[Night Porch Firefight]], [[Hood Warfare 2 Urban Routes]]
+- Updated: [[index]], [[2026-10-16]], Home place info, assignment note in rules files

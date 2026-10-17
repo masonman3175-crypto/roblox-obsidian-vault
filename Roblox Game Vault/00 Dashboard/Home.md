@@ -1,13 +1,13 @@
 ---
 title: Roblox Game Vault
-game: o blah warfare 1.1
-place_id: 80506494260443
+game: hood warfare 1.2
+place_id: 127865723083651
 status: active
 ---
 
 # Roblox Game Vault
 
-This is the working brain for the Roblox place **o blah warfare 1.1**.
+This is the working brain for the Roblox place **hood warfare 1.2** (moved from o blah warfare 1.1 on 2026-10-16).
 
 ## Start here
 - [[01 Game Design/Game Overview]]
@@ -24,9 +24,9 @@ This is the working brain for the Roblox place **o blah warfare 1.1**.
 Roblox Studio contains the playable game. This vault contains the plans, explanations, decisions, bugs, assets, and tasks that help us build it.
 
 ## Current snapshot
-- Place ID: `80506494260443`
+- Place ID: `127865723083651` (old 1.1 place: `80506494260443`)
 - Studio mode inspected: Edit
 - Main mechanic: walking over keyboard keycaps
 - Main script: `Workspace.KeyboardSystem.KeyBoardSystem`
 
-- [[03 Nodes/Neighborhood Map]]
+- [[wiki/maps/Main Street Block|Main Street Block]] (current map)

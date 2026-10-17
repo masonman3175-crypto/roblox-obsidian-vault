@@ -1,5 +1,7 @@
 # OBlock Rivals Map
 
+> **OUTDATED (2026-10-16):** this was the old map in the 1.1 place. The current map is [[wiki/maps/Main Street Block|Main Street Block]] in hood warfare 1.2.
+
 ## Roblox Studio object
 `Workspace.OBlockRivals_Map`
 

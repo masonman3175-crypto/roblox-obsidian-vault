@@ -11,6 +11,8 @@ Cade (Claude Code) + partner (Codex) editing the same Team Create place.
 - Never edit the other side's scripts or folders. Need something from them? Write the request in the contract or [[06 Tasks/Next Pass]].
 - The in-game contract `ServerStorage.README_CONTRACT` lists every folder, RemoteEvent, and module. It is law. Change it only together.
 
+**Current assignment (2026-10-16):** Cade + Claude build the map, partner + Codex build guns. Assets only for now. Place: hood warfare 1.2 (`127865723083651`).
+
 ## Don't step on each other
 - Tell each other in chat before starting a big AI task ("Claude is doing weapons rn").
 - Only one AI session per person touching Studio at once.

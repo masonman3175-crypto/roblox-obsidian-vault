@@ -11,6 +11,8 @@ Read first every session:
 - The game lives in Roblox Studio Team Create. This repo is the shared notes vault (Obsidian). Edit the game only through the Roblox_Studio MCP.
 - Two devs: Cade (Claude Code) owns COMBAT; partner (Codex) owns GAME FLOW. Never edit outside the COMBAT area. Put requests in the contract or `06 Tasks/Next Pass.md`.
 
+- **Current assignment (2026-10-16, Cade's call):** Cade + Claude build MAP assets, partner + Codex build GUNS. Assets only for now, no gameplay. Game place is now **hood warfare 1.2** (`127865723083651`).
+
 ## Working style
 - Inspect first, list what you'll change, wait for OK on anything big.
 - One bounded task at a time. Playtest with start_stop_play + get_console_output, fix errors, report what was tested and what's left.

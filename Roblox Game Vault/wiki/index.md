@@ -19,6 +19,7 @@ Rules: see the Wiki schema section in `CLAUDE.md` / `AGENTS.md`. Timeline: [[log
 _None yet._
 
 ## Maps
+- [[Main Street Block]] - map pass 1 in hood warfare 1.2: street, 24 rowhouses, rear alleys, cut-throughs, 3 landmarks (building)
 - [[Hood Warfare 2 Reference Pack]] - original FPS reference pack: urban routes, modes, combat questions, and blockout plan (idea)
 - [[Hood Warfare 2 Urban Routes]] - primary, service, and interior route layers for readable urban combat (idea)
 - [[Hood Warfare 2 Blockout Workflow]] - small-block-first map building and testing sequence (planned)
@@ -42,7 +43,7 @@ _None yet._
 
 ## Raw, not ingested yet
 - `raw/2026-10-16-weapon-kit-reference.png` - Roblox Weapons kit docs thumbnails (AK, shotgun, pistol) (added by partner)
-- `raw/2026-10-16-fps-reference.png` - FPS gameplay screenshot, first-person AK in a street (added by partner)
+- `raw/2026-10-16-fps-reference.png` - FPS gameplay screenshot, first-person AK in a street (added by partner) (used as scale ref for [[Main Street Block]])
 - `raw/2026-10-16-youtube-fps-reference.md` - YouTube FPS gameplay link for weapon feel (added by partner)
 
 ## Devlog
@@ -54,7 +55,7 @@ _None yet._
 - [[01 Game Design/Game Overview]] - game overview
 - [[02 Systems/Keyboard System]] - keyboard keycap mechanic
 - [[03 Nodes/Full Game Tree]] - Studio Explorer tree
-- [[03 Nodes/Neighborhood Map]] - map layout
+- [[03 Nodes/Neighborhood Map]] - OUTDATED: old OBlockRivals map in the 1.1 place, replaced by [[Main Street Block]]
 - [[03 Nodes/Lighting Nodes]] - lighting setup
 - [[03 Nodes/Workspace Nodes]] - Workspace contents
 - [[04 Scripts/KeyBoardSystem]] - keyboard script notes
