@@ -51,10 +51,24 @@ First real map block in **hood warfare 1.2** (place `127865723083651`). Geometry
 ## Tested
 - Playtest: character lands on the ground in the rear alley, both cut-throughs, and the sidewalk. No map errors in Output.
 
+## Pass 2: facade grime (2026-10-16)
+![[2026-10-16-map-pass2-alley.jpg]]
+![[2026-10-16-map-pass2-facade.jpg]]
+- **Boarded windows:** 155 (plywood + 2 crooked planks). About 1 in 5 buildings is "abandoned" with most windows boarded.
+- **Window AC units:** 51 on upper floors, with brackets.
+- **Gutters + downspouts** on all 24 rowhouses (front downspout at the lot line, rear gutter on the alley side). About 40% rusted.
+- **Rear fire escapes** on about a third of the 3-story rowhouses, rusted, drop ladders start 6 studs up. New alley-side climb routes (no gameplay yet).
+- **Rust:** 255 metal parts switched to CorrodedMetal (fences, stoop rails, apartment fire escape, chain-link, dumpsters, transformers, loading doors).
+- **Stains:** grime streaks from rooflines, rust runs, splash-back at the base on 68 walls. Drawn with SurfaceGui frames + UIGradient on invisible, non-collidable panels.
+- **Graffiti:** 30 panels, TextLabels in marker/bubble fonts. Made-up tags only (NOVA, ZEKO, FRESH, LUMO, RIZE, ECHO, ...). No gang names, sets, numbers, or real places. In cut-throughs, rear alleys, east alley, and end walls.
+- New module: `ServerStorage.MapTools.WallOverlay` (`carrier`, `streak`, `tag`). Details live in each building's `Details` folder, graffiti in `Workspace.Map.Props.Graffiti`.
+- Map is now about 2,940 parts, 98 SurfaceGuis, 0 scripts. Playtest clean.
+- Known: some tags sit on shadowed walls and read dark until the lighting pass.
+
 ## Next passes (one at a time)
 1. Swap box props for real meshes (cars, dumpsters, trees) with generate_mesh or stripped static assets.
-2. Facade detail: graffiti, boarded windows, AC units, gutters, rust (Design doc look list).
-3. Rooftop routes and fire escapes on rowhouses.
+2. ~~Facade detail~~ done in pass 2.
+3. Rooftop routes and more fire escapes on rowhouses.
 4. Spawns, capture zones (corner store, court, laundromat per the design doc) and map boundary.
 5. Lighting and materials pass last.
 

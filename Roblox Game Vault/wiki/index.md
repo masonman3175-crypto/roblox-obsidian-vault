@@ -19,7 +19,7 @@ Rules: see the Wiki schema section in `CLAUDE.md` / `AGENTS.md`. Timeline: [[log
 _None yet._
 
 ## Maps
-- [[Main Street Block]] - map pass 1 in hood warfare 1.2: street, 24 rowhouses, rear alleys, cut-throughs, 3 landmarks (building)
+- [[Main Street Block]] - hood warfare 1.2 map: street, 24 rowhouses, alleys, 3 landmarks, facade grime pass done (building)
 - [[Hood Warfare 2 Reference Pack]] - original FPS reference pack: urban routes, modes, combat questions, and blockout plan (idea)
 - [[Hood Warfare 2 Urban Routes]] - primary, service, and interior route layers for readable urban combat (idea)
 - [[Hood Warfare 2 Blockout Workflow]] - small-block-first map building and testing sequence (planned)

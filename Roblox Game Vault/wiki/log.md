@@ -48,3 +48,7 @@ Recent: `grep "^## \[" log.md | tail -5`
 - New: [[Main Street Block]], 4 screenshots in `raw/2026-10-16-map-pass1-*.jpg`
 - Built in Studio (hood warfare 1.2) from [[Overcast Rowhouse Street]], [[Night Porch Firefight]], [[Hood Warfare 2 Urban Routes]]
 - Updated: [[index]], [[2026-10-16]], Home place info, assignment note in rules files
+
+## [2026-10-16] update | Map pass 2: facade grime (claude)
+- Updated [[Main Street Block]] with pass 2 notes and 3 screenshots (`raw/2026-10-16-map-pass2-*.jpg`)
+- Updated: [[index]], [[2026-10-16]], session log
