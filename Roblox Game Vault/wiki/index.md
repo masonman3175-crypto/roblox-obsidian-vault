@@ -16,7 +16,7 @@ Rules: see the Wiki schema section in `CLAUDE.md` / `AGENTS.md`. Timeline: [[log
 - [[Hood Warfare 2 HUD and Presentation]] - HUD, feedback, input, and presentation study list (idea)
 
 ## VFX
-
+- [[Map VFX Library]] - map particle effects: burn barrels, sparks, vent steam, leaves, lamp dust, flies, moths, player fog (building)
 
 ## Maps
 - [[Main Street Block]] - hood warfare 1.2 map: street, rowhouses, alleys, landmarks, grime, real oaks + old cars, decal graffiti (building)
