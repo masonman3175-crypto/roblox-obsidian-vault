@@ -87,8 +87,24 @@ First real map block in **hood warfare 1.2** (place `127865723083651`). Geometry
 - Gotcha: generated models come in with the pivot at the middle. Move the pivot to the bottom before placing, or they sink halfway into the ground.
 - Known: the tree reads a bit savanna. Swap for a rounder deciduous tree later if it bugs us.
 
+## Pass 4: Cade's fixes (2026-10-16)
+Cade's notes on pass 3: trees too small and fake (single straight trunk), graffiti looked fake and suburban, cars looked like textured blobs and too frequent. Garbage cans were good.
+
+![[2026-10-16-map-pass4-sidewalk.jpg]]
+![[2026-10-16-map-pass4-canopy.jpg]]
+- **Trees:** replaced the AI tree with 6 real oaks from a free PBR pack (Creator Store `98950444096614`, Letaij, no scripts). Forked trunks and spreading branches, 40 to 52 studs tall, crowns up to 64 wide. 16 planted in sidewalk pits; the canopy closes over the street like [[Overcast Rowhouse Street]].
+  - Gotcha: the pack's meshes have the pivot on a leaf clump, not the trunk (OakD was 21 studs off). Found each trunk with horizontal raycasts at 1 stud using `PreciseConvexDecomposition`, then moved the pivot. Trunk colliders are sized to the measured trunk width. Players slide around trunks, leaves don't block.
+- **Cars:** replaced the AI sedans with 9 real modeled old cars, scaled 1.1x (18 to 24 studs long). Down from 18 to 12 placed (10 on the street, 2 in the west lot).
+  ![[2026-10-16-map-pass4-car-lineup.jpg]]
+  - Sources: `93702862785504` (old sedan), `4128316898` (white 70s sedan, bearduckmonkey), `8616820527` (rusty car pack, xavier2007, 7 used). All scripts removed.
+  - **Rejected for hidden scripts:** `116549755605901` (22 scripts incl. "PoseLink", "Wave"), `84448302369434` (31 scripts), and `93702862785504` came with `Runtime` + `ScreenBuilder` scripts despite claiming none (backdoor pattern). Mesh kept, scripts deleted. Always strip and check store models.
+  - Gotcha: GetBoundingBox follows the PrimaryPart's tilt, so use a world AABB from part corners to orient cars. One car ended up upside down from a bad rotation and was fixed.
+- **Graffiti:** see [[Graffiti Style]]. Font text removed. 19 panels now use 8 vetted store decals as placeholders; our 13 original pieces wait on upload permission.
+- Templates: `ServerStorage.MapTools.PropMeshes` now has OakA-F and 9 `Car_*`. Old AI `Sedan90s`, `Sedan70s`, `StreetTree` removed. AI dumpster, wheelie bin, trash can, hydrant kept.
+- Playtest clean. Car collision works, 0 scripts in the map or templates, about 3,000 parts.
+
 ## Next passes (one at a time)
-1. ~~Real prop meshes~~ done in pass 3.
+1. ~~Real prop meshes~~ done in pass 3, cars and trees redone in pass 4.
 2. ~~Facade detail~~ done in pass 2.
 3. Rooftop routes and more fire escapes on rowhouses.
 4. Spawns, capture zones (corner store, court, laundromat per the design doc) and map boundary.

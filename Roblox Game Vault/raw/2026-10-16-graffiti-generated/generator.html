@@ -1,0 +1,305 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Graffiti Gen</title>
+<link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&family=Titan+One&family=Londrina+Solid:wght@900&family=Permanent+Marker&family=Rock+Salt&display=block" rel="stylesheet">
+<style>
+  body { background: #8a8580; margin: 0; padding: 12px; font-family: sans-serif; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .cell { background: repeating-linear-gradient(0deg, #9b5a46 0 22px, #8b4f3d 22px 24px); padding: 4px; }
+  canvas { width: 100%; display: block; }
+  .name { color: #fff; font-size: 12px; }
+  #status { color: #fff; margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<div id="status">rendering...</div>
+<div class="grid" id="grid"></div>
+<script>
+const W = 1024, H = 512;
+
+function rng(seed) {
+  return function () {
+    seed |= 0; seed = seed + 0x6D2B79F5 | 0;
+    let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+function canvas(w = W, h = H) { const c = document.createElement('canvas'); c.width = w; c.height = h; return c; }
+
+// Letter layout: per-letter rotation, size and baseline jitter so it reads hand-painted.
+function layout(ctx, word, font, size, r, opts = {}) {
+  const jitter = opts.jitter ?? 0.12, overlap = opts.overlap ?? 0.12;
+  const L = [];
+  let x = 0;
+  for (const ch of word) {
+    const s = size * (1 + (r() - 0.5) * (opts.sizeVar ?? 0.18));
+    ctx.font = `${s}px ${font}`;
+    const w = ctx.measureText(ch).width;
+    L.push({ ch, x: x + w / 2, y: (r() - 0.5) * size * jitter, rot: (r() - 0.5) * (opts.rot ?? 0.22), s, w });
+    x += w * (1 - overlap);
+  }
+  const total = x;
+  for (const l of L) l.x -= total / 2;
+  L.font = font; L.width = total;
+  return L;
+}
+function each(ctx, L, cx, cy, fn) {
+  for (const l of L) {
+    ctx.save();
+    ctx.translate(cx + l.x, cy + l.y);
+    ctx.rotate(l.rot);
+    ctx.font = `${l.s}px ${L.font}`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    fn(ctx, l);
+    ctx.restore();
+  }
+}
+function strokeL(ctx, L, cx, cy, width, color) {
+  ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+  each(ctx, L, cx, cy, (c, l) => { c.lineWidth = width; c.strokeStyle = color; c.strokeText(l.ch, 0, 0); c.fillStyle = color; c.fillText(l.ch, 0, 0); });
+}
+function fillL(ctx, L, cx, cy, style) {
+  each(ctx, L, cx, cy, (c, l) => { c.fillStyle = style; c.fillText(l.ch, 0, 0); });
+}
+
+// Cloud / background blob behind a piece
+function cloud(ctx, cx, cy, w, h, fill, line, r) {
+  const blobs = [];
+  for (let i = 0; i < 26; i++) {
+    const a = r() * Math.PI * 2;
+    blobs.push([cx + Math.cos(a) * w * (0.35 + r() * 0.2), cy + Math.sin(a) * h * (0.3 + r() * 0.2), 40 + r() * 70]);
+  }
+  ctx.fillStyle = line;
+  for (const [x, y, rad] of blobs) { ctx.beginPath(); ctx.arc(x, y, rad + 6, 0, 7); ctx.fill(); }
+  ctx.beginPath(); ctx.ellipse(cx, cy, w * 0.42 + 6, h * 0.36 + 6, 0, 0, 7); ctx.fill();
+  ctx.fillStyle = fill;
+  for (const [x, y, rad] of blobs) { ctx.beginPath(); ctx.arc(x, y, rad, 0, 7); ctx.fill(); }
+  ctx.beginPath(); ctx.ellipse(cx, cy, w * 0.42, h * 0.36, 0, 0, 7); ctx.fill();
+  for (let i = 0; i < 10; i++) {
+    const x = cx + (r() - 0.5) * w * 1.1, y = cy + (r() - 0.5) * h * 1.1, rad = 6 + r() * 14;
+    ctx.fillStyle = line; ctx.beginPath(); ctx.arc(x, y, rad + 3, 0, 7); ctx.fill();
+    ctx.fillStyle = fill; ctx.beginPath(); ctx.arc(x, y, rad, 0, 7); ctx.fill();
+  }
+}
+function star(ctx, x, y, s, color) {
+  ctx.fillStyle = color; ctx.beginPath();
+  for (let i = 0; i < 8; i++) {
+    const a = i * Math.PI / 4, rad = i % 2 ? s * 0.18 : s;
+    ctx.lineTo(x + Math.cos(a) * rad, y + Math.sin(a) * rad);
+  }
+  ctx.closePath(); ctx.fill();
+}
+// Wear: punch speckles + a faded patch so it looks painted a while ago
+function weather(ctx, r, amount) {
+  ctx.save();
+  ctx.globalCompositeOperation = 'destination-out';
+  for (let i = 0; i < 1400 * amount; i++) {
+    ctx.fillStyle = `rgba(0,0,0,${0.2 + r() * 0.6})`;
+    const s = 1 + r() * 3.5;
+    ctx.fillRect(r() * W, r() * H, s, s);
+  }
+  const g = ctx.createLinearGradient(0, 0, W, 0);
+  g.addColorStop(0, `rgba(0,0,0,${0.25 * amount})`); g.addColorStop(0.5, 'rgba(0,0,0,0)'); g.addColorStop(1, `rgba(0,0,0,${0.15 * amount})`);
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  ctx.restore();
+}
+// Small marker tags scattered around a piece (stacked-wall look)
+function sideTags(ctx, r, words, color, count) {
+  for (let i = 0; i < count; i++) {
+    ctx.save();
+    const x = 60 + r() * (W - 120), y = r() < 0.5 ? 40 + r() * 70 : H - 40 - r() * 60;
+    ctx.translate(x, y); ctx.rotate((r() - 0.5) * 0.4);
+    ctx.font = `${28 + r() * 26}px ${r() < 0.5 ? "'Permanent Marker'" : "'Rock Salt'"}`;
+    ctx.fillStyle = color[Math.floor(r() * color.length)];
+    ctx.textAlign = 'center';
+    ctx.fillText(words[Math.floor(r() * words.length)], 0, 0);
+    ctx.restore();
+  }
+}
+
+// Full color piece: cloud, 3D block, outlines, gradient fill, inner shading, shine, drips
+function piece(o) {
+  const c = canvas(), ctx = c.getContext('2d'), r = rng(o.seed);
+  const size = o.size || 230, cx = W / 2, cy = H / 2 + 10;
+  const L = layout(ctx, o.word, o.font, size, r, o.layoutOpts);
+  if (o.cloud) cloud(ctx, cx, cy, Math.min(L.width * 1.15, W * 0.95), size * 1.25, o.cloud[0], o.cloud[1], r);
+  if (o.tags) sideTags(ctx, r, o.tags, o.tagColors || ['#111'], o.tagCount || 4);
+  ctx.save(); ctx.shadowColor = o.glow || 'rgba(0,0,0,0)'; ctx.shadowBlur = 40;
+  strokeL(ctx, L, cx, cy, o.outer + o.line, o.outerColor); ctx.restore();
+  for (let i = o.depth; i > 0; i--) strokeL(ctx, L, cx + i * o.dx, cy + i * o.dy, o.line, o.depthColor);
+  strokeL(ctx, L, cx + o.depth * o.dx, cy + o.depth * o.dy, o.line + 6, o.lineColor);
+  for (let i = o.depth; i > 0; i--) strokeL(ctx, L, cx + i * o.dx, cy + i * o.dy, o.line - 4, o.depthColor);
+  strokeL(ctx, L, cx, cy, o.outer + o.line, o.outerColor);
+  strokeL(ctx, L, cx, cy, o.line, o.lineColor);
+  const f = canvas(), fx = f.getContext('2d');
+  const g = fx.createLinearGradient(0, cy - size * 0.45, 0, cy + size * 0.45);
+  o.fill.forEach((col, i) => g.addColorStop(i / (o.fill.length - 1), col));
+  fillL(fx, L, cx, cy, g);
+  fx.globalCompositeOperation = 'source-atop';
+  if (o.bands) {
+    for (let i = 0; i < 9; i++) {
+      fx.fillStyle = o.bands[i % o.bands.length];
+      fx.globalAlpha = 0.55;
+      fx.beginPath();
+      const y = cy - size * 0.5 + i * size * 0.12 + r() * 10;
+      fx.moveTo(0, y); fx.bezierCurveTo(W * 0.3, y - 30, W * 0.6, y + 40, W, y - 10); fx.lineTo(W, y + 14); fx.bezierCurveTo(W * 0.6, y + 54, W * 0.3, y - 16, 0, y + 14);
+      fx.fill();
+    }
+    fx.globalAlpha = 1;
+  }
+  if (o.dots) for (let i = 0; i < 40; i++) { fx.fillStyle = o.dots; fx.beginPath(); fx.arc(r() * W, cy + (r() - 0.5) * size, 5 + r() * 14, 0, 7); fx.fill(); }
+  fx.globalAlpha = 0.28; fillL(fx, L, cx + 9, cy + 9, '#000'); fx.globalAlpha = 1;
+  fx.globalCompositeOperation = 'source-over';
+  ctx.drawImage(f, 0, 0);
+  if (o.drips) {
+    for (let i = 0; i < o.drips; i++) {
+      const l = L[Math.floor(r() * L.length)];
+      const x = cx + l.x + (r() - 0.5) * l.w * 0.6, y0 = cy + l.y + size * 0.28, len = 25 + r() * 70, w = 7 + r() * 7;
+      ctx.fillStyle = o.lineColor; ctx.beginPath(); ctx.roundRect(x - w / 2 - 4, y0, w + 8, len + 4, w); ctx.fill();
+      ctx.fillStyle = o.fill[o.fill.length - 1]; ctx.beginPath(); ctx.roundRect(x - w / 2, y0 - 6, w, len, w / 2); ctx.fill();
+    }
+  }
+  for (let i = 0; i < (o.shine ?? 5); i++) {
+    const l = L[Math.floor(r() * L.length)];
+    star(ctx, cx + l.x - l.w * 0.2 + r() * 20, cy + l.y - size * 0.22 + r() * 20, 12 + r() * 16, '#fff');
+  }
+  if (o.weather) weather(ctx, r, o.weather);
+  return c;
+}
+
+// Bubble throw-up: fat letters, 2 colors, quick and flat
+function throwie(o) {
+  const c = canvas(), ctx = c.getContext('2d'), r = rng(o.seed);
+  const size = o.size || 260, cx = W / 2, cy = H / 2 + 10;
+  const L = layout(ctx, o.word, o.font, size, r, { jitter: 0.1, overlap: 0.22, rot: 0.25, sizeVar: 0.12 });
+  if (o.tags) sideTags(ctx, r, o.tags, o.tagColors || ['#111'], o.tagCount || 3);
+  if (o.shadow) for (let i = 14; i > 0; i--) strokeL(ctx, L, cx + i * 2, cy + i * 2.2, o.line, o.shadow);
+  if (o.outer) strokeL(ctx, L, cx, cy, o.line + o.outer, o.outerColor);
+  strokeL(ctx, L, cx, cy, o.line, o.lineColor);
+  fillL(ctx, L, cx, cy, o.fill);
+  ctx.save(); ctx.globalAlpha = 0.9; ctx.strokeStyle = o.lineColor; ctx.lineWidth = 5; ctx.lineCap = 'round';
+  each(ctx, L, cx, cy, (cc, l) => { cc.beginPath(); cc.moveTo(-l.w * 0.2, -l.s * 0.18); cc.quadraticCurveTo(-l.w * 0.05, -l.s * 0.28, l.w * 0.12, -l.s * 0.2); cc.stroke(); });
+  ctx.restore();
+  if (o.weather) weather(ctx, r, o.weather);
+  return c;
+}
+
+// Skull character: big white head, black eyes, teeth. Our own drawing.
+function skull(seed) {
+  const c = canvas(), ctx = c.getContext('2d'), r = rng(seed);
+  sideTags(ctx, r, ['XTRA', 'TIKA', 'ZOER', 'HOPA'], ['#111', '#2a7f7a', '#c9c9c9'], 6);
+  ctx.save(); ctx.translate(W / 2, H / 2 + 10); ctx.rotate(-0.06); ctx.scale(1.05, 1.05);
+  const head = () => { ctx.beginPath(); ctx.ellipse(0, -40, 170, 190, 0, Math.PI, 0); ctx.lineTo(150, 80); ctx.quadraticCurveTo(150, 200, 0, 205); ctx.quadraticCurveTo(-150, 200, -150, 80); ctx.closePath(); };
+  ctx.save(); ctx.translate(-26, 14); head(); ctx.fillStyle = '#0d0d0d'; ctx.fill(); ctx.restore();
+  head(); ctx.fillStyle = '#0d0d0d'; ctx.fill();
+  ctx.save(); ctx.scale(0.9, 0.9); ctx.translate(4, -8); head(); ctx.fillStyle = '#efefea'; ctx.fill(); ctx.restore();
+  ctx.fillStyle = '#0d0d0d';
+  ctx.beginPath(); ctx.ellipse(-60, -50, 46, 78, -0.1, 0, 7); ctx.fill();
+  ctx.beginPath(); ctx.ellipse(60, -40, 36, 60, 0.15, 0, 7); ctx.fill();
+  ctx.fillStyle = '#efefea';
+  ctx.beginPath(); ctx.ellipse(-48, -78, 12, 20, 0, 0, 7); ctx.fill();
+  ctx.beginPath(); ctx.ellipse(70, -62, 9, 15, 0, 0, 7); ctx.fill();
+  ctx.fillStyle = '#0d0d0d'; ctx.beginPath(); ctx.moveTo(-8, 30); ctx.lineTo(10, 30); ctx.lineTo(0, 55); ctx.fill();
+  ctx.lineWidth = 12; ctx.strokeStyle = '#0d0d0d'; ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.moveTo(-110, 95); ctx.quadraticCurveTo(0, 70, 115, 95); ctx.stroke();
+  for (let i = -3; i <= 3; i++) { ctx.beginPath(); ctx.moveTo(i * 30, 82 - Math.abs(i) * 2); ctx.lineTo(i * 30 + 2, 160 - Math.abs(i) * 8); ctx.stroke(); }
+  ctx.beginPath(); ctx.moveTo(-110, 150); ctx.quadraticCurveTo(0, 185, 112, 148); ctx.stroke();
+  ctx.restore();
+  weather(ctx, r, 0.5);
+  return c;
+}
+
+// Drippy blob character with a cap (purple + teal). Our own take on the cartoon-head style.
+function blobHead(seed) {
+  const c = canvas(), ctx = c.getContext('2d'), r = rng(seed);
+  ctx.save(); ctx.translate(W / 2, H / 2 - 20);
+  const shape = (pad) => {
+    ctx.beginPath();
+    ctx.ellipse(0, -10, 180 + pad, 150 + pad, 0, Math.PI * 0.95, Math.PI * 0.05);
+    ctx.quadraticCurveTo(160 + pad, 170 + pad, 40, 150 + pad);
+    ctx.quadraticCurveTo(30, 230 + pad, -10, 235 + pad);
+    ctx.quadraticCurveTo(-50, 230 + pad, -40, 150 + pad);
+    ctx.quadraticCurveTo(-170 - pad, 170 + pad, -178 - pad, 30);
+    ctx.closePath();
+  };
+  shape(18); ctx.fillStyle = '#f2f2ee'; ctx.fill();
+  shape(10); ctx.fillStyle = '#1f6f72'; ctx.fill();
+  shape(0); ctx.fillStyle = '#9a7ed6'; ctx.fill();
+  ctx.fillStyle = '#7d63bd'; ctx.beginPath(); ctx.ellipse(-10, -110, 150, 70, -0.15, Math.PI, 0); ctx.fill();
+  ctx.strokeStyle = '#1f6f72'; ctx.lineWidth = 9;
+  ctx.beginPath(); ctx.ellipse(-10, -110, 150, 70, -0.15, Math.PI, 0); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(-170, -95); ctx.quadraticCurveTo(-260, -70, -200, -50); ctx.stroke();
+  ctx.lineWidth = 10; ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.arc(-40, 10, 26, 0.2, Math.PI * 1.8); ctx.stroke();
+  ctx.beginPath(); ctx.arc(50, 15, 22, 0, Math.PI * 2); ctx.stroke();
+  ctx.fillStyle = '#1f6f72'; ctx.beginPath(); ctx.arc(55, 18, 8, 0, 7); ctx.fill();
+  ctx.beginPath(); ctx.moveTo(-60, 90); ctx.quadraticCurveTo(10, 120, 90, 80); ctx.stroke();
+  for (let i = 0; i < 3; i++) { ctx.beginPath(); ctx.moveTo(-30 + i * 35, 98 + i * 2); ctx.lineTo(-28 + i * 35, 120); ctx.stroke(); }
+  ctx.restore();
+  ctx.font = "34px 'Permanent Marker'"; ctx.fillStyle = '#1f6f72'; ctx.save(); ctx.translate(W / 2 - 40, 75); ctx.rotate(-0.2); ctx.fillText('SEB', 0, 0); ctx.restore();
+  weather(ctx, r, 0.4);
+  return c;
+}
+
+// Tag wall: lots of handstyles stacked, like the background layer in the refs
+function tagWall(seed, words, colors) {
+  const c = canvas(), ctx = c.getContext('2d'), r = rng(seed);
+  for (let i = 0; i < 22; i++) {
+    ctx.save();
+    ctx.translate(40 + r() * (W - 80), 40 + r() * (H - 60));
+    ctx.rotate((r() - 0.5) * 0.35);
+    const big = r() < 0.25;
+    ctx.font = `${big ? 70 + r() * 40 : 30 + r() * 30}px ${r() < 0.6 ? "'Permanent Marker'" : "'Rock Salt'"}`;
+    ctx.fillStyle = colors[Math.floor(r() * colors.length)];
+    ctx.globalAlpha = 0.75 + r() * 0.25;
+    const word = words[Math.floor(r() * words.length)];
+    if (big && r() < 0.5) { ctx.strokeStyle = '#111'; ctx.lineWidth = 4; ctx.strokeText(word, 0, 0); }
+    ctx.fillText(word, 0, 0);
+    if (r() < 0.4) { ctx.lineWidth = 4; ctx.strokeStyle = ctx.fillStyle; ctx.beginPath(); ctx.moveTo(-40, 14); ctx.quadraticCurveTo(20, 30, 90, 8); ctx.stroke(); }
+    ctx.restore();
+  }
+  weather(ctx, r, 0.6);
+  return c;
+}
+
+const TAGWORDS = ['XTRA', 'TIKA', 'ZOER', 'HOPA', 'ENIPS', 'DELS', 'SEB', 'GROSE', 'AMINAL', 'WINK', 'DERP', 'SHUE', 'BAK', 'DAPS'];
+const SEDG = "'Sedgwick Ave Display'", TITAN = "'Titan One'", LOND = "'Londrina Solid'";
+
+const pieces = [
+  ['piece_spat', () => piece({ seed: 11, word: 'SPAT', font: SEDG, size: 250, fill: ['#ffe14a', '#ff8a1e', '#e8321e'], bands: ['#fff3a0', '#c81d12'], outer: 18, outerColor: '#f4f4f0', line: 16, lineColor: '#111', depth: 14, dx: 2.2, dy: 2.6, depthColor: '#3a1f5c', cloud: ['#7fd0f0', '#111'], drips: 5, shine: 6, glow: 'rgba(255,140,40,0.6)', weather: 0.35 })],
+  ['piece_brake', () => piece({ seed: 22, word: 'BRAKE', font: SEDG, size: 220, fill: ['#ffffff', '#f1f1f1', '#d82222', '#a8121a'], outer: 14, outerColor: '#ffd400', line: 15, lineColor: '#111', depth: 12, dx: 2.4, dy: 2.2, depthColor: '#121212', drips: 3, tags: TAGWORDS, tagCount: 4, weather: 0.4 })],
+  ['piece_loner', () => piece({ seed: 33, word: 'LONER', font: SEDG, size: 220, fill: ['#ffffff', '#c9cdd2', '#6e737a', '#e9ecef', '#9aa0a6'], bands: ['#ffffff', '#555b62'], outer: 12, outerColor: '#111', line: 14, lineColor: '#111', depth: 13, dx: -2.2, dy: 2.6, depthColor: '#1d4f9a', glow: 'rgba(60,120,220,0.5)', shine: 7, tags: TAGWORDS, tagCount: 3, tagColors: ['#111', '#888'], weather: 0.3 })],
+  ['piece_type', () => piece({ seed: 44, word: 'TYPE', font: SEDG, size: 250, fill: ['#e8ff4a', '#7ee03a', '#1e8a3a'], dots: '#f6ff9a', outer: 16, outerColor: '#ff5fb0', line: 15, lineColor: '#111', depth: 12, dx: 2.4, dy: 2.4, depthColor: '#111', cloud: ['#ff8cc8', '#111'], drips: 4, weather: 0.35 })],
+  ['piece_skot', () => piece({ seed: 55, word: 'SKOT', font: SEDG, size: 240, fill: ['#7ce8ff', '#2a8ff0', '#173f9c'], bands: ['#bff4ff'], outer: 14, outerColor: '#fff', line: 15, lineColor: '#111', depth: 12, dx: 2.2, dy: 2.4, depthColor: '#f04a2a', shine: 6, weather: 0.45 })],
+  ['throw_donk', () => throwie({ seed: 66, word: 'DONK', font: TITAN, size: 250, fill: '#d7d9db', line: 18, lineColor: '#111', outer: 10, outerColor: '#e8302a', shadow: '#111', tags: TAGWORDS, tagCount: 3, weather: 0.5 })],
+  ['throw_daps', () => throwie({ seed: 77, word: 'DAPS', font: TITAN, size: 250, fill: '#f6f6f2', line: 14, lineColor: '#111', outer: 0, outerColor: '#111', shadow: '#111', weather: 0.4 })],
+  ['throw_bak', () => throwie({ seed: 88, word: 'BAK', font: TITAN, size: 280, fill: '#161616', line: 14, lineColor: '#eaeaea', outer: 6, outerColor: '#161616', tags: TAGWORDS, tagCount: 4, tagColors: ['#ddd', '#111'], weather: 0.45 })],
+  ['throw_grose', () => throwie({ seed: 99, word: 'GROSE', font: LOND, size: 230, fill: '#9a7ed6', line: 16, lineColor: '#1f6f72', outer: 10, outerColor: '#f2f2ee', weather: 0.4 })],
+  ['char_skull', () => skull(101)],
+  ['char_blob', () => blobHead(202)],
+  ['tags_wall_a', () => tagWall(303, TAGWORDS, ['#111', '#111', '#2a7f7a', '#c8c8c8', '#c0392b'])],
+  ['tags_wall_b', () => tagWall(404, TAGWORDS, ['#111', '#e6e6e6', '#3b6fd1', '#111'])],
+];
+
+(async () => {
+  await Promise.all([SEDG, TITAN, LOND, "'Permanent Marker'", "'Rock Salt'"].map((f) => document.fonts.load(`80px ${f}`)));
+  await document.fonts.ready;
+  const grid = document.getElementById('grid');
+  let saved = 0;
+  for (const [name, fn] of pieces) {
+    const c = fn();
+    const cell = document.createElement('div'); cell.className = 'cell';
+    const label = document.createElement('div'); label.className = 'name'; label.textContent = name;
+    cell.appendChild(c); cell.appendChild(label); grid.appendChild(cell);
+    await fetch('/save?name=' + name, { method: 'POST', body: c.toDataURL('image/png') });
+    saved++;
+  }
+  document.getElementById('status').textContent = 'saved ' + saved + ' pieces';
+})();
+</script>
+</body>
+</html>

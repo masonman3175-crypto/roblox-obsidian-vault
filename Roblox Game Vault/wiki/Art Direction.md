@@ -25,6 +25,10 @@ A gritty, made-up city at night or under grey skies, with realistic guns that po
 - Few warm lights and hard shadows at night. See [[Night Porch Firefight]].
 - Brick rowhouses, fences, power lines, parked cars. Lots of cover.
 - Fictional place only. No real streets, signs, or landmarks.
+- Big mature street trees whose canopy closes over the street. Real branching trunks, never one straight cylinder.
+- Parked cars are real-looking old beaters, not too many. No blobby AI cars.
+- Graffiti must look like real spray paint, layered, with hood-sounding tags. See [[Graffiti Style]].
+- Built so far: [[Main Street Block]].
 
 ## Guns (COMBAT)
 - Realistic shapes, matte black, worn edges. See [[Weapon Lineup]].
