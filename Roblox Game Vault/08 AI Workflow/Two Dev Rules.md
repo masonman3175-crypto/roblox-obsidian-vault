@@ -18,7 +18,11 @@ Cade (Claude Code) + partner (Codex) editing the same Team Create place.
 - If something "doesn't work" after an AI change, first check: are the drafts committed?
 
 ## Vault (git)
-- `git pull` before you start. Commit + push when you stop. `sync-vault.ps1` does all three.
+- Pull and push **often**, not just at start and end. We edit at the same time.
+- `git pull --rebase --autostash` before you start and before every commit.
+- Commit + push right after every finished change (a note, an ingest, a log entry). AIs push without asking.
+- Push rejected: pull with rebase, push again. Conflict you cannot fix cleanly: stop and ask. Never force push.
+- Stay on `main`. `sync-vault.ps1` still works for a manual sync.
 - Don't edit the same note at the same time. Session logs go in separate dated files so they never conflict.
 
 ## Hard rules for both AIs

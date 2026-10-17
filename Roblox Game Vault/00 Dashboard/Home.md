@@ -17,6 +17,8 @@ This is the working brain for the Roblox place **o blah warfare 1.1**.
 - [[06 Tasks/Next Pass]]
 - [[01 Game Design/O Blah Warfare Design]]
 - [[08 AI Workflow/AI Workflow Overview]]
+- [[wiki/index|Wiki Index]] (references, tools, devlog)
+- [[wiki/Art Direction|Art Direction]]
 
 ## Rule of thumb
 Roblox Studio contains the playable game. This vault contains the plans, explanations, decisions, bugs, assets, and tasks that help us build it.

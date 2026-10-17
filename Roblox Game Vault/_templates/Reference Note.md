@@ -1,6 +1,6 @@
 ---
 type: reference
-area: ui / vfx / maps / systems / tools
+area: ui / vfx / maps / systems / tools / weapons
 owner: combat / flow / shared
 status: idea
 sources:

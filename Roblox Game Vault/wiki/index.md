@@ -9,6 +9,9 @@ updated: 2026-10-16
 Catalog of every wiki page. AI reads this first and updates it on every ingest. Format: `- [[Page]] - summary (status)`.
 Rules: see the Wiki schema section in `CLAUDE.md` / `AGENTS.md`. Timeline: [[log]].
 
+## Overview
+- [[Art Direction]] - the look: gritty made-up city, realistic guns, color cosmetics (idea)
+
 ## UI
 _None yet._
 
@@ -16,16 +19,22 @@ _None yet._
 _None yet._
 
 ## Maps
-_None yet._
+- [[Night Porch Firefight]] - night lighting: warm porch lights, hard shadows, muzzle flash light (idea)
+- [[Overcast Rowhouse Street]] - overcast haze, brick rowhouses, power lines, street cover (idea)
 
 ## Systems
 _None yet._
+
+## Weapons
+- [[Weapon Lineup]] - realistic guns, worn paint, swappable attachments (idea)
+- [[Color Grip Pistols Key Art]] - one accent color per gun as a cosmetic, thumbnail layout (idea)
+- [[Pink Sniper Skin]] - full themed skin on a stock sniper (idea)
 
 ## Tools
 - [[VFX Studio]] - free all-in-one VFX plugin for Studio, features still to verify (planned)
 
 ## Devlog
-- [[2026-10-16]] - vault turned into an LLM wiki
+- [[2026-10-16]] - vault turned into an LLM wiki, first 5 references ingested
 
 ## Older notes (not migrated yet)
 - [[00 Dashboard/Home]] - vault home and place snapshot

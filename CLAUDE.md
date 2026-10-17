@@ -18,6 +18,15 @@ Read first every session:
 - Use asset tools (search_asset, insert_asset, generate_mesh, generate_material) instead of building everything from basic parts. Delete all scripts inside inserted assets and report them. No store weapons or characters.
 - End every session with a log in `Session Logs/YYYY-MM-DD-claude.md` and remind Cade to commit drafts.
 
+## Git sync (vault)
+Both devs edit this vault at the same time, so sync constantly. No need to ask before pushing.
+- `git pull --rebase --autostash` at session start and before every commit.
+- Commit and push right after every finished change (a note, an ingest, a log entry). Small commits, clear messages.
+- Push rejected? Pull with rebase again, then push.
+- Merge conflict you cannot resolve cleanly: stop and ask your dev. Never force push or rewrite pushed history.
+- Work on `main`. No long-lived branches.
+- Skip noise: do not commit `.obsidian/graph.json` or `.obsidian/workspace*.json` changes.
+
 ## Code rules
 - Luau, current APIs. `task.wait`/`task.spawn`/`task.delay`, never `wait`/`spawn`/`delay`.
 - Server authoritative: never trust the client for hits, damage, kills, currency, purchases. Validate every RemoteEvent payload.
@@ -41,6 +50,7 @@ All paths below are inside `Roblox Game Vault/`.
   - `maps/` layouts, lighting, environment art
   - `systems/` gameplay mechanics and how they work
   - `tools/` Studio plugins and outside tools we use
+  - `weapons/` gun models, skins, attachments, gun feel (owner: combat)
   - `devlog/` one file per day, `YYYY-MM-DD.md`: what changed in the game, in plain words
   - `index.md` = catalog of every wiki page
   - `log.md` = append-only timeline of wiki work
@@ -50,7 +60,7 @@ All paths below are inside `Roblox Game Vault/`.
 
 ### Page rules
 - Reference notes use `_templates/Reference Note.md`. Every reference note must fill "How we'd build it in Roblox" with real Instances, services, and where the code would live per the contract.
-- Frontmatter on every page: `type` (reference / tool / system / map / ui / vfx / devlog), `owner` (combat / flow / shared), `status` (idea / planned / building / shipped / dropped), `sources` (list of `raw/` files or URLs), `updated` (YYYY-MM-DD).
+- Frontmatter on every page: `type` (reference / tool / system / map / ui / vfx / weapon / devlog), `owner` (combat / flow / shared), `status` (idea / planned / building / shipped / dropped), `sources` (list of `raw/` files or URLs), `updated` (YYYY-MM-DD).
 - One topic per page, Title Case file names. Link with `[[wikilinks]]`. Every page links to at least one other page and is listed in `index.md`.
 - Ownership still applies: only edit pages whose `owner` is your side or `shared`. Put requests for the other side in `06 Tasks/Next Pass.md`.
 - Mark guesses as `(unverified)`. Never invent plugin features, asset IDs, or API behavior.
