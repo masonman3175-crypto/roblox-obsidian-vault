@@ -1,0 +1,30 @@
+<!doctype html><html><head><meta charset="utf-8"><title>FX</title></head><body style="background:#777"><div id="s">rendering</div><div id="g"></div>
+<script>
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function cv(w,h){const c=document.createElement('canvas');c.width=w;c.height=h;return c;}
+// soft contact shadow for under cars and big props (stretched rectangle with blurred edges)
+function contact(){const w=256,h=512,c=cv(w,h),x=c.getContext('2d');x.filter='blur(22px)';x.fillStyle='rgba(0,0,0,0.85)';x.fillRect(40,50,w-80,h-100);x.filter='none';return c;}
+// round blob shadow
+function blob(){const w=256,h=256,c=cv(w,h),x=c.getContext('2d');const g=x.createRadialGradient(128,128,10,128,128,124);g.addColorStop(0,'rgba(0,0,0,0.8)');g.addColorStop(0.6,'rgba(0,0,0,0.45)');g.addColorStop(1,'rgba(0,0,0,0)');x.fillStyle=g;x.fillRect(0,0,w,h);return c;}
+// wet puddle: dark irregular patch with soft edge
+function puddle(seed){const w=512,h=512,c=cv(w,h),x=c.getContext('2d'),r=rng(seed);x.filter='blur(10px)';x.fillStyle='rgba(20,22,26,0.75)';x.beginPath();
+ for(let i=0;i<=24;i++){const a=i/24*Math.PI*2,rad=150+r()*80;x.lineTo(256+Math.cos(a)*rad,256+Math.sin(a)*rad*0.7);}x.fill();x.filter='none';return c;}
+// litter: crushed cans, wrappers, cigarette butts, leaves on transparent ground decal
+function litter(seed){const w=512,h=512,c=cv(w,h),x=c.getContext('2d'),r=rng(seed);
+ for(let i=0;i<26;i++){x.save();x.translate(r()*w,r()*h);x.rotate(r()*6.28);const k=r();
+  if(k<0.3){x.fillStyle=`hsl(${r()*360},40%,${30+r()*30}%)`;x.fillRect(-14,-8,28,16);x.fillStyle='rgba(255,255,255,0.3)';x.fillRect(-12,-6,10,4);} // wrapper
+  else if(k<0.45){x.fillStyle='#d8d4c8';x.fillRect(-7,-2,14,4);x.fillStyle='#c48a3a';x.fillRect(4,-2,4,4);} // butt
+  else if(k<0.6){x.fillStyle=`hsl(${r()*360},50%,40%)`;x.beginPath();x.ellipse(0,0,14,8,0,0,7);x.fill();x.fillStyle='#bbb';x.fillRect(-14,-3,4,6);} // crushed can
+  else if(k<0.85){x.fillStyle=`hsl(${25+r()*25},55%,${22+r()*18}%)`;x.beginPath();x.ellipse(0,0,11,6,0,0,7);x.fill();x.strokeStyle='rgba(0,0,0,0.4)';x.beginPath();x.moveTo(-11,0);x.lineTo(11,0);x.stroke();} // leaf
+  else {x.fillStyle='#e8e4d8';x.fillRect(-18,-12,36,24);x.fillStyle='rgba(0,0,0,0.25)';for(let l=0;l<5;l++)x.fillRect(-14,-8+l*4,24,1.5);} // paper
+  x.restore();}
+ return c;}
+// fly speck for particles
+function speck(){const c=cv(32,32),x=c.getContext('2d');x.fillStyle='#000';x.beginPath();x.ellipse(16,16,5,3.5,0,0,7);x.fill();x.fillStyle='rgba(180,200,220,0.6)';x.beginPath();x.ellipse(11,11,5,3,-0.6,0,7);x.fill();x.beginPath();x.ellipse(21,11,5,3,0.6,0,7);x.fill();return c;}
+// soft smoke/steam puff
+function puff(){const c=cv(128,128),x=c.getContext('2d');const g=x.createRadialGradient(64,64,4,64,64,62);g.addColorStop(0,'rgba(255,255,255,0.9)');g.addColorStop(0.5,'rgba(255,255,255,0.35)');g.addColorStop(1,'rgba(255,255,255,0)');x.fillStyle=g;x.fillRect(0,0,128,128);return c;}
+// leaf sprite for blowing leaves
+function leaf(){const c=cv(64,64),x=c.getContext('2d');x.fillStyle='#7a4a22';x.beginPath();x.ellipse(32,32,22,12,0.4,0,7);x.fill();x.strokeStyle='#4a2a12';x.lineWidth=2;x.beginPath();x.moveTo(12,40);x.lineTo(52,24);x.stroke();return c;}
+const items=[['fx_contact',contact],['fx_blob',blob],['fx_puddle',()=>puddle(5)],['fx_litter_a',()=>litter(7)],['fx_litter_b',()=>litter(8)],['fx_fly',speck],['fx_puff',puff],['fx_leaf',leaf]];
+(async()=>{const g=document.getElementById('g');for(const [n,f] of items){const c=f();c.style.width='120px';c.style.margin='4px';g.appendChild(c);await fetch('/save?name='+n,{method:'POST',body:c.toDataURL('image/png')});}document.getElementById('s').textContent='saved '+items.length;})();
+</script></body></html>

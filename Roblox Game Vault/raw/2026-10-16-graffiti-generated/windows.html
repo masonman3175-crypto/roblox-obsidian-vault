@@ -1,0 +1,90 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Window Interiors</title>
+<style>body{background:#333;margin:0;padding:10px}.g{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}canvas{width:100%;background:#000}div{color:#fff;font:11px sans-serif}</style>
+</head><body><div id="s">rendering</div><div class="g" id="g"></div>
+<script>
+const W = 256, H = 384;
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function cv(){const c=document.createElement('canvas');c.width=W;c.height=H;return c;}
+// dark room behind glass: soft gradient + vague shapes, used as base for every interior
+function room(ctx, r, tint){
+  const g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,tint[0]);g.addColorStop(1,tint[1]);ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  ctx.fillStyle='rgba(0,0,0,0.35)';ctx.fillRect(W*0.1,H*0.55,W*0.5,H*0.3); // furniture silhouette
+  ctx.fillRect(W*0.65,H*0.2,W*0.25,H*0.5);
+}
+function grime(ctx,r,a){ // dirty glass: smudges + speckles + edge darkening
+  for(let i=0;i<40;i++){ctx.fillStyle=`rgba(${120+r()*40},${110+r()*40},${90+r()*30},${0.03+r()*0.06})`;ctx.beginPath();ctx.ellipse(r()*W,r()*H,10+r()*40,6+r()*30,r()*3,0,7);ctx.fill();}
+  for(let i=0;i<500;i++){ctx.fillStyle=`rgba(200,200,190,${r()*0.12*a})`;ctx.fillRect(r()*W,r()*H,1.5,1.5);}
+  const e=ctx.createRadialGradient(W/2,H/2,W*0.2,W/2,H/2,W*0.9);e.addColorStop(0,'rgba(0,0,0,0)');e.addColorStop(1,'rgba(0,0,0,0.5)');ctx.fillStyle=e;ctx.fillRect(0,0,W,H);
+}
+function blinds(seed, open){
+  const c=cv(),x=c.getContext('2d'),r=rng(seed);room(x,r,['#1a1714','#0c0b0a']);
+  const slat=11; const top=open?H*0.35:0;
+  for(let y=top;y<H;y+=slat){
+    const tone=180+r()*25; const bend=r()<0.06?r()*6:0;
+    x.fillStyle=`rgb(${tone},${tone-8},${tone-24})`;x.fillRect(0,y+bend,W,slat-2.5);
+    x.fillStyle='rgba(0,0,0,0.25)';x.fillRect(0,y+slat-3.5+bend,W,1.5);
+  }
+  if(r()<0.9){x.fillStyle='rgba(0,0,0,0.0)';} // one broken slat
+  const by=top+slat*Math.floor(r()*20); x.fillStyle='#0d0b09'; x.fillRect(W*0.3,by,W*0.4,slat-2);
+  x.fillStyle='#bdb3a0'; x.fillRect(W*0.47,0,3,H); // cord
+  grime(x,r,1);return c;
+}
+function curtains(seed, col, pattern){
+  const c=cv(),x=c.getContext('2d'),r=rng(seed);room(x,r,['#16130f','#090807']);
+  const gap=W*(0.06+r()*0.2), cx=W*(0.4+r()*0.2);
+  for(const side of [-1,1]){
+    const x0=side<0?0:cx+gap/2, x1=side<0?cx-gap/2:W;
+    for(let i=x0;i<x1;i+=2){const f=Math.sin(i*0.18+seed)*0.5+0.5;x.fillStyle=`rgb(${col[0]*(0.55+f*0.45)|0},${col[1]*(0.55+f*0.45)|0},${col[2]*(0.55+f*0.45)|0})`;x.fillRect(i,0,2,H);}
+    if(pattern){x.fillStyle='rgba(255,240,200,0.18)';for(let y=10;y<H;y+=28)for(let i=x0+8;i<x1;i+=26){x.beginPath();x.arc(i+(y/28%2)*13,y,5,0,7);x.fill();}}
+  }
+  x.fillStyle='#3a332b';x.fillRect(0,0,W,7); // rod
+  grime(x,r,1);return c;
+}
+function lace(seed){
+  const c=cv(),x=c.getContext('2d'),r=rng(seed);room(x,r,['#2a2620','#14120f']);
+  x.fillStyle='rgba(235,232,220,0.55)';x.fillRect(0,0,W,H);
+  x.strokeStyle='rgba(255,255,250,0.35)';x.lineWidth=1.2;
+  for(let y=6;y<H;y+=14)for(let i=6;i<W;i+=14){x.beginPath();x.arc(i,y,4,0,7);x.stroke();}
+  for(let i=0;i<W;i+=3){x.fillStyle=`rgba(0,0,0,${0.05+0.05*Math.sin(i*0.15)})`;x.fillRect(i,0,3,H);}
+  grime(x,r,1);return c;
+}
+function sheet(seed){ // bedsheet pinned up as a curtain
+  const c=cv(),x=c.getContext('2d'),r=rng(seed);
+  x.fillStyle='#9fa7b4';x.fillRect(0,0,W,H);
+  for(let i=0;i<W;i+=4){x.fillStyle=`rgba(0,0,0,${0.06+0.08*Math.abs(Math.sin(i*0.07))})`;x.fillRect(i,0,4,H);}
+  x.strokeStyle='rgba(60,70,110,0.35)';x.lineWidth=6;for(let y=-H;y<H*2;y+=40){x.beginPath();x.moveTo(0,y);x.lineTo(W,y+80);x.stroke();}
+  x.fillStyle='rgba(0,0,0,0.45)';x.beginPath();x.moveTo(W*0.7,0);x.lineTo(W,0);x.lineTo(W,H*0.4);x.fill(); // sagging corner
+  grime(x,r,1.2);return c;
+}
+function foil(seed){ // tin foil over the glass
+  const c=cv(),x=c.getContext('2d'),r=rng(seed);
+  x.fillStyle='#8d9196';x.fillRect(0,0,W,H);
+  for(let i=0;i<260;i++){const t=120+r()*120;x.fillStyle=`rgba(${t},${t+4},${t+10},0.5)`;x.beginPath();const px=r()*W,py=r()*H;x.moveTo(px,py);for(let k=0;k<4;k++)x.lineTo(px+(r()-0.5)*50,py+(r()-0.5)*50);x.fill();}
+  x.fillStyle='rgba(210,200,160,0.7)';for(const [a,b] of [[0,0],[W-30,0],[0,H-20],[W-30,H-20]])x.fillRect(a,b,30,20); // tape
+  grime(x,r,1);return c;
+}
+function paper(seed){ // newspaper taped up
+  const c=cv(),x=c.getContext('2d'),r=rng(seed);room(x,r,['#100e0c','#050505']);
+  for(let k=0;k<4;k++){
+    const px=(k%2)*W*0.5-6+r()*12, py=Math.floor(k/2)*H*0.5-6+r()*12;
+    x.save();x.translate(px+W*0.25,py+H*0.25);x.rotate((r()-0.5)*0.08);
+    x.fillStyle=`rgb(${196+r()*20},${188+r()*20},${160+r()*20})`;x.fillRect(-W*0.27,-H*0.27,W*0.54,H*0.54);
+    x.fillStyle='rgba(40,40,40,0.75)';x.fillRect(-W*0.23,-H*0.23,W*0.46,10);
+    for(let l=0;l<22;l++){x.fillStyle='rgba(60,60,60,0.45)';x.fillRect(-W*0.23+(l%2)*W*0.24,-H*0.18+Math.floor(l/2)*8,W*0.2*(0.6+r()*0.4),3);}
+    x.restore();
+  }
+  grime(x,r,1);return c;
+}
+function darkRoom(seed){
+  const c=cv(),x=c.getContext('2d'),r=rng(seed);room(x,r,['#16140f','#060505']);
+  x.fillStyle='rgba(255,255,255,0.05)';x.beginPath();x.moveTo(0,H*0.1);x.lineTo(W,0);x.lineTo(W,H*0.25);x.fill(); // reflection streak
+  grime(x,r,0.8);return c;
+}
+const items=[
+ ['win_blinds_closed',()=>blinds(1,false)],['win_blinds_half',()=>blinds(2,true)],['win_curtain_red',()=>curtains(3,[150,46,40],false)],
+ ['win_curtain_floral',()=>curtains(4,[170,150,96],true)],['win_curtain_blue',()=>curtains(5,[52,70,110],false)],['win_lace',()=>lace(6)],
+ ['win_sheet',()=>sheet(7)],['win_foil',()=>foil(8)],['win_newspaper',()=>paper(9)],['win_dark',()=>darkRoom(10)],
+];
+(async()=>{const g=document.getElementById('g');for(const [n,f] of items){const c=f();const d=document.createElement('div');d.appendChild(c);d.append(n);g.appendChild(d);await fetch('/save?name='+n,{method:'POST',body:c.toDataURL('image/png')});}document.getElementById('s').textContent='saved '+items.length;})();
+</script></body></html>

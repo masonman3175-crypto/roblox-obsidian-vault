@@ -1,0 +1,59 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Store Art</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@700&family=Permanent+Marker&family=Monoton&display=block" rel="stylesheet">
+<style>body{background:#333;margin:0;padding:10px}.g{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}canvas{width:100%;background:#111}div{color:#fff;font:11px sans-serif}</style>
+</head><body><div id="s">rendering</div><div class="g" id="g"></div>
+<script>
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function cv(w,h){const c=document.createElement('canvas');c.width=w;c.height=h;return c;}
+function dirt(x,w,h,r,a){for(let i=0;i<900;i++){x.fillStyle=`rgba(40,30,20,${r()*0.12*a})`;x.fillRect(r()*w,r()*h,2,2);}
+ for(let i=0;i<14;i++){const g=x.createLinearGradient(0,0,0,h);g.addColorStop(0,`rgba(30,20,10,${0.12*a})`);g.addColorStop(1,'rgba(0,0,0,0)');x.fillStyle=g;x.fillRect(r()*w,0,6+r()*20,h*(0.3+r()*0.6));}}
+// backlit box sign: plastic face with text, sun-faded, a crack and a dead tube streak
+function boxSign(text, sub, bg, fg, seed){
+ const w=1024,h=220,c=cv(w,h),x=c.getContext('2d'),r=rng(seed);
+ const g=x.createLinearGradient(0,0,0,h);g.addColorStop(0,bg[0]);g.addColorStop(1,bg[1]);x.fillStyle=g;x.fillRect(0,0,w,h);
+ x.fillStyle='rgba(255,255,255,0.08)';for(let i=0;i<w;i+=120)x.fillRect(i,0,40,h); // tube banding
+ x.textAlign='center';x.fillStyle=fg;x.strokeStyle='rgba(0,0,0,0.55)';x.lineWidth=8;
+ let fs=120;x.font=fs+"px 'Anton'";while(x.measureText(text).width>w*0.92){fs-=4;x.font=fs+"px 'Anton'";}x.strokeText(text,w/2,128);x.fillText(text,w/2,128);
+ x.font="44px 'Oswald'";x.lineWidth=5;x.strokeText(sub,w/2,190);x.fillText(sub,w/2,190);
+ x.fillStyle='rgba(0,0,0,0.35)';x.fillRect(w*0.72,0,w*0.07,h); // dead tube
+ x.strokeStyle='rgba(20,20,20,0.6)';x.lineWidth=2;x.beginPath();x.moveTo(w*0.2,0);x.lineTo(w*0.26,h*0.4);x.lineTo(w*0.22,h);x.stroke(); // crack
+ dirt(x,w,h,r,1.2);x.strokeStyle='#2a2a2a';x.lineWidth=14;x.strokeRect(0,0,w,h);return c;}
+function shelves(seed){ // bodega interior seen through glass
+ const w=512,h=384,c=cv(w,h),x=c.getContext('2d'),r=rng(seed);
+ x.fillStyle='#d8d2bc';x.fillRect(0,0,w,h);x.fillStyle='#cfc6a8';x.fillRect(0,h*0.82,w,h*0.18);
+ for(let row=0;row<5;row++){const y=30+row*62;x.fillStyle='#8a8f96';x.fillRect(0,y+48,w,6);
+  for(let i=0;i<w;){const bw=10+r()*22,bh=24+r()*22;const hue=Math.floor(r()*360);x.fillStyle=`hsl(${hue},${50+r()*40}%,${35+r()*30}%)`;x.fillRect(i,y+48-bh,bw-2,bh);
+   x.fillStyle='rgba(255,255,255,0.35)';x.fillRect(i+2,y+48-bh+4,bw-6,3);i+=bw;}}
+ x.fillStyle='rgba(255,255,240,0.25)';x.fillRect(0,0,w,14); // ceiling lights
+ x.fillStyle='rgba(20,20,20,0.75)';x.fillRect(w*0.62,h*0.48,w*0.3,h*0.36); // counter
+ x.fillStyle='rgba(180,200,220,0.35)';x.fillRect(w*0.64,h*0.38,w*0.26,h*0.1); // plexi
+ dirt(x,w,h,r,0.7);return c;}
+function washers(seed){
+ const w=512,h=384,c=cv(w,h),x=c.getContext('2d'),r=rng(seed);
+ x.fillStyle='#cfd6d8';x.fillRect(0,0,w,h);x.fillStyle='#9fb0b4';x.fillRect(0,h*0.78,w,h*0.22);
+ for(let i=0;i<5;i++){const px=12+i*100;x.fillStyle='#eef1f1';x.fillRect(px,h*0.36,88,h*0.42);x.fillStyle='#b9c2c4';x.fillRect(px,h*0.36,88,10);
+  x.fillStyle='#2f3a40';x.beginPath();x.arc(px+44,h*0.6,30,0,7);x.fill();x.fillStyle='rgba(120,170,200,0.6)';x.beginPath();x.arc(px+44,h*0.6,24,0,7);x.fill();
+  x.fillStyle='rgba(255,255,255,0.5)';x.beginPath();x.arc(px+36,h*0.56,7,0,7);x.fill();}
+ for(let i=0;i<5;i++){const px=12+i*100;x.fillStyle='#e6e9e9';x.fillRect(px,h*0.06,88,h*0.26);x.fillStyle='#2f3a40';x.beginPath();x.arc(px+44,h*0.19,22,0,7);x.fill();}
+ x.fillStyle='rgba(255,255,255,0.3)';x.fillRect(0,0,w,8);dirt(x,w,h,r,0.6);return c;}
+function poster(lines,bg,fg,seed,w=256,h=320){
+ const c=cv(w,h),x=c.getContext('2d'),r=rng(seed);x.fillStyle=bg;x.fillRect(0,0,w,h);x.textAlign='center';x.fillStyle=fg;
+ let y=70;for(const [t,sz,f] of lines){x.font=`${sz}px ${f||"'Anton'"}`;x.fillText(t,w/2,y);y+=sz+14;}
+ x.fillStyle='rgba(255,255,255,0.15)';x.fillRect(0,0,w,h*0.08);dirt(x,w,h,r,1.4);
+ x.fillStyle='rgba(220,210,170,0.8)';x.fillRect(w*0.4,0,w*0.2,14);return c;}
+function neonOpen(){const w=512,h=200,c=cv(w,h),x=c.getContext('2d');x.fillStyle='#000';x.fillRect(0,0,w,h);
+ x.font="130px 'Monoton'";x.textAlign='center';x.shadowColor='#ff3030';x.shadowBlur=30;x.fillStyle='#ff6a5a';x.fillText('OPEN',w/2,150);x.shadowBlur=60;x.fillText('OPEN',w/2,150);
+ x.shadowBlur=0;x.strokeStyle='#3a8cff';x.lineWidth=6;x.shadowColor='#3a8cff';x.shadowBlur=20;x.strokeRect(14,14,w-28,h-28);return c;}
+const items=[
+ ['sign_deli',()=>boxSign('CORNER DELI & GROCERY','HOT FOOD • SNACKS • ATM',['#f4efe2','#d9d0b8'],'#c0261d',11)],
+ ['sign_laundromat',()=>boxSign('SUDZ LAUNDROMAT','WASH • DRY • FOLD • OPEN 24 HRS',['#e8f1f6','#c6d6df'],'#1d4f9a',12)],
+ ['int_deli',()=>shelves(13)],['int_laundry',()=>washers(14)],
+ ['poster_atm',()=>poster([['ATM',96],['INSIDE',48]],'#1d6b3a','#fff',15)],
+ ['poster_hours',()=>poster([['OPEN',72],['7 DAYS',46],['6AM-2AM',40,"'Oswald'"]],'#f2d33a','#1a1a1a',16)],
+ ['poster_cold',()=>poster([['ICE',72],['COLD',56],['DRINKS',56]],'#e7f3ff','#1d4f9a',17)],
+ ['neon_open',()=>neonOpen()],
+];
+(async()=>{await Promise.all(["'Anton'","'Oswald'","'Monoton'"].map(f=>document.fonts.load(`60px ${f}`)));await document.fonts.ready;
+ const g=document.getElementById('g');for(const [n,f] of items){const c=f();const d=document.createElement('div');d.appendChild(c);d.append(n);g.appendChild(d);await fetch('/save?name='+n,{method:'POST',body:c.toDataURL('image/png')});}document.getElementById('s').textContent='saved '+items.length;})();
+</script></body></html>
