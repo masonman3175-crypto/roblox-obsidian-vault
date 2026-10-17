@@ -1,0 +1,107 @@
+AUDIO PRESENTATION VERIFICATION -- 2026-10-17
+Place: hood warfare 1.2 (127865723083651)
+Changed branches/fields: added ReplicatedStorage.AudioPresentation (Config/Client/Server/Assets/Emit), StarterPlayerScripts.AudioPresentation, ServerScriptService.AudioPresentation, SoundService.BackgroundMusic, GameAudioMusic and GameAudioEffects.
+BackgroundMusic.Volume=0.25; music group=1. No persistent changes to existing combat, map, movement, menus or spawns.
+
+MODIFIED_FILE C:/Users/mason/.codex/visualizations/2026/10/16/01a14317-0d61-7650-b711-1ea3626ed7b5/audio_pass/MODIFIED_FILE.luau
+DIFF_FILE C:/Users/mason/.codex/visualizations/2026/10/16/01a14317-0d61-7650-b711-1ea3626ed7b5/audio_pass/DIFF_FILE.md
+VERIFICATION.txt C:/Users/mason/.codex/visualizations/2026/10/16/01a14317-0d61-7650-b711-1ea3626ed7b5/audio_pass/VERIFICATION.txt
+executable ROLLBACK.sh C:/Users/mason/.codex/visualizations/2026/10/16/01a14317-0d61-7650-b711-1ea3626ed7b5/audio_pass/ROLLBACK.sh
+
+ORIGINAL HASH:
+BASELINE.json SHA256 B973DF6F260C7969AEC846A8F0EFBD38F2BEAAD901A3607ABEAEBE19F6E239F5
+MODIFIED_FILE.luau SHA256 C6F74CBA4757B4FDFAC8FF6A204C8A268A45E3C26D5D44F18F21D6A02D409124
+Client.luau SHA256 68F2B631903FCB61096D42E434CA0F3612375A5BAE8891AEE762159FDF471AEA
+Server.luau SHA256 EEC9FD272A230A521E5DDC02FC9F45A6FCF81FF0B686F6E377A6BC0EDE36BBAD
+Original inspected sources: 9 exact Source strings in BASELINE.json, reread live after installation; changed=[].
+Studio marker: ServerStorage.AudioPresentationBackup_20261017. Existing sources never overwritten; isolated rollback removes only newly added audio objects.
+
+BASELINE:
+Exact shell command: & '.\BASELINE_TEST.ps1'; exit $LASTEXITCODE
+cwd: C:/Users/mason/.codex/visualizations/2026/10/16/01a14317-0d61-7650-b711-1ea3626ed7b5/audio_pass
+Input: original pre-update BASELINE.json snapshot; 9 source strings, empty existing Sound list.
+Literal output: BASELINE PASS: 9 existing sources preserved; no general audio bootstrap or background music in snapshot
+Exit status: 0.
+BASELINE_TEST.luau also records the equivalent live absence assertions, for an unmodified baseline place; not rerun against live modified state.
+
+MODIFIED:
+Assets discovered with Roblox_Studio.search_asset(assetType="Audio",scope="creator_store") and inserted using insert_asset into ReplicatedStorage.AudioPresentation.Assets. All 14 were free results and inserted successfully. Zero imported scripts found.
+Modules/boots installed through execute_luau in Edit; source mirrors and consolidated one-shot installer are in this directory. No filesystem-to-game sync was used.
+Exact verification call: Roblox_Studio.execute_luau(studio_id="a8c52bef-c6e7-4b6f-b818-37193fc2a609",datamodel_type="Edit",code=contents of VERIFY.luau)
+Literal output: MODIFIED PASS: 14 sound assets; no imported scripts; independent audio modules and validated remote; background Volume=0.25; mix groups=1
+Result: isError=false. MCP does not expose a process exit code; the assertions passed.
+Play command: Roblox_Studio.start_stop_play(same studio,is_start=true) -> Game Started; isError=false.
+
+LIVE AUDIO LOADING:
+Edit-mode preload returned Failure for every probe, including otherwise playable assets; actual Client Play preload and playback succeeded.
+Actual Play ContentProvider.PreloadAsync callback statuses: Success for all 14 selected asset IDs.
+Music primary: 107491422176664, NightRouteDrill (catalog title CHICAGO DRILL TYPE BEAT 3, DistrokidOfficial); decoded duration 112.2 seconds.
+Fallback: 9042281328, Crossed Wires - Underscore (APMOfficial); decoded duration 97.6718 seconds.
+Measured primary MusicPlaying=true, MusicLoaded=true, Volume=0.25, peak PlaybackLoudness=161.4434 during sampled playback. This verifies decoding/output activity, not a subjective listening review.
+Legacy W1 impacts 79671891898982 and 131554175554758 also successfully load; left unchanged.
+
+WEAPONS:
+User-input call: Roblox_Studio.user_mouse_input(same studio,datamodel_type="Client",actions=[{action="mouseButtonClick",instance_path="LocalPlayer.PlayerGui.MainMenuUI.Canvas.Home.PlayButton",mouse_button="left"},{action="wait",wait_time_ms=1400}]) -> Success.
+Exact client test input: TEST_WEAPONS_CLIENT.luau through execute_luau in Client.
+Result: isError=false. Literal output is saved in TEST_RESULTS.json -> weapons.
+Passed W1/W2/W3/W4/W5: exactly one shot cue per successful shot (no W1 duplicate), reload active cue, reload cleanup and magazine replenishment.
+Magazines after test: 30/30/15/17/8; reserves 149/149/89/101/39.
+Pump=1, ShellInsert=3, Reload=5, ReloadBolt=5, Casing=3, Aim=5. Gameplay ammo values follow unchanged existing controller behavior.
+Initial failed firing tests were QA setup issues: direct deployment remote leaves MenuClientOpen=true; actual PLAY click closed the menu and all five firing tests passed.
+
+RELOAD CANCELLATION:
+Exact client input: TEST_CANCEL_CLIENT.luau through execute_luau.
+Literal output: CANCEL PASS: switching weapons stopped reload audio and canceled delayed bolt cue
+Result: isError=false.
+
+MOVEMENT:
+Real key inputs exercised W, Shift, C, Space, and then S+Shift+C to move clear of the perimeter wall.
+Literal final snapshot: {"idleSilent":true,"counts":{"ShellInsert":3,"Slide":1,"Shot_W4":1,"Headshot":1,"Land":1,"ReloadBolt":5,"Shot_W1":1,"Jump":1,"Elimination":1,"Pump":1,"Shot_W5":1,"Casing":4,"Equip":14,"Aim":6,"UI":1,"Hit":1,"Shot_W2":2,"Footstep":10,"Reload":6,"Shot_W3":1},"musicVolume":0.25}
+Result: isError=false. Footstep=10, Slide=1, Jump=1, Land=1; no additional idle footsteps in the sampled idle period.
+First slide assertion failed because the avatar ran into the perimeter and did not reach valid slide speed. Repeated facing away from that wall; slide sound then observed.
+Concrete/grass footfalls are chosen from raycast material; metallic/wood surfaces adjust pitch. Every observing client generates nearby player footfalls, without trusting a client remote to choose an asset.
+
+MUTE:
+Real F8 inputs include a 350ms wait for event delivery.
+Literal outputs: MUTE PASS: real F8; Volume=0; playback retained
+UNMUTE PASS: real F8; Volume=0.25; same background loop
+Results: isError=false. Initial immediate assertions raced input delivery; adding frame wait resolved this without source changes.
+Music also has a compact clickable toggle. Mute/volume are local-session settings.
+
+HIT CONFIRMATION:
+QA used the existing server HitConfirm RemoteEvent with (false,false), (true,false), (true,true); no damage, reward or hit authority was changed.
+Literal output: CONFIRM PASS: hit, headshot and elimination cues over existing confirmation remote
+Result: isError=false.
+
+AUDIO REMOTE VALIDATION:
+TEST_REMOTE_SERVER.luau ran in a temporary real Server Script context during Play; not via an isolated MCP require cache.
+Literal output: REMOTE PASS: action whitelist, payload arity, equipped ID whitelist, rate limiting, W1 duplicate prevention
+Live counters before negative requests: Accepted=18, Rejected=7.
+Client sent Emit:FireServer({}), Emit:FireServer("Shot","rbxassetid://123"), Emit:FireServer("arbitrarySoundId").
+Final actual server counters: {"Rejected":10,"Accepted":19}
+Three malformed requests increased Rejected by 3. Server derives weapon ID from the equipped Tool and broadcasts only that ID, validated action and Player, never a supplied audio ID/position/volume.
+Audio has no ammo/damage/reward authority. Existing W1 multiplayer shot broadcast is retained instead of duplicated.
+Two-client listening/falloff is not tested; fanout validation and dispatch were tested with one live client.
+
+TEARDOWN AND RESTART:
+Exact client input: TEST_LIFECYCLE_CLIENT.luau through execute_luau.
+Literal output: {"connectionsBefore":63,"connectionsAfter":63,"defaultsRestored":{"Climbing":0.6499999761581421,"Died":0.6499999761581421,"GettingUp":0.6499999761581421,"Running":0.6499999761581421,"Splash":0.6499999761581421,"Landing":0.6499999761581421,"Swimming":0.6499999761581421,"FreeFalling":0.6499999761581421,"Jumping":0.6499999761581421},"result":"LIFECYCLE PASS: stopped all custom voices/connections; native Running volume restored; restart has no duplicate connections","defaultsMuted":{"Climbing":0,"Died":0,"GettingUp":0.6499999761581421,"Running":0,"Splash":0.6499999761581421,"Landing":0,"Swimming":0.6499999761581421,"FreeFalling":0,"Jumping":0}}
+Result: isError=false. Native Running sound restored from local mute to 0.65. Runtime restart connections 63 -> 63, no duplicate hooks.
+
+ROLLBACK:
+Exact call: Roblox_Studio.execute_luau(same studio,datamodel_type="Edit",code=contents of TEST_ROLLBACK.luau)
+Input: isolated clones of installed audio package, boots and mix objects, with real RESTORE.luau function.
+Literal output: ROLLBACK PASS: audio package, boots, music and mix groups removed; baseline gameplay sources retained; isolated fixture restored; live audio remains installed at 0.25
+Result: isError=false. Restored fixture to baseline audio absence. Live modified audio remained installed at 0.25; current checker fix and team spawns also retained.
+Exact shell command: & 'C:\Program Files\Git\bin\bash.exe' -c 'chmod +x ROLLBACK.sh && ./ROLLBACK.sh --self-test'; exit $LASTEXITCODE
+cwd: C:/Users/mason/.codex/visualizations/2026/10/16/01a14317-0d61-7650-b711-1ea3626ed7b5/audio_pass
+Input: MODIFIED_FILE.luau copied into a separate ROLLBACK_TEST.json, overwritten with original BASELINE.json, cmp byte comparison.
+Literal output: LOCAL ROLLBACK PASS: baseline bytes restored on separate copy; live audio unchanged
+Exit status: 0.
+The executable shell helper only tests local bytes/prints Studio restore instructions; it does not itself edit live Studio.
+
+FINAL:
+Stopped Play via start_stop_play(is_start=false) -> Game Stopped. Final Edit assertions passed, all 9 protected source strings identical, live audio package retained.
+Existing console: UIBlox FoundationProvider messages and old asset 203785492 type mismatch. One failed QA slide assertion is in Output; no AudioPresentation module/bootstrap runtime errors observed.
+Music is a Creator Store drill instrumental, not a King Von recording. No public publish claimed. Commit Studio drafts and let Team Create save before partner testing.
+

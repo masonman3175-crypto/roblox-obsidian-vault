@@ -116,3 +116,7 @@ Recent: `grep "^## \[" log.md | tail -5`
 - Updated [[Main Street Block]], [[index]], [[2026-10-17]] and Codex session log for the confirmed property-only ground/spawn change.
 - Archived baseline, installer, tests, verification and isolated rollback in [[04 Scripts/Ground And Team Spawns/Implementation|implementation evidence]].
 - Both actual PLAY deployments/protection expiry, 162 spawn samples and 1590 floor rays passed. Live update retained after isolated restore test.
+## [2026-10-17] update | Game audio and 25 percent music (codex)
+- New [[Game Audio And Music]] and source/test/asset archive; updated [[index]], [[2026-10-17]] and Codex session log.
+- All 14 sounds load; all five weapon shot/reload tests, movement/idle, hit confirmations, real F8, cancellation, teardown/restart and isolated rollback passed.
+- Existing nine inspected source strings unchanged; simultaneous two-client listening remains a follow-up.
