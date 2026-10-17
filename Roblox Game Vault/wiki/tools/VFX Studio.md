@@ -46,3 +46,9 @@ _Not verified yet. Fill in after trying it in Studio. Don't guess._
 ## Related
 - [[index]]
 - [[Reference Note]] template, section "How we'd build it in Roblox"
+
+## Install + how we use it (2026-10-16)
+- **Not installed yet** on Cade's PC (checked `%LOCALAPPDATA%\Roblox±9220008\InstalledPlugins`).
+- **Install (Cade):** open the store link, click **Get**, then in Studio: Toolbox > Inventory > My Plugins (or Plugins tab > Manage Plugins) > install, then restart Studio.
+- **What Claude can and cannot do:** the Studio MCP cannot click plugin UI. Claude can read and edit whatever the plugin puts in the place (ParticleEmitters, Attachments, Beams, any preset folders), copy those into `ServerStorage.MapTools.Vfx`, and wire them up. So: Cade builds or picks an effect in VFX Studio and drops it in the place, then Claude takes it from there.
+- First job for it: replace the default `fire_main.dds` and `smoke_main.dds` textures in [[Map VFX Library]] (BarrelFire) with VFX Studio fire and smoke.

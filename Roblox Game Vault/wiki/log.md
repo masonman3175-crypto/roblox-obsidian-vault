@@ -87,3 +87,7 @@ Recent: `grep "^## \[" log.md | tail -5`
 ## [2026-10-16] update | Main menu, locker and aerial map view (codex)
 - New [[Main Menu And Locker]], immutable main-menu reference image and source mirrors in 04 Scripts/Main Menu Source.
 - Updated [[index]], [[2026-10-16]] and Codex session log. Tested four skins, six wraps, five previews, direct deploy, validation, respawn and isolated rollback; existing spawn transforms retained.
+
+## [2026-10-16] ingest | 9 refs: FP guns, UI, VFX, skins (claude)
+- New: [[First Person Gun Feel]], [[Neon Sniper Skin And HUD]], [[Custom Shop UI]], [[Stylized VFX References]]
+- Updated: [[VFX Studio]] (install steps, how Claude uses it), [[index]]

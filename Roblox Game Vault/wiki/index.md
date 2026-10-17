@@ -13,10 +13,12 @@ Rules: see the Wiki schema section in `CLAUDE.md` / `AGENTS.md`. Timeline: [[log
 - [[Art Direction]] - the look: gritty made-up city, realistic guns, color cosmetics (idea)
 
 ## UI
+- [[Custom Shop UI]] - themed shop panel structure (cards, prices, currency) to reskin in our style (idea)
 - [[Main Menu And Locker]] - reference-style menu, live aerial map background, session skins/wraps and direct PLAY deployment (building)
 - [[Hood Warfare 2 HUD and Presentation]] - HUD, feedback, input, and presentation study list (idea)
 
 ## VFX
+- [[Stylized VFX References]] - layered mesh + particle + debris VFX for killstreaks and wraps (idea)
 - [[Map VFX Library]] - map particle effects: burn barrels, sparks, vent steam, leaves, lamp dust, flies, moths, player fog (building)
 
 ## Maps
@@ -37,6 +39,8 @@ Rules: see the Wiki schema section in `CLAUDE.md` / `AGENTS.md`. Timeline: [[log
 - [[Hood Warfare 2 Roblox Build Plan]] - Roblox folders, services, ownership, and performance slice (planned)
 
 ## Weapons
+- [[First Person Gun Feel]] - viewmodel placement, muzzle, impacts, third-person hold (idea)
+- [[Neon Sniper Skin And HUD]] - glowing gradient skin + loadout slots + kill popup (idea)
 - [[Weapon Lineup]] - realistic guns, worn paint, swappable attachments (idea)
 - [[Color Grip Pistols Key Art]] - one accent color per gun as a cosmetic, thumbnail layout (idea)
 - [[Pink Sniper Skin]] - full themed skin on a stock sniper (idea)
