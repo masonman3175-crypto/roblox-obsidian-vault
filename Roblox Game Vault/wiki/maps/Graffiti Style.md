@@ -37,8 +37,8 @@ Cade's call (2026-10-16): the first pass (font text like FRESH, NOVA) looked fak
 ## What we built
 ![[2026-10-16-graffiti-generated-sheet.jpg]]
 - **13 original pieces** drawn with a canvas generator (`raw/2026-10-16-graffiti-generated/generator.html`, Google fonts Sedgwick Ave Display, Titan One, Londrina Solid, Permanent Marker, Rock Salt): 5 pieces (SPAT, BRAKE, LONER, TYPE, SKOT), 4 throw-ups (DONK, DAPS, BAK, GROSE), 2 characters (skull, blob), 2 tag walls. 1024x512 transparent PNGs.
-- **Not in game yet:** uploading needs `upload_image`, which Claude Code's permission check blocked. Fix: add a permission rule for `mcp__Roblox_Studio__upload_image`, or bulk import the PNGs yourself in Studio (Asset Manager > Bulk Import), then tell Claude the ids.
-- **In game now (placeholder):** 8 free Creator Store decals, checked by eye. No brands, real people, or gang refs. 19 panels.
+- **In game (2026-10-16):** all 13 uploaded and placed. Each of the 19 walls has a tag-wall layer behind a main piece; tall side walls also get a skull or blob character. 45 panels total. A few store pieces kept for variety (skull dragon, KEEP OUT, tag scribbles).
+- Store decals below were the placeholder before upload; most were replaced.
 
 | Decal | Store id | Image id |
 |---|---|---|
@@ -56,7 +56,7 @@ Cade's call (2026-10-16): the first pass (font text like FRESH, NOVA) looked fak
 - **Gotcha:** a Decal inserted from the store gets the *decal* id. It must use the *image* id or it renders blank. Get it with `InsertService:LoadAsset(decalId)` in Edit mode and read the Decal's Texture.
 - **Sizing rule:** walls with windows (back buildings, east block) keep graffiti under 5 studs tall so it doesn't cover windows. Rowhouse rears up to 8. Blank side walls up to 11.
 - **Perf:** one decal per panel, no SurfaceGuis.
-- **Next:** swap in our 13 pieces once uploaded, add more layered tags per wall.
+- **Next:** more pieces and tags higher up on the blank walls, roller pieces on rooftops.
 
 ## Related
 - [[Main Street Block]]
