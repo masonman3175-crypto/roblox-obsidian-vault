@@ -1,0 +1,48 @@
+Weapon polish verification
+Changed fields: W2.Aim / W3-W4.Hip, SightDistance, Support / per-gun Kick, CameraRecoil, RecoilYaw, Pullback / Controller recoil springs and pistol hand scale / W2 optic and W3-W4 mesh width/rear plates.
+
+Four artifact paths:
+MODIFIED_FILE: C:\Users\mason\OneDrive\Desktop\Roblox AI\weapon_reference_rebuild\polish\MODIFIED_FILE.luau
+DIFF_FILE: C:\Users\mason\OneDrive\Desktop\Roblox AI\weapon_reference_rebuild\polish\DIFF_FILE.patch
+VERIFICATION: C:\Users\mason\OneDrive\Desktop\Roblox AI\weapon_reference_rebuild\polish\VERIFICATION.txt
+ROLLBACK: C:\Users\mason\OneDrive\Desktop\Roblox AI\weapon_reference_rebuild\polish\ROLLBACK.sh
+
+Original Controller file SHA256: 41EB405746C39F99C0CB5075479D095DFD24FDE8BC1A47504B0AA3FAAC06DFAC
+Original Config file SHA256: 718458DFD4C993FEA3DB7B37A157FD9BEF634C7965BF2281EC7A4B428688EAC0
+Modified Controller SHA256: FBEA4073F3571D7EA43770143C210922F27B186CA4BBC2177F3926FC679D467A
+Studio backup: ServerStorage.WeaponPolishBackup_20261016 (whole pre-polish package).
+
+BASELINE command: execute_luau(Edit), inspect backup config/optic.
+Input: WeaponPolishBackup_20261016.
+Literal result: BASELINE PASS compactOptic=false pistolHipZ=-1.08 pistolKick=0.045
+Result status: success (isError=false; exit-equivalent 0).
+
+MODIFIED command: execute_luau(Client), runtime-test.luau with TEST_ID='W2', then W3, W4, W1, W5.
+Input: live imported weapons; TestMode=true temporarily blocks manual weapon inputs.
+Literal results:
+MODIFIED PASS W2 ADS=0.53px recoilPitch=3.43deg recoilYaw=0.18deg recovery=PASS reload=PASS arms=PASS
+MODIFIED PASS W3 ADS=0.49px recoilPitch=6.00deg recoilYaw=0.25deg recovery=PASS reload=PASS arms=PASS
+MODIFIED PASS W4 ADS=0.60px recoilPitch=5.95deg recoilYaw=0.24deg recovery=PASS reload=PASS arms=PASS
+MODIFIED PASS W1 ADS=1.20px recoilPitch=3.62deg recoilYaw=0.13deg recovery=PASS reload=PASS arms=PASS
+MODIFIED PASS W5 ADS=2.50px recoilPitch=7.00deg recoilYaw=0.27deg recovery=PASS reload=PASS arms=PASS
+Result status: each success (isError=false; exit-equivalent 0).
+The W2 test raycasts to the optic center and asserts no gun/rail/arm blocks its aperture.
+Pistol tests assert angled three-quarter hip poses beyond 1.4 studs, rear plates, centered ADS.
+Recoil tests assert measured vertical + horizontal camera impulses, recovery under .05 degree, ammo/reload correctness.
+Player controls restored after tests. Console: no weapon-script errors.
+
+ROLLBACK command: execute_luau(Edit), execute rollback.luau using an isolated cloned package and StarterPack.
+Input: cloned modified package, cloned pre-polish backup and cloned tools.
+Literal result: ROLLBACK PASS original controller/config/three weapon templates restored | cloned fixture only; live polish retained
+Result status: success (isError=false; exit-equivalent 0).
+Restored behavior/status: cloned original config/controller match their backup strings; optic/rear plate additions absent on restored copy; live polished package still present.
+
+Local rollback command, in this artifact directory:
+& 'C:\Program Files\Git\bin\bash.exe' -c 'chmod +x ROLLBACK.sh; ./ROLLBACK.sh'
+Input: BASELINE_Controller.luau and BASELINE_Config.luau; separate ROLLBACK_TEST copies.
+Literal result: ROLLBACK FILE PASS controller/config restored on copies; modified files retained
+Exit status: 0.
+
+Implementation: pistols narrowed to 82% width, hand scale 82%, 22-degree three-quarter hip angle, longer camera distance; added slide rear plates. Compact open reflex optic above blocking rail. Two-axis spring recoil plus weapon kick/roll/pullback; ADS reduces camera kick.
+No map, spawns or damage authority changed. Firing remains visual-only; no new audio/damage implementation.
+

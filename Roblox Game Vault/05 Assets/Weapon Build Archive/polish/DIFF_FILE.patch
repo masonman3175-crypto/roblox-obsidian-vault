@@ -1,0 +1,139 @@
+--- BASELINE_Controller.luau
++++ MODIFIED_FILE.luau
+@@ -21,6 +21,7 @@
+ local reloadStart, inspectStart, equipStart = nil, nil, 0
+ local lastShot, shotAt = -100, -100
+ local recoil, recoilVelocity, lastCameraKick, aimAlpha = 0, 0, 0, 0
++local yawRecoil, yawVelocity, lastCameraYaw, shotCounter = 0, 0, 0, 0
+ local elapsed, crossBloom, generation = 0, 0, 0
+ local crossLines, casings, characterConnections = {}, {}, {}
+ local baseFov = 72
+@@ -132,26 +133,28 @@
+ end
+ local function clear()
+     generation += 1
+-    if camera and lastCameraKick ~= 0 then camera.CFrame *= CFrame.Angles(-lastCameraKick, 0, 0) end
++    if camera then camera.CFrame *= CFrame.Angles(lastCameraKick, lastCameraYaw, 0):Inverse() end
+     if model then model:Destroy() end
+     model, activeTool, spec = nil, nil, nil
+     parts, arms = {}, {}
+     trigger, aiming, reloadStart, inspectStart = false, false, nil, nil
+     recoil, recoilVelocity, lastCameraKick, aimAlpha = 0, 0, 0, 0
++    yawRecoil, yawVelocity, lastCameraYaw, shotCounter = 0, 0, 0, 0
+     if camera then camera.FieldOfView = baseFov end
+     updateHUD()
+ end
+ local function armParts(side)
+     local result = {}
++    local handScale = spec and spec.Pistol and .82 or 1
+     result.Upper = part(side .. 'UpperArm', Vector3.new(.39, 1, .40), skin, model)
+     result.Lower = part(side .. 'Forearm', Vector3.new(.36, 1, .38), skin, model)
+-    result.Palm = part(side .. 'Hand', Vector3.new(.34, .43, .37), skin, model)
++    result.Palm = part(side .. 'Hand', Vector3.new(.34, .43, .37) * handScale, skin, model)
+     result.Cuff = part(side .. 'Sleeve', Vector3.new(.42, .35, .44), Color3.fromRGB(31, 38, 46), model)
+     result.Fingers = {}
+     for i = 1, 4 do
+-        result.Fingers[i] = part(side .. 'Finger' .. i, Vector3.new(.105, .12, .28), skin, model)
+-    end
+-    result.Thumb = part(side .. 'Thumb', Vector3.new(.15, .23, .20), skin, model)
++        result.Fingers[i] = part(side .. 'Finger' .. i, Vector3.new(.105, .12, .28) * handScale, skin, model)
++    end
++    result.Thumb = part(side .. 'Thumb', Vector3.new(.15, .23, .20) * handScale, skin, model)
+     return result
+ end
+ local function segment(ob, a, b, width)
+@@ -176,10 +179,11 @@
+     segment(limb.Lower, elbow, target, .36)
+     limb.Cuff.CFrame = CFrame.lookAt(shoulder:Lerp(elbow, .22), elbow) * CFrame.Angles(math.pi / 2, 0, 0)
+     limb.Palm.CFrame = handFrame
++    local handScale = spec and spec.Pistol and .82 or 1
+     for i, finger in ipairs(limb.Fingers) do
+-        finger.CFrame = handFrame * CFrame.new((i - 2.5) * .075, -.03, -.18) * CFrame.Angles(-.40, 0, 0)
+-    end
+-    limb.Thumb.CFrame = handFrame * CFrame.new(side * .19, .04, -.07) * CFrame.Angles(0, 0, side * .48)
++        finger.CFrame = handFrame * CFrame.new(Vector3.new((i - 2.5) * .075, -.03, -.18) * handScale) * CFrame.Angles(-.40, 0, 0)
++    end
++    limb.Thumb.CFrame = handFrame * CFrame.new(Vector3.new(side * .19, .04, -.07) * handScale) * CFrame.Angles(0, 0, side * .48)
+ end
+ local function equip(tool)
+     if activeTool == tool then return end
+@@ -247,6 +251,8 @@
+     lastShot, shotAt = now, now
+     a.Current -= 1
+     recoilVelocity += spec.Kick * 65
++    shotCounter += 1
++    yawVelocity += math.rad(spec.RecoilYaw or .3) * math.sin(shotCounter * 2.399963) * 28
+     crossBloom = math.min(crossBloom + 7, 22)
+     muzzleEffects()
+     updateHUD()
+@@ -276,6 +282,8 @@
+         Pose = model and model:GetAttribute('Pose'), FirstPerson = player.CameraMode.Name,
+         Meshes = #parts, HasArms = arms.Left ~= nil and arms.Right ~= nil,
+         CameraFov = camera and camera.FieldOfView,
++        RecoilPitchDegrees = math.deg(lastCameraKick), RecoilYawDegrees = math.deg(lastCameraYaw),
++        WeaponKick = recoil,
+     }
+ end
+ local function render(dt)
+@@ -321,10 +329,13 @@
+     camera.FieldOfView += ((baseFov + (spec.AimFov - baseFov) * aimAlpha) - camera.FieldOfView) * (1 - math.exp(-dt * 18))
+     recoilVelocity += (-150 * recoil - 20 * recoilVelocity) * dt
+     recoil += recoilVelocity * dt
+-    local kick = recoil * .35
+-    camera.CFrame *= CFrame.Angles(kick - lastCameraKick, 0, 0)
+-    lastCameraKick = kick
+-    local aimPosition = Vector3.new(-spec.Aim.X, -spec.Aim.Y, -.90 - spec.Aim.Z)
++    yawVelocity += (-150 * yawRecoil - 20 * yawVelocity) * dt
++    yawRecoil += yawVelocity * dt
++    local kick = math.clamp(recoil * (spec.CameraRecoil or .75) * (1 - .18 * aimAlpha), 0, math.rad(7))
++    local yaw = math.clamp(yawRecoil * (1 - .18 * aimAlpha), -math.rad(1.2), math.rad(1.2))
++    camera.CFrame = camera.CFrame * CFrame.Angles(lastCameraKick, lastCameraYaw, 0):Inverse() * CFrame.Angles(kick, yaw, 0)
++    lastCameraKick, lastCameraYaw = kick, yaw
++    local aimPosition = Vector3.new(-spec.Aim.X, -spec.Aim.Y, -(spec.SightDistance or .90) - spec.Aim.Z)
+     local stance = spec.Hip:Lerp(CFrame.new(aimPosition), aimAlpha)
+     local delta = UserInputService:GetMouseDelta()
+     local sway = CFrame.Angles(math.clamp(-delta.Y * .00055, -.025, .025), math.clamp(-delta.X * .00055, -.025, .025), 0)
+@@ -334,8 +345,10 @@
+     local reloadPose = math.sin(r * math.pi)
+     local inspectPose = math.sin(math.pi * math.clamp(inspect, 0, 1))
+     local sprintPose = sprinting and moving > .1 and 1 or 0
+-    local action = CFrame.new(-.12 * reloadPose, -.12 * reloadPose - .9 * draw - .2 * sprintPose, .12 * reloadPose + .28 * draw)
+-        * CFrame.Angles(-recoil * .9 + .25 * draw - .3 * sprintPose, .09 * reloadPose + .32 * inspectPose, -.30 * reloadPose - .48 * inspectPose)
++    local visualKick = math.clamp(recoil, 0, .24)
++    local pullback = (spec.Pullback or .1) * math.clamp(visualKick / .10, 0, 1.5)
++    local action = CFrame.new(-.12 * reloadPose, -.12 * reloadPose - .9 * draw - .2 * sprintPose - .015 * visualKick, .12 * reloadPose + .28 * draw + pullback)
++        * CFrame.Angles(-visualKick * 1.05 + .25 * draw - .3 * sprintPose, .09 * reloadPose + .32 * inspectPose + yawRecoil * .45, -.30 * reloadPose - .48 * inspectPose - visualKick * .12)
+     local base = camera.CFrame * stance * breathe * bob * sway * action
+     viewCamera.CFrame, viewCamera.FieldOfView = camera.CFrame, camera.FieldOfView
+     model.PrimaryPart.CFrame = base
+--- BASELINE_Config.luau
++++ WeaponConfig.luau
+@@ -34,14 +34,23 @@
+ for _, id in ipairs({'W3', 'W4'}) do
+     local g = guns[id]
+     g.Pistol = true
+-    g.Hip = CFrame.new(.32, -.90, -1.08)
++    g.Hip = CFrame.new(.48, -.80, -1.55) * CFrame.Angles(math.rad(-2), math.rad(22), math.rad(-3))
+     g.Magazine = Vector3.new(0, -.12, 0)
+     g.Bolt = Vector3.new(0, .58, -.30)
+     g.AimFov = 62
+-    g.Kick = .045
++    g.Kick = .095
++    g.CameraRecoil = .72
++    g.RecoilYaw = .55
++    g.SightDistance = 1.40
++    g.Pullback = .16
++    g.Support = Vector3.new(g.Support.X * .82, g.Support.Y, g.Support.Z)
+ end
++-- Calibrate to the actual open optic, above the compact rail teeth.
++guns.W2.Aim = Vector3.new(0, .90, -.40)
++guns.W1.Kick, guns.W1.CameraRecoil, guns.W1.RecoilYaw, guns.W1.Pullback = .055, .75, .30, .105
++guns.W2.Kick, guns.W2.CameraRecoil, guns.W2.RecoilYaw, guns.W2.Pullback = .052, .75, .40, .09
+ guns.W5.Shotgun = true
+-guns.W5.Kick = .075
++guns.W5.Kick, guns.W5.CameraRecoil, guns.W5.RecoilYaw, guns.W5.Pullback = .145, .80, .60, .20
+ guns.W5.Hip = CFrame.new(.50, -.80, -.72)
+ guns.W5.AimFov = 62
+ return {Order = {'W1', 'W2', 'W3', 'W4', 'W5'}, Guns = guns}
+
+# Additional model changes: see geometry.luau. Studio baseline saved in ServerStorage.WeaponPolishBackup_20261016.

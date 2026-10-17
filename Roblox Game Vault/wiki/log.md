@@ -101,3 +101,8 @@ Recent: `grep "^## \[" log.md | tail -5`
 
 ## [2026-10-16] update | Claude AK: model, firing feel, server damage (claude)
 - New [[Claude AK]]. Updated [[index]], [[2026-10-16]], session log, 06 Tasks/Next Pass
+
+## [2026-10-16] update | Open-vault sync and missing implementation archive (codex)
+- Added [[Gameplay HUD]], [[HUD Minimap]], [[HUD Ammo And Weapon Display]], [[HUD Scores And Feed]], [[Weapon Build Archive]], [[Obsidian Vault Sync]], [[Current Test And Integration Backlog]] and [[00 Dashboard/Game Development Hub|Game Development Hub]].
+- Updated [[index]], Home and [[2026-10-16]]; archived the missing Blender/FBX/import/polish files, earlier prototypes, HUD source and a read-only live source snapshot. Preserved newer [[Claude AK]] integration rather than overwriting it.
+- Synced the actual open Obsidian checkout with the shared repository; original local files/settings preserved in backup/stashes. Vault-only task: no Studio gameplay edits or new gameplay test claims.

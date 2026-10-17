@@ -10,9 +10,14 @@ Catalog of every wiki page. AI reads this first and updates it on every ingest. 
 Rules: see the Wiki schema section in `CLAUDE.md` / `AGENTS.md`. Timeline: [[log]].
 
 ## Overview
+- [[00 Dashboard/Game Development Hub|Game Development Hub]] - current shooter navigation, source bundles and pending work (building)
 - [[Art Direction]] - the look: gritty made-up city, realistic guns, color cosmetics (idea)
 
 ## UI
+- [[Gameplay HUD]] - handwritten HUD and reference breakdown (building)
+- [[HUD Minimap]] - circular 605-proxy map and teammate markers (building)
+- [[HUD Ammo And Weapon Display]] - ammo, silhouettes, slot controls and reticle (building)
+- [[HUD Scores And Feed]] - score/timer/event data contract and integration gaps (building)
 - [[Custom Shop UI]] - themed shop panel structure (cards, prices, currency) to reskin in our style (idea)
 - [[Main Menu And Locker]] - reference-style menu, live aerial map background, session skins/wraps and direct PLAY deployment (building)
 - [[Hood Warfare 2 HUD and Presentation]] - HUD, feedback, input, and presentation study list (idea)
@@ -34,6 +39,7 @@ Rules: see the Wiki schema section in `CLAUDE.md` / `AGENTS.md`. Timeline: [[log
 - [[Overcast Rowhouse Street]] - overcast haze, brick rowhouses, power lines, street cover (idea)
 
 ## Systems
+- [[Current Test And Integration Backlog]] - verified work, multiplayer gaps and reusable session prompt (building)
 - [[Sprint Slide And Map Boundary]] - chainable slides, lower camera, longer sprint stamina and continuous perimeter walls (building)
 - [[Hood Warfare 2 Game Modes]] - six original mode patterns to prototype separately (idea)
 - [[Hood Warfare 2 Combat Tuning]] - verified-vs-unverified combat variables and server authority (idea)
@@ -48,6 +54,8 @@ Rules: see the Wiki schema section in `CLAUDE.md` / `AGENTS.md`. Timeline: [[log
 - [[Pink Sniper Skin]] - full themed skin on a stock sniper (idea)
 
 ## Tools
+- [[Obsidian Vault Sync]] - actual open vault, Git routine and local-note recovery (building)
+- [[Weapon Build Archive]] - Blender models/rigs/FBXs, import/polish sources and historical evidence (building)
 - [[VFX Studio]] - free all-in-one VFX plugin for Studio, features still to verify (planned)
 - [[Blender MCP]] - AI drives Blender: model from raw/ refs, viewport screenshots (building, tested 2026-10-16)
 - [[08 AI Workflow/Studio MCP Reference]] - Roblox Studio MCP setup and tools (tested 2026-10-16)

@@ -1,0 +1,15 @@
+{
+  "captured": "2026-10-16",
+  "placeId": 127865723083651,
+  "minimapParts": 605,
+  "readOnlyExport": true,
+  "scripts": {
+    "MovementMath": "ReplicatedStorage.GameplayPresentation.MovementMath",
+    "WeaponController": "ReplicatedStorage.ReferenceWeapons.Controller",
+    "WeaponConfig": "ReplicatedStorage.ReferenceWeapons.WeaponConfig",
+    "MovementConfig": "ReplicatedStorage.GameplayPresentation.MovementConfig",
+    "MovementClient": "ReplicatedStorage.GameplayPresentation.MovementClient",
+    "GameplayPresentationBoot": "StarterPlayer.StarterPlayerScripts.GameplayPresentation",
+    "HUD": "ReplicatedStorage.GameplayPresentation.HUD"
+  }
+}

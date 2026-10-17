@@ -1,0 +1,44 @@
+REFERENCE-GUIDED WEAPON REBUILD
+Changed field: active scene -> Reference_Rebuild_Studio (new copy; original untouched).
+
+Four deliverable paths:
+MODIFIED_FILE: C:\Users\mason\OneDrive\Desktop\Roblox AI\weapon_reference_rebuild\MODIFIED_FILE.blend
+DIFF_FILE: C:\Users\mason\OneDrive\Desktop\Roblox AI\weapon_reference_rebuild\DIFF_FILE.md
+VERIFICATION: C:\Users\mason\OneDrive\Desktop\Roblox AI\weapon_reference_rebuild\VERIFICATION.txt
+ROLLBACK: C:\Users\mason\OneDrive\Desktop\Roblox AI\weapon_reference_rebuild\ROLLBACK.sh
+
+Original SHA256: 756C82A4242274CD5F06C33C9B9A183F8B7E5723D93C4B9604A76D5DD6231BA5
+Original: C:\Users\mason\OneDrive\Desktop\Roblox AI\weapon_pack_final.blend
+Preserved copy: BASELINE.blend
+
+Commands below run in C:\Users\mason\OneDrive\Desktop\Roblox AI\weapon_reference_rebuild
+BASELINE command: python test.py baseline --brief
+Input: BASELINE.blend; assert original scene, 157 objects, 141 meshes, zero rigs.
+Literal stdout: BASELINE PASS
+Exit status: 0
+
+MODIFIED command: python test.py modified --brief
+Input: MODIFIED_FILE.blend and the five FBX exports.
+Assertions: five weapons, 388 weighted mesh components, five rigs, 20 named clips,
+all five rigs move during reload/fire, magazines move downward, three packed references,
+five FBX roundtrips retain meshes/skeleton/clips. Evaluated triangles: 172436 total.
+Literal stdout: MODIFIED PASS
+Exit status: 0
+
+ROLLBACK copy command (PowerShell):
+& 'C:\Program Files\Git\bin\bash.exe' -c 'chmod +x ROLLBACK.sh; ./ROLLBACK.sh rollback-test.blend'
+Input: BASELINE.blend; target rollback-test.blend (a separate test copy).
+Literal stdout: ROLLBACK COPY PASS restored_sha256=756c82a4242274cd5f06c33c9b9a183f8b7e5723d93c4b9604a76d5dd6231ba5 target=rollback-test.blend
+Exit status: 0
+
+ROLLBACK scene command: python test.py rollback --brief
+Input: rollback-test.blend; assert original legacy scene behavior/status.
+Literal stdout: ROLLBACK PASS
+Exit status: 0
+Restored behavior/status: legacy active scene loads with 157 objects, 141 meshes, zero rigs.
+MODIFIED_FILE.blend remains rebuilt; original and baseline hashes remain identical.
+
+Full Blender output: baseline-test.log, modified-test.log, rollback-test.log.
+Preview render: reference_lineup.png; rendered by Blender 5.2.2 LTS, exit 0.
+Studio status: rebuilt FBXs are exported locally, not yet substituted into the live tools.
+Textures: procedural shader detail stays in Blender; Roblox texture-map baking remains pending.

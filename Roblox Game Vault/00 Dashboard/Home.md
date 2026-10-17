@@ -10,6 +10,7 @@ status: active
 This is the working brain for the Roblox place **hood warfare 1.2** (moved from o blah warfare 1.1 on 2026-10-16).
 
 ## Start here
+- **[[00 Dashboard/Game Development Hub|OPEN THE CURRENT GAME HUB]]** — menu, HUD, guns, animations, movement, walls, references and tests.
 - [[01 Game Design/Game Overview]]
 - [[02 Systems/Keyboard System]]
 - [[03 Nodes/Full Game Tree]]
@@ -26,7 +27,7 @@ Roblox Studio contains the playable game. This vault contains the plans, explana
 ## Current snapshot (2026-10-16)
 - Place ID: `127865723083651` (old 1.1 place: `80506494260443`)
 - Game: urban FPS (see [[01 Game Design/O Blah Warfare Design]]). The keyboard keycap demo notes are from the old 1.1 place.
-- Assignment: Cade + Claude on the map, partner + Codex on guns. Assets first, no gameplay yet.
+- Original assignment: Cade + Claude on map assets, partner + Codex on guns. Later user requests added menu/HUD/movement; [[Claude AK]] records newer collaborator server combat. See the current hub rather than treating the initial assets-only snapshot as current.
 - **Map:** [[wiki/maps/Main Street Block|Main Street Block]] in `Workspace.Map`, about 3,170 parts, 0 scripts.
   - Look: [[wiki/maps/Lighting And Atmosphere|Lighting And Atmosphere]] (Night preset active), [[wiki/maps/Graffiti Style|Graffiti Style]]
   - Gameplay read: [[wiki/maps/Main Street Routes and Cover|Main Street Routes and Cover]]

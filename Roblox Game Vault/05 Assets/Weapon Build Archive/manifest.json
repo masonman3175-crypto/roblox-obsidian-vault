@@ -1,0 +1,102 @@
+[
+  {
+    "name": "01_Walnut_AK",
+    "meshes": 86,
+    "base_faces": 7970,
+    "actions": [
+      "01_Walnut_AK_Fire",
+      "01_Walnut_AK_Reload",
+      "01_Walnut_AK_Equip",
+      "01_Walnut_AK_Inspect"
+    ],
+    "bones": [
+      "Root",
+      "Body",
+      "Magazine",
+      "Bolt",
+      "Trigger",
+      "Pump"
+    ],
+    "fbx": "01_Walnut_AK.fbx"
+  },
+  {
+    "name": "02_Compact_AK",
+    "meshes": 94,
+    "base_faces": 8536,
+    "actions": [
+      "02_Compact_AK_Fire",
+      "02_Compact_AK_Reload",
+      "02_Compact_AK_Equip",
+      "02_Compact_AK_Inspect"
+    ],
+    "bones": [
+      "Root",
+      "Body",
+      "Magazine",
+      "Bolt",
+      "Trigger",
+      "Pump"
+    ],
+    "fbx": "02_Compact_AK.fbx"
+  },
+  {
+    "name": "03_Silver_9mm",
+    "meshes": 70,
+    "base_faces": 1900,
+    "actions": [
+      "03_Silver_9mm_Fire",
+      "03_Silver_9mm_Reload",
+      "03_Silver_9mm_Equip",
+      "03_Silver_9mm_Inspect"
+    ],
+    "bones": [
+      "Root",
+      "Body",
+      "Magazine",
+      "Bolt",
+      "Trigger",
+      "Pump"
+    ],
+    "fbx": "03_Silver_9mm.fbx"
+  },
+  {
+    "name": "04_Lime_Tactical_9mm",
+    "meshes": 77,
+    "base_faces": 2192,
+    "actions": [
+      "04_Lime_Tactical_9mm_Fire",
+      "04_Lime_Tactical_9mm_Reload",
+      "04_Lime_Tactical_9mm_Equip",
+      "04_Lime_Tactical_9mm_Inspect"
+    ],
+    "bones": [
+      "Root",
+      "Body",
+      "Magazine",
+      "Bolt",
+      "Trigger",
+      "Pump"
+    ],
+    "fbx": "04_Lime_Tactical_9mm.fbx"
+  },
+  {
+    "name": "05_Satin_Pump_Shotgun",
+    "meshes": 61,
+    "base_faces": 3413,
+    "actions": [
+      "05_Satin_Pump_Shotgun_Fire",
+      "05_Satin_Pump_Shotgun_Reload",
+      "05_Satin_Pump_Shotgun_Equip",
+      "05_Satin_Pump_Shotgun_Inspect"
+    ],
+    "bones": [
+      "Root",
+      "Body",
+      "Magazine",
+      "Bolt",
+      "Trigger",
+      "Pump"
+    ],
+    "fbx": "05_Satin_Pump_Shotgun.fbx"
+  }
+]

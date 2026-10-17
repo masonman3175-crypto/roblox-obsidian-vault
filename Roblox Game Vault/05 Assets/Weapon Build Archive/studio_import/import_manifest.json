@@ -1,0 +1,422 @@
+[
+  {
+    "id": "W1",
+    "name": "01_Walnut_AK",
+    "parts": [
+      {
+        "name": "W1__Body__BluedSteel__0",
+        "component": "Body",
+        "material": "BluedSteel",
+        "triangles": 11728
+      },
+      {
+        "name": "W1__Body__BluedSteel__1",
+        "component": "Body",
+        "material": "BluedSteel",
+        "triangles": 2052
+      },
+      {
+        "name": "W1__Body__BoreDark__0",
+        "component": "Body",
+        "material": "BoreDark",
+        "triangles": 6600
+      },
+      {
+        "name": "W1__Body__SatinMachinedSteel__0",
+        "component": "Body",
+        "material": "SatinMachinedSteel",
+        "triangles": 4040
+      },
+      {
+        "name": "W1__Bolt__SatinMachinedSteel__0",
+        "component": "Bolt",
+        "material": "SatinMachinedSteel",
+        "triangles": 300
+      },
+      {
+        "name": "W1__Bolt__BluedSteel__0",
+        "component": "Bolt",
+        "material": "BluedSteel",
+        "triangles": 764
+      },
+      {
+        "name": "W1__Body__HoneyWalnut__0",
+        "component": "Body",
+        "material": "HoneyWalnut",
+        "triangles": 2740
+      },
+      {
+        "name": "W1__Body__DarkWalnut__0",
+        "component": "Body",
+        "material": "DarkWalnut",
+        "triangles": 1604
+      },
+      {
+        "name": "W1__Body__GripRubber__0",
+        "component": "Body",
+        "material": "GripRubber",
+        "triangles": 3180
+      },
+      {
+        "name": "W1__Trigger__BluedSteel__0",
+        "component": "Trigger",
+        "material": "BluedSteel",
+        "triangles": 576
+      },
+      {
+        "name": "W1__Magazine__CarbonBlack__0",
+        "component": "Magazine",
+        "material": "CarbonBlack",
+        "triangles": 1284
+      },
+      {
+        "name": "W1__Magazine__BluedSteel__0",
+        "component": "Magazine",
+        "material": "BluedSteel",
+        "triangles": 8112
+      }
+    ]
+  },
+  {
+    "id": "W2",
+    "name": "02_Compact_AK",
+    "parts": [
+      {
+        "name": "W2__Body__BluedSteel__0",
+        "component": "Body",
+        "material": "BluedSteel",
+        "triangles": 11344
+      },
+      {
+        "name": "W2__Body__BluedSteel__1",
+        "component": "Body",
+        "material": "BluedSteel",
+        "triangles": 7740
+      },
+      {
+        "name": "W2__Body__BoreDark__0",
+        "component": "Body",
+        "material": "BoreDark",
+        "triangles": 6000
+      },
+      {
+        "name": "W2__Body__SatinMachinedSteel__0",
+        "component": "Body",
+        "material": "SatinMachinedSteel",
+        "triangles": 3280
+      },
+      {
+        "name": "W2__Bolt__SatinMachinedSteel__0",
+        "component": "Bolt",
+        "material": "SatinMachinedSteel",
+        "triangles": 300
+      },
+      {
+        "name": "W2__Bolt__BluedSteel__0",
+        "component": "Bolt",
+        "material": "BluedSteel",
+        "triangles": 764
+      },
+      {
+        "name": "W2__Body__CarbonBlack__0",
+        "component": "Body",
+        "material": "CarbonBlack",
+        "triangles": 2960
+      },
+      {
+        "name": "W2__Body__GripRubber__0",
+        "component": "Body",
+        "material": "GripRubber",
+        "triangles": 3180
+      },
+      {
+        "name": "W2__Trigger__BluedSteel__0",
+        "component": "Trigger",
+        "material": "BluedSteel",
+        "triangles": 576
+      },
+      {
+        "name": "W2__Magazine__CarbonBlack__0",
+        "component": "Magazine",
+        "material": "CarbonBlack",
+        "triangles": 1348
+      },
+      {
+        "name": "W2__Magazine__BluedSteel__0",
+        "component": "Magazine",
+        "material": "BluedSteel",
+        "triangles": 8112
+      }
+    ]
+  },
+  {
+    "id": "W3",
+    "name": "03_Silver_9mm",
+    "parts": [
+      {
+        "name": "W3__Bolt__BrushedSilver__0",
+        "component": "Bolt",
+        "material": "BrushedSilver",
+        "triangles": 1328
+      },
+      {
+        "name": "W3__Body__SatinMachinedSteel__0",
+        "component": "Body",
+        "material": "SatinMachinedSteel",
+        "triangles": 3204
+      },
+      {
+        "name": "W3__Body__BrushedSilver__0",
+        "component": "Body",
+        "material": "BrushedSilver",
+        "triangles": 2688
+      },
+      {
+        "name": "W3__Body__GripRubber__0",
+        "component": "Body",
+        "material": "GripRubber",
+        "triangles": 1600
+      },
+      {
+        "name": "W3__Bolt__BoreDark__0",
+        "component": "Bolt",
+        "material": "BoreDark",
+        "triangles": 7200
+      },
+      {
+        "name": "W3__Body__BoreDark__0",
+        "component": "Body",
+        "material": "BoreDark",
+        "triangles": 900
+      },
+      {
+        "name": "W3__Trigger__BluedSteel__0",
+        "component": "Trigger",
+        "material": "BluedSteel",
+        "triangles": 576
+      },
+      {
+        "name": "W3__Trigger__GripRubber__0",
+        "component": "Trigger",
+        "material": "GripRubber",
+        "triangles": 300
+      },
+      {
+        "name": "W3__Bolt__CarbonBlack__0",
+        "component": "Bolt",
+        "material": "CarbonBlack",
+        "triangles": 900
+      },
+      {
+        "name": "W3__Bolt__SightWhite__0",
+        "component": "Bolt",
+        "material": "SightWhite",
+        "triangles": 380
+      },
+      {
+        "name": "W3__Body__BluedSteel__0",
+        "component": "Body",
+        "material": "BluedSteel",
+        "triangles": 300
+      },
+      {
+        "name": "W3__Magazine__CarbonBlack__0",
+        "component": "Magazine",
+        "material": "CarbonBlack",
+        "triangles": 300
+      },
+      {
+        "name": "W3__Magazine__BluedSteel__0",
+        "component": "Magazine",
+        "material": "BluedSteel",
+        "triangles": 300
+      }
+    ]
+  },
+  {
+    "id": "W4",
+    "name": "04_Lime_Tactical_9mm",
+    "parts": [
+      {
+        "name": "W4__Bolt__BluedSteel__0",
+        "component": "Bolt",
+        "material": "BluedSteel",
+        "triangles": 1328
+      },
+      {
+        "name": "W4__Body__SatinMachinedSteel__0",
+        "component": "Body",
+        "material": "SatinMachinedSteel",
+        "triangles": 4212
+      },
+      {
+        "name": "W4__Body__BluedSteel__0",
+        "component": "Body",
+        "material": "BluedSteel",
+        "triangles": 3036
+      },
+      {
+        "name": "W4__Body__CarbonBlack__0",
+        "component": "Body",
+        "material": "CarbonBlack",
+        "triangles": 2988
+      },
+      {
+        "name": "W4__Body__LimeGrip__0",
+        "component": "Body",
+        "material": "LimeGrip",
+        "triangles": 608
+      },
+      {
+        "name": "W4__Body__GripRubber__0",
+        "component": "Body",
+        "material": "GripRubber",
+        "triangles": 992
+      },
+      {
+        "name": "W4__Bolt__BoreDark__0",
+        "component": "Bolt",
+        "material": "BoreDark",
+        "triangles": 7200
+      },
+      {
+        "name": "W4__Body__BoreDark__0",
+        "component": "Body",
+        "material": "BoreDark",
+        "triangles": 900
+      },
+      {
+        "name": "W4__Trigger__BluedSteel__0",
+        "component": "Trigger",
+        "material": "BluedSteel",
+        "triangles": 576
+      },
+      {
+        "name": "W4__Trigger__GripRubber__0",
+        "component": "Trigger",
+        "material": "GripRubber",
+        "triangles": 300
+      },
+      {
+        "name": "W4__Bolt__CarbonBlack__0",
+        "component": "Bolt",
+        "material": "CarbonBlack",
+        "triangles": 900
+      },
+      {
+        "name": "W4__Bolt__SightWhite__0",
+        "component": "Bolt",
+        "material": "SightWhite",
+        "triangles": 380
+      },
+      {
+        "name": "W4__Magazine__CarbonBlack__0",
+        "component": "Magazine",
+        "material": "CarbonBlack",
+        "triangles": 300
+      },
+      {
+        "name": "W4__Magazine__BluedSteel__0",
+        "component": "Magazine",
+        "material": "BluedSteel",
+        "triangles": 300
+      },
+      {
+        "name": "W4__Body__BrushedSilver__0",
+        "component": "Body",
+        "material": "BrushedSilver",
+        "triangles": 764
+      }
+    ]
+  },
+  {
+    "id": "W5",
+    "name": "05_Satin_Pump_Shotgun",
+    "parts": [
+      {
+        "name": "W5__Body__BrushedSilver__0",
+        "component": "Body",
+        "material": "BrushedSilver",
+        "triangles": 5464
+      },
+      {
+        "name": "W5__Body__BoreDark__0",
+        "component": "Body",
+        "material": "BoreDark",
+        "triangles": 1500
+      },
+      {
+        "name": "W5__Bolt__SatinMachinedSteel__0",
+        "component": "Bolt",
+        "material": "SatinMachinedSteel",
+        "triangles": 300
+      },
+      {
+        "name": "W5__Bolt__BluedSteel__0",
+        "component": "Bolt",
+        "material": "BluedSteel",
+        "triangles": 764
+      },
+      {
+        "name": "W5__Body__SatinMachinedSteel__0",
+        "component": "Body",
+        "material": "SatinMachinedSteel",
+        "triangles": 6820
+      },
+      {
+        "name": "W5__Body__BluedSteel__0",
+        "component": "Body",
+        "material": "BluedSteel",
+        "triangles": 1064
+      },
+      {
+        "name": "W5__Pump__GripRubber__0",
+        "component": "Pump",
+        "material": "GripRubber",
+        "triangles": 1332
+      },
+      {
+        "name": "W5__Pump__CarbonBlack__0",
+        "component": "Pump",
+        "material": "CarbonBlack",
+        "triangles": 11044
+      },
+      {
+        "name": "W5__Pump__CarbonBlack__1",
+        "component": "Pump",
+        "material": "CarbonBlack",
+        "triangles": 3012
+      },
+      {
+        "name": "W5__Pump__SatinMachinedSteel__0",
+        "component": "Pump",
+        "material": "SatinMachinedSteel",
+        "triangles": 600
+      },
+      {
+        "name": "W5__Body__GripRubber__0",
+        "component": "Body",
+        "material": "GripRubber",
+        "triangles": 1652
+      },
+      {
+        "name": "W5__Trigger__BluedSteel__0",
+        "component": "Trigger",
+        "material": "BluedSteel",
+        "triangles": 576
+      },
+      {
+        "name": "W5__Body__Brass__0",
+        "component": "Body",
+        "material": "Brass",
+        "triangles": 2672
+      },
+      {
+        "name": "W5__Body__ShellRed__0",
+        "component": "Body",
+        "material": "ShellRed",
+        "triangles": 2292
+      }
+    ]
+  }
+]
