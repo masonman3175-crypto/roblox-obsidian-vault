@@ -65,8 +65,30 @@ First real map block in **hood warfare 1.2** (place `127865723083651`). Geometry
 - Map is now about 2,940 parts, 98 SurfaceGuis, 0 scripts. Playtest clean.
 - Known: some tags sit on shadowed walls and read dark until the lighting pass.
 
+## Pass 3: real prop meshes (2026-10-16)
+![[2026-10-16-map-pass3-street.jpg]]
+![[2026-10-16-map-pass3-alley.jpg]]
+- All props made with Studio `generate_mesh` (original, AI-generated, no store models, no scripts). Templates in `ServerStorage.MapTools.PropMeshes`, pivot at bottom-center, so `template:Clone():PivotTo(CFrame.new(groundPos))` just works.
+
+| Template | Size (studs) | Asset id | Used for |
+|---|---|---|---|
+| Sedan90s | 6.7 x 4.7 x 12.6 | 96978436847406 | red 90s sedan, parked |
+| Sedan70s | 7.7 x 5.4 x 14.5 | 122440127787877 | long black 70s sedan, parked |
+| Dumpster | 8.5 x 5.3 x 5.0 | 90744276607422 | alleys + cut-throughs (replaced boxes) |
+| WheelieBin | 2.9 x 3.8 x 2.9 | 119882404822242 | behind rowhouses on the alley side |
+| TrashCan | 2.4 x 3.5 x 2.4 | 132618953874721 | sidewalks (replaced boxes) |
+| Hydrant | 1.7 x 3.0 x 1.5 | 138617606034462 | curbs (replaced boxes) |
+| StreetTree | ~20 x 24 x 21 | 99028012992380 | sidewalk tree pits |
+
+![[2026-10-16-map-pass3-prop-lineup.jpg]]
+- Placed: 18 parked cars (15 on the street, 3 in the west lot), 13 street trees with dirt pits, 24 wheelie bins, 9 dumpsters, 5 trash cans, 4 hydrants.
+- Collision: cars, bins, cans, hydrants collide (Hull). Tree crowns don't; each tree has an invisible trunk collider.
+- Tested: walking into a car stops at its side, standing under a tree crown works, no errors.
+- Gotcha: generated models come in with the pivot at the middle. Move the pivot to the bottom before placing, or they sink halfway into the ground.
+- Known: the tree reads a bit savanna. Swap for a rounder deciduous tree later if it bugs us.
+
 ## Next passes (one at a time)
-1. Swap box props for real meshes (cars, dumpsters, trees) with generate_mesh or stripped static assets.
+1. ~~Real prop meshes~~ done in pass 3.
 2. ~~Facade detail~~ done in pass 2.
 3. Rooftop routes and more fire escapes on rowhouses.
 4. Spawns, capture zones (corner store, court, laundromat per the design doc) and map boundary.

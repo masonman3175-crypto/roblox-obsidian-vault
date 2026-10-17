@@ -52,3 +52,7 @@ Recent: `grep "^## \[" log.md | tail -5`
 ## [2026-10-16] update | Map pass 2: facade grime (claude)
 - Updated [[Main Street Block]] with pass 2 notes and 3 screenshots (`raw/2026-10-16-map-pass2-*.jpg`)
 - Updated: [[index]], [[2026-10-16]], session log
+
+## [2026-10-16] update | Map pass 3: real prop meshes (claude)
+- Updated [[Main Street Block]] (template table, asset ids, pivot gotcha) + 3 screenshots `raw/2026-10-16-map-pass3-*.jpg`
+- Updated: [[index]], [[2026-10-16]], session log
