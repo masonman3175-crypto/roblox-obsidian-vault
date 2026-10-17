@@ -108,3 +108,6 @@ Recent: `grep "^## \[" log.md | tail -5`
 - Synced the actual open Obsidian checkout with the shared repository; original local files/settings preserved in backup/stashes. Vault-only task: no Studio gameplay edits or new gameplay test claims.
 ## [2026-10-16] update | Claude AK v2 model: real proportions + baked PBR (claude)
 - Updated [[Claude AK]] (model v2, texture ids)
+
+## [2026-10-16] update | Claude AK installed in game (claude)
+- Updated [[Claude AK]] (installed, offsets, status shipped)

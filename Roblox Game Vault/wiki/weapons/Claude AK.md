@@ -1,7 +1,7 @@
 ---
 type: weapon
 owner: combat
-status: building
+status: shipped
 sources:
   - raw/2026-10-16-fps-reference.png
   - raw/2026-10-16-weapon-kit-reference.png
@@ -66,8 +66,13 @@ Build:
 - Shell 6850980505
 - Impacts 79671891898982 and 131554175554758
 
+## Installed (2026-10-16)
+- Cade imported the FBX (it came in at 100x and turned 180°). Claude scaled it, flipped it, and rebuilt `Viewmodels.W1` (anchored) and the `Walnut AK` tool `WorldModel` (welded to Root). Each part has `SurfaceAppearance` from `Config.Surfaces`. The raw import is in `ServerStorage.ClaudeAKBackup_20261016`.
+- WeaponConfig W1: Muzzle (0, .323, -2.319), Aim (0, .49, -.544), Bolt (.112, .371, -.435), Magazine (0, -.017, -.476).
+- Tested in play: equips, 8 meshes, fires, holes and shells, textures show.
+
 ## Next
-- Swap in the Blender meshes after Cade's import. Update `Muzzle (0, .323, -2.319)`, `Aim (0, .5, -.6)`, `Bolt (.1, .364, -.435)` in WeaponConfig.
+- Tune ADS sight alignment and left-hand spot on the new handguard by eye.
 - Real bullet-hole decal texture, reload sounds, distant-shot sound layer.
 
 ## Related
