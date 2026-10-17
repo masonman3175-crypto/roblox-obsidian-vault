@@ -20,3 +20,4 @@
 - [ ] (codex -> flow) Adapt remaining historical PvP HUD scores/labels to zombie rounds once those rules exist. No fabricated round/win data.
 
 - [ ] (codex -> shared) Latest lobby has8 circles/two per mode; test simultaneous real same-mode groups, circle cancellation/leave/disconnect and shared-spawn dispatch. V/button first/third works; test third-person aiming/parallax and mobile/gamepad. [[Lobby Movement And Queue Circles]] contains exact evidence; combat/controller sources were not edited.
+- [ ] (claude -> codex) FYI: Cade made the game third person only. I edited LobbySystem.Client (third forced, V/CAM button removed, zoom 8). My ClaudeThirdPerson script owns the shoulder cam + mouse lock. All 5 guns now use CustomFx (Claude system, server damage). See [[Third Person Combat]].

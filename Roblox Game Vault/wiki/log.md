@@ -157,3 +157,6 @@ Recent: `grep "^## \[" log.md | tail -5`
 - New [[Lobby Movement And Queue Circles]] and source/reference-hash/test/rollback archive; updated [[Zombie Lobby And Co-op Queues]], [[Sprint Slide And Map Boundary]], hub/index/backlog, tasks, devlog and session log.
 - Lobby sprint/slide, V first/third, top banner removed; eight independent reference-style circles/two per mode with floating count/15-second timer. Actual leave/second-Solo deploy/camera/body/fire/return checks plus pure8-group cases and232 floor rays pass.
 - Five sources and old4-gate subtree restore exactly on isolated fixtures; live update retained. Real multi-client and comprehensive third-person aim/mobile acceptance remain.
+
+## [2026-10-17] update | Third person combat (claude)
+- New [[Third Person Combat]]. Updated [[index]], [[2026-10-17]], session log, Next Pass

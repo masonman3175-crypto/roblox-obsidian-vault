@@ -39,6 +39,7 @@ Rules: see the Wiki schema section in `CLAUDE.md` / `AGENTS.md`. Timeline: [[log
 - [[Overcast Rowhouse Street]] - overcast haze, brick rowhouses, power lines, street cover (idea)
 
 ## Systems
+- [[Third Person Combat]] - third person only: shoulder cam, mouse lock, aim pose synced to all, guns fire from the barrel, all 5 guns on Claude system (shipped)
 - [[Lobby Movement And Queue Circles]] - lobby sprint/slide, V camera toggle, eight independent circular queues and no title banner (shipped)
 - [[Zombie Lobby And Co-op Queues]] - compact co-op lobby, leaderboard, two circles per 1/2/3/4-player mode and shared spawn (shipped)
 - [[Crouch And Compact Map]] - crouch/camera stance, tighter perimeter and floor repair; music later removed (shipped)
