@@ -41,3 +41,6 @@ Follow-up to [[Zombie Lobby And Co-op Queues]], [[Sprint Slide And Map Boundary]
 
 ## Later third-person and animation update — 2026-10-17
 [[Third Person Combat]] supersedes the V-toggle/camera-button instructions above: the game is now third-person only. [[Slide Animation And Two-Handed Hold]] adds actual rig-compatible slide/crouch poses and repairs premature client-owned slide cancellation. Eight queue circles remain unchanged.
+
+## Latest camera and queue rules
+[[Private Sessions And Zombie Opening]] adds lobby left/right drag orbit and changes departures to nonempty10-second snapshots/private sessions. Current combat zoom6.2/4.2; V remains retired. Old15s/full-group checks above are historical.

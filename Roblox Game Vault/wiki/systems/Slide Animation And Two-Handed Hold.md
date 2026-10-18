@@ -45,3 +45,6 @@ RESTORE.luau restores the four preserved sources and removes CharacterPose. The 
 ```text
 Inspect the latest session log, Third Person Combat and Slide Animation And Two-Handed Hold first. Preserve the third-only camera and all firing/damage code. Test actual client-owned slides, real avatar joint types, floor clearance through entry/recovery and both hand targets before changing pose profiles. Check ownership and concurrent source changes; keep isolated rollback evidence and commit Studio drafts.
 ```
+
+## Newer crouch/camera/input repair
+[[Private Sessions And Zombie Opening]] removes the physical crouch hip drop, deepens the supported-joint crouch pose and uses normal/aimed camera zoom6.2/4.2. Added tap-only circular aim presentation; original slide drive/ground-range fix retained.

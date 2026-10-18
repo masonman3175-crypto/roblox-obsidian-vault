@@ -49,3 +49,6 @@ Current user direction: **cooperative zombies**, replacing the previous PvP/menu
 - Same-server queues only; invitation parties/cross-server matching are not supplied.
 - Simultaneous real 2/3/4-client launches, shared-spawn collision, audio/friendly-fire acceptance, touch/gamepad and performance still need testing.
 - [[04 Scripts/Zombie Lobby And Co-op Queues/Implementation|Exact source, evidence and rollback]]. Commit Studio drafts; Git archive is not a public Roblox publish.
+
+## Latest supersession — 2026-10-17
+[[Private Sessions And Zombie Opening]] replaces full-capacity15s local departures/shared spawn with nonempty10s snapshots, reserved-session handoff, own-house intro and one pistol. Studio is a labelled local preview; live transport acceptance remains.

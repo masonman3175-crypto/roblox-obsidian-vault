@@ -60,3 +60,8 @@ updated: 2026-10-17
 - [[Slide Animation And Two-Handed Hold]]: procedural slide pose + real ground-transition fix, floor clearance and two-hand weapon support.
 - [[Third Person Combat]] remains the camera direction: third only, no V toggle.
 - [[04 Scripts/Slide Animation And Two-Handed Hold/VERIFICATION.txt]] contains exact tests and rollback. Commit Studio drafts before partner acceptance.
+
+## Latest zombie mechanics — 2026-10-17
+- [[Private Sessions And Zombie Opening]]:10s snapshot circles, own house wake/crash/window reveal, pistol starts, hooded infected, lobby look/crouch/gun visibility and tap circle.
+- [[04 Scripts/Private Sessions And Zombie Opening/VERIFICATION.txt]]: exact tests and preserved rollback.
+- Private transport is wired but still needs published-client/multiplayer acceptance. Commit drafts/Team Create save before that test.

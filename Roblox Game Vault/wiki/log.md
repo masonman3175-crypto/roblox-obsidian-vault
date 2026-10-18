@@ -165,3 +165,8 @@ Recent: `grep "^## \[" log.md | tail -5`
 - New [[Slide Animation And Two-Handed Hold]], immutable clip descriptor and source/test/rollback archive; updated index, lobby-camera supersession note, hub, tasks, devlog and session log.
 - Real AnimationConstraint rig, normal client-owned arena/lobby travel,15 weapon/pitch cases, crouch cycles, fire/reload and return pass; bounded pose integration explicitly approved by user.
 - Isolated installer/rollback and executable copy rollback pass; five live modified sources retained, four unrelated combat/camera sources unchanged.
+
+## [2026-10-17] update | Private sessions and zombie opening (codex)
+- New [[Private Sessions And Zombie Opening]], immutable research/asset record and full18-source/test/rollback archive; updated design/index/hub/queue/stance notes, devlog/tasks/session handoff.
+- Real partial Duos10s intro, all cinematic stages/audio, one pistol, orbit/crouch/tap checks, owned-house fixtures, authoritative NPC kill and12-damage/blocked-wall tests pass.
+- Full isolated rollback and executable copy rollback pass. Studio preview is labelled; real private teleport/2-4-player/multi-device acceptance still pending.

@@ -1,0 +1,155 @@
+{
+  "initialCameraTest": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"Before\":{\"Pitch\":0.28,\"Radius\":12,\"Yaw\":0,\"Dragging\":false,\"Active\":true},\"CameraType\":\"Scriptable\",\"Pose\":{\"CameraOffsetY\":0,\"FovOffset\":0,\"ShakeDegrees\":3.398185290747626e-72,\"Grounded\":true,\"WalkSpeed\":14,\"SlideBuffered\":false,\"Crouched\":false,\"Stamina\":100,\"CameraY\":8.044222831726075,\"SlideReadyIn\":0,\"CameraDrop\":0,\"Mode\":\"Idle\",\"Pose\":{\"Slide\":0,\"JointCount\":15,\"Crouch\":0},\"HeadY\":5.028017997741699},\"Countdown\":10,\"Lobby\":true,\"After\":{\"Pitch\":0.24000000000000003,\"Radius\":12,\"Yaw\":-0.45,\"Dragging\":false,\"Active\":true}}"
+      }
+    ],
+    "isError": false
+  },
+  "crouchRepairTest": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"Before\":{\"Hip\":1.9980254173278809,\"HeadY\":5.028260231018066,\"RootY\":3.5280251502990724},\"Crouched\":{\"State\":{\"CameraOffsetY\":-0.5999879240989685,\"FovOffset\":-1.9653161344888879,\"ShakeDegrees\":3.069724927817834e-75,\"Grounded\":true,\"WalkSpeed\":8,\"SlideBuffered\":false,\"Crouched\":true,\"Stamina\":100,\"CameraY\":6.868908882141113,\"SlideReadyIn\":0,\"CameraDrop\":0.5999879104191287,\"Mode\":\"Crouching\",\"Pose\":{\"JointCount\":15,\"Slide\":0,\"ClearanceLift\":0.5104043626785279,\"Crouch\":0.9994281689950242},\"HeadY\":4.916330814361572},\"RootY\":3.5280251502990724,\"Hip\":1.9980254173278809,\"HeadY\":4.916330814361572,\"Clearance\":0.13999998569488526},\"FinalHip\":1.9980254173278809}"
+      }
+    ],
+    "isError": false
+  },
+  "crouchFinalTest": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"CrouchPose\":{\"JointCount\":15,\"Slide\":0,\"ClearanceLift\":0.2974651598930359,\"Crouch\":0.9995620184346248},\"Hip\":1.9980254173278809,\"HeadDrop\":0.7753939628601074}"
+      }
+    ],
+    "isError": false
+  },
+  "mouseDragInstrumentation": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"Delta\":\"0, 0, 0\",\"Camera\":{\"Pitch\":0.252,\"Radius\":12,\"Yaw\":0.036000000000000007,\"Dragging\":true,\"Active\":true},\"Down\":true,\"Processed\":false}"
+      }
+    ],
+    "isError": false
+  },
+  "partialQueueStart": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"Remaining\":9.849427938461304,\"PadCount\":1,\"Queue\":\"Duos_2\"}"
+      }
+    ],
+    "isError": false
+  },
+  "introStartTest": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"Phase\":\"Intro\",\"Mode\":\"Duos\",\"Stage\":\"Waking\",\"Partial\":1}"
+      }
+    ],
+    "isError": false
+  },
+  "introCompleteTest": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"House\":1,\"Cutscene\":false,\"ControlsRestored\":true,\"Camera\":\"Custom\",\"Phase\":\"Deployed\",\"Zombies\":6,\"Tools\":1,\"Weapon\":\"W3\"}"
+      }
+    ],
+    "isError": false
+  },
+  "introFinalTiming": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"Phase\":\"Deployed\",\"IntroAge\":12.067490100860596,\"Weapon\":\"W3\"}"
+      }
+    ],
+    "isError": false
+  },
+  "tapFireTest": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"Before\":15,\"Held\":14,\"TapOnly\":true,\"SecondTap\":13,\"Reticle\":13,\"RepeatBlocked\":true}"
+      }
+    ],
+    "isError": false
+  },
+  "queuePrivacyResult": {
+    "content": [
+      {
+        "type": "text",
+        "text": "PASS: partial10s, stable deadline, empty cancellation, leave-at-zero, capacity, duplicate circles, one dispatch; manifest allowlist/expiry/place/duplicate rejection; reserved-id options contain no roster/access code"
+      }
+    ],
+    "isError": false
+  },
+  "fourHouseTest": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"Positions\":[\"2539, 3.5999999046325684, 2\",\"2573, 3.5999999046325684, 2\",\"2607, 3.5999999046325684, 2\",\"2641, 3.5999999046325684, 2\"],\"Result\":\"PASS: four distinct owned, furnished houses; no imported scripts; fixture removed\",\"Owners\":[-101,-102,-103,-104]}"
+      }
+    ],
+    "isError": false
+  },
+  "npcShotTest": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"Before\":0,\"Kills\":1,\"Credited\":11811528312,\"UserId\":11811528312,\"Dead\":true}"
+      }
+    ],
+    "isError": false
+  },
+  "npcMeleeTest": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"Before\":100,\"AttackDamage\":12,\"BehindWall\":88,\"WallHealthLoss\":0,\"AfterAttack\":88}"
+      }
+    ],
+    "isError": false
+  },
+  "runCleanupTest": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"Phase\":\"Lobby\",\"NPCs\":0,\"Frozen\":false,\"Houses\":0}"
+      }
+    ],
+    "isError": false
+  },
+  "bedVetting": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"Removed\":[\"ServerStorage.Classic Bed Bedroom House Furniture Vibe.Bed.LightConfig\",\"EasyConfiguration\",\"Type\"],\"Parts\":24,\"Pivot\":\"-125.376831, 2.34000015, -109.634254, -0.123435065, 0, 0.992352724, 0, 1.00000012, 0, -0.992352724, 0, -0.123435065\",\"Size\":\"12.000015258789062, 5.000001430511475, 7.000001907348633\"}"
+      }
+    ],
+    "isError": false
+  },
+  "introSamples": {
+    "content": [
+      {
+        "type": "text",
+        "text": "[{\"At\":0.03808999061584473,\"CameraPosition\":\"979.4342651367188, 7.191904544830322, 20.60869026184082\",\"CameraType\":\"Scriptable\",\"Sounds\":[],\"Root\":\"1997, 3.6500001, 1, 0, 1, 0, -1, 0, 0, 0, 0, 1\",\"InMenu\":true,\"Stage\":\"Waking\",\"Subtitle\":\"Find your pistol. Get outside and stay together.\"},{\"At\":0.5519809722900391,\"CameraPosition\":\"2003, 7.400000095367432, 5.7060322761535645\",\"CameraType\":\"Scriptable\",\"Sounds\":[],\"Root\":\"1997, 3.6500001, 1, 0, 1, 0, -1, 0, 0, 0, 0, 1\",\"InMenu\":true,\"Stage\":\"Waking\",\"Subtitle\":\"...\"},{\"At\":1.069498062133789,\"CameraPosition\":\"2003, 7.400000095367432, 5.421586990356445\",\"CameraType\":\"Scriptable\",\"Sounds\":[],\"Root\":\"1997, 3.6500001, 1, 0, 1, 0, -1, 0, 0, 0, 0, 1\",\"InMenu\":true,\"Stage\":\"Waking\",\"Subtitle\":\"...\"},{\"At\":1.585129976272583,\"CameraPosition\":\"2003, 7.400000095367432, 5.137617588043213\",\"CameraType\":\"Scriptable\",\"Sounds\":[],\"Root\":\"1997, 3.6500001, 1, 0, 1, 0, -1, 0, 0, 0, 0, 1\",\"InMenu\":true,\"Stage\":\"Waking\",\"Subtitle\":\"...\"},{\"At\":2.1016101837158205,\"CameraPosition\":\"2003, 7.400000095367432, 4.853448867797852\",\"CameraType\":\"Scriptable\",\"Sounds\":[],\"Root\":\"1997, 3.6500001, 1, 0, 1, 0, -1, 0, 0, 0, 0, 1\",\"InMenu\":true,\"Stage\":\"Waking\",\"Subtitle\":\"...\"},{\"At\":2.6017251014709474,\"CameraPosition\":\"2006, 7, 7\",\"CameraType\":\"Scriptable\",\"Sounds\":[{\"Id\":\"rbxassetid://9120828793\",\"Length\":0,\"Loaded\":false}],\"Root\":\"1998.11072, 3.64305806, 1.13883924, 0.216338038, 0.976318538, 0, -0.976318538, 0.216338038, 0, 0, 0, 1\",\"InMenu\":true,\"Stage\":\"Ruckus\",\"Subtitle\":\"What was that noise outside?\"},{\"At\":3.119065999984741,\"CameraPosition\":\"2006, 7, 7\",\"CameraType\":\"Scriptable\",\"Sounds\":[{\"Id\":\"rbxassetid://9120828793\",\"Length\":3.9146666666666669,\"Loaded\":true}],\"Root\":\"2002.59521, 3.61503029, 1.69939423, 0.890591383, 0.454804391, 0, -0.454804391, 0.890591383, 0, 0, 0, 1\",\"InMenu\":true,\"Stage\":\"Ruckus\",\"Subtitle\":\"What was that noise outside?\"},{\"At\":3.6364550590515138,\"CameraPosition\":\"2006, 7, 7\",\"CameraType\":\"Scriptable\",\"Sounds\":[{\"Id\":\"rbxassetid://9120828793\",\"Length\":3.9146666666666669,\"Loaded\":true}],\"Root\":\"2004.71118, 3.60180497, 1.96389723, 0.998391807, 0.0566907562, 0, -0.0566907562, 0.998391807, 0, 0, 0, 1\",\"InMenu\":true,\"Stage\":\"Ruckus\",\"Subtitle\":\"What was that noise outside?\"},{\"At\":4.136528015136719,\"CameraPosition\":\"2006, 7, 7\",\"CameraType\":\"Scriptable\",\"Sounds\":[{\"Id\":\"rbxassetid://9120828793\",\"Length\":3.9146666666666669,\"Loaded\":true}],\"Root\":\"2005, 3.5999999, 2, 1, 0, 0, 0, 1, 0, 0, 0, 1\",\"InMenu\":true,\"Stage\":\"Ruckus\",\"Subtitle\":\"What was that noise outside?\"},{\"At\":4.638245105743408,\"CameraPosition\":\"2007.9552001953125, 6.529971122741699, 7.471033573150635\",\"CameraType\":\"Scriptable\",\"Sounds\":[{\"Id\":\"rbxassetid://9120828793\",\"Length\":3.9146666666666669,\"Loaded\":true}],\"Root\":\"2004.97241, 3.58383822, 1.52388799, 0.999837518, -0.0175858885, -0.003980448, 0.0176223554, 0.999801338, 0.00931937806, 0.00381576736, -0.00938800815, 0.99994868\",\"InMenu\":true,\"Stage\":\"CheckWindow\",\"Subtitle\":\"Something is moving in the street...\"},{\"At\":5.153536081314087,\"CameraPosition\":\"2007.7276611328125, 6.468181610107422, 5.728460311889648\",\"CameraType\":\"Scriptable\",\"Sounds\":[{\"Id\":\"rbxassetid://9120828793\",\"Length\":3.9146666666666669,\"Loaded\":true}],\"Root\":\"2004.96985, 3.55829597, -0.134787098, 0.982054353, -0.0236263443, 0.18711248, 0.0221728198, 0.999705613, 0.00985755678, -0.187290281, -0.00553184515, 0.982289076\",\"InMenu\":true,\"Stage\":\"CheckWindow\",\"Subtitle\":\"Something is moving in the street...\"},{\"At\":5.670751094818115,\"CameraPosition\":\"2006.156494140625, 6.391331672668457, 3.602370262145996\",\"CameraType\":\"Scriptable\",\"Sounds\":[{\"Id\":\"rbxassetid://9120828793\",\"Length\":3.9146666666666669,\"Loaded\":true}],\"Root\":\"2003.17566, 3.48153734, -2.36665344, 0.766897559, 0.0791017562, 0.636876106, -0.0421273857, 0.996439517, -0.0730326027, -0.640385509, 0.0291786063, 0.767499208\",\"InMenu\":true,\"Stage\":\"CheckWindow\",\"Subtitle\":\"Something is moving in the street...\"},{\"At\":6.171269178390503,\"CameraPosition\":\"2003.968994140625, 6.349783420562744, 1.758965015411377\",\"CameraType\":\"Scriptable\",\"Sounds\":[{\"Id\":\"rbxassetid://9120828793\",\"Length\":3.9146666666666669,\"Loaded\":true}],\"Root\":\"2001.17139, 3.49609375, -4.19809103, 0.32349661, -1.17900969e-08, 0.946229398, 7.09319039e-08, 1, -1.17900942e-08, -0.946229398, 7.09318968e-08, 0.32349661\",\"InMenu\":true,\"Stage\":\"CheckWindow\",\"Subtitle\":\"Something is moving in the street...\"},{\"At\":6.686625957489014,\"CameraPosition\":\"2001.5914306640625, 6.437704563140869, 0.5228157043457031\",\"CameraType\":\"Scriptable\",\"Sounds\":[{\"Id\":\"rbxassetid://9120828793\",\"Length\":3.9146666666666669,\"Loaded\":true}],\"Root\":\"1998.80078, 3.49609375, -5.54296875, 0.32349661, 1.17900969e-08, 0.946229398, -7.09319039e-08, 1, 1.17900942e-08, -0.946229398, -7.09318968e-08, 0.32349661\",\"InMenu\":true,\"Stage\":\"CheckWindow\",\"Subtitle\":\"Something is moving in the street...\"},{\"At\":7.187324047088623,\"CameraPosition\":\"2001.8135986328125, 6.403609275817871, 0.4399881362915039\",\"CameraType\":\"Scriptable\",\"Sounds\":[{\"Id\":\"rbxassetid://9120828793\",\"Length\":3.9146666666666669,\"Loaded\":true}],\"Root\":\"1998.80078, 3.49609375, -5.54296875, 0.32349658, 1.17900978e-08, 0.946229279, -7.09318968e-08, 0.99999994, 1.17900907e-08, -0.946229279, -7.09318968e-08, 0.32349655\",\"InMenu\":true,\"Stage\":\"CheckWindow\",\"Subtitle\":\"Something is moving in the street...\"},{\"At\":7.703840970993042,\"CameraPosition\":\"-107, 8.399999618530273, 28.75646209716797\",\"CameraType\":\"Scriptable\",\"Sounds\":[{\"Id\":\"rbxassetid://9120828793\",\"Length\":3.9146666666666669,\"Loaded\":true},{\"Id\":\"rbxassetid://127809799844346\",\"Length\":2.184,\"Loaded\":true}],\"Root\":\"1998.80078, 3.49609375, -5.54296875, 0.32349658, 1.17900978e-08, 0.946229279, -7.09318968e-08, 0.99999994, 1.17900907e-08, -0.946229279, -7.09318968e-08, 0.32349655\",\"InMenu\":true,\"Stage\":\"Reveal\",\"Subtitle\":\"Those are infected. They're everywhere.\"},{\"At\":8.221049070358277,\"CameraPosition\":\"-107, 8.399999618530273, 28.498334884643555\",\"CameraType\":\"Scriptable\",\"Sounds\":[{\"Id\":\"rbxassetid://9120828793\",\"Length\":3.9146666666666669,\"Loaded\":true},{\"Id\":\"rbxassetid://127809799844346\",\"Length\":2.184,\"Loaded\":true}],\"Root\":\"1998.80078, 3.49609375, -5.54296875, 0.32349658, 1.17900978e-08, 0.946229279, -7.09318968e-08, 0.99999994, 1.17900907e-08, -0.946229279, -7.09318968e-08, 0.32349655\",\"InMenu\":true,\"Stage\":\"Reveal\",\"Subtitle\":\"Those are infected. They're everywhere.\"},{\"At\":8.736406087875367,\"CameraPosition\":\"-107, 8.399999618530273, 28.240022659301758\",\"CameraType\":\"Scriptable\",\"Sounds\":[{\"Id\":\"rbxassetid://9120828793\",\"Length\":3.9146666666666669,\"Loaded\":true},{\"Id\":\"rbxassetid://127809799844346\",\"Length\":2.184,\"Loaded\":true}],\"Root\":\"1998.80078, 3.49609375, -5.54296875, 0.32349658, 1.17900978e-08, 0.946229279, -7.09318968e-08, 0.99999994, 1.17900907e-08, -0.946229279, -7.09318968e-08, 0.32349655\",\"InMenu\":true,\"Stage\":\"Reveal\",\"Subtitle\":\"Those are infected. They're everywhere.\"},{\"At\":9.253769159317017,\"CameraPosition\":\"-107, 8.399999618530273, 27.981786727905273\",\"CameraType\":\"Scriptable\",\"Sounds\":[{\"Id\":\"rbxassetid://9120828793\",\"Length\":3.9146666666666669,\"Loaded\":true},{\"Id\":\"rbxassetid://127809799844346\",\"Length\":2.184,\"Loaded\":true}],\"Root\":\"1998.80078, 3.49609375, -5.54296875, 0.32349658, 1.17900978e-08, 0.946229279, -7.09318968e-08, 0.99999994, 1.17900907e-08, -0.946229279, -7.09318968e-08, 0.32349655\",\"InMenu\":true,\"Stage\":\"Reveal\",\"Subtitle\":\"Those are infected. They're everywhere.\"},{\"At\":9.77066707611084,\"CameraPosition\":\"-107, 8.399999618530273, 27.723567962646484\",\"CameraType\":\"Scriptable\",\"Sounds\":[{\"Id\":\"rbxassetid://9120828793\",\"Length\":3.9146666666666669,\"Loaded\":true},{\"Id\":\"rbxassetid://127809799844346\",\"Length\":2.184,\"Loaded\":true}],\"Root\":\"1998.80078, 3.49609375, -5.54296875, 0.32349658, 1.17900978e-08, 0.946229279, -7.09318968e-08, 0.99999994, 1.17900907e-08, -0.946229279, -7.09318968e-08, 0.32349655\",\"InMenu\":true,\"Stage\":\"Reveal\",\"Subtitle\":\"Those are infected. They're everywhere.\"},{\"At\":10.287322998046875,\"CameraPosition\":\"-107, 8.399999618530273, 27.465057373046875\",\"CameraType\":\"Scriptable\",\"Sounds\":[{\"Id\":\"rbxassetid://9120828793\",\"Length\":3.9146666666666669,\"Loaded\":true},{\"Id\":\"rbxassetid://127809799844346\",\"Length\":2.184,\"Loaded\":true}],\"Root\":\"1998.80078, 3.49609375, -5.54296875, 0.32349658, 1.17900978e-08, 0.946229279, -7.09318968e-08, 0.99999994, 1.17900907e-08, -0.946229279, -7.09318968e-08, 0.32349655\",\"InMenu\":true,\"Stage\":\"Reveal\",\"Subtitle\":\"Find your pistol. Get outside and stay together.\"},{\"At\":10.804018020629883,\"CameraPosition\":\"-107, 8.399999618530273, 27.206775665283203\",\"CameraType\":\"Scriptable\",\"Sounds\":[{\"Id\":\"rbxassetid://9120828793\",\"Length\":3.9146666666666669,\"Loaded\":true},{\"Id\":\"rbxassetid://127809799844346\",\"Length\":2.184,\"Loaded\":true}],\"Root\":\"1998.80078, 3.49609375, -5.54296875, 0.32349658, 1.17900978e-08, 0.946229279, -7.09318968e-08, 0.99999994, 1.17900907e-08, -0.946229279, -7.09318968e-08, 0.32349655\",\"InMenu\":true,\"Stage\":\"Reveal\",\"Subtitle\":\"Find your pistol. Get outside and stay together.\"},{\"At\":11.319679021835328,\"CameraPosition\":\"-107, 8.399999618530273, 27\",\"CameraType\":\"Scriptable\",\"Sounds\":[{\"Id\":\"rbxassetid://9120828793\",\"Length\":3.9146666666666669,\"Loaded\":true},{\"Id\":\"rbxassetid://127809799844346\",\"Length\":2.184,\"Loaded\":true}],\"Root\":\"1998.80078, 3.49609375, -5.54296875, 0.32349658, 1.17900978e-08, 0.946229279, -7.09318968e-08, 0.99999994, 1.17900907e-08, -0.946229279, -7.09318968e-08, 0.32349655\",\"InMenu\":true,\"Stage\":\"Reveal\",\"Subtitle\":\"Find your pistol. Get outside and stay together.\"},{\"At\":11.836857080459595,\"CameraPosition\":\"-107, 8.399999618530273, 27\",\"CameraType\":\"Scriptable\",\"Sounds\":[{\"Id\":\"rbxassetid://127809799844346\",\"Length\":2.184,\"Loaded\":true}],\"Root\":\"1998.80078, 3.49609375, -5.54296875, 0.32349658, 1.17900978e-08, 0.946229279, -7.09318968e-08, 0.99999994, 1.17900907e-08, -0.946229279, -7.09318968e-08, 0.32349655\",\"InMenu\":true,\"Stage\":\"Reveal\",\"Subtitle\":\"Find your pistol. Get outside and stay together.\"},{\"At\":12.353468179702759,\"CameraPosition\":\"2000.1497802734375, 7.462283134460449, -0.45679035782814026\",\"CameraType\":\"Custom\",\"Sounds\":[{\"Id\":\"rbxassetid://127809799844346\",\"Length\":2.184,\"Loaded\":true}],\"Root\":\"1998, 3.53256893, -6, 0.932340205, 0, 0.361582309, 0, 1, 0, -0.361582309, 0, 0.932340205\",\"InMenu\":false,\"Stage\":\"Complete\",\"Subtitle\":\"Find your pistol. Get outside and stay together.\"},{\"At\":12.854176998138428,\"CameraPosition\":\"2000.1497802734375, 7.427739143371582, -0.45679035782814026\",\"CameraType\":\"Custom\",\"Sounds\":[{\"Id\":\"rbxassetid://127809799844346\",\"Length\":2.184,\"Loaded\":true}],\"Root\":\"1998, 3.4980247, -6, 0.932340205, 0, 0.361582309, 0, 1, 0, -0.361582309, 0, 0.932340205\",\"InMenu\":false,\"Stage\":\"Complete\",\"Subtitle\":\"Find your pistol. Get outside and stay together.\"}]"
+      }
+    ],
+    "isError": false
+  },
+  "runFinalConsole": {
+    "content": [
+      {
+        "type": "text",
+        "text": "More than one Cloud instance in workspace, first enabled one is used.\nCloud instance must exist under Terrain node in workspace to be visible.\nMore than one Cloud instance in workspace, first enabled one is used.\nCloud instance must exist under Terrain node in workspace to be visible.\n[Roblox][CorePackages.Packages._Index.UIBlox.UIBlox.Logger] [UIBlox - Warning] - FoundationProvider not found. Please ensure that the FoundationProvider is present in the component tree.\nCorePackages.Packages._Index.UIBlox.UIBlox.App.Style.AppStyleProvider:178 function AppStyleProvider\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberHooks.new:3196 function renderWithHooks\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:209 function renderWithHooks\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:1577 function mountIndeterminateComponent\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:3485 function beginWork\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:255\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1977\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1953\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1896\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:915\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:860\nCorePackages.Packages._Index.Scheduler.Scheduler.Scheduler:320\nCorePackages.Packages._Index.Scheduler.Scheduler.Scheduler:268\nCorePackages.Packages._Index.Scheduler.Scheduler.forks.SchedulerHostConfig.default:260 function doWork\nCorePackages.Packages._Index.Scheduler.Scheduler.forks.SchedulerHostConfig.default:296 function performWorkUntilDeadline\n\n[Roblox][CorePackages.Packages._Index.UIBlox.UIBlox.Logger] [UIBlox - Warning] - FoundationProvider not found. Please ensure that the FoundationProvider is present in the component tree.\nCorePackages.Packages._Index.UIBlox.UIBlox.App.Style.AppStyleProvider:178 function AppStyleProvider\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberHooks.new:3196 function renderWithHooks\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:209 function renderWithHooks\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:1577 function mountIndeterminateComponent\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:3485 function beginWork\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:255\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1977\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1953\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1896\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:915\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:860\nCorePackages.Packages._Index.Scheduler.Scheduler.Scheduler:320\nCorePackages.Packages._Index.Scheduler.Scheduler.Scheduler:268\nCorePackages.Packages._Index.Scheduler.Scheduler.forks.SchedulerHostConfig.default:260 function doWork\nCorePackages.Packages._Index.Scheduler.Scheduler.forks.SchedulerHostConfig.default:296 function performWorkUntilDeadline\n\n[Roblox][CorePackages.Packages._Index.UIBlox.UIBlox.Logger] [UIBlox - Warning] - FoundationProvider not found. Please ensure that the FoundationProvider is present in the component tree.\nCorePackages.Packages._Index.UIBlox.UIBlox.App.Style.AppStyleProvider:178 function AppStyleProvider\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberHooks.new:3196 function renderWithHooks\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:209 function renderWithHooks\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:1577 function mountIndeterminateComponent\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:3485 function beginWork\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:255\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1977\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1953\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1896\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:915\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:860\nCorePackages.Packages._Index.Scheduler.Scheduler.Scheduler:320\nCorePackages.Packages._Index.Scheduler.Scheduler.Scheduler:268\nCorePackages.Packages._Index.Scheduler.Scheduler.forks.SchedulerHostConfig.default:260 function doWork\nCorePackages.Packages._Index.Scheduler.Scheduler.forks.SchedulerHostConfig.default:296 function performWorkUntilDeadline\n\n[Roblox][CorePackages.Packages._Index.UIBlox.UIBlox.Logger] [UIBlox - Warning] - FoundationProvider not found. Please ensure that the FoundationProvider is present in the component tree.\nCorePackages.Packages._Index.UIBlox.UIBlox.App.Style.AppStyleProvider:178 function AppStyleProvider\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberHooks.new:3196 function renderWithHooks\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:209 function renderWithHooks\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:1577 function mountIndeterminateComponent\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:3485 function beginWork\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:255\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1977\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1953\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1896\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:915\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:860\nCorePackages.Packages._Index.Scheduler.Scheduler.Scheduler:320\nCorePackages.Packages._Index.Scheduler.Scheduler.Scheduler:268\nCorePackages.Packages._Index.Scheduler.Scheduler.forks.SchedulerHostConfig.default:260 function doWork\nCorePackages.Packages._Index.Scheduler.Scheduler.forks.SchedulerHostConfig.default:296 function performWorkUntilDeadline\n\n[Roblox][CorePackages.Packages._Index.UIBlox.UIBlox.Logger] [UIBlox - Warning] - FoundationProvider not found. Please ensure that the FoundationProvider is present in the component tree.\nCorePackages.Packages._Index.UIBlox.UIBlox.App.Style.AppStyleProvider:178 function AppStyleProvider\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberHooks.new:3196 function renderWithHooks\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:209 function renderWithHooks\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:1577 function mountIndeterminateComponent\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberBeginWork.new:3485 function beginWork\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:255\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1977\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1953\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:1896\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:915\nCorePackages.Packages._Index.ReactReconciler.ReactReconciler.ReactFiberWorkLoop.new:860\nCorePackages.Packages._Index.Scheduler.Scheduler.Scheduler:320\nCorePackages.Packages._Index.Scheduler.Scheduler.Scheduler:268\nCorePackages.Packages._Index.Scheduler.Scheduler.forks.SchedulerHostConfig.default:260 function doWork\nCorePackages.Packages._Index.Scheduler.Scheduler.forks.SchedulerHostConfig.default:296 function performWorkUntilDeadline\n\nContentId: rbxassetid://203785492 failed due to: Asset type does not match requested type\nContentId: rbxassetid://203785492 failed due to: Asset type does not match requested type\nContentId: rbxassetid://203785492 failed due to: Asset type does not match requested type\n[Roblox][sabuiltin_Assistant.rbxm.Assistant.Packages._Index.AssistantUI.AssistantUI.Actions.ExecuteLuauActions] The execute_luau changed camera type. Resetting from Enum.CameraType.Custom back to Enum.CameraType.Scriptable"
+      }
+    ],
+    "isError": false
+  }
+}

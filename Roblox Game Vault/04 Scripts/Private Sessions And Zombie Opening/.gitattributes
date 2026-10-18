@@ -1,0 +1,4 @@
+* -text
+*.sh text eol=lf
+*.luau -whitespace
+DIFF_FILE.md -whitespace

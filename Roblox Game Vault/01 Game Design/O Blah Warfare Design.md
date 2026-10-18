@@ -3,7 +3,7 @@
 Working title. Replaces the old keyboard demo in [[Game Overview]].
 
 ## Current direction — 2026-10-17
-The user changed the game to **cooperative zombies**. Everyone is on Survivors and shares one gameplay spawn. [[Zombie Lobby And Co-op Queues]] replaces the Play/locker menu with a compact physical lobby, server-session leaderboard and cooperative party-size queues (1/2/3/4).
+The user changed the game to **cooperative zombies**. Everyone is on Survivors. Latest [[Private Sessions And Zombie Opening]] uses10-second snapshot circles, private-session handoff, individual house wake-up intros and pistol-only starts; the old shared-spawn behavior is historical. Actual private transport still needs published-client acceptance. [[Zombie Lobby And Co-op Queues]] replaces the Play/locker menu with a compact physical lobby, server-session leaderboard and cooperative party-size queues (1/2/3/4).
 The former PvP pitch, team sizes, objective modes and monetization roadmap below are historical proposals, not the current implementation. Zombie AI/waves/progression still need separate design and combat implementation.
 
 ## Historical PvP Pitch

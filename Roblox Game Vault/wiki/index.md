@@ -39,6 +39,7 @@ Rules: see the Wiki schema section in `CLAUDE.md` / `AGENTS.md`. Timeline: [[log
 - [[Overcast Rowhouse Street]] - overcast haze, brick rowhouses, power lines, street cover (idea)
 
 ## Systems
+- [[Private Sessions And Zombie Opening]] -10s snapshot queues, house intro/pistol, hooded infected, camera/crouch/tap fixes; live private transport acceptance pending (building)
 - [[Slide Animation And Two-Handed Hold]] - rig-compatible slide animation, stable ground transition and five two-handed weapon holds (shipped)
 - [[Third Person Combat]] - third person only: shoulder cam, mouse lock, aim pose synced to all, guns fire from the barrel, all 5 guns on Claude system (shipped)
 - [[Lobby Movement And Queue Circles]] - lobby sprint/slide, eight independent circular queues and no title banner; camera now third-only (shipped)

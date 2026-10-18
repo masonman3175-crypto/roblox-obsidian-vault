@@ -1,0 +1,111 @@
+PRIVATE SESSIONS AND ZOMBIE OPENING — 2026-10-17
+Place: hood warfare1.2 /127865723083651.
+Changed branches/fields:
+- Queue: full-only15s -> nonempty10s, stable deadline; final eligible occupants only, capacity still1/2/3/4, two circles each.
+- Deployment: local arena pivot -> reserved-id TeleportAsync with server MemoryStore roster; Studio uses explicit local preview.
+- Crouch: CrouchHipDrop .60->0, camera .95->.60, visible root/hip/knee pose and clearance correction.
+- Camera: lobby left/right drag orbit; combat zoom8->6.2 /4.2 aimed, shoulder2.1/.55->1.65/.30; visible world gun.
+- Input: one press-edge per shot, no held repeat; small circle reticle and separated circular touch FIRE control.
+- Opening: own furnished house, bed wake animation, crash/window/infected reveal,12s camera cutscene, one W3 pistol.
+- Zombies: first-party R15 rig, hood/red eyes/red particles, shamble/attack/hit/death poses, server pathing/melee/LOS and kill credit.
+18 final sources;12 originals preserved (one unchanged movement source included);7 added sources.
+User explicitly approved firing and zombie combat work in addition to prior pose permission.
+READMECONTRACT was absent; no replacement invented.
+
+FOUR PATHS
+C:\Users\mason\.codex\visualizations\2026\10\16\01a14317-0d61-7650-b711-1ea3626ed7b5\private_zombie_session\MODIFIED_FILE.luau
+C:\Users\mason\.codex\visualizations\2026\10\16\01a14317-0d61-7650-b711-1ea3626ed7b5\private_zombie_session\DIFF_FILE.md
+C:\Users\mason\.codex\visualizations\2026\10\16\01a14317-0d61-7650-b711-1ea3626ed7b5\private_zombie_session\VERIFICATION.txt
+C:\Users\mason\.codex\visualizations\2026\10\16\01a14317-0d61-7650-b711-1ea3626ed7b5\private_zombie_session\ROLLBACK.sh
+Game originals: ServerStorage.PrivateZombieSessionBackup_20261017.
+BASELINE.json SHA256:66CFDEBA2D62AD4A5D9355AE3FF04BFEED84EF59C63094FBC7EE38E6EEE8B404
+MODIFIED_FILE.luau SHA256:668BBEFA8144B8ADB0ED6A69B246CB099E050DC9D54D0038A5888B3F8D3D1F10
+Original aim video remains read-only at Downloads/v12044gd0000dari477og65rmfl0qa80.mp4, SHA25641F91F961F3F08A19D2AE1DC3FDB3C8EAB09EC81C34CAC4048E42B3FF4548254. Actual21s frame reopened. No original game code was provided; implemented observable tap/circle behavior, not a claim to copied proprietary source.
+
+BASELINE command/input/result/status
+Roblox_Studio.execute_luau(Edit) read Config/Queue/Lobby.Service/current camera/stance/weapon sources into BASELINE.json, then cloned the12 originals into ServerStorage.PrivateZombieSessionBackup_20261017.
+Literal output:
+BASELINE: countdown15/full-only/local-deploy; 12 original sources preserved
+Status:isError=false; MCP has no process exit code.
+Baseline Config.Countdown15; Queue.Step required Count==Size; local deploy restored all5 weapons; camera zoom8 and no left-drag lobby handler.
+
+MODIFIED commands (all execute_luau against the confirmed place)
+1. Server, input TEST_QUEUE_PRIVACY.luau (fresh clones avoid Studio's stale direct-require cache):
+PASS: partial10s, stable deadline, empty cancellation, leave-at-zero, capacity, duplicate circles, one dispatch; manifest allowlist/expiry/place/duplicate rejection; reserved-id options contain no roster/access code
+Status:isError=false. Tests partial party, stable10s deadline, leave-at-zero/empty/capacity/two independent circles/one dispatch plus allowlist rejection, expiry/place/duplicate entries and reserved-id option payload. No TeleportAsync live success is claimed.
+
+2. Client, input: move actual character to Duos_2 at(979,4,9); wait.5; inspect server pad attributes.
+Literal output:
+{"Remaining":9.849427938461304,"PadCount":1,"Queue":"Duos_2"}
+Then actual queue starts one-person Duos intro:
+{"Phase":"Intro","Mode":"Duos","Stage":"Waking","Partial":1}
+Status:isError=false. This is one real player in a capacity2 circle, not a live two-player test.
+
+3. Client camera inputs: user_mouse_input moveTo(400,420), left-down, wait150ms, moveTo(580,420), wait150ms; inspect LobbyCameraControl.State. Release with coordinates afterward.
+Literal output:
+{"Delta":"0, 0, 0","Camera":{"Pitch":0.252,"Radius":12,"Yaw":0.036000000000000007,"Dragging":true,"Active":true},"Down":true,"Processed":false}
+Status:mouse actions Success / snapshot isError=false. Processed=false, dragging=true, yaw/pitch changed. Direct Delta bridge also tested. One earlier zero-delta warp did not establish a pass.
+
+4. Client crouch: actual MovementControl.Crouch(true), wait.5, State and actual Head.Position; then false and wait.4.
+Literal output:
+{"CrouchPose":{"JointCount":15,"Slide":0,"ClearanceLift":0.2974651598930359,"Crouch":0.9995620184346248},"Hip":1.9980254173278809,"HeadDrop":0.7753939628601074}
+Status:isError=false. Standing physical Hip stays1.9980254 instead of sinking; head lowers.7754stud plus camera drop.6. Clearance pose raises the minimum foot/shin bounds.
+
+5. Client, input TEST_INTRO_CAPTURE.luau, actual queued transition:
+26 captured samples contain Waking ->Ruckus ->CheckWindow ->Reveal ->Complete, cinematic letterbox/subtitles/Scriptable camera; frame views of bed and outside infected inspected. Crash decoded length3.9146667s, growl2.184s (IsLoaded=true). Exact samples in TEST_RESULTS.json.introSamples.
+Final timing test:
+{"Phase":"Deployed","IntroAge":12.067490100860596,"Weapon":"W3"}
+Prior full completion:
+{"House":1,"Cutscene":false,"ControlsRestored":true,"Camera":"Custom","Phase":"Deployed","Zombies":6,"Tools":1,"Weapon":"W3"}
+Status:isError=false. One W3 only; native camera restored. Separate actual geometry fixture creates4 owned furnished houses at distinct positions:
+{"Positions":["2539, 3.5999999046325684, 2","2573, 3.5999999046325684, 2","2607, 3.5999999046325684, 2","2641, 3.5999999046325684, 2"],"Result":"PASS: four distinct owned, furnished houses; no imported scripts; fixture removed","Owners":[-101,-102,-103,-104]}
+Status:isError=false; fixture removed. Not four real connected clients.
+
+6. Client tap test, exact actions: ReferenceFPSControl.TestMode(true); Release; snapshotAmmo; Press; wait.7; snapshot; Press again while still held; Release; wait.18; Press; Release; TestMode(false).
+Literal output:
+{"Before":15,"Held":14,"TapOnly":true,"SecondTap":13,"Reticle":13,"RepeatBlocked":true}
+Status:isError=false. Held shot count1; fresh second tap count2;13px ring. Touch/gamepad paths implemented, physical mobile/gamepad hardware acceptance remains.
+
+7. Controlled registered zombie ray/kill test:
+- Studio-only server Bindable EncounterQA refreshes actors; ExitHouse routes player to arena; anchor shooter/target briefly, mark one registered target GUID and set Health40.
+- Client waits for matching streamed model+Head+Humanoid; up to3 times sends existing ClaudeAK.Shoot(origin=ownHead.Position,direction=(targetHead-origin).Unit), .25s apart; verify death/credit.
+Literal output:
+{"Before":0,"Kills":1,"Credited":11811528312,"UserId":11811528312,"Dead":true}
+Status:isError=false. Real server raycast/damage/kill credit, not a client-submitted kill. Earlier attempts were disturbed by live user departures/kills and streaming and are excluded. One temporary test input block was removed, TestMode reset false.
+
+8. Controlled melee/LOS:
+Server places live attacker3studs from stationary player, temporarily disables existing regen script, samples after.95s, inserts anchored(.6,8,8) wall halfway, waits1.9s, removes wall, restores health/regen/network ownership. Literal output:
+{"Before":100,"AttackDamage":12,"BehindWall":88,"WallHealthLoss":0,"AfterAttack":88}
+Status:isError=false.12 damage with clear sight;0 further health loss behind wall. Previous regen-affected run was diagnostic, not this passing result.
+
+9. Return/cleanup:
+{"Phase":"Lobby","NPCs":0,"Frozen":false,"Houses":0}
+Status:isError=false; own house/actors removed, lobby/unfrozen restored. Final Edit contains no test fixtures.
+
+10. Final18 sources matched exact UTF-8 length+DJB2 checks;12 backups. Full source fixture install/rollback compares original strings. FINAL_CHECKS.json contains fingerprints. Console has no SurvivalRun/LobbySystem/GameplayPresentation source stack errors after repairs. Existing cloud/CoreUI and asset203785492 mismatch warnings retained, not attributed to this task.
+
+ROLLBACK command/input/literal output/status
+Roblox_Studio.execute_luau(Edit), input TEST_ROLLBACK.luau:
+PASS: 18 final sources installed; 12 originals preserved; eight10s labels; PASS: 12 original sources/15s labels restored; run packages and two new assets removed; isolated fixture deleted; live game retained
+Status:isError=false. Isolated copies include eight labels and both new-asset placeholders. Original12 sources and15-second labels restored;7 new source nodes/package roots and2 new assets removed. Live18-source update remains.
+
+PowerShell:
+& 'C:\Program Files\Git\bin\bash.exe' -c 'chmod +x ./ROLLBACK.sh && test -x ./ROLLBACK.sh && ./ROLLBACK.sh --self-test'
+cwd:C:\Users\mason\.codex\visualizations\2026\10\16\01a14317-0d61-7650-b711-1ea3626ed7b5\private_zombie_session
+Input: separate tempfile copy of FINAL_SOURCES.json, original BASELINE.json.
+Literal output:
+PASS: copied sources restored; 7 new sources removed; original baseline and modified artifacts unchanged
+Process exit status:0.
+ROLLBACK.sh --emit-studio prints the tested RESTORE.luau function. Use through Roblox MCP in Edit to restore the live place. No live rollback was applied.
+
+ASSETS
+Bed119702734710201 from Creator Store. Removed3 script containers: LightConfig, EasyConfiguration, Type. First-party CreateHumanoidModelFromDescriptionAsync generated the R15 rig; removed Animate script. No store weapons/characters imported. BUILD_ASSETS.luau bakes upgraded-joint rest transforms before spawning. In-game World adds hood/eyes/particles and uses client joint animation; no animation upload IDs guessed. No music restored.
+
+RESEARCH / DEPLOYMENT LIMITS
+https://create.roblox.com/docs/projects/teleport — server-only TeleportAsync, private options, failure handling, Studio teleport limitation, untrusted teleport data.
+https://create.roblox.com/docs/release-notes/release-notes-743 — newer reserved-id migration. Current Studio reflection exposes ReservedServerId and ReserveServerAsync; adapter uses reserved id (no code to client). Allocation/real cross-server behavior remains unverified on the published server build; needs live deployment acceptance, including deprecated-API compatibility.
+https://create.roblox.com/docs/reference/engine/classes/GuiButton — Activated is one release/tap, unlike held repeat.
+https://create.roblox.com/docs/physics/constraints/animation — Transform/joint compatibility.
+Private-session code is wired but actual private teleport, simultaneous2/3/4-client roster/house assignment, disconnect/teleport failures across real servers, actual touch/gamepad hardware and all avatar/terrain cases still need published-client acceptance. Studio preview is explicitly labelled; it is not a private server.
+This is an opening encounter with8 initial infected, not completed waves/progression/persistence.
+Game remains changed in Studio Edit; commit drafts and let Team Create save, then publish/test transport in Roblox.

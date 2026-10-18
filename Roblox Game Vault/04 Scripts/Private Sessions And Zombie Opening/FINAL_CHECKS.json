@@ -1,0 +1,56 @@
+{
+  "rollback": {
+    "content": [
+      {
+        "type": "text",
+        "text": "PASS: 18 final sources installed; 12 originals preserved; eight10s labels; PASS: 12 original sources/15s labels restored; run packages and two new assets removed; isolated fixture deleted; live game retained"
+      }
+    ],
+    "isError": false
+  },
+  "sourceFingerprints": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"ReplicatedStorage.GameplayPresentation.MovementConfig\":{\"DJB2\":1547845919,\"Length\":434},\"ContractPresent\":false,\"StarterPlayer.StarterPlayerScripts.ClaudeThirdPerson\":{\"DJB2\":331115249,\"Length\":3121},\"ReplicatedStorage.SurvivalRun.LobbyCamera\":{\"DJB2\":3045850207,\"Length\":3364},\"ReplicatedStorage.LobbySystem.Config\":{\"DJB2\":3576326044,\"Length\":922},\"BackupCount\":12,\"ReplicatedStorage.ReferenceWeapons.Controller\":{\"DJB2\":1745672284,\"Length\":30254},\"ServerScriptService.SurvivalRun.Service\":{\"DJB2\":2944456368,\"Length\":11863},\"StarterPlayer.StarterPlayerScripts.SurvivalRun\":{\"DJB2\":633240082,\"Length\":91},\"ServerScriptService.ClaudeAKServer.Logic\":{\"DJB2\":3967638404,\"Length\":5884},\"ReplicatedStorage.SurvivalRun.Config\":{\"DJB2\":2413689214,\"Length\":510},\"StarterPlayer.StarterPlayerScripts.ClaudeAKClient\":{\"DJB2\":990144996,\"Length\":14595},\"ServerScriptService.LobbySystem.Queue\":{\"DJB2\":795664458,\"Length\":1810},\"ServerScriptService.SurvivalRun.World\":{\"DJB2\":4094428129,\"Length\":6584},\"ReplicatedStorage.LobbySystem.Client\":{\"DJB2\":745958509,\"Length\":9488},\"ServerScriptService.LobbySystem.Service\":{\"DJB2\":63875120,\"Length\":14656},\"ReplicatedStorage.SurvivalRun.Client\":{\"DJB2\":2658978611,\"Length\":8428},\"ReplicatedStorage.GameplayPresentation.CharacterPose\":{\"DJB2\":351200627,\"Length\":11029},\"ServerScriptService.SurvivalRun.Transport\":{\"DJB2\":762485465,\"Length\":4709},\"ReplicatedStorage.GameplayPresentation.MovementClient\":{\"DJB2\":186817998,\"Length\":9920}}"
+      }
+    ],
+    "isError": false
+  },
+  "queuePrivacy": {
+    "content": [
+      {
+        "type": "text",
+        "text": "PASS: partial10s, stable deadline, empty cancellation, leave-at-zero, capacity, duplicate circles, one dispatch; manifest allowlist/expiry/place/duplicate rejection; reserved-id options contain no roster/access code"
+      }
+    ],
+    "isError": false
+  },
+  "NPCShot": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"Before\":0,\"Kills\":1,\"Credited\":11811528312,\"UserId\":11811528312,\"Dead\":true}"
+      }
+    ],
+    "isError": false
+  },
+  "NPCMelee": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"Before\":100,\"AttackDamage\":12,\"BehindWall\":88,\"WallHealthLoss\":0,\"AfterAttack\":88}"
+      }
+    ],
+    "isError": false
+  },
+  "cleanup": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"Phase\":\"Lobby\",\"NPCs\":0,\"Frozen\":false,\"Houses\":0}"
+      }
+    ],
+    "isError": false
+  }
+}

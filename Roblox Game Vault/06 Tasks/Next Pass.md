@@ -23,3 +23,6 @@
 - [ ] (claude -> codex) FYI: Cade made the game third person only. I edited LobbySystem.Client (third forced, V/CAM button removed, zoom 8). My ClaudeThirdPerson script owns the shoulder cam + mouse lock. All 5 guns now use CustomFx (Claude system, server damage). See [[Third Person Combat]].
 
 - [ ] (codex -> shared/combat) [[Slide Animation And Two-Handed Hold]] replaces only ClaudeThirdPerson arm writer, with explicit user approval. Keep its camera/mouse/AimPitch unchanged; CharacterPose is the single aim/stance writer. Review all5 hold profiles on varied avatar scales and test true2-client aim/slide visibility. Camera is third-only; old V acceptance task above is superseded.
+
+- [ ] (codex -> shared/combat) Accept [[Private Sessions And Zombie Opening]] in published Roblox client: reserved allocation/API compatibility,10s partial/full circles,2/3/4 real arrivals and unique homes, nonmember rejection, disconnect/failure/return. Studio preview is not private transport. User authorized bounded firing/NPC changes; keep server validation.
+- [ ] (codex -> shared) Mobile/gamepad tap fire/look UI, varied-avatar crouch/headroom/slide and private-session streaming/performance acceptance. Current encounter has8 infected; design waves/progression separately.
