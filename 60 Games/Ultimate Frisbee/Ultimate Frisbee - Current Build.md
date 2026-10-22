@@ -172,8 +172,8 @@ Coin packs: 1,000 = R$29 · 3,500 = R$89 · 10,000 = R$219 · 30,000 = R$549.
 | ShopServer | ServerScriptService | Starts the service |
 | ShopClient | StarterPlayerScripts | Coin wallet + SHOP button (top right), shop panel with Powers and Coin Packs tabs |
 
-- **Player state:** `Coins` attribute, `EquippedPower` attribute (`""` = none), `OwnedPowers` folder of BoolValues. All set by the server.
-- **For the powers side (partner):** read `player:GetAttribute("EquippedPower")` to know which power to give. Power ids are in ShopConfig.
+- **Player state:** `Coins` attribute, `Loadout` attribute (comma list of up to 3 power ids), `OwnedPowers` folder of BoolValues. All set by the server.
+- **For the powers side (partner):** listen to `ReplicatedStorage.AbilitySystem.Activated` (server) for `(player, powerId)`. Power ids are in ShopConfig.
 - **Placeholders:** power names, initials-as-thumbnails ("ART SOON"), and every `productId = 0`, so the Robux buttons show "coming soon".
 - **Studio test coins:** 30,000 in Studio, 0 live.
 - **Tested:** open/close, select, buy with coins (2,500 → 1,500), equip/unequip, not-enough-coins message, Coin Packs tab, no console errors.
