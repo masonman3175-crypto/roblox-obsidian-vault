@@ -19,8 +19,12 @@ tags: [roblox, game-project, ultimate-frisbee]
 - Studio place: **Untitled Experience**, placeId `81684535279790` (open in Studio; edited through the Roblox_Studio MCP)
 - Vault: `C:\Users\cadesyl\Documents\roblox-obsidian-vault` (open this folder as the Obsidian vault)
 
-## Status
-Playable prototype: lobby → captain draft → weather vote → warmup → match to 5. Throw, catch and score work. No movement tech or powers yet. See [[Ultimate Frisbee - Current Build]].
+## Status (2026-10-21)
+Playable prototype: lobby → captain draft → warmup (random weather) → match to 5.
+- **Works now:** throw, catch, score, coins, the saved power shop with Robux placeholders, a 3-slot loadout with an ability bar, and the Super Saiyan ultimate on X.
+- **Not built yet:** the powers themselves (partner), movement tech, and the real ultimate rules (possession, stall).
+
+See [[Ultimate Frisbee - Current Build]] and the latest session log.
 
 ## Related
 [[START HERE - Combined Roblox Vault]] · [[Roblox Reference Library]] · [[MOC - Systems]]
