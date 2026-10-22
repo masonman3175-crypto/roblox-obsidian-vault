@@ -104,6 +104,31 @@ Coin packs: 1,000 = R$29 · 3,500 = R$89 · 10,000 = R$219 · 30,000 = R$549.
   - `AbilityService` (server) validates the slot, ownership, alive state and cooldown (by rarity: 10 / 12 / 14 / 18 / 25s, or `power.cooldown`). It publishes the `Ready_<id>` attribute and fires `ReplicatedStorage.AbilitySystem.Activated(player, powerId)`.
   - **For the powers side:** connect to that event on the server to make each power actually do something. Right now pressing a key only starts the cooldown.
   - **Known conflict:** the partner's Super Saiyan transform also uses Q. It should become a power in the bar.
+## Audit fixes (2026-10-21, all 12 audit findings)
+1. **Self-catch:** the thrower can never catch their own throw. `SelfCatchDelay` was removed from FrisbeeConfig.
+2. **R reset:** only works in Solo Practice; it's refused mid-match.
+3. **Saving and coin payouts:**
+   - **Saving:** ShopService saves coins, owned powers and loadout to DataStore: `PlayerShop_v1` live, `PlayerShop_Studio` in Studio. It saves on leave, on server close, every 120s, and after each buy.
+   - **Failed loads:** a load that fails 3 times means that session plays unsaved and never overwrites the real save.
+   - **Payouts** (from RoundService, Match only): catch +5, goal +25, win +50, everyone else in the match +20.
+   - **Studio:** to test saving, turn on Game Settings → Security → "Enable Studio Access to API Services". It's off right now, so Studio sessions play unsaved.
+4. **Robux guard:** the server refuses to start if any `productId` is not 0, until ProcessReceipt exists.
+5. **Abilities in the lobby:** AbilityService only accepts presses when you're in a Match or Practice.
+6. **Q conflict:** Super Saiyan moved from Q to **X** and is drawn as the ultimate slot in the ability bar.
+7. **Vote code removed:** from RoundService, RoundRules (`tally` / `winner` / `validWeather`) and RoundClient (weather cards, chip, `canVote`). The draft now goes straight to warmup.
+8. **Saiyan stamina:** only replicates in steps of 5.
+9. **Self-test:** `ServerScriptService.SelfTests` covers the draft rules and shop buy/equip/loadout rules. Run it in Play on the server with `require(game.ServerScriptService.SelfTests).run()`; it passes.
+10. **Shared helpers:** `UIStyle.make` / `glow` / `HEAVY` / `BOLD` are shared by ShopClient, RoundClient and AbilityClient.
+11. **Reveal leak:** effect lists drop entries whose UI is gone.
+12. **Leftovers:**
+    - The disabled default SpawnLocation was deleted.
+    - The Baseplate is kept, since it's the ground under the stadium.
+    - The ServerStorage backups are kept.
+
+## Bottom HUD layout (one style, no overlaps)
+- **Ability bar** (bottom center, in-game only): Q / F / C shop powers, then a gap, then the **X** ultimate slot (Super Saiyan). A thin sprint-stamina line sits above the slots.
+- **Throw/catch card** (FrisbeeClient) sits just above the bar. It uses the shared palette: the meter ramps blue → cyan → lime → gold, the GRAB DISC button is blue, and the key caps match the ability bar.
+- **Super Saiyan:** its old gold box is hidden. Its P menu, touch buttons and toast use UIStyle, and the toast now shows under the top bar.
 - **Draw order:** the shop draws above the partner's `SaiyanClient` power HUD (`DisplayOrder` 100).
 
 | Script | Where | Job |
