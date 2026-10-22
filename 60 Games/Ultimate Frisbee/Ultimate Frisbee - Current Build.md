@@ -82,6 +82,28 @@ The first version (dark purple pills) was rejected as bland.
 
 Coin packs: 1,000 = R$29 · 3,500 = R$89 · 10,000 = R$219 · 30,000 = R$549.
 
+- **Color scheme (2026-10-21), defined in `UIStyle.C`:**
+  - **Blue** = structure: every panel edge, tabs, primary buttons, the SHOP tile, the round bar.
+  - **Gold** = currency only: coins, wallet, pack ribbons.
+  - **Lime** = confirm/go: BUY with coins, READY UP.
+  - **Red** = close/danger.
+  - **Cyan/pink** = team colors only.
+  - **Rarity colors** only on power art.
+  - Surfaces are `ink`, then `panel`, then `raised`.
+- **Top bar:** the round bar, wallet pill (a big coin overlapping a soft gold-edged pill) and SHOP tile sit in one row on wide screens. Below 1100px wide, the wallet and SHOP tile drop to a second row.
+- **Coin art is all cartoon now:** coin, stack, coin pyramid, treasure chest with coins. The realistic pile and vault were removed.
+- **Reveal shake** is softened: smooth noise instead of pixel jitter, about a third of the old strength, and a smaller FOV punch.
+- **Weather choice removed:**
+  - The server's Vote phase lasts 0s, weather is random each match, and the `Vote` request is rejected.
+  - The 4 lobby weather-pad prompts are disabled; the 3D pads themselves are still in `SkylineLobby`.
+  - The lobby panel shows match info tiles (mode, to win, weather random, powers) instead of weather cards, and the weather chip is hidden.
+- **Loadout + ability bar (Valorant style):**
+  - You can equip up to 3 owned powers. They're stored in the `Loadout` attribute (comma list); `EquippedPower` mirrors slot 1.
+  - Keys are Q / F / C. E is catch, so it's not used.
+  - `AbilityClient` draws the bar at bottom center: slot art, rarity stripe, key cap, cooldown sweep with seconds, a pop when ready, and a ready pulse. It hides while the lobby or shop is open.
+  - `AbilityService` (server) validates the slot, ownership, alive state and cooldown (by rarity: 10 / 12 / 14 / 18 / 25s, or `power.cooldown`). It publishes the `Ready_<id>` attribute and fires `ReplicatedStorage.AbilitySystem.Activated(player, powerId)`.
+  - **For the powers side:** connect to that event on the server to make each power actually do something. Right now pressing a key only starts the cooldown.
+  - **Known conflict:** the partner's Super Saiyan transform also uses Q. It should become a power in the bar.
 - **Draw order:** the shop draws above the partner's `SaiyanClient` power HUD (`DisplayOrder` 100).
 
 | Script | Where | Job |
