@@ -95,7 +95,7 @@ Coin packs: 1,000 = R$29 · 3,500 = R$89 · 10,000 = R$219 · 30,000 = R$549.
 - **Reveal shake** is softened: smooth noise instead of pixel jitter, about a third of the old strength, and a smaller FOV punch.
 - **Weather choice removed:**
   - The server's Vote phase lasts 0s, weather is random each match, and the `Vote` request is rejected.
-  - The 4 lobby weather-pad prompts are disabled; the 3D pads themselves are still in `SkylineLobby`.
+  - The 4 lobby weather pads and their 4 signs are removed from `SkylineLobby` (moved to `ServerStorage.LobbyWeatherPadsBackup`, so they can be restored). The wall subtitle now reads "READY UP • DRAFT TEAMS • EQUIP POWERS".
   - The lobby panel shows match info tiles (mode, to win, weather random, powers) instead of weather cards, and the weather chip is hidden.
 - **Loadout + ability bar (Valorant style):**
   - You can equip up to 3 owned powers. They're stored in the `Loadout` attribute (comma list); `EquippedPower` mirrors slot 1.
