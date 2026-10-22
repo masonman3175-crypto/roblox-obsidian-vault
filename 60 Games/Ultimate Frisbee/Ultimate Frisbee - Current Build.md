@@ -125,6 +125,23 @@ Coin packs: 1,000 = R$29 · 3,500 = R$89 · 10,000 = R$219 · 30,000 = R$549.
     - The Baseplate is kept, since it's the ground under the stadium.
     - The ServerStorage backups are kept.
 
+## Lobby and copy pass (2026-10-21)
+**Rule (Cade):** no explanatory UI copy. That means no taglines, no hints that restate a button, no info screens on join, and no footers. Labels and real content only.
+
+- **Lobby panel removed.** RoundClient was rewritten:
+  - The top status bar stays.
+  - Left-side buttons are always reachable: **READY UP** (lime; becomes "READY" when on) and **SOLO PRACTICE** / **LEAVE PRACTICE**. Practice shows only when you're the only player.
+  - The **captain draft panel** shows only during the draft (with blur), with title, turn line, teams and pick list.
+  - **Results** show as a non-blocking banner under the top bar.
+  - Back To Bay is gone; Leave Practice replaces it.
+- **Copy cut:**
+  - **Shop:** the subtitle, the coins-page note, the "ART SOON" tags, and the COINS/ROBUX headers over the buy buttons.
+  - **Reveal:** "TAP TO CONTINUE".
+  - **Throw meter:** the HOLD/RELEASE hint.
+- **Wallet:** now the same chip shape as every tile (panel fill, blue edge, glow, coin inside, gold amount), 49px tall to line up with the round bar and SHOP tile.
+- **SHOP icon:** the glossy basket from `visual-refs/icons/Glossy Pink Shopping Basket Icon.png`, uploaded as `rbxassetid://83548623877440` (`Config.CartImage`).
+- **10,000 pack:** a glossy overflowing coin bag (decal 135012121024011 → image `110884906766263`).
+
 ## Bottom HUD layout (one style, no overlaps)
 - **Ability bar** (bottom center, in-game only): Q / F / C shop powers, then a gap, then the **X** ultimate slot (Super Saiyan). A thin sprint-stamina line sits above the slots.
 - **Throw/catch card** (FrisbeeClient) sits just above the bar. It uses the shared palette: the meter ramps blue → cyan → lime → gold, the GRAB DISC button is blue, and the key caps match the ability bar.
