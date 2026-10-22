@@ -41,8 +41,39 @@ Backups in ServerStorage: `FrisbeeUIBackup`, `FrisbeeRevisionBackup`, `RoundSyst
 - **Score:** a catch in the endzone gives +1, first to 5. Teams are Cyan and Pink.
 - **Reset (R):** sends a loose disc back to midfield.
 
-## Power shop (added 2026-10-21, playtested)
-Matches the existing HUD style (dark navy panels, purple outline, Gotham Black, pill gradient buttons).
+## Power shop (added 2026-10-21, rebuilt same day, playtested)
+**Style:** sports-neon, from `Roblox References/Source/visual-refs/sports/` (Main-Menu, Football-Main-Menu, Basketball-GUI):
+- near-black tiles with their own neon border and glow
+- Sarpanch Heavy headings, Oswald Bold labels
+- tag ribbons sitting on the top edge, a square SHOP tile with a cart icon, and a gold wallet
+
+The first version (dark purple pills) was rejected as bland.
+
+- **Icons:** coin image `rbxassetid://16047279971` (decal 16047279995, cartoon coin, transparent background). Cart image `rbxassetid://79771344090455` (decal 94946111287810). Decal IDs don't load in ImageLabels; get the image ID with `game:GetObjects("rbxassetid://DECAL")[1].Texture`.
+- **Rarity effects** (UI only; particles don't render in ScreenGuis, so the VFX Studio plugin is for 3D effects later):
+
+| Rarity | Effects |
+| --- | --- |
+| Common | none |
+| Rare | shine sweep |
+| Epic | + spinning border + glow |
+| Legendary | + rotating light rays + pulsing glow |
+| Mythic | + rainbow border + rising sparkles |
+
+- **Unlock reveal:** buying a power plays a full-screen burst (flash, rays, sparks scaled by rarity, "MYTHIC UNLOCKED!").
+- **Prices:** coins went up and Robux went down. Rule: buying a power directly with Robux is always cheaper than buying coin packs for it.
+
+| Rarity | Coins | Robux |
+| --- | --- | --- |
+| Common | 1,000 / 1,500 | 25 / 35 |
+| Rare | 3,000 / 4,000 | 59 / 69 |
+| Epic | 7,500 / 9,000 | 99 / 119 |
+| Legendary | 15,000 | 179 |
+| Mythic | 25,000 | 249 |
+
+Coin packs: 1,000 = R$29 · 3,500 = R$89 · 10,000 = R$219 · 30,000 = R$549.
+
+- **Draw order:** the shop draws above the partner's `SaiyanClient` power HUD (`DisplayOrder` 100).
 
 | Script | Where | Job |
 | --- | --- | --- |
@@ -55,7 +86,7 @@ Matches the existing HUD style (dark navy panels, purple outline, Gotham Black, 
 - **Player state:** `Coins` attribute, `EquippedPower` attribute (`""` = none), `OwnedPowers` folder of BoolValues. All set by the server.
 - **For the powers side (partner):** read `player:GetAttribute("EquippedPower")` to know which power to give. Power ids are in ShopConfig.
 - **Placeholders:** power names, initials-as-thumbnails ("ART SOON"), and every `productId = 0`, so the Robux buttons show "coming soon".
-- **Studio test coins:** 2,500 in Studio, 0 live.
+- **Studio test coins:** 30,000 in Studio, 0 live.
 - **Tested:** open/close, select, buy with coins (2,500 → 1,500), equip/unequip, not-enough-coins message, Coin Packs tab, no console errors.
 
 **Not done yet:**
