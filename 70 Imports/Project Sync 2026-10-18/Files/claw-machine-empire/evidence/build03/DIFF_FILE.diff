@@ -1,0 +1,1160 @@
+--- Build02.rbxlx
++++ Build03.rbxlx
+@@ -55,10 +55,10 @@
+         <Item class="ModuleScript" referent="RBX7">
+           <Properties>
+             <string name="Name">Config</string>
+-            <ProtectedString name="Source">-- Build 02: hand-authored toybox arcade, deliberately fast early alpha balance.
++            <ProtectedString name="Source">-- Build 03: spacious plushie park, deterministic crane choreography, simple toy UI.
+ local Config = {}
+ Config.Schema = 1
+-Config.Build = "02 - TOYBOX ARCADE"
++Config.Build = "03 - PLUSHIE PARK"
+ Config.StudioSessionOnly = true -- Never touches live player data from Studio.
+ Config.PurchasesEnabled = false
+ Config.MaxPlayers = 4
+@@ -67,9 +67,9 @@
+ Config.FreeAttempts = 3
+ Config.AttemptRefillSeconds = 12
+ Config.RoundSeconds = 25
+-Config.DropSeconds = 2.6
+-Config.PlotSpacing = 190
+-Config.Bounds = {halfWidth=70, back=-94, front=105}
++Config.DropSeconds = 4.2
++Config.PlotSpacing = 360
++Config.Bounds = {halfWidth=150, back=-210, front=230}
+ Config.Machines = {
+     {id="rusty", name="Rusty Claw", short="RUSTY", cost=0, color={233,157,92}, skin="workshop", mascot="duck", pool={"duck","mochi","frog"}},
+     {id="classic", name="Classic Arcade", short="CLASSIC", cost=250, color={249,78,117}, skin="classic", mascot="mochi", pool={"mochi","frog","dino","cat","star"}},
+@@ -97,13 +97,31 @@
+     {id="void", name="Void Reactor", short="VOID", cost=6800000, color={121,92,201}, skin="void", mascot="voidbat", pool={"voidbat","star","infinity"}},
+     {id="infinity", name="Infinity Carnival", short="INFINITY", cost=10000000, color={247,164,238}, skin="carnival", mascot="infinity", pool={"infinity","unicorn","voidbat"}},
+ }
+--- Five deliberately laid-out gallery rows, front to back. Aisles are 34 studs deep.
++-- Five spacious districts, with a 36-stud pedestrian avenue between cabinet rows.
++Config.Districts = {"WELCOME WOODS","CRITTER COVE","CANDY COSMOS","DREAM GARDENS","INFINITY PLAZA"}
+ for i,machine in ipairs(Config.Machines) do
+-    machine.position=({{-44,0,64},{-22,0,64},{0,0,64},{22,0,64},{44,0,64},
+-        {-44,0,30},{-22,0,30},{0,0,30},{22,0,30},{44,0,30},
+-        {-44,0,-4},{-22,0,-4},{0,0,-4},{22,0,-4},{44,0,-4},
+-        {-44,0,-38},{-22,0,-38},{0,0,-38},{22,0,-38},{44,0,-38},
+-        {-44,0,-72},{-22,0,-72},{0,0,-72},{22,0,-72},{44,0,-72}})[i]
++    machine.position={-104+((i-1)%5)*52,0,120-math.floor((i-1)/5)*72}
++end
++-- Pure deterministic choreography. This never decides or grants a reward.
++function Config.clawPose(t,x,z,hasPrize)
++    t=math.clamp(t,0,1)
++    local function ease(v) v=math.clamp(v,0,1); return v*v*(3-2*v) end
++    local y,grip,stage=15,0,"READY"
++    if t&lt;0.12 then
++        y=15+math.sin(t/0.12*math.pi)*0.45; stage="WIND UP"
++    elseif t&lt;0.38 then
++        y=15-5*ease((t-0.12)/0.26); stage="LOWER"
++    elseif t&lt;0.49 then
++        y=10; grip=ease((t-0.38)/0.11); stage="GRAB"
++    elseif t&lt;0.73 then
++        y=10+5*ease((t-0.49)/0.24); grip=1; stage="LIFT"
++    elseif t&lt;0.9 then
++        local u=ease((t-0.73)/0.17); x=x+(4.1-x)*u; z=z+(4.1-z)*u
++        grip=1; stage="TO CHUTE"
++    else
++        x,z=4.1,4.1; grip=1-ease((t-0.9)/0.08); stage=if hasPrize then "PRIZE!" else "TRY AGAIN"
++    end
++    return {x=x,y=y,z=z,grip=grip,stage=stage}
+ end
+ Config.Plushies = {
+     {id="duck", name="Goofy Duck", rarity="Common", income=5, weight=60, color={255,219,79}, shape="duck"},
+@@ -395,7 +413,7 @@
+ function World.plush(parent,species,pos,scale,simple)
+     scale=scale or 1
+     local item=Config.plushie(species); local col=rgb(item.color)
+-    local model=Instance.new("Model"); model.Name=item.name
++    local model=Instance.new("Model"); model.Name=item.name; model:SetAttribute("Species",species)
+     local function ball(n,s,v,c)
+         local p=part(model,n,s*scale,pos+v*scale,c or col,nil,Enum.PartType.Ball); p.CanCollide=false; return p
+     end
+@@ -624,81 +642,88 @@
+     prompt.ObjectText=spec.name; prompt.MaxActivationDistance=14; prompt.RequiresLineOfSight=false
+     prompt.HoldDuration=0.2; prompt.Parent=drop
+     skins[spec.skin](p,b)
++    p("CarriageRail",Vector3.new(10.8,0.16,0.16),Vector3.new(0,17.3,0),C.ink)
+     local claw=folder(model,"Claw")
+-    local head=part(claw,"Head",Vector3.new(1.2,0.6,1.2),origin+Vector3.new(0,15,0),C.gold,Enum.Material.Metal)
+-    for _,v in ipairs({Vector3.new(-0.65,-0.8,0),Vector3.new(0.65,-0.8,0),Vector3.new(0,-0.8,-0.65)}) do
+-        local finger=part(claw,"Finger",Vector3.new(0.18,1.5,0.2),head.Position+v,C.white,Enum.Material.Metal); finger.CanCollide=false
+-    end
+-    part(claw,"Cable",Vector3.new(0.1,2,0.1),origin+Vector3.new(0,16.1,0),C.ink); claw.PrimaryPart=head
++    local head=part(claw,"Head",Vector3.new(1.4,0.7,1.4),origin+Vector3.new(0,15,0),C.gold,Enum.Material.Metal)
++    for i=1,3 do
++        part(claw,"Finger"..i,Vector3.new(0.2,1.45,0.24),head.Position,C.white,Enum.Material.Metal).CanCollide=false
++        part(claw,"Tip"..i,Vector3.new(0.22,0.65,0.3),head.Position,C.gold,Enum.Material.Metal).CanCollide=false
++    end
++    claw.PrimaryPart=head
++    local cable=part(model,"CraneCable",Vector3.new(0.09,2,0.09),origin+Vector3.new(0,16.4,0),C.ink); cable.CanCollide=false
++    local carriage=part(model,"Carriage",Vector3.new(1.8,0.45,1.8),origin+Vector3.new(0,17.1,0),C.mint); carriage.CanCollide=false
++    p("PrizeChute",Vector3.new(2.6,0.2,2.6),Vector3.new(4.1,6.65,4.1),C.ink)
+     local prizes=folder(model,"Prizes")
+     for i,v in ipairs({Vector3.new(-3,7.5,-1.5),Vector3.new(0,7.5,1.5),Vector3.new(3,7.5,-1.5)}) do
+         World.plush(prizes,if i==2 then spec.mascot else spec.pool[i%#spec.pool+1],origin+v,0.85,true)
+     end
+     local _,status=sign(model,"Status",Vector3.new(8.4,1.6,0.2),origin+Vector3.new(0,3.3,5.9),if index==1 then "FREE PLAYS!" else "$"..Big.format(Big.new(spec.cost)),C.white,C.ink)
+-    return {root=model,origin=origin,claw=claw,prizes=prizes,status=status,prompt=prompt}
++    return {root=model,origin=origin,claw=claw,cable=cable,carriage=carriage,prizes=prizes,status=status,prompt=prompt}
+ end
+ 
+ local function architecture(root,offset)
+     local floor=folder(root,"HandbuiltStudFloor")
+-    part(floor,"Foundation",Vector3.new(142,1,204),offset+Vector3.new(0,-0.5,5),C.lilac)
+-    for x=0,7 do for z=0,11 do
+-        local tile=part(floor,"StuddedTile",Vector3.new(17.45,0.4,16.55),offset+Vector3.new(-61.25+x*17.5,0.2,-86.5+z*16.6),if (x+z)%2==0 then C.pink else C.pink:Lerp(C.white,0.2))
+-        tile.TopSurface=Enum.SurfaceType.Studs
+-    end end
+-    -- Native square studs cover every floor tile; real raised caps reinforce the
+-    -- toy-brick construction in the broad circulation aisles at walking height.
+-    for row=0,5 do for x=-64,64,4 do
+-        cylinder(floor,"RaisedFloorStud",Vector3.new(0.18,0.85,0.85),offset+Vector3.new(x,0.49,86-row*34),C.pink:Lerp(C.white,0.28))
+-    end end
+-    task.wait()
++    part(floor,"Foundation",Vector3.new(300,1,440),offset+Vector3.new(0,-0.5,10),C.lilac)
++    for ix=0,14 do
++        for iz=0,21 do
++            local district=math.clamp(math.floor((iz*20)/72),0,4)
++            local color=({C.lilac,C.blue,C.pink,C.mint,C.pink})[district+1]
++            local tile=part(floor,"StuddedTile",Vector3.new(19.93,0.4,19.93),
++                offset+Vector3.new(-140+ix*20,0.2,-200+iz*20),if (ix+iz)%2==0 then color else color:Lerp(C.white,0.23))
++            tile.TopSurface=Enum.SurfaceType.Studs
++        end
++        if ix%5==0 then task.wait() end
++    end
++    -- White/gold avenues create readable, wide routes through the expanded park.
++    for row=0,5 do
++        local z=156-row*72
++        local path=part(floor,"Promenade",Vector3.new(292,0.12,15),offset+Vector3.new(0,0.46,z),C.white)
++        path.TopSurface=Enum.SurfaceType.Studs
++        for _,dz in ipairs({-8,8}) do
++            part(floor,"PromenadeEdge",Vector3.new(292,0.16,0.5),offset+Vector3.new(0,0.5,z+dz),C.gold)
++        end
++        for x=-140,140,10 do
++            cylinder(floor,"RaisedFloorStud",Vector3.new(0.16,0.85,0.85),offset+Vector3.new(x,0.53,z+10),C.white)
++        end
++    end
+     local walls=folder(root,"HandbuiltStudWalls")
+-    local function wall(name,size,pos,color,face)
+-        local p=part(walls,name,size,offset+pos,color); p[face.."Surface"]=Enum.SurfaceType.Studs
+-        return p
+-    end
+-    for i=0,7 do
+-        local x=-61.25+i*17.5
+-        wall("BackWallPanel",Vector3.new(17.4,31,1.3),Vector3.new(x,15.7,-94),C.lilac,"Back")
+-        for _,y in ipairs({4,12,20,28}) do
+-            for _,dx in ipairs({-5,5}) do cylinder(walls,"BackWallStud",Vector3.new(0.22,0.8,0.8),offset+Vector3.new(x+dx,y,-93.2),C.lilac:Lerp(C.white,0.25),"z") end
+-        end
+-        if i%2==0 then
+-            beam(walls,"PanelBrace",offset+Vector3.new(x-7,3,-93),offset+Vector3.new(x+7,28,-93),0.5,C.white)
+-            beam(walls,"PanelBrace",offset+Vector3.new(x+7,3,-93),offset+Vector3.new(x-7,28,-93),0.5,C.white)
+-        end
+-    end
+     for _,side in ipairs({-1,1}) do
+-        for row=0,5 do
+-            local z=-77+row*34
+-            wall("SideWallPanel",Vector3.new(1.3,31,33.8),Vector3.new(side*70,15.7,z),if row%2==0 then C.pink else C.lilac,if side&lt;0 then "Right" else "Left")
+-            for _,y in ipairs({5,13,21,28}) do
+-                for _,dz in ipairs({-10,0,10}) do
+-                    local stud=part(walls,"SideWallStud",Vector3.new(0.22,0.8,0.8),offset+Vector3.new(side*69.2,y,z+dz),C.white,nil,Enum.PartType.Cylinder)
+-                    stud.CanCollide=false
+-                end
++        for iz=0,10 do
++            local z=-190+iz*40
++            local w=part(walls,"SideWallPanel",Vector3.new(1.4,34,39.8),offset+Vector3.new(side*150,17,z),if iz%2==0 then C.lilac else C.pink)
++            w[if side&lt;0 then "RightSurface" else "LeftSurface"]=Enum.SurfaceType.Studs
++            part(walls,"Pillar",Vector3.new(2.5,35,2.5),offset+Vector3.new(side*149,17.5,z-20),C.white)
++            part(walls,"Cornice",Vector3.new(2,1,40),offset+Vector3.new(side*149,34,z),C.white)
++            for _,y in ipairs({6,16,26}) do for dz=-12,12,12 do
++                part(walls,"RaisedWallStud",Vector3.new(0.5,1,1),offset+Vector3.new(side*149,y,z+dz),C.white, nil,Enum.PartType.Cylinder)
++            end end
++            beam(walls,"CrossBrace",offset+Vector3.new(side*148.5,3,z-16),offset+Vector3.new(side*148.5,30,z+16),0.6,C.white)
++            beam(walls,"CrossBrace",offset+Vector3.new(side*148.5,30,z-16),offset+Vector3.new(side*148.5,3,z+16),0.6,C.white)
++        end
++    end
++    for i=0,9 do
++        local x=-135+i*30
++        for _,z in ipairs({-210,230}) do
++            if z&lt;0 or math.abs(x)&gt;31 then
++                local w=part(walls,"EndWallPanel",Vector3.new(29.8,34,1.4),offset+Vector3.new(x,17,z),C.lilac)
++                w.BackSurface=Enum.SurfaceType.Studs; w.FrontSurface=Enum.SurfaceType.Studs
++                part(walls,"EndPillar",Vector3.new(2,35,2),offset+Vector3.new(x-15,17.5,z),C.white)
+             end
+-            part(walls,"WallPillar",Vector3.new(1.6,32,1.6),offset+Vector3.new(side*68.8,16,z-16.5),C.white)
+-            part(walls,"WallFootrail",Vector3.new(0.8,2,33),offset+Vector3.new(side*69,1.5,z),C.rose)
+-            part(walls,"WallCornice",Vector3.new(1,1,34),offset+Vector3.new(side*69,31,z),C.white)
+-        end
+-    end
+-    for _,x in ipairs({-43,43}) do wall("FrontWallPanel",Vector3.new(54,31,1.3),Vector3.new(x,15.7,104),C.lilac,"Front") end
+-    sign(walls,"MainMarquee",Vector3.new(67,4.5,0.35),offset+Vector3.new(0,27,-92.8),"CLAW MACHINE EMPIRE",C.rose)
+-    sign(walls,"BackWallTagline",Vector3.new(50,1.6,0.3),offset+Vector3.new(0,23.3,-92.7),"25 MACHINES.  ONE CUTE EMPIRE.",C.lilac,C.white)
+-    local names={"TOYBOX WELCOME","CREATURE CORNER","SWEET SPACE","DREAM PARADE","INFINITY AVENUE"}
++        end
++    end
++    sign(walls,"MainMarquee",Vector3.new(90,7,0.4),offset+Vector3.new(0,27,-208),"PLUSHIE PARK",C.rose)
+     for row=1,5 do
+-        local z=81-(row-1)*34
+-        for _,x in ipairs({-63,63}) do
+-            part(walls,"GalleryColumn",Vector3.new(1.3,29,1.3),offset+Vector3.new(x,14.5,z),C.white)
+-            part(walls,"ColumnCap",Vector3.new(2.3,0.6,2.3),offset+Vector3.new(x,29,z),C.gold)
+-        end
+-        part(walls,"CeilingBeam",Vector3.new(127,1,1.4),offset+Vector3.new(0,30,z),C.white)
+-        part(walls,"CeilingLight",Vector3.new(38,0.25,1),offset+Vector3.new(0,29.4,z),C.white,Enum.Material.Neon)
+-        sign(walls,"GalleryLabel",Vector3.new(25,2.4,0.25),offset+Vector3.new(0,27.4,z),names[row],C.rose)
+-    end
+-    task.wait()
++        local z=143-(row-1)*72
++        for _,x in ipairs({-141,141}) do
++            part(walls,"DistrictColumn",Vector3.new(2,31,2),offset+Vector3.new(x,15.5,z),C.white)
++            cylinder(walls,"ColumnButton",Vector3.new(0.6,3,3),offset+Vector3.new(x,31,z),C.gold)
++        end
++        part(walls,"DistrictArch",Vector3.new(284,0.7,1.3),offset+Vector3.new(0,30,z),C.white)
++        sign(walls,"DistrictName",Vector3.new(40,3.5,0.3),offset+Vector3.new(0,29,z),Config.Districts[row],({C.rose,C.blue,C.lilac,C.mint,C.rose})[row])
++    end
+ end
+ local function decorations(root,offset)
++    offset+=Vector3.new(0,0,100)
+     local decor=folder(root,"HandmadeDecorations")
+     local function p(n,s,v,c,m,shape) return part(decor,n,s,offset+v,c,m,shape) end
+     local function ball(n,s,v,c) return p(n,s,v,c,nil,Enum.PartType.Ball) end
+@@ -711,8 +736,8 @@
+         for _,dz in ipairs({-3.7,3.7}) do p("BenchLeg",Vector3.new(2,2,0.5),Vector3.new(x,1,z+dz),C.white) end
+         p("BenchBack",Vector3.new(0.5,2.5,10),Vector3.new(x+(if x&lt;0 then -2 else 2),3.2,z),C.rose)
+     end
+-    for _,x in ipairs({-60,60}) do for _,z in ipairs({48,-20,-86}) do planter(x,z) end end
+-    for _,x in ipairs({-61,61}) do for _,z in ipairs({14,-54}) do bench(x,z) end end
++    for _,x in ipairs({-138,138}) do for _,z in ipairs({20,-52,-124,-196,-268}) do planter(x,z) end end
++    for _,x in ipairs({-135,135}) do for _,z in ipairs({-14,-86,-158,-230}) do bench(x,z) end end
+     World.plush(decor,"duck",offset+Vector3.new(-59,5.2,94),2.6)
+     World.plush(decor,"mochi",offset+Vector3.new(58,5.2,94),2.6)
+     for _,x in ipairs({-59,58}) do cylinder(decor,"MascotPodium",Vector3.new(2,7,7),offset+Vector3.new(x,1.4,94),C.lilac) end
+@@ -734,7 +759,7 @@
+     -- Wall poster graphics, cross-braced toy blocks and anchored balloon bouquets.
+     for _,side in ipairs({-1,1}) do
+         for j,z in ipairs({60,-8,-76}) do
+-            local art=sign(decor,"WallPoster",Vector3.new(0.35,6,11),offset+Vector3.new(side*68.2,19,z),({"CATCH\nSOMETHING CUTE","FREE PLAYS\nREFILL AUTOMATICALLY","BUILD YOUR\nDREAM ARCADE"})[j],if j%2==0 then C.blue else C.rose)
++            local art=sign(decor,"WallPoster",Vector3.new(0.35,6,11),offset+Vector3.new(side*148.2,19,z),({"CATCH\nSOMETHING CUTE","FREE PLAYS\nREFILL AUTOMATICALLY","BUILD YOUR\nDREAM ARCADE"})[j],if j%2==0 then C.blue else C.rose)
+             art.Sign.Face=if side&lt;0 then Enum.NormalId.Right else Enum.NormalId.Left
+         end
+         for j=1,3 do
+@@ -758,24 +783,77 @@
+     prompt.MaxActivationDistance=12; prompt.RequiresLineOfSight=false; prompt.Parent=terminal
+     return shelf,income,prompt
+ end
++local function parkDecorations(root,offset)
++    local decor=folder(root,"ParkLandmarks")
++    local function p(n,size,v,c,shape) return part(decor,n,size,offset+v,c,nil,shape) end
++    local function ball(n,size,v,c) return p(n,size,v,c,Enum.PartType.Ball) end
++    -- Entrance fountain with a rotating, floating collectible mascot.
++    cylinder(decor,"FountainBase",Vector3.new(1.2,28,28),offset+Vector3.new(0,0.8,212),C.lilac)
++    cylinder(decor,"FountainWater",Vector3.new(0.25,24,24),offset+Vector3.new(0,1.5,212),C.blue)
++    cylinder(decor,"FountainPedestal",Vector3.new(5,7,7),offset+Vector3.new(0,3.5,212),C.white)
++    local mascot=World.plush(decor,"duck",offset+Vector3.new(0,10,212),3)
++    mascot.Name="FloatingMascot"; mascot:SetAttribute("FloatAmplitude",0.65)
++    for i=1,10 do
++        local a=i*math.pi/5
++        ball("FountainDroplet",Vector3.new(0.6,0.9,0.6),Vector3.new(math.cos(a)*8,3+(i%3),212+math.sin(a)*8),C.white)
++    end
++    for row=0,4 do
++        local z=156-row*72
++        -- Toy flower beds live between cabinet columns, never in front of controls.
++        for _,x in ipairs({-78,-26,26,78}) do
++            p("GardenBed",Vector3.new(7,0.8,5),Vector3.new(x,0.8,z-21),C.white).TopSurface=Enum.SurfaceType.Studs
++            for j=-1,1 do
++                p("FlowerStem",Vector3.new(0.16,2.5,0.16),Vector3.new(x+j*1.8,2,z-21),C.mint)
++                ball("FlowerCenter",Vector3.new(0.8,0.8,0.8),Vector3.new(x+j*1.8,3.5,z-21),C.gold)
++                for k=1,4 do
++                    local a=k*math.pi/2
++                    ball("FlowerPetal",Vector3.new(0.8,0.8,0.5),Vector3.new(x+j*1.8+math.cos(a)*0.55,3.5+math.sin(a)*0.55,z-21),if row%2==0 then C.rose else C.lilac)
++                end
++            end
++        end
++        for _,x in ipairs({-130,130}) do
++            p("LampPost",Vector3.new(0.4,13,0.4),Vector3.new(x,6.5,z),C.white)
++            ball("LampGlobe",Vector3.new(2.6,2.6,2.6),Vector3.new(x,14,z),C.gold).Material=Enum.Material.Neon
++            local tree=p("ToyTreeTrunk",Vector3.new(1.6,7,1.6),Vector3.new(x,3.5,z-39),C.gold)
++            for _,v in ipairs({Vector3.new(0,8,0),Vector3.new(-2,6.8,0),Vector3.new(2,7,0)}) do
++                ball("ToyTreeCanopy",Vector3.new(5.5,5.5,5.5),Vector3.new(x,0,z-39)+v,C.mint)
++            end
++        end
++        task.wait()
++    end
++    -- A festival entrance and two oversized toy sculptures frame the lounge.
++    for _,x in ipairs({-80,80}) do
++        p("EntrancePillar",Vector3.new(3,20,3),Vector3.new(x,10,215),C.rose)
++        ball("EntranceStar",Vector3.new(7,7,7),Vector3.new(x,22,215),C.gold)
++        local toy=World.plush(decor,if x&lt;0 then "mochi" else "frog",offset+Vector3.new(x,6,190),3.2)
++        toy.Name=if x&lt;0 then "BunnyLandmark" else "FrogLandmark"
++    end
++    sign(decor,"EntranceBanner",Vector3.new(163,5,0.5),offset+Vector3.new(0,21,215),"WELCOME TO PLUSHIE PARK",C.rose,C.white,Enum.NormalId.Front)
++    -- Back-of-park collector pavilion gives the full map an intentional destination.
++    p("PavilionStage",Vector3.new(55,1,14),Vector3.new(0,1,-195),C.white)
++    for i,species in ipairs({"gemfox","infinity","voidbat"}) do
++        World.plush(decor,species,offset+Vector3.new((i-2)*16,5,-195),2.3)
++    end
++end
+ function World.build(parent,name,offset)
+-    local root=folder(parent,name); root:SetAttribute("Build","02 - TOYBOX ARCADE")
++    local root=folder(parent,name); root:SetAttribute("Build",Config.Build)
+     architecture(root,offset)
+     local shelf,income,collectPrompt=decorations(root,offset)
++    parkDecorations(root,offset)
+     local machines={}
+     for i,spec in ipairs(Config.Machines) do
+         machines[i]=cabinet(root,offset+Vector3.new(table.unpack(spec.position)),i)
+         if i%5==0 then task.wait() end
+     end
+     local spawn=Instance.new("SpawnLocation"); spawn.Name="ArcadeSpawn"; spawn.Size=Vector3.new(5,0.2,5)
+-    spawn.Position=offset+Vector3.new(-44,0.8,77); spawn.Anchored=true; spawn.Transparency=1
++    spawn.Position=offset+Vector3.new(-104,0.8,139); spawn.Anchored=true; spawn.Transparency=1
+     spawn.CanCollide=false; spawn.Neutral=true; spawn.Duration=0; spawn.Parent=root
+     return {root=root,offset=offset,machines=machines,shelf=shelf,income=income,spawn=spawn,collectPrompt=collectPrompt}
+ end
+ function World.shelves(plot,state)
+     plot.shelf:ClearAllChildren()
+     for i,id in ipairs(state.display) do for _,item in ipairs(state.inventory) do if item.id==id then
+-        local plush=World.plush(plot.shelf,item.species,plot.offset+Vector3.new(14.5+((i-1)%4)*5,4.7+math.floor((i-1)/4)*4.5,92),0.95)
++        local plush=World.plush(plot.shelf,item.species,plot.offset+Vector3.new(14.5+((i-1)%4)*5,4.7+math.floor((i-1)/4)*4.5,192),0.95)
+         plush:PivotTo(plush:GetPivot()*CFrame.Angles(0,math.pi,0)); break
+     end end end
+ end
+@@ -786,8 +864,34 @@
+         plush.Name="Target"..i
+     end
+ end
+-function World.aim(plot,tier,x,z,y)
+-    plot.machines[tier].claw:PivotTo(CFrame.new(plot.machines[tier].origin+Vector3.new(x,y or 15,z)))
++function World.aim(plot,tier,x,z,y,grip)
++    local m=plot.machines[tier]; y=y or 15; grip=grip or 0
++    local base=CFrame.new(m.origin+Vector3.new(x,y,z))
++    m.claw:PivotTo(base)
++    for i=1,3 do
++        local a=(i-1)*math.pi*2/3
++        local radius=1.1-0.63*grip
++        local turn=CFrame.Angles(0,a,0)
++        m.claw["Finger"..i].CFrame=base*turn*CFrame.new(radius,-0.75,0)*CFrame.Angles(0,0,-0.55+grip*0.7)
++        m.claw["Tip"..i].CFrame=base*turn*CFrame.new(radius-0.18,-1.6,0)*CFrame.Angles(0,0,0.8)
++    end
++    m.cable.Size=Vector3.new(0.09,math.max(0.2,17.1-y),0.09)
++    m.cable.Position=m.origin+Vector3.new(x,(17.1+y)/2,z)
++    m.carriage.Position=m.origin+Vector3.new(x,17.1,z)
++end
++function World.animate(plot,round,progress)
++    local pose=Config.clawPose(progress,round.x,round.z,round.prize~=nil)
++    World.aim(plot,round.tier,pose.x,pose.z,pose.y,pose.grip)
++    local machine=plot.machines[round.tier]
++    local plush=round.targetIndex and machine.prizes:FindFirstChild("Target"..round.targetIndex)
++    if plush and round.prize and progress&gt;=0.49 then
++        local pos=machine.origin+Vector3.new(pose.x,pose.y-1.7,pose.z)
++        if progress&gt;=0.92 then
++            local u=math.clamp((progress-0.92)/0.08,0,1)
++            pos=pos:Lerp(machine.origin+Vector3.new(4.1,5.9,4.1),u*u)
++        end
++        plush:PivotTo(CFrame.new(pos)*CFrame.Angles(0,math.sin(progress*16)*0.16,math.sin(progress*21)*0.08))
++    end
+ end
+ function World.unlock(plot,tier)
+     local machine=plot.machines[tier]
+@@ -897,14 +1001,14 @@
+ local rng=Random.new()
+ -- Closed purchase gate: even stray unresolved receipts are not acknowledged.
+ MarketplaceService.ProcessReceipt=function() return Enum.ProductPurchaseDecision.NotProcessedYet end
+-local function send(player,message,kind)
++local function send(player,message,kind,reward)
+     local p=active[player]; if not p or player.Parent~=Players then return end
+     update:FireClient(player,{state=p.session.data,attempts=p.attempts,
+         nextAttempt=math.max(0,Config.AttemptRefillSeconds-(os.clock()-p.lastRefill)),
+         round=p.round and {id=p.round.id,phase=p.round.phase,x=p.round.x,z=p.round.z,
+             remaining=math.max(0,p.round.expires-os.clock()),targets=p.round.targets,
+-            machine=p.round.tier,origin=p.plot.machines[p.round.tier].origin} or false,
+-        offset=p.plot.offset,sessionOnly=sessionOnly,studioSnapshot=resumed["u_"..player.UserId]==true,message=message,kind=kind})
++            started=p.round.started,progress=p.round.started and math.clamp((os.clock()-p.round.started)/Config.DropSeconds,0,1) or 0,prize=p.round.prize,machine=p.round.tier,origin=p.plot.machines[p.round.tier].origin} or false,
++        reward=reward,offset=p.plot.offset,sessionOnly=sessionOnly,studioSnapshot=resumed["u_"..player.UserId]==true,message=message,kind=kind})
+ end
+ local function healthy(p)
+     return not p.leaving and not p.session.closed and p.session.expires&gt;os.time()+20
+@@ -945,9 +1049,9 @@
+     if os.clock()&gt;round.expires then p.round=nil; return false,"Round finished. Free plays recharge automatically." end
+     round.phase="drop"; round.dx=0; round.dz=0
+     local best,distance=nil,math.huge
+-    for _,t in ipairs(round.targets) do
++    for index,t in ipairs(round.targets) do
+         local d=Vector2.new(t.x-round.x,t.z-round.z).Magnitude
+-        if d&lt;distance then best,distance=t,d end
++        if d&lt;distance then best,distance=t,d; round.targetIndex=index end
+     end
+     round.prize=if distance&lt;=1.4 then best.species else nil
+     round.started=os.clock(); send(player,"Claw dropping...","drop")
+@@ -956,7 +1060,7 @@
+         p.round=nil; World.aim(p.plot,round.tier,0,0)
+         if round.prize then
+             local ok,item=Economy.grant(p.session.data,round.prize)
+-            if ok then send(player,"You caught "..Config.plushie(item.species).name.."! Place it on a shelf.","catch")
++            if ok then send(player,"You caught "..Config.plushie(item.species).name.."! Place it on a shelf.","catch",item)
+             else send(player,item,"error") end
+         else send(player,"Just missed! Center the claw over a plushie and try again.","miss") end
+     end)
+@@ -993,6 +1097,17 @@
+     elseif action=="select" then
+         if p.round then ok,message=false,"Finish this round before switching machines."
+         else ok,message=Economy.select(p.session.data,payload) end
++    elseif action=="travel" then
++        if p.round then ok,message=false,"Finish this round first."
++        else
++            ok,message=Economy.select(p.session.data,payload)
++            local root=player.Character and player.Character:FindFirstChild("HumanoidRootPart")
++            if ok and root then
++                local origin=p.plot.machines[payload].origin
++                player.Character:PivotTo(CFrame.lookAt(origin+Vector3.new(0,4,16),origin+Vector3.new(0,4,0)))
++                message="Welcome to "..Config.Machines[payload].name.."!"
++            end
++        end
+     elseif action=="upgrade" then
+         if type(payload)~="string" or #payload&gt;20 then return end
+         ok,message=Economy.upgrade(p.session.data,payload); if ok then shelf(p) end
+@@ -1045,6 +1160,7 @@
+     local function spawnCharacter(character)
+         local root=character:WaitForChild("HumanoidRootPart",10)
+         if root then character:PivotTo(CFrame.new(plot.spawn.Position+Vector3.new(0,4,0))) end
++        local hum=character:FindFirstChildOfClass("Humanoid"); if hum then hum.WalkSpeed=24 end
+     end
+     player.CharacterAdded:Connect(function(char)
+         if p.round and p.round.phase~="drop" then p.round=nil end
+@@ -1071,6 +1187,14 @@
+ end
+ Players.PlayerAdded:Connect(join); Players.PlayerRemoving:Connect(leave)
+ for _,player in ipairs(Players:GetPlayers()) do task.spawn(join,player) end
++RunService.Heartbeat:Connect(function()
++    local now=os.clock()
++    for _,p in pairs(active) do
++        if p.round and p.round.phase=="drop" and not p.leaving then
++            World.animate(p.plot,p.round,math.clamp((now-p.round.started)/Config.DropSeconds,0,1))
++        end
++    end
++end)
+ task.spawn(function()
+     while true do
+         task.wait(0.1)
+@@ -1101,9 +1225,7 @@
+                         World.aim(p.plot,round.tier,round.x,round.z)
+                     end
+                 else
+-                    local progress=math.clamp((now-round.started)/Config.DropSeconds,0,1)
+-                    local depth=math.sin(progress*math.pi)*6
+-                    World.aim(p.plot,round.tier,round.x,round.z,15-depth)
++                    -- Heartbeat animates the crane; reward still commits exactly once above.
+                 end
+             end
+             p.lastPush=p.lastPush or 0
+@@ -1142,224 +1264,94 @@
+       <Item class="LocalScript" referent="RBX17">
+         <Properties>
+           <string name="Name">ClawEmpireClient</string>
+-          <ProtectedString name="Source">local Players=game:GetService("Players")
++          <ProtectedString name="Source">-- Build03: three-widget walking HUD; contextual crane controls and prize theatre.
++local Players=game:GetService("Players")
+ local UIS=game:GetService("UserInputService")
+ local RunService=game:GetService("RunService")
+ local TweenService=game:GetService("TweenService")
+ local player=Players.LocalPlayer
+ local shared=game.ReplicatedStorage:WaitForChild("ClawEmpire"):WaitForChild("Shared")
+-local Config=require(shared.Config); local Big=require(shared.BigNumber)
+-local Economy=require(shared.Economy)
++local Config=require(shared.Config); local Big=require(shared.BigNumber); local Economy=require(shared.Economy)
+ local remotes=shared.Parent:WaitForChild("Remotes")
+ local request=remotes:WaitForChild("Request"); local update=remotes:WaitForChild("Update")
+-local gui=Instance.new("ScreenGui"); gui.Name="ClawEmpireUI"; gui.ResetOnSpawn=false
+-gui.ZIndexBehavior=Enum.ZIndexBehavior.Sibling; gui.DisplayOrder=10; gui.Parent=player:WaitForChild("PlayerGui")
+-local C={navy=Color3.fromRGB(27,24,55),mint=Color3.fromRGB(64,242,185),pink=Color3.fromRGB(255,91,155),
+-    yellow=Color3.fromRGB(255,219,88),cyan=Color3.fromRGB(74,216,255),purple=Color3.fromRGB(163,128,255),
+-    white=Color3.fromRGB(251,250,255),muted=Color3.fromRGB(173,171,200)}
++local gui=Instance.new("ScreenGui"); gui.Name="ClawEmpireUI"; gui.ResetOnSpawn=false; gui.DisplayOrder=10
++gui.ZIndexBehavior=Enum.ZIndexBehavior.Sibling; gui.Parent=player:WaitForChild("PlayerGui")
++local C={navy=Color3.fromRGB(64,43,84),white=Color3.fromRGB(255,250,237),pink=Color3.fromRGB(255,132,186),
++    mint=Color3.fromRGB(137,239,184),yellow=Color3.fromRGB(255,218,107),cyan=Color3.fromRGB(146,211,255),purple=Color3.fromRGB(197,174,255)}
+ local latest,panelName,lastRoundId,offset=nil,nil,nil,Vector3.zero
+ local keys,held={},{}
+-local overview=false
++local overview,reducedMotion,phone=false,false,false
+ local frozenHumanoid,previousSpeed
+-local cameraState=Instance.new("CFrameValue")
+-cameraState.Value=CFrame.lookAt(Vector3.new(48,35,65),Vector3.new(0,9,-9))
++local revealModel,revealItem,revealTime=nil,nil,0
+ local controls
+ task.spawn(function()
+     local module=player.PlayerScripts:WaitForChild("PlayerModule",2)
+     if module then pcall(function() controls=require(module):GetControls() end) end
+ end)
+-local root=Instance.new("Frame"); root.Name="Canvas"; root.BackgroundTransparency=1
+-root.AnchorPoint=Vector2.new(0.5,0.5); root.Position=UDim2.fromScale(0.5,0.5); root.Parent=gui
+-local scale=Instance.new("UIScale"); scale.Parent=root
++local function tween(obj,time,props,style)
++    local tw=TweenService:Create(obj,TweenInfo.new(time,style or Enum.EasingStyle.Quad,Enum.EasingDirection.Out),props)
++    tw:Play(); return tw
++end
++local root=Instance.new("Frame"); root.Name="Canvas"; root.Size=UDim2.fromScale(1,1); root.BackgroundTransparency=1; root.Parent=gui
+ local function round(obj,radius)
+-    local corner=Instance.new("UICorner"); corner.CornerRadius=UDim.new(0,radius or 16); corner.Parent=obj
++    local c=Instance.new("UICorner"); c.CornerRadius=UDim.new(0,radius or 20); c.Parent=obj
+ end
+ local function stroke(obj,color,width)
+-    local s=Instance.new("UIStroke"); s.Color=color or C.navy; s.Thickness=width or 3; s.Parent=obj; return s
++    local s=Instance.new("UIStroke"); s.Color=color or C.navy; s.Thickness=width or 3; s.ApplyStrokeMode=Enum.ApplyStrokeMode.Border; s.Parent=obj
+ end
+ local function frame(parent,name,pos,size,color)
+-    local f=Instance.new("Frame"); f.Name=name; f.Position=pos; f.Size=size
+-    f.BackgroundColor3=color or C.navy; f.BorderSizePixel=0; f.Parent=parent
+-    round(f); return f
++    local f=Instance.new("Frame"); f.Name=name; f.Position=pos; f.Size=size; f.BackgroundColor3=color or C.white
++    f.BorderSizePixel=0; f.Parent=parent; round(f); return f
+ end
+ local function text(parent,name,value,pos,size,fontSize,color)
+     local l=Instance.new("TextLabel"); l.Name=name; l.Text=value; l.Position=pos; l.Size=size
+-    l.BackgroundTransparency=1; l.Font=Enum.Font.FredokaOne; l.TextSize=fontSize or 24
+-    l.TextColor3=color or C.white; l.TextStrokeColor3=C.navy; l.TextStrokeTransparency=0.15
+-    l.TextWrapped=true; l.Parent=parent; return l
++    l.BackgroundTransparency=1; l.Font=Enum.Font.FredokaOne; l.TextSize=fontSize or 22
++    l.TextColor3=color or C.navy; l.TextWrapped=true; l.Parent=parent; return l
+ end
+ local function button(parent,name,value,pos,size,color,callback)
+-    local b=Instance.new("TextButton"); b.Name=name; b.Text=value; b.Position=pos; b.Size=size
+-    b.BackgroundColor3=color; b.BorderSizePixel=0; b.AutoButtonColor=false
+-    b.Font=Enum.Font.FredokaOne; b.TextSize=23; b.TextColor3=C.white
+-    b.TextStrokeColor3=C.navy; b.TextStrokeTransparency=0.05; b.Parent=parent
+-    round(b,15); stroke(b)
+-    local gradient=Instance.new("UIGradient"); gradient.Color=ColorSequence.new(Color3.new(1,1,1),Color3.fromRGB(210,222,235)); gradient.Rotation=90; gradient.Parent=b
+-    local inset=Instance.new("UIStroke"); inset.ApplyStrokeMode=Enum.ApplyStrokeMode.Contextual
+-    inset.Color=C.navy; inset.Thickness=1.5; inset.Parent=b
+-    b.MouseEnter:Connect(function() TweenService:Create(b,TweenInfo.new(0.12),{BackgroundColor3=color:Lerp(C.white,0.18)}):Play() end)
+-    b.MouseLeave:Connect(function() TweenService:Create(b,TweenInfo.new(0.12),{BackgroundColor3=color}):Play() end)
++    local b=Instance.new("TextButton"); b.Name=name; b.Position=pos; b.Size=size; b.Text=value
++    b.BackgroundColor3=color; b.TextColor3=C.navy; b.TextStrokeTransparency=1; b.BorderSizePixel=0; b.AutoButtonColor=false
++    b.Font=Enum.Font.FredokaOne; b.TextSize=21; b.Parent=parent; round(b,18); stroke(b)
++    local shine=Instance.new("UIGradient"); shine.Color=ColorSequence.new(Color3.new(1,1,1),Color3.fromRGB(220,226,240)); shine.Rotation=90; shine.Parent=b
++    local s=Instance.new("UIScale"); s.Parent=b
++    b.MouseEnter:Connect(function() if not reducedMotion then tween(s,.15,{Scale=1.035},Enum.EasingStyle.Back) end end)
++    b.MouseLeave:Connect(function() tween(s,.12,{Scale=1}) end)
++    b.MouseButton1Down:Connect(function() tween(s,.08,{Scale=.94}) end)
++    b.MouseButton1Up:Connect(function() tween(s,.2,{Scale=1},Enum.EasingStyle.Back) end)
+     if callback then b.Activated:Connect(callback) end
+     return b
+ end
+-local title=text(root,"Title","CLAW MACHINE\nEMPIRE",UDim2.fromOffset(24,12),UDim2.fromOffset(330,92),34)
+-title.TextXAlignment=Enum.TextXAlignment.Left
+-local buildLabel=text(root,"BuildLabel","BUILD 02  /  25 TOYBOX MACHINES",UDim2.fromOffset(26,104),UDim2.fromOffset(310,22),15,C.mint)
+-buildLabel.TextXAlignment=Enum.TextXAlignment.Left
+-local stats={}
+-for i,spec in ipairs({{"Coins","COINS",C.yellow},{"Bank","SHELF BANK",C.mint},{"Rate","PER SECOND",C.cyan}}) do
+-    local f=frame(root,spec[1],UDim2.new(1,-(4-i)*204-24,0,24),UDim2.fromOffset(190,70),C.navy)
+-    stroke(f,spec[3],2)
+-    text(f,"Label",spec[2],UDim2.fromOffset(10,7),UDim2.fromOffset(170,18),14,spec[3])
+-    stats[spec[1]]=text(f,"Value","$0",UDim2.fromOffset(10,28),UDim2.fromOffset(170,34),29)
+-end
+-local mode=text(root,"SaveMode","CONNECTING TO ARCADE...",UDim2.new(1,-470,0,102),UDim2.fromOffset(445,22),14,C.muted)
+-mode.TextXAlignment=Enum.TextXAlignment.Right
+-local nav=frame(root,"Navigation",UDim2.fromOffset(24,170),UDim2.fromOffset(166,296),C.navy)
+-nav.BackgroundTransparency=1
+-local panel=frame(root,"Panel",UDim2.fromScale(0.5,0.53),UDim2.fromOffset(750,510),C.white)
+-panel.AnchorPoint=Vector2.new(0.5,0.5); panel.Visible=false; stroke(panel,C.navy,4); panel.ZIndex=5
+-local panelTitle=text(panel,"PanelTitle","MY PLUSHIES",UDim2.fromOffset(22,14),UDim2.new(1,-95,0,45),30,C.navy)
+-panelTitle.TextXAlignment=Enum.TextXAlignment.Left; panelTitle.TextStrokeTransparency=1
+-local close=button(panel,"Close","X",UDim2.new(1,-61,0,12),UDim2.fromOffset(48,44),C.pink,function() panelName=nil; panel.Visible=false end)
+-local scroll=Instance.new("ScrollingFrame"); scroll.Name="Content"; scroll.Position=UDim2.fromOffset(18,70)
+-scroll.Size=UDim2.new(1,-36,1,-86); scroll.BackgroundTransparency=1; scroll.BorderSizePixel=0
+-scroll.ScrollBarThickness=7; scroll.ScrollBarImageColor3=C.purple; scroll.AutomaticCanvasSize=Enum.AutomaticSize.Y
+-scroll.CanvasSize=UDim2.new(); scroll.Parent=panel
++local wallet=frame(root,"Wallet",UDim2.fromOffset(18,16),UDim2.fromOffset(176,52),C.white); stroke(wallet)
++local coin=frame(wallet,"Coin",UDim2.fromOffset(11,10),UDim2.fromOffset(30,30),C.yellow); stroke(coin,nil,2)
++text(coin,"Symbol","$",UDim2.new(),UDim2.fromScale(1,1),23)
++local money=text(wallet,"Value","0",UDim2.fromOffset(49,6),UDim2.new(1,-57,1,-12),26); money.TextXAlignment=Enum.TextXAlignment.Left
++local open
++local menu=button(root,"Menu","MY ARCADE",UDim2.new(1,-169,0,16),UDim2.fromOffset(151,52),C.pink,function() open("Home") end)
++local play=button(root,"Play","PLAY CLAW",UDim2.new(.5,-100,1,-74),UDim2.fromOffset(200,54),C.mint,function()
++    if latest and latest.round then
++        if latest.round.phase=="aim" then request:FireServer("drop") end
++    elseif latest then request:FireServer("start") end
++end)
++local hint=text(root,"ContextHint","",UDim2.new(.5,-160,1,-103),UDim2.fromOffset(320,23),15,C.white)
++hint.TextStrokeColor3=C.navy; hint.TextStrokeTransparency=0
++local status=frame(root,"Toast",UDim2.new(.5,0,0,82),UDim2.fromOffset(450,48),C.white)
++status.AnchorPoint=Vector2.new(.5,0); status.Visible=false; stroke(status)
++local statusText=text(status,"Message","",UDim2.fromOffset(10,4),UDim2.new(1,-20,1,-8),18)
++local toastVersion=0
++local function toast(message)
++    toastVersion+=1; local v=toastVersion; statusText.Text=message; status.Visible=true
++    task.delay(3.5,function() if v==toastVersion then status.Visible=false end end)
++end
++local shade=frame(root,"MenuShade",UDim2.new(),UDim2.fromScale(1,1),C.navy); shade.BackgroundTransparency=.45; shade.Visible=false
++local panel=frame(shade,"Panel",UDim2.fromScale(.5,.5),UDim2.fromOffset(610,510),C.white)
++panel.AnchorPoint=Vector2.new(.5,.5); stroke(panel,nil,4); panel.Visible=false
++local panelTitle=text(panel,"PanelTitle","My arcade",UDim2.fromOffset(20,12),UDim2.new(1,-90,0,42),28)
++panelTitle.TextXAlignment=Enum.TextXAlignment.Left
++button(panel,"Close","X",UDim2.new(1,-60,0,12),UDim2.fromOffset(44,42),C.pink,function() panelName=nil; panel.Visible=false; shade.Visible=false end)
++local scroll=Instance.new("ScrollingFrame"); scroll.Name="Content"; scroll.BackgroundTransparency=1; scroll.BorderSizePixel=0
++scroll.Position=UDim2.fromOffset(16,68); scroll.Size=UDim2.new(1,-32,1,-84); scroll.ScrollBarThickness=5
++scroll.ScrollBarImageColor3=C.purple; scroll.AutomaticCanvasSize=Enum.AutomaticSize.Y; scroll.CanvasSize=UDim2.new(); scroll.Parent=panel
+ local list=Instance.new("UIListLayout"); list.Padding=UDim.new(0,12); list.SortOrder=Enum.SortOrder.LayoutOrder; list.Parent=scroll
+-local tutorial=frame(root,"Tutorial",UDim2.new(1,-282,1,-310),UDim2.fromOffset(258,164),C.navy)
+-stroke(tutorial,C.purple,2)
+-text(tutorial,"Heading","YOUR FIRST EMPIRE",UDim2.fromOffset(12,12),UDim2.fromOffset(234,27),18,C.yellow)
+-local tutorialBody=text(tutorial,"Steps","1  CATCH A PLUSHIE\n2  DISPLAY IT\n3  COLLECT YOUR INCOME\n4  UNLOCK CLASSIC",UDim2.fromOffset(14,49),UDim2.fromOffset(232,100),18)
+-tutorialBody.TextXAlignment=Enum.TextXAlignment.Left
+-local play=button(root,"Play","PLAY CLAW  &gt;",UDim2.new(0.5,-168,1,-103),UDim2.fromOffset(336,70),C.mint,function()
+-    if latest and latest.round then request:FireServer("drop") else request:FireServer("start") end
+-end)
+-local attempts=text(root,"Attempts","3 FREE PLAYS  /  RECHARGE: 12s",UDim2.new(0.5,-210,1,-30),UDim2.fromOffset(420,22),16,C.white)
+-local collect=button(root,"Collect","COLLECT  $0",UDim2.new(1,-282,1,-112),UDim2.fromOffset(258,58),C.yellow,function() request:FireServer("collect") end)
+-local viewButton=button(root,"CameraMode","MAP VIEW",UDim2.new(0,24,1,-105),UDim2.fromOffset(166,52),C.cyan,function()
+-    overview=not overview
+-end)
+-local status=frame(root,"Toast",UDim2.new(0.5,0,0,137),UDim2.fromOffset(600,50),C.navy)
+-status.AnchorPoint=Vector2.new(0.5,0); stroke(status,C.mint,2)
+-local statusText=text(status,"Message","Ready for your first catch? Press PLAY CLAW!",UDim2.fromOffset(12,5),UDim2.new(1,-24,1,-10),19)
+-local toastVersion=0
+-local function toast(message,color)
+-    toastVersion+=1; local version=toastVersion
+-    status.Visible=true; statusText.Text=message
+-    status:FindFirstChildOfClass("UIStroke").Color=color or C.mint
+-    task.delay(7,function() if toastVersion==version then status.Visible=false end end)
+-end
+-local aimPanel=frame(root,"AimPanel",UDim2.new(1,-378,0,205),UDim2.fromOffset(354,300),C.navy)
+-stroke(aimPanel,C.cyan,2); aimPanel.Visible=false
+-local timer=text(aimPanel,"Timer","AIM  /  25s",UDim2.fromOffset(10,10),UDim2.fromOffset(334,32),23,C.cyan)
+-local board=frame(aimPanel,"AimBoard",UDim2.fromOffset(18,53),UDim2.fromOffset(318,170),Color3.fromRGB(50,45,79))
+-local cursor=text(board,"Cursor","+",UDim2.fromScale(0.5,0.5),UDim2.fromOffset(44,44),46,C.white)
+-cursor.AnchorPoint=Vector2.new(0.5,0.5); cursor.ZIndex=4
+-text(aimPanel,"AimHint","WASD / ARROWS TO AIM\nSPACE OR DROP TO GRAB",UDim2.fromOffset(10,234),UDim2.fromOffset(334,53),17,C.muted)
+-local exit=button(root,"LeaveClaw","LEAVE",UDim2.new(0.5,190,1,-90),UDim2.fromOffset(110,48),C.pink,function() request:FireServer("cancel") end)
+-exit.Visible=false
+-local dpad=frame(root,"TouchControls",UDim2.new(0,35,1,-220),UDim2.fromOffset(174,174),C.navy)
+-dpad.BackgroundTransparency=1; dpad.Visible=false
+-for _,spec in ipairs({{"Up","^",60,0},{"Left","&lt;",0,60},{"Down","v",60,120},{"Right","&gt;",120,60}}) do
+-    local b=button(dpad,spec[1],spec[2],UDim2.fromOffset(spec[3],spec[4]),UDim2.fromOffset(54,54),C.cyan)
+-    b.InputBegan:Connect(function(input)
+-        if input.UserInputType==Enum.UserInputType.Touch or input.UserInputType==Enum.UserInputType.MouseButton1 then held[spec[1]]=true end
+-    end)
+-    b.InputEnded:Connect(function(input)
+-        if input.UserInputType==Enum.UserInputType.Touch or input.UserInputType==Enum.UserInputType.MouseButton1 then held[spec[1]]=nil end
+-    end)
+-end
+-local w,h,phone=1440,800,false
+-local function homeCamera()
+-    return if phone then CFrame.lookAt(offset+Vector3.new(105,240,320),offset+Vector3.new(0,0,2))
+-        else CFrame.lookAt(offset+Vector3.new(115,142,180),offset+Vector3.new(0,0,0))
+-end
+-local function layout()
+-    local viewport=gui.AbsoluteSize
+-    phone=viewport.X&lt;850 and viewport.Y&gt;500
+-    local short=viewport.Y&lt;500
+-    local s=if phone or short then 1 else math.clamp(viewport.X/1440,0.85,1.3)
+-    scale.Scale=s; w,h=viewport.X/s,viewport.Y/s
+-    root.Size=UDim2.fromOffset(w,h)
+-    viewButton.Visible=not short and not (latest and latest.round)
+-    viewButton.Position=if phone then UDim2.new(1,-108,1,-187) else UDim2.new(0,24,1,-105)
+-    viewButton.Size=if phone then UDim2.fromOffset(96,44) else UDim2.fromOffset(166,52)
+-    viewButton.TextSize=if phone then 16 else 21
+-    panel.Size=UDim2.fromOffset(if phone then w-20 else math.min(760,w-380),math.max(250,math.min(520,h-180)))
+-    status.Size=UDim2.fromOffset(if phone then w-24 else math.min(600,w-390),if phone then 56 else 50)
+-    if phone then
+-        title.Text="CLAW MACHINE EMPIRE"; title.TextSize=23; title.Position=UDim2.fromOffset(12,4); title.Size=UDim2.new(1,-24,0,36)
+-        buildLabel.Visible=false; mode.Position=UDim2.fromOffset(12,112); mode.Size=UDim2.new(1,-24,0,19); mode.TextSize=11
+-        for i,key in ipairs({"Coins","Bank","Rate"}) do
+-            local f=stats[key].Parent; f.Position=UDim2.new((i-1)/3,8,0,48); f.Size=UDim2.new(1/3,-16,0,58)
+-            f.Label.Size=UDim2.new(1,-10,0,16); f.Label.Position=UDim2.fromOffset(5,4); f.Label.TextSize=10
+-            stats[key].Position=UDim2.fromOffset(5,21); stats[key].Size=UDim2.new(1,-10,0,30); stats[key].TextSize=22
+-        end
+-        nav.Position=UDim2.new(0,8,1,-58); nav.Size=UDim2.new(1,-16,0,50)
+-        for _,b in ipairs(nav:GetChildren()) do
+-            if b:IsA("TextButton") then local i=b.LayoutOrder; b.Position=UDim2.new((i-1)/4,0,0,0); b.Size=UDim2.new(0.25,-7,0,48); b.TextSize=13 end
+-        end
+-        tutorial.Visible=false
+-        play.Position=UDim2.new(0,12,1,-129); play.Size=UDim2.new(0.57,-18,0,54); play.TextSize=19
+-        collect.Position=UDim2.new(0.57,0,1,-129); collect.Size=UDim2.new(0.43,-12,0,54); collect.TextSize=16
+-        attempts.Position=UDim2.new(0,12,1,-78); attempts.Size=UDim2.new(1,-24,0,18); attempts.TextSize=11
+-        status.Position=UDim2.new(0.5,0,0,137); statusText.TextSize=15
+-        local compact=h&lt;700
+-        aimPanel.Position=UDim2.new(0.5,-150,0,199); aimPanel.Size=UDim2.fromOffset(300,if compact then 145 else 215)
+-        board.Size=UDim2.fromOffset(270,if compact then 90 else 150); board.Position=UDim2.fromOffset(15,43)
+-        timer.Size=UDim2.fromOffset(280,28); timer.TextSize=20
+-        aimPanel.AimHint.Visible=false
+-        dpad.Position=UDim2.new(0.5,-132,1,-200); dpad.Size=UDim2.fromOffset(264,54)
+-        for i,name in ipairs({"Left","Up","Down","Right"}) do dpad[name].Position=UDim2.fromOffset((i-1)*66,0) end
+-        exit.Position=UDim2.new(1,-112,1,-195); exit.Size=UDim2.fromOffset(96,48)
+-    else
+-        title.Text="CLAW MACHINE\nEMPIRE"; title.TextSize=34; title.Position=UDim2.fromOffset(24,12); title.Size=UDim2.fromOffset(330,92)
+-        buildLabel.Visible=true; mode.Position=UDim2.new(1,-470,0,102); mode.Size=UDim2.fromOffset(445,22); mode.TextSize=14
+-        for i,key in ipairs({"Coins","Bank","Rate"}) do
+-            local f=stats[key].Parent; f.Position=UDim2.new(1,-(4-i)*204-24,0,24); f.Size=UDim2.fromOffset(190,70)
+-            f.Label.Position=UDim2.fromOffset(10,7); f.Label.Size=UDim2.fromOffset(170,18); f.Label.TextSize=14
+-            stats[key].Position=UDim2.fromOffset(10,28); stats[key].Size=UDim2.fromOffset(170,34); stats[key].TextSize=29
+-        end
+-        nav.Position=UDim2.fromOffset(24,170); nav.Size=UDim2.fromOffset(166,296)
+-        for _,b in ipairs(nav:GetChildren()) do if b:IsA("TextButton") then b.Position=UDim2.fromOffset(0,(b.LayoutOrder-1)*72); b.Size=UDim2.fromOffset(166,58); b.TextSize=21 end end
+-        tutorial.Visible=true; status.Position=UDim2.new(0.5,0,0,137); statusText.TextSize=19
+-        play.Position=UDim2.new(0.5,-168,1,-103); play.Size=UDim2.fromOffset(336,70); play.TextSize=26
+-        collect.Position=UDim2.new(1,-282,1,-112); collect.Size=UDim2.fromOffset(258,58); collect.TextSize=23
+-        attempts.Position=UDim2.new(0.5,-210,1,-30); attempts.Size=UDim2.fromOffset(420,22); attempts.TextSize=16
+-        aimPanel.Position=UDim2.new(1,-378,0,205); aimPanel.Size=UDim2.fromOffset(354,300)
+-        board.Position=UDim2.fromOffset(18,53); board.Size=UDim2.fromOffset(318,170)
+-        timer.Size=UDim2.fromOffset(334,32); timer.TextSize=23
+-        aimPanel.AimHint.Position=UDim2.fromOffset(10,234); aimPanel.AimHint.Size=UDim2.fromOffset(334,53); aimPanel.AimHint.TextSize=17
+-        aimPanel.AimHint.Visible=true
+-        dpad.Position=UDim2.new(0,35,1,-220); dpad.Size=UDim2.fromOffset(174,174)
+-        for _,spec in ipairs({{"Up",60,0},{"Left",0,60},{"Down",60,120},{"Right",120,60}}) do dpad[spec[1]].Position=UDim2.fromOffset(spec[2],spec[3]) end
+-        exit.Position=UDim2.new(0.5,190,1,-90); exit.Size=UDim2.fromOffset(110,48)
+-        if short then
+-            title.Text="CLAW MACHINE\nEMPIRE"; title.Position=UDim2.fromOffset(12,8); title.Size=UDim2.fromOffset(240,58); title.TextSize=24
+-            buildLabel.Visible=false; tutorial.Visible=false
+-            mode.Position=UDim2.new(1,-470,0,73); mode.TextSize=11; mode.Size=UDim2.fromOffset(458,16)
+-            for i,key in ipairs({"Coins","Bank","Rate"}) do
+-                local f=stats[key].Parent; f.Position=UDim2.new(1,-(4-i)*156-12,0,10); f.Size=UDim2.fromOffset(144,58)
+-                f.Label.Position=UDim2.fromOffset(5,5); f.Label.Size=UDim2.fromOffset(134,16); f.Label.TextSize=11
+-                stats[key].Position=UDim2.fromOffset(5,23); stats[key].Size=UDim2.fromOffset(134,30); stats[key].TextSize=24
+-            end
+-            nav.Position=UDim2.fromOffset(12,95); nav.Size=UDim2.fromOffset(128,196)
+-            for _,b in ipairs(nav:GetChildren()) do if b:IsA("TextButton") then b.Position=UDim2.fromOffset(0,(b.LayoutOrder-1)*49); b.Size=UDim2.fromOffset(128,44); b.TextSize=17 end end
+-            status.Position=UDim2.new(0.5,0,0,92); status.Size=UDim2.fromOffset(math.min(440,w-300),40); statusText.TextSize=15
+-            play.Position=UDim2.new(0.5,-140,1,-70); play.Size=UDim2.fromOffset(240,50); play.TextSize=22
+-            collect.Position=UDim2.new(1,-242,1,-70); collect.Size=UDim2.fromOffset(230,50); collect.TextSize=20
+-            attempts.Position=UDim2.new(0.5,-180,1,-18); attempts.Size=UDim2.fromOffset(360,16); attempts.TextSize=12
+-            aimPanel.Position=UDim2.new(1,-294,0,137); aimPanel.Size=UDim2.fromOffset(282,145)
+-            board.Position=UDim2.fromOffset(10,40); board.Size=UDim2.fromOffset(262,94)
+-            timer.Size=UDim2.fromOffset(262,26); timer.TextSize=19; aimPanel.AimHint.Visible=false
+-            dpad.Position=UDim2.new(0,12,1,-136); dpad.Size=UDim2.fromOffset(264,54)
+-            for i,name in ipairs({"Left","Up","Down","Right"}) do dpad[name].Position=UDim2.fromOffset((i-1)*66,0) end
+-            exit.Position=UDim2.new(0,12,1,-70); exit.Size=UDim2.fromOffset(110,48)
+-        end
+-    end
+-    if not latest or not latest.round then cameraState.Value=homeCamera() end
+-end
+ local function row(name,height,color)
+     local f=frame(scroll,name,UDim2.new(),UDim2.new(1,-10,0,height),color or Color3.fromRGB(235,232,250))
+     f.LayoutOrder=#scroll:GetChildren(); return f
+@@ -1369,13 +1361,13 @@
+     l.TextStrokeTransparency=1; l.TextXAlignment=Enum.TextXAlignment.Left; return l
+ end
+ local rebuild
+-local function open(name)
+-    if latest and latest.round then toast("Finish your claw round first.",C.yellow); return end
+-    panelName=name; rebuild()
+-end
+-for i,spec in ipairs({{"Plushies",C.pink},{"Machines",C.cyan},{"Upgrades",C.purple},{"Shop",C.yellow}}) do
+-    local b=button(nav,spec[1],string.upper(spec[1]),UDim2.fromOffset(0,(i-1)*72),UDim2.fromOffset(166,58),spec[2],function() open(spec[1]) end)
+-    b.LayoutOrder=i
++open=function(name)
++    if not latest or latest.round or revealItem then return end
++    panelName=name; scroll.CanvasPosition=Vector2.zero; rebuild()
++    if not reducedMotion then
++        local s=panel:FindFirstChildOfClass("UIScale") or Instance.new("UIScale",panel)
++        s.Scale=.91; tween(s,.26,{Scale=1},Enum.EasingStyle.Back)
++    end
+ end
+ local function isDisplayed(id)
+     for _,shown in ipairs(latest.state.display) do if shown==id then return true end end
+@@ -1383,11 +1375,31 @@
+ end
+ local indexMode=false
+ rebuild=function()
+-    if not panelName or not latest then panel.Visible=false; return end
+-    panel.Visible=true; panelTitle.Text=string.upper(panelName)
++    if not panelName or not latest then panel.Visible=false; shade.Visible=false; return end
++    panel.Visible=true; shade.Visible=true; panelTitle.Text=if panelName=="Home" then "My arcade" else panelName
+     for _,child in ipairs(scroll:GetChildren()) do if child~=list then child:Destroy() end end
+     local state=latest.state
+-    if panelName=="Plushies" then
++    if panelName~="Home" then
++        local f=row("Back",44,C.white)
++        button(f,"GoBack","&lt;  BACK",UDim2.new(),UDim2.fromOffset(115,40),C.cyan,function() open("Home") end).TextSize=16
++    end
++    if panelName=="Home" then
++        local f=row("Income",96,C.yellow)
++        local bank=rowText(f,"Shelf bank  $"..Big.format(state.bank),8,23); bank.Name="Bank"
++        rowText(f,"Earning $"..Big.format(Economy.rate(state)).." / sec",49,15)
++        button(f,"Collect","COLLECT",UDim2.new(1,-145,0,45),UDim2.fromOffset(130,40),C.mint,function() request:FireServer("collect") end).TextSize=17
++        for i,name in ipairs({"Plushies","Machines","Upgrades"}) do
++            local f=row(name,60,C.white)
++            button(f,"Open",name.."   &gt;",UDim2.new(),UDim2.fromScale(1,1),({C.pink,C.cyan,C.purple})[i],function() open(name) end)
++        end
++        local f=row("Map",56,C.white)
++        button(f,"Toggle",if overview then "RETURN TO WALKING" else "BIRD'S-EYE MAP",UDim2.new(),UDim2.fromScale(1,1),C.cyan,function() overview=not overview; panelName=nil; shade.Visible=false end).TextSize=18
++        f=row("Motion",56,C.white)
++        button(f,"Toggle","REDUCED MOTION: "..(if reducedMotion then "ON" else "OFF"),UDim2.new(),UDim2.fromScale(1,1),C.white,function() reducedMotion=not reducedMotion; rebuild() end).TextSize=17
++        f=row("Demo",58,C.white)
++        rowText(f,if latest.sessionOnly then "Studio demo  /  progress lasts until Play stops." else "Your arcade saves automatically.",7,14)
++        rowText(f,"Catch. Display. Earn. Every claw has free plays.",32,13)
++    elseif panelName=="Plushies" then
+         local heading=row("CollectionTabs",54,C.navy)
+         button(heading,"InventoryTab","INVENTORY",UDim2.fromOffset(6,4),UDim2.new(0.5,-9,0,46),C.pink,function() indexMode=false; rebuild() end).TextSize=16
+         button(heading,"IndexTab","COLLECTION",UDim2.new(0.5,3,0,4),UDim2.new(0.5,-9,0,46),C.cyan,function() indexMode=true; rebuild() end).TextSize=16
+@@ -1420,7 +1432,7 @@
+     elseif panelName=="Machines" then
+         local info=row("MachineCount",72,C.navy)
+         rowText(info,state.machine.." / 25 MACHINES OWNED",8,if phone then 18 else 23,C.yellow)
+-        rowText(info,"Walk up and press E, or select an owned cabinet below.",42,if phone then 12 else 15,C.white)
++        rowText(info,"Walk up and press E, or jump to an owned machine.",42,if phone then 12 else 15,C.white)
+         for i,spec in ipairs(Config.Machines) do
+             local f=row(spec.id,140,Color3.fromRGB(table.unpack(spec.color)))
+             rowText(f,spec.name,12,27)
+@@ -1428,8 +1440,7 @@
+             if i==state.machine+1 then
+                 button(f,"Unlock","UNLOCK  $"..Big.format(Big.new(spec.cost)),UDim2.fromOffset(16,87),UDim2.new(1,-32,0,44),C.mint,function() request:FireServer("unlock") end).TextSize=20
+             elseif i&lt;=state.machine then
+-                if i==Economy.selected(state) then rowText(f,"CURRENT MACHINE",92,18)
+-                else button(f,"Select","USE MACHINE",UDim2.fromOffset(16,87),UDim2.new(1,-32,0,44),C.cyan,function() request:FireServer("select",i) end).TextSize=19 end
++                button(f,"Travel","GO HERE",UDim2.fromOffset(16,87),UDim2.new(1,-32,0,44),C.cyan,function() request:FireServer("travel",i); panelName=nil; shade.Visible=false; overview=false end).TextSize=19
+             else rowText(f,"UNLOCK EARLIER MACHINES FIRST",92,if phone then 13 else 17) end
+         end
+         local f=row("Next",95,C.navy); rowText(f,"25 THEMES. ALL EARNABLE.",10,if phone then 19 else 23,C.pink); rowText(f,"Every owned machine has free replenishing plays.",51,if phone then 13 else 15,C.white)
+@@ -1454,127 +1465,248 @@
+         end
+     end
+ end
++
++local timerPill=frame(root,"RoundTimer",UDim2.new(.5,-100,0,18),UDim2.fromOffset(200,48),C.white); stroke(timerPill); timerPill.Visible=false
++local timer=text(timerPill,"Text","25s",UDim2.new(),UDim2.fromScale(1,1),24)
++local exit=button(root,"LeaveClaw","X",UDim2.new(1,-65,0,18),UDim2.fromOffset(46,46),C.pink,function() request:FireServer("cancel") end); exit.Visible=false
++local dpad=frame(root,"TouchControls",UDim2.new(0,18,1,-164),UDim2.fromOffset(150,140),C.white)
++dpad.BackgroundTransparency=1; dpad.Visible=false
++for _,spec in ipairs({{"Up","^",49,0},{"Left","&lt;",0,47},{"Down","v",49,94},{"Right","&gt;",98,47}}) do
++    local b=button(dpad,spec[1],spec[2],UDim2.fromOffset(spec[3],spec[4]),UDim2.fromOffset(44,44),C.cyan)
++    b.InputBegan:Connect(function(v) if v.UserInputType==Enum.UserInputType.Touch or v.UserInputType==Enum.UserInputType.MouseButton1 then held[spec[1]]=true end end)
++    b.InputEnded:Connect(function(v) if v.UserInputType==Enum.UserInputType.Touch or v.UserInputType==Enum.UserInputType.MouseButton1 then held[spec[1]]=nil end end)
++end
++local guide=frame(root,"AimGuide",UDim2.new(1,-154,1,-185),UDim2.fromOffset(132,94),C.white)
++guide.BackgroundTransparency=.15; stroke(guide,nil,2); guide.Visible=false
++local cursor=text(guide,"Cursor","+",UDim2.fromScale(.5,.5),UDim2.fromOffset(28,28),28)
++cursor.AnchorPoint=Vector2.new(.5,.5); cursor.ZIndex=2
+ local function drawTargets(targets)
+-    for _,child in ipairs(board:GetChildren()) do if child.Name=="PrizeDot" then child:Destroy() end end
++    for _,c in ipairs(guide:GetChildren()) do if c.Name=="Dot" then c:Destroy() end end
+     for _,t in ipairs(targets) do
+         local spec=Config.plushie(t.species)
+-        local dot=frame(board,"PrizeDot",UDim2.fromScale((t.x+4)/8,(t.z+3)/6),UDim2.fromOffset(38,30),Color3.fromRGB(table.unpack(spec.color)))
+-        dot.AnchorPoint=Vector2.new(0.5,0.5); round(dot,10)
+-        text(dot,"Species",string.upper(string.sub(spec.id,1,2)),UDim2.new(),UDim2.fromScale(1,1),13)
+-    end
++        local dot=frame(guide,"Dot",UDim2.fromScale(.1+(t.x+4)/8*.8,.12+(t.z+3)/6*.76),UDim2.fromOffset(13,13),Color3.fromRGB(table.unpack(spec.color)))
++        dot.AnchorPoint=Vector2.new(.5,.5); stroke(dot,nil,1)
++    end
++end
++local reveal=frame(root,"PrizeReveal",UDim2.new(),UDim2.fromScale(1,1),C.navy); reveal.BackgroundTransparency=.24; reveal.Visible=false
++local burst=frame(reveal,"Sunburst",UDim2.fromScale(.5,.43),UDim2.fromOffset(1,1),C.white); burst.BackgroundTransparency=1
++for i=1,12 do
++    local ray=frame(burst,"Ray"..i,UDim2.fromOffset(-14,-425),UDim2.fromOffset(28,850),if i%2==0 then C.yellow else C.pink)
++    ray.BackgroundTransparency=.72; ray.Rotation=i*15
++end
++local fit=frame(reveal,"Fit",UDim2.fromScale(.5,.5),UDim2.fromOffset(370,460),C.white)
++fit.AnchorPoint=Vector2.new(.5,.5); fit.BackgroundTransparency=1
++local fitScale=Instance.new("UIScale"); fitScale.Parent=fit
++local prizeCard=frame(fit,"Card",UDim2.new(),UDim2.fromScale(1,1),C.white); stroke(prizeCard,nil,4)
++local cardScale=Instance.new("UIScale"); cardScale.Parent=prizeCard
++text(prizeCard,"Title","YOU GOT A PLUSHIE!",UDim2.fromOffset(10,12),UDim2.new(1,-20,0,35),25)
++local rarity=text(prizeCard,"Rarity","COMMON",UDim2.fromOffset(10,50),UDim2.new(1,-20,0,26),16)
++local viewport=Instance.new("ViewportFrame"); viewport.Name="PlushPreview"; viewport.BackgroundTransparency=1
++viewport.Position=UDim2.fromOffset(30,77); viewport.Size=UDim2.new(1,-60,0,235); viewport.Ambient=Color3.fromRGB(220,220,220)
++viewport.LightColor=Color3.new(1,1,1); viewport.LightDirection=Vector3.new(-1,-1,-1); viewport.Parent=prizeCard
++local modelWorld=Instance.new("WorldModel"); modelWorld.Parent=viewport
++local vpCamera=Instance.new("Camera"); vpCamera.FieldOfView=35; vpCamera.CFrame=CFrame.lookAt(Vector3.new(0,0,5.5),Vector3.zero); vpCamera.Parent=viewport; viewport.CurrentCamera=vpCamera
++local prizeName=text(prizeCard,"Name","Goofy Duck",UDim2.fromOffset(10,310),UDim2.new(1,-20,0,36),27)
++local function closeReveal()
++    revealItem=nil; reveal.Visible=false; modelWorld:ClearAllChildren(); revealModel=nil
++end
++button(prizeCard,"Display","DISPLAY",UDim2.fromOffset(20,361),UDim2.new(1,-40,0,46),C.mint,function()
++    if revealItem then request:FireServer("display",revealItem.id) end; closeReveal()
++end)
++button(prizeCard,"Keep","KEEP IN BAG",UDim2.fromOffset(70,414),UDim2.new(1,-140,0,31),C.white,closeReveal).TextSize=15
++local function showReward(item)
++    if not item then return end
++    modelWorld:ClearAllChildren(); revealModel=nil
++    local plots=workspace:FindFirstChild("ClawEmpirePlots")
++    local plot=plots and plots:FindFirstChild("Arcade_"..player.UserId)
++    if plot then for _,model in ipairs(plot:GetDescendants()) do
++        if model:IsA("Model") and model:GetAttribute("Species")==item.species then
++            revealModel=model:Clone()
++            for _,p in ipairs(revealModel:GetDescendants()) do if p:IsA("BasePart") then p.Anchored=true; p.LocalTransparencyModifier=0 end end
++            local _,size=revealModel:GetBoundingBox(); revealModel:ScaleTo(2.65/math.max(size.X,size.Y,size.Z)); local box=revealModel:GetBoundingBox(); revealModel.PrimaryPart=nil; revealModel.WorldPivot=box; revealModel:PivotTo(CFrame.new()); revealModel.Parent=modelWorld; break
++        end
++    end end
++    local spec=Config.plushie(item.species)
++    revealItem=item; revealTime=os.clock(); reveal.Visible=true; shade.Visible=false; panelName=nil; status.Visible=false
++    rarity.Text=string.upper(spec.rarity); prizeName.Text=spec.name; prizeCard.BackgroundColor3=Color3.fromRGB(table.unpack(spec.color)):Lerp(C.white,.65)
++    prizeCard.Display.Text="DISPLAY  +$"..spec.income.."/s"
++    cardScale.Scale=if reducedMotion then 1 else .15
++    if not reducedMotion then tween(cardScale,.55,{Scale=1},Enum.EasingStyle.Back) end
++    for i=1,(if reducedMotion then 0 else 32) do
++        local conf=frame(reveal,"Confetti",UDim2.fromScale(.5,.45),UDim2.fromOffset(8,15),({C.pink,C.cyan,C.yellow,C.mint})[i%4+1])
++        conf.Rotation=i*43
++        tween(conf,1.3+i%4*.2,{Position=UDim2.fromScale((i*37%100)/100,1.15),Rotation=i*113,BackgroundTransparency=1})
++        task.delay(2.1,function() conf:Destroy() end)
++    end
++end
++local function homeCamera()
++    return CFrame.lookAt(offset+(if gui.AbsoluteSize.X&lt;gui.AbsoluteSize.Y then Vector3.new(240,610,720) else Vector3.new(245,305,385)),offset+Vector3.new(0,0,10))
++end
++local cameraState=Instance.new("CFrameValue"); cameraState.Value=homeCamera()
++local function layout()
++    local size=gui.AbsoluteSize; local compact=size.Y&lt;500; phone=size.X&lt;600
++    wallet.Size=UDim2.fromOffset(if phone then 136 else 176,48); money.TextSize=if phone then 21 else 26
++    menu.Position=UDim2.new(1,if phone then -143 else -169,0,16); menu.Size=UDim2.fromOffset(if phone then 125 else 151,48); menu.TextSize=if phone then 17 else 21
++    panel.Size=UDim2.fromOffset(math.min(610,size.X-32),math.min(510,size.Y-32))
++    local rh=math.min(460,size.Y-24)
++    fit.Size=UDim2.fromOffset(math.min(370,size.X-28),rh); fitScale.Scale=1
++    prizeCard.Title.TextSize=if compact then 21 else 25
++    viewport.Position=UDim2.fromOffset(25,66); viewport.Size=UDim2.new(1,-50,0,rh-225)
++    rarity.Position=UDim2.fromOffset(10,43)
++    prizeName.Position=UDim2.fromOffset(10,rh-151)
++    prizeCard.Display.Position=UDim2.fromOffset(20,rh-108); prizeCard.Display.Size=UDim2.new(1,-40,0,46)
++    prizeCard.Keep.Position=UDim2.fromOffset(55,rh-54); prizeCard.Keep.Size=UDim2.new(1,-110,0,44)
++    dpad.Position=UDim2.new(0,18,1,if compact then -151 else -164)
++    hint.TextSize=if phone then 12 else 15
++    guide.Size=UDim2.fromOffset(if phone then 90 else 132,if phone then 72 else 94)
++    guide.Position=UDim2.new(1,if phone then -108 else -154,1,if compact then -173 else -185)
++    status.Size=UDim2.fromOffset(math.min(450,size.X-32),48); statusText.TextSize=if phone then 15 else 18
++    if not latest or not latest.round then cameraState.Value=homeCamera() end
++end
++local fxFolder,fxParts=nil,{}
++local lastRoundSync=0
++local function clearFX()
++    if fxFolder then fxFolder:Destroy(); fxFolder=nil end; fxParts={}
++end
++local function setRoundMode(data)
++    local id=data and data.id or nil
++    if id==lastRoundId then return end
++    clearFX()
++    if id then
++        fxFolder=Instance.new("Folder"); fxFolder.Name="CME_LocalCatchFX"; fxFolder.Parent=workspace
++        for i=1,10 do
++            local p=Instance.new("Part"); p.Name="StarMote"; p.Shape=Enum.PartType.Ball
++            p.Size=Vector3.new(.14,.14,.14); p.Material=Enum.Material.Neon; p.Color=if i%2==0 then C.yellow else C.white
++            p.Anchored=true; p.CanCollide=false; p.CanTouch=false; p.CanQuery=false; p.CastShadow=false; p.Transparency=1; p.Parent=fxFolder
++            fxParts[i]=p
++        end
++    end
++    keys={}; held={}; panelName=nil; shade.Visible=false; overview=false
++    if controls then if id then controls:Disable() else controls:Enable() end end
++    if id then
++        frozenHumanoid=player.Character and player.Character:FindFirstChildOfClass("Humanoid")
++        if frozenHumanoid then previousSpeed=frozenHumanoid.WalkSpeed; frozenHumanoid.WalkSpeed=0 end
++        drawTargets(data.targets)
++    elseif frozenHumanoid and frozenHumanoid.Parent then frozenHumanoid.WalkSpeed=previousSpeed or 24; frozenHumanoid=nil end
++    local plots=workspace:FindFirstChild("ClawEmpirePlots")
++    local plot=plots and plots:FindFirstChild("Arcade_"..player.UserId)
++    if plot then for _,p in ipairs(plot:GetDescendants()) do
++        if p:IsA("BasePart") and p:GetAttribute("AimOccluder") then
++            p.LocalTransparencyModifier=if id then 1 else 0
++            local sign=p:FindFirstChild("Sign"); if sign then sign.Enabled=id==nil end
++        end
++    end end
++    if id then tween(cameraState,if reducedMotion then .01 else .65,{Value=CFrame.lookAt(data.origin+Vector3.new(0,26,14),data.origin+Vector3.new(0,8,0))},Enum.EasingStyle.Quint) end
++    lastRoundId=id
+ end
+ local lastViewKey=""
+ update.OnClientEvent:Connect(function(data)
+-    latest=data; offset=data.offset
+-    local state=data.state
+-    stats.Coins.Text="$"..Big.format(state.coins); stats.Bank.Text="$"..Big.format(state.bank)
+-    stats.Rate.Text="$"..Big.format(Economy.rate(state))
+-    collect.Text="COLLECT  $"..Big.format(state.bank)
+-    mode.Text=if data.sessionOnly then (if data.studioSnapshot then "STUDIO DEMO  /  DEV SNAPSHOT RESTORED" else "STUDIO DEMO  /  PROGRESS RESETS WHEN PLAY STOPS") else "PERSISTENT ARCADE  /  AUTOSAVE ON"
+-    local roundData=data.round
+-    aimPanel.Visible=roundData~=false; dpad.Visible=roundData~=false; exit.Visible=roundData~=false
+-    nav.Visible=roundData==false; collect.Visible=roundData==false
+-    viewButton.Visible=roundData==false and h&gt;=500
+-    viewButton.Text=if overview then "WALK VIEW" else "MAP VIEW"
+-    tutorial.Visible=roundData==false and not phone and h&gt;=650
+-    local newId=roundData and roundData.id or nil
+-    if newId~=lastRoundId then
+-        keys={}; held={}; panelName=nil; panel.Visible=false
+-        if controls then if newId then controls:Disable() else controls:Enable() end end
+-        if newId then
+-            frozenHumanoid=player.Character and player.Character:FindFirstChildOfClass("Humanoid")
+-            if frozenHumanoid then previousSpeed=frozenHumanoid.WalkSpeed; frozenHumanoid.WalkSpeed=0 end
+-        elseif frozenHumanoid and frozenHumanoid.Parent then
+-            frozenHumanoid.WalkSpeed=previousSpeed or 16; frozenHumanoid=nil
+-        end
+-        if roundData then drawTargets(roundData.targets) end
+-        lastRoundId=newId
+-        local target
+-        if newId then
+-            target=CFrame.lookAt(roundData.origin+Vector3.new(0,27,13),roundData.origin+Vector3.new(0,7,0))
+-        else target=homeCamera() end
+-        local plotFolder=workspace:FindFirstChild("ClawEmpirePlots")
+-        local ownPlot=plotFolder and plotFolder:FindFirstChild("Arcade_"..player.UserId)
+-        if ownPlot then
+-            for _,p in ipairs(ownPlot:GetDescendants()) do
+-                if p:IsA("BasePart") and p:GetAttribute("AimOccluder") then
+-                    p.LocalTransparencyModifier=if newId then 1 else 0
+-                    local surface=p:FindFirstChild("Sign")
+-                    if surface and surface:IsA("SurfaceGui") then surface.Enabled=newId==nil end
+-                end
+-            end
+-        end
+-        TweenService:Create(cameraState,TweenInfo.new(0.65,Enum.EasingStyle.Quint,Enum.EasingDirection.Out),{Value=target}):Play()
+-    end
+-    if roundData then
+-        play.Text=if roundData.phase=="drop" then "CATCHING..." else "DROP CLAW!"
+-        play.Active=roundData.phase=="aim"
+-        timer.Text=if roundData.phase=="drop" then "FINGERS CROSSED!" else "AIM  /  "..math.ceil(roundData.remaining).."s"
+-        cursor.Position=UDim2.fromScale((roundData.x+4)/8,(roundData.z+3)/6)
+-    else play.Text="PLAY "..Config.Machines[Economy.selected(state)].short.."  &gt;"; play.Active=true end
+-    attempts.Text=data.attempts.." FREE PLAYS  /  "..(if data.attempts&gt;=Config.FreeAttempts then "FULLY CHARGED" else "NEXT PLAY IN "..math.ceil(data.nextAttempt).."s")
+-    tutorialBody.Text=(if state.totalCatches&gt;0 then "[OK]" else "1").."  CATCH A PLUSHIE\n"..
+-        (if #state.display&gt;0 then "[OK]" else "2").."  DISPLAY IT\n3  COLLECT YOUR INCOME\n"..
+-        (if state.machine&gt;1 then state.machine.." / 25 MACHINES OWNED" else "4  UNLOCK CLASSIC  $250")
+-    if data.message then
+-        toast(data.message,if data.kind=="error" or data.kind=="miss" then C.pink else C.mint)
+-        if data.kind=="catch" then
+-            for i=1,20 do
+-                local f=frame(root,"CatchConfetti",UDim2.fromScale(0.5,0.45),UDim2.fromOffset(9,17),({C.mint,C.pink,C.yellow,C.cyan})[i%4+1])
+-                f.Rotation=i*21
+-                TweenService:Create(f,TweenInfo.new(1.4),{Position=UDim2.fromScale((i*37%100)/100,1.2),Rotation=i*113,BackgroundTransparency=1}):Play()
+-                task.delay(1.5,function() f:Destroy() end)
+-            end
+-            task.delay(0.9,function() if not (latest and latest.round) then indexMode=false; open("Plushies") end end)
+-        end
+-    end
+-    local viewKey=panelName and (panelName..":"..#state.inventory..":"..table.concat(state.display,",")..":"..state.machine..":"..Economy.selected(state)..":"..state.upgrades.speed..":"..state.upgrades.shelves) or ""
+-    if viewKey~=lastViewKey then lastViewKey=viewKey; rebuild() end
++    latest=data; lastRoundSync=os.clock(); offset=data.offset; money.Text=Big.format(data.state.coins); setRoundMode(data.round)
++    if data.round then
++        timer.Text=if data.round.phase=="aim" then math.ceil(data.round.remaining).."s" else Config.clawPose(data.round.progress or 0,0,0,data.round.prize~=nil).stage
++        play.Text=if data.round.phase=="aim" then "DROP!" else "GRABBING..."
++        hint.Text=if data.round.phase=="aim" then "Aim with arrows  /  Space to drop" else "Here comes your plushie..."
++        cursor.Position=UDim2.fromScale(.1+(data.round.x+4)/8*.8,.12+(data.round.z+3)/6*.76)
++    else
++        play.Text="PLAY "..Config.Machines[Economy.selected(data.state)].short
++        hint.Text=if #data.state.inventory==0 then "Catch your first plushie!" else data.attempts.." free plays  /  explore your arcade"
++    end
++    if data.message and not revealItem and not data.round and data.kind~="catch" and data.kind~="drop" and data.kind~="welcome" then toast(data.message) end
++    if data.kind=="catch" then showReward(data.reward) end
++    local key=panelName and table.concat({panelName,#data.state.inventory,table.concat(data.state.display,","),data.state.machine,Economy.selected(data.state),data.state.upgrades.speed,data.state.upgrades.shelves},":") or ""
++    if key~=lastViewKey then lastViewKey=key; rebuild() end
++    local bank=scroll:FindFirstChild("Income")
++    if panelName=="Home" and bank then bank.Bank.Text="Shelf bank  $"..Big.format(data.state.bank) end
+ end)
+ UIS.InputBegan:Connect(function(input,processed)
+-    if not processed and input.KeyCode==Enum.KeyCode.V and latest and not latest.round then
+-        overview=not overview; viewButton.Text=if overview then "WALK VIEW" else "MAP VIEW"
+-    end
+-    if processed or not latest or not latest.round then return end
++    if processed then return end
++    if input.KeyCode==Enum.KeyCode.V and latest and not latest.round and not revealItem then overview=not overview; cameraState.Value=homeCamera() end
++    if not latest or not latest.round then return end
+     keys[input.KeyCode]=true
+     if input.KeyCode==Enum.KeyCode.Space then request:FireServer("drop") end
+     if input.KeyCode==Enum.KeyCode.Escape and latest.round.phase=="aim" then request:FireServer("cancel") end
+ end)
+-UIS.InputEnded:Connect(function(input) keys[input.KeyCode]=nil end)
++UIS.InputEnded:Connect(function(v) keys[v.KeyCode]=nil end)
+ UIS.WindowFocusReleased:Connect(function() keys={}; held={} end)
+ local elapsed=0
+-RunService.RenderStepped:Connect(function(dt)
+-    elapsed+=dt
+-    if elapsed&lt;0.1 then return end; elapsed=0
+-    if latest and latest.round and latest.round.phase=="aim" then
+-        local left=keys[Enum.KeyCode.A] or keys[Enum.KeyCode.Left] or held.Left
+-        local right=keys[Enum.KeyCode.D] or keys[Enum.KeyCode.Right] or held.Right
+-        local up=keys[Enum.KeyCode.W] or keys[Enum.KeyCode.Up] or held.Up
+-        local down=keys[Enum.KeyCode.S] or keys[Enum.KeyCode.Down] or held.Down
+-        request:FireServer("aim",{x=(if right then 1 else 0)-(if left then 1 else 0),z=(if down then 1 else 0)-(if up then 1 else 0)})
+-    end
+-end)
+-local camera=workspace.CurrentCamera
+-RunService:BindToRenderStep("ClawEmpireCamera",Enum.RenderPriority.Camera.Value+1,function()
+-    local cam=workspace.CurrentCamera
+-    if overview or (latest and latest.round) then
+-        cam.CameraType=Enum.CameraType.Scriptable; cam.CFrame=cameraState.Value; cam.FieldOfView=60
++local touchOverride,touchWasEnabled=nil,nil
++local ambientModel,ambientBase,ambientCheck=nil,nil,0
++RunService:BindToRenderStep("ClawEmpireCamera",Enum.RenderPriority.Camera.Value+1,function(dt)
++    local cam=workspace.CurrentCamera; local inRound=latest and latest.round
++    if overview or inRound then
++        cam.CameraType=Enum.CameraType.Scriptable
++        if overview then cam.CFrame=homeCamera() else
++            local cf=cameraState.Value; local p=inRound.progress or 0
++            if inRound.phase=="drop" and not reducedMotion then cf=cf*CFrame.new(0,0,-math.sin(p*math.pi)*1.2) end
++            cam.CFrame=cf
++        end
++        cam.FieldOfView=60
+     else
+         cam.CameraType=Enum.CameraType.Custom; cam.FieldOfView=70
+         local hum=player.Character and player.Character:FindFirstChildOfClass("Humanoid")
+         if hum then cam.CameraSubject=hum end
+     end
++    if inRound and #fxParts&gt;0 then
++        local progress=math.clamp((inRound.progress or 0)+(os.clock()-lastRoundSync)/Config.DropSeconds,0,1)
++        local visible=inRound.phase=="drop" and inRound.prize and progress&gt;.43 and progress&lt;.97 and not reducedMotion
++        local pose=Config.clawPose(progress,inRound.x,inRound.z,inRound.prize~=nil)
++        for i,p in ipairs(fxParts) do
++            p.Transparency=if visible then .12 else 1
++            if visible then
++                local a=os.clock()*5+i*math.pi/5; local radius=1.4+math.sin(a*2)*.25
++                p.Position=inRound.origin+Vector3.new(pose.x+math.cos(a)*radius,pose.y-1.3+math.sin(a*1.7)*.7,pose.z+math.sin(a)*radius)
++                local size=.1+.1*(.5+.5*math.sin(a*3)); p.Size=Vector3.new(size,size,size)
++            end
++        end
++    end
++    local busy=revealItem~=nil or shade.Visible
++    local touchGui=player.PlayerGui:FindFirstChild("TouchGui")
++    if touchGui and (busy or inRound) then
++        if touchOverride~=touchGui then touchOverride=touchGui; touchWasEnabled=touchGui.Enabled end
++        touchGui.Enabled=false
++    elseif touchOverride then
++        if touchOverride.Parent then touchOverride.Enabled=touchWasEnabled end
++        touchOverride=nil
++    end
++    wallet.Visible=not inRound and not busy; menu.Visible=not inRound and not busy
++    play.Visible=not busy; hint.Visible=not busy
++    timerPill.Visible=inRound and not busy or false
++    exit.Visible=inRound and inRound.phase=="aim" and not busy or false
++    dpad.Visible=inRound and inRound.phase=="aim" and not busy or false
++    guide.Visible=dpad.Visible
++    if revealItem and revealModel then
++        local t=os.clock()-revealTime
++        revealModel:PivotTo(CFrame.new(0,if reducedMotion then 0 else math.sin(t*2.8)*.12,0)*CFrame.Angles(0,if reducedMotion then 0 else math.sin(t*1.3)*.25+math.max(0,1-t/.7)*math.pi*2,0))
++        if not reducedMotion then burst.Rotation=t*9 end
++    end
++    ambientCheck+=dt
++    if ambientCheck&gt;2 then
++        ambientCheck=0; local plots=workspace:FindFirstChild("ClawEmpirePlots")
++        local plot=plots and plots:FindFirstChild("Arcade_"..player.UserId)
++        local m=plot and plot:FindFirstChild("ParkLandmarks") and plot.ParkLandmarks:FindFirstChild("FloatingMascot")
++        if m~=ambientModel then ambientModel=m; ambientBase=m and m:GetPivot() end
++    end
++    if ambientModel and ambientModel.Parent and ambientBase then
++        local t=os.clock()
++        ambientModel:PivotTo(ambientBase*CFrame.new(0,if reducedMotion then 0 else math.sin(t*1.8)*.65,0)*CFrame.Angles(0,if reducedMotion then 0 else t*.18,0))
++    end
++    elapsed+=dt
++    if elapsed&gt;=.1 then
++        elapsed=0
++        if inRound and inRound.phase=="aim" then
++            local left=keys[Enum.KeyCode.A] or keys[Enum.KeyCode.Left] or held.Left
++            local right=keys[Enum.KeyCode.D] or keys[Enum.KeyCode.Right] or held.Right
++            local up=keys[Enum.KeyCode.W] or keys[Enum.KeyCode.Up] or held.Up
++            local down=keys[Enum.KeyCode.S] or keys[Enum.KeyCode.Down] or held.Down
++            request:FireServer("aim",{x=(if right then 1 else 0)-(if left then 1 else 0),z=(if down then 1 else 0)-(if up then 1 else 0)})
++        end
++    end
+ end)
+-gui:GetPropertyChangedSignal("AbsoluteSize"):Connect(function() layout(); if panelName then rebuild() end end)
+-layout()
+-request:FireServer("sync")
+-task.spawn(function()
+-    while not latest do task.wait(1); request:FireServer("sync") end
+-    if not lastRoundId then
+-        cameraState.Value=homeCamera()
+-    end
+-end)
++gui:GetPropertyChangedSignal("AbsoluteSize"):Connect(layout)
++layout(); request:FireServer("sync")
++task.spawn(function() while not latest do task.wait(1); request:FireServer("sync") end end)
+ print("CME_CLIENT_READY",Config.Build)
++
+ </ProtectedString>
+           <bool name="Disabled">false</bool>
+         </Properties>

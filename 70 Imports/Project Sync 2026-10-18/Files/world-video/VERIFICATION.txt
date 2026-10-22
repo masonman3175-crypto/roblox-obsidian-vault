@@ -1,0 +1,16 @@
+WORLD VIDEO VERIFICATION
+Output: C:\Users\mason\OneDrive\Desktop\slopshitv1\world-video\World-Trailer-10s.mp4
+Source audio: C:\Users\mason\Downloads\Charlie Brown baby you buggin.mp3
+Audio selection: first 10 seconds, normalized and faded at the ends; original voice retained.
+Source SHA256: B3A5CF5B1EE1B703D146F8532EED3028F975BF644E98CF5B28D912E7FABB475B
+Copied source SHA256: identical; original file unchanged.
+Output SHA256: 5580065B50D50FD3670D802F7845D8BAB573EBBFF3F1575BA31F6E899DD71F73
+Video: H.264, 1280x720, 30 fps, 300 decoded frames.
+Audio: AAC, 48000 Hz, stereo.
+Duration: 00:00:10.00.
+Capture: 120 clean viewport frames, four 2.5-second shots (Hub, Eggs, Candy, Frost).
+Full encode exit status: 0.
+Full audio/video decode exit status: 0.
+Decode result: frame=300, time=00:00:10.00, no decoding errors.
+Visual QA: reviewed four-shot contact sheet.
+Scene content was not edited for filming. Temporary capture camera poses restore after each frame.

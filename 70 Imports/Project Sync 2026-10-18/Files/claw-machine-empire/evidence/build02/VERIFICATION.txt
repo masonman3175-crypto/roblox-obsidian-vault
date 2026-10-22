@@ -1,0 +1,175 @@
+CLAW MACHINE EMPIRE / BUILD 02 — TOYBOX ARCADE
+Recorded 2026-10-18, America/Los_Angeles client date.
+
+CHANGED BRANCH / FIELDS
+No Git branch was created. Existing project edited in place after preserving Build01.
+Config.Build=02 - TOYBOX ARCADE; Config.Machines: 2 -> 25; plushies: 6 -> 25.
+Twenty-five separately authored cabinet skins and prize pools, five gallery rows.
+World: old exposed stage -> modular pink/lilac studded arcade, walls and decorations.
+Economy: optional selected-machine field; old profile schema remains compatible.
+Client: walking/map/aim views, 25-card catalog, prior-owned cabinet selection.
+Server: rectangular own-arcade bounds, guarded physical prompts, Studio-only optional
+developer snapshot. Purchases remain disabled; live products remain ID=0.
+
+FOUR TRANSACTION ARTIFACTS
+MODIFIED_FILE: C:\Users\mason\OneDrive\Desktop\slopshitv1\claw-machine-empire\Claw Machine Empire.rbxlx
+DIFF_FILE: C:\Users\mason\OneDrive\Desktop\slopshitv1\claw-machine-empire\evidence\build02\DIFF_FILE.diff
+VERIFICATION: C:\Users\mason\OneDrive\Desktop\slopshitv1\claw-machine-empire\evidence\build02\VERIFICATION.txt
+ROLLBACK: C:\Users\mason\OneDrive\Desktop\slopshitv1\claw-machine-empire\evidence\build02\ROLLBACK.sh
+
+ORIGINAL / MODIFIED HASHES (SHA-256)
+Retained Build01 packaged place:
+1fcc341c3c64d813e0f7498e76eb53a82e5ed1751dc804f4ece9d748e28a962e
+Modified Build02 packaged place:
+d3dfa5677697e97d503f102de2ede4dddb8e05b8352012e49de0df9b27760f49
+Build02 diff:
+c8ace9cc4ed5ef663fcb2933672edec6dd75fc24f8528fcf3e01ca4a9e741eb9
+Sixteen original project files preserved byte-for-byte under evidence/build02/baseline.
+Original hashes: BASELINE_SHA256.json. Current guarded hashes: MODIFIED_SHA256.json.
+Original Studio containers were separately cloned to ServerStorage.CME_Build01_Backup.
+
+REFERENCE REVIEW
+User link: https://www.youtube.com/watch?v=I12L26L6-Mo
+Actual observed title: ROBLOX +1 SPEED KEYBOARD ESCAPE, channel Flamingo, duration 21:21.
+Opened actual YouTube player in the in-app browser and reviewed sampled playback
+at 2:08, 6:43, 12:48 and 19:13. Not an uninterrupted full-video watch. Video shows
+a keyboard-escape game; its pastel studded walls/floors, X braces and large toy-like
+props informed this original claw arcade. No remote media/game assets downloaded.
+Source observations: references/Video - Toybox stud style.md.
+
+EXACT LOCAL COMMANDS / INPUT / LITERAL OUTPUT / EXIT STATUS
+Working directory:
+C:\Users\mason\OneDrive\Desktop\slopshitv1\claw-machine-empire
+
+BASELINE
+Command: & 'C:\Python314\python.exe' tools/verify_build02.py baseline
+Input: sixteen retained Build01 files and evidence/build02/BASELINE_SHA256.json.
+Output: BUILD02_BASELINE_PASS machines=2 backup_hashes=preserved
+Exit status: 0
+
+BUILD
+Command: & 'C:\Python314\python.exe' tools/build.py
+Input: seven current source files, actual Luau contracts, retained original packaging
+fixture and pre-install camera/environment data. Also emits old-to-new Build02 diff.
+Output: BUILD_PASS scripts=7 place_xml=valid installer=generated baseline=preserved
+Exit status: 0
+
+SEAL
+Command: & 'C:\Python314\python.exe' tools/verify_build02.py seal
+Input: the current versions of the sixteen guarded project files.
+Output: BUILD02_SEAL_PASS guarded_files=16
+Exit status: 0
+
+MODIFIED
+Command: & 'C:\Python314\python.exe' tools/verify_build02.py modified
+Input: packaged place, source files, authored-skin definitions, closed commerce gate,
+current guarded hashes and four transaction artifacts.
+Output: BUILD02_MODIFIED_PASS machines=25 authored_skins=25 studs=true source_sync=true
+Exit status: 0
+
+ROLLBACK ON ANOTHER COPY
+Command: & 'C:\Python314\python.exe' tools/verify_build02.py rollback --test
+Input: copies of the sixteen delivered files under a verified workspace-local
+temporary directory, the retained Build01 files, and guarded modified hashes.
+Output: BUILD02_ROLLBACK_PASS copy_restored=Build01 later_edit_guard=true live_machines=25
+Exit status: 0
+Restored behavior/status: copy is restored to the exact Build01 package and two-machine
+configuration; an unrelated file survives; editing World.luau blocks the entire
+restore before any write; the delivered Build02 game remains changed with 25 machines.
+
+EXECUTABLE SHELL ENTRY POINT
+Command: & 'C:\Program Files\Git\bin\bash.exe' -c 'chmod +x evidence/build02/ROLLBACK.sh && ./evidence/build02/ROLLBACK.sh --test'
+Input: the actual executable shell entry point and the same temporary-copy test.
+Output: BUILD02_ROLLBACK_PASS copy_restored=Build01 later_edit_guard=true live_machines=25
+Exit status: 0
+Git Bash was invoked with approved sandbox escalation because its MSYS object
+creation is denied inside the restricted shell environment. Test never rolls back
+the delivered game or Studio. Without --test the script intentionally restores the
+guarded local Build01 files, not Studio; later edits cause a preflight refusal.
+
+ROBLOX ENGINE CHECKS
+Tool: mcp__Roblox_Studio__execute_luau.
+Studio: Place1 / e61098e4-d8d3-49ef-9f97-283fdbc2c530, previously confirmed by user.
+MCP isError=false is the success result. This tool exposes no OS exit code;
+therefore OS exit status for these engine checks is not applicable.
+Raw structured evidence: ENGINE_RESULTS.json.
+
+Baseline / Edit: actual previous pure-module test runner, before changing sources.
+Output: CONTRACTS_PASS checks=78 loop=catch-display-income-collect-classic persistence=fault-injected purchases=disabled
+Result: isError=false.
+
+Modified / Edit: generated tests/RUN_IN_STUDIO.luau from the actual current modules.
+Output: CONTRACTS_PASS checks=389 machines=25 silhouettes=25 pools=25 legacy=compatible purchases=disabled
+Result: isError=false. Installer also compiles all seven scripts before installing.
+Includes all 25 earned-unlock transitions, selected-machine pools, inaccessible
+selection rejection, legacy selected-field fallback and original persistence faults.
+Fixture currency in the pure tests is not described as earned-player gameplay.
+
+Scene / Server: tests/scene_build02.luau, isolated non-rendered ServerStorage fixture.
+Output: SCENE_PASS cabinets=25 geometry_unique=25 target_claw_prompt_checks=25 studded_tiles=96 live_player_data=unchanged
+Result: isError=false. Fixture destroyed after assertions; no player currency/items granted.
+Geometry uniqueness ignores colors, semantic part names, text and prize species.
+Every cabinet exercises its own target replacement, claw pivot and unlocked prompt.
+
+Actual Edit preview inspection:
+machines=25; silhouettes=25; studdedFloorTiles=96; raisedWallStuds=208;
+parts=2200; decoration descendants=166.
+Every floor tile uses native SurfaceType.Studs. Native studs also cover wall panels;
+individual additional raised caps reinforce selected walls and floor circulation lanes.
+
+Real UI / Client:
+RESUME_PASS owned=2 selected=Classic wallet=$70 discoveries=retained Studio_only=true
+AIM_VISUAL_PASS selected=Classic header_text=hidden camera=Scriptable
+BUILD02_PLAY_PASS Classic=catch_display_income walk_camera=restored speed=16 header=restored
+CATALOG_UI_PASS cards=25 late_tiers=locked earlier_owned=selectable
+SELECTION_UI_PASS owned_Classic_to_Rusty=true progression_retained=true
+Physical E prompt observed: promptActivated=true, play=DROP CLAW!, player inside own plot.
+BUILD02_EARNED_UNLOCK_PASS third_machine=Candy price=$600 input=actual_scrolled_UI free_plays=true
+All returned isError=false. The earned Candy purchase used actually accumulated
+shelf-bank income, with no test wallet grants or time skip. An initial attempt to
+click an offscreen catalog button hit Play instead; scrolling the button into the
+visible content bounds corrected the test. It is not reported as an initial success.
+
+Studio rollback / Edit, actual backup containers:
+Command/input: execute evidence/build02/STUDIO_ROLLBACK.luau after stopping Play.
+Output: BUILD02_STUDIO_ROLLBACK_PASS restored=Build01 cabinets=2 backup=retained
+Postcondition: BUILD02_RESTORED_BASELINE_PASS machines=2 preview=Build01
+Result: isError=false. Build02 was subsequently reinstalled, not left rolled back.
+
+DEVICE AND VISUAL CHECKS
+Desktop live HUD and aim mode inspected. iPhone 17 Pro portrait and landscape
+simulator inspected; controls and navigation remain on screen with >=44-pixel
+target heights. Runtime ScreenOrientation remains Sensor; GUI uses core safe insets.
+BUILD02_PHONE_PORTRAIT_PASS nav=onscreen targets>=44 walking_camera=Custom
+BUILD02_PHONE_LANDSCAPE_PASS play_target>=44 nav_target>=44
+Result: isError=false. Studio simulation stopped and default viewport restored.
+Physical-device touch and complete multiplayer performance certification remain open.
+
+Engine-capture JPEG artifacts (not AI concept renders):
+Arcade Interior.jpg; Gallery Row 1.jpg through Gallery Row 5.jpg;
+Ticket Counter Props.jpg; Decorated Lounge.jpg; Desktop Gameplay.jpg;
+Classic Aiming.jpg; Phone Portrait.jpg; Phone Landscape.jpg.
+Gallery captures temporarily used FOV 85; original FOV 70 was restored.
+
+FIXES / LIMITATIONS
+Aiming now hides header SurfaceGui text as well as roof geometry. Round exit restores
+walking speed and Custom camera. Spawn moved ahead of the counter to reduce camera
+occlusion. Old owned machines remain selectable instead of being replaced by a new tier.
+No ClawEmpire script exception was observed in final console checks. Host Roblox
+CorePackages FoundationProvider warnings and avatar asset-type messages remain;
+these are not described as a completely empty console.
+
+No game was published, no real purchase enabled and no live product ID configured.
+Late-tier balance, production DataStore outage/rejoin tests, real four-client
+performance, merge/ascension and original audio remain separate release work.
+The user's live test was snapshotted before refresh and restored; a final snapshot
+retains the new Candy unlock and displayed plushie. The optional development folder
+is only read in Studio, is not embedded in the packaged place and is ignored by
+published servers. Normal Studio memory changes still reset to that stored snapshot
+on another Play. Disable ServerStorage.CME_StudioResume to start fresh.
+
+FINAL STATUS
+Build02 remains installed in Edit, with 25 cabinets and its decorated preview.
+Default viewport and FOV 70 restored. Build01 backup retained. MODIFIED_FILE remains
+changed. Five linked project notes now include the current Build02 note, video
+reference observations and actual screenshots inside the existing Obsidian vault.

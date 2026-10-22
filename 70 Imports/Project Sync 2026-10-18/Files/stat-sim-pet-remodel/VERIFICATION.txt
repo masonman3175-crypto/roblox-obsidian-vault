@@ -1,0 +1,88 @@
+Target: pet/egg visual remodel in ultimate slopp v1, place 98823628319724.
+Studio: 7997c1e7-846e-48c9-8d6e-d9de612fece5. Date: 2026-10-18.
+Final state: installed in Edit; 63 pet templates, 10 massive variants, 11 world egg previews. Play creates 11 tagged eggs with no duplicated previews. No publish operation.
+
+CHANGED BRANCHES/FIELDS
+PetDesigns.List species/theme/feature/Size for all 63 IDs; PetModelBuilder native geometry and surface-outward AuraParticles; PetVisual.Make Preview/WorldSize sizing and PetVisual.Animate; PetController size-aware formation, bob/wing/orbit animation and distance particle limits; PetsController normalized viewports/HUGE label; HatchController shared mystery-egg viewport; EggService eggModel/setupStand visual creation only. Three new modules, five changed modules.
+Unchanged: economy configs, all 35 other existing script sources, original six worlds, appended track (34986 parts), nine-mesh punch character, relocated leaderboard and global Bloom.Intensity 0.14.
+
+FOUR PATHS
+C:/Users/mason/OneDrive/Desktop/slopshitv1/stat-sim-pet-remodel/MODIFIED_FILE.luau
+C:/Users/mason/OneDrive/Desktop/slopshitv1/stat-sim-pet-remodel/DIFF_FILE.diff
+C:/Users/mason/OneDrive/Desktop/slopshitv1/stat-sim-pet-remodel/VERIFICATION.txt
+C:/Users/mason/OneDrive/Desktop/slopshitv1/stat-sim-pet-remodel/ROLLBACK.sh
+
+BASELINE
+CWD: C:/Users/mason/OneDrive/Desktop/slopshitv1/stat-sim-pet-remodel
+Exact command: & C:\Python314\python.exe -X utf8 tools/check.py baseline
+Input: baseline/sources.json, seven original source exports, baseline/scene.rbxm and baseline/sha256.json.
+Literal output: BASELINE_PASS originals=7 models=10 stands=11 hashes=preserved
+Exit status: 0.
+Original serialized scene: 260285 bytes, SHA256 583642f56a7c36386717eb13fb2c63bfb3f0b78b01cb0db84a255d13e955344c.
+Engine command: Roblox_Studio.execute_luau(studio_id=7997c1e7-846e-48c9-8d6e-d9de612fece5,datamodel_type=Edit,code=contents of tests/BASELINE.luau).
+Input: original scene before installation.
+Literal result: BASELINE_PASS pets=63 custom_models=10 massive=0 egg_style=sphere economy=preserved
+MCP status: isError=false; engine calls have no process exit code.
+
+MODIFIED
+Exact command: & C:\Python314\python.exe -X utf8 tools/check.py verify
+Input: eight modified sources, manifest.json, MODIFIED_FILE.luau, DIFF_FILE.diff and actual evidence/installed-scene.json.
+Literal output: MODIFIED_PASS modules=8 pets=63 massive=10 eggs=11 particles=surface preview=normalized
+Exit status: 0.
+Engine command: Edit execute_luau with contents of MODIFIED_FILE.luau.
+Literal result: INSTALL_PASS pet_models=63 egg_previews=11 sources=8 economy=untouched
+MCP status: isError=false.
+Engine command: Edit execute_luau with contents of tests/MODIFIED.luau.
+Literal result: MODIFIED_PASS pets=63 massive=10 eggs=11 particles=85 preview_size=3 economy=unchanged unrelated_sources=35
+MCP status: isError=false.
+Assertions: all pet bodies are native block Parts; expressive eye geometry; ten 11–22-stud massive variants; 3-stud preview bounding boxes; all parts anchored/non-colliding/non-touching/non-queryable; bounded pet emitters; all eleven eggs have actual stud knobs, cracks, mystery marks, nests, shards and two emitters; per-world palettes; orbit/wing motion; distance disabling; original stand transforms; original economy source hash; all outcomes reachable at original weighted intervals, with and without Lucky.
+
+PLAY
+Started Play. Runtime confirmed all 11 egg stands have Model eggs and original hatch/buy prompts, no EggPreview duplicates; client PetsGui, HatchGui and PetFollowers loaded.
+Temporary QA harness seeded three pets and 100 coins only in a test profile, then later restored its captured original profile. Test code was removed in Play and never added to Edit.
+Input command: user_keyboard_input(Client, actions=[keyDown E, wait400ms, keyUp E, wait3600ms]); server character teleported within Starter prompt range before input.
+Literal result: PLAY_HATCH_PASS input=E coins=100->75 inventory=3->4 original_odds=true
+MCP status: isError=false.
+Client real remotes: EquipPet(QA3,false), then EquipBest(), with 500ms waits.
+Literal result: EQUIP_PASS unequip=2 equip_best=3
+MCP status: isError=false.
+Actual inventory viewports/followers check:
+PLAY_VISUAL_PASS equipped=3 massive=2 particles=3 viewport_cards=13 preview_size=3 eggs=11 duplicates=0
+MCP status: isError=false. The inventory count was observed at the time of this later UI check, not assumed to remain at the earlier four-item hatch snapshot.
+After the final surface-emission change, a fresh Play run executed tests/PLAY_PARTICLES.luau on Client without modifying the player profile.
+Literal result: PLAY_PARTICLES_PASS pet_emitters=63 egg_emitters=22 shape=surface_outward gui=loaded native_geometry=replicated
+MCP status: isError=false.
+Temporary animated screenshot scene:
+PHOTO_PASS pets=8 eggs=4 emitters=16 animated=true camera_gui=restored
+MCP status: isError=false.
+Play stopped, all temporary workspace test scenes removed/archived outside gameplay. Final Edit result:
+FINAL_STATE_PASS studio=Edit pet_models=63 egg_previews=11 qa_removed=true
+MCP status: isError=false.
+Existing Studio datastore API-access warnings and unrelated original asset-type warnings were observed. This task made no security-setting changes and claims no datastore persistence or publication test.
+
+ROLLBACK — ENGINE COPY / RESTORED BEHAVIOR
+Exact engine command: Edit execute_luau with local rollback=loadstring(contents of tools/ROLLBACK_STUDIO.luau)(), followed by contents of tests/ROLLBACK_COPY.luau.
+Input: a disposable isolated service-folder fixture populated from the installed source/model copies and one egg stand; original ServerStorage.PetRemodel_Backup supplies restoration.
+Literal result: ROLLBACK_PASS sources=5 original_models=10 egg_previews=0 restored=original_visuals copy=true restored_max_size=3 live_remodel=retained
+MCP status: isError=false; no process exit code.
+Restored behavior/status: five original sources are byte-equal to backup, three added modules are absent, original ten custom pet models restored, egg previews removed. The restored old PetVisual factory was actually executed against the copied ReplicatedStorage for all 63 IDs; every model returned to the original maximum size of 3 studs. The live place retained all 63 remodeled templates and eleven egg previews. Fixture was destroyed after testing.
+
+ROLLBACK — EXECUTABLE LOCAL WRAPPER
+CWD: C:/Users/mason/OneDrive/Desktop/slopshitv1/stat-sim-pet-remodel
+Exact command: & 'C:\Program Files\Git\bin\bash.exe' ./ROLLBACK.sh --test
+Input: disposable copy of src plus an unrelated marker; baseline/tree contains the original five modules.
+Literal output: ROLLBACK_PASS copy=original_sources_5 added_modules=removed unrelated=preserved live_files=retained
+Exit status: 0.
+Restored status: copied source tree contains exactly the original five source modules with original source hashes; all three added modules removed; unrelated marker retained; working sources and installed Studio scene remain changed.
+ROLLBACK.sh was chmod +x and test -x passed. Windows sandbox MSYS startup initially returned NtCreateDirectoryObject 0xC0000022; the approved local-copy-only retry ran successfully. An initial newline-normalization assertion was fixed by writing baseline source copies with LF; final rollback test passes.
+
+ORIGINAL WORLD REGRESSION
+Exact engine command: Edit execute_luau with C:/Users/mason/OneDrive/Desktop/slopshitv1/stat-sim-pet-remodel/../stat-sim-track-extension/tests/originals.luau.
+Literal result: ORIGINALS_PASS worlds=6 original_descendants=3531 geometry_colors_meshes_signs=preserved distance_boards=preserved exception=outer_end_backdrop_opened
+MCP status: isError=false.
+
+EVIDENCE
+evidence/installed-scene.json records all eight actual installed source SHA256 values and all 63 pet visual extents, ten Massive attributes, eleven preview stands, track part count 34986, dummy mesh count 9 and Bloom 0.14.
+Screenshots are actual native Studio captures, not mockups: pets-gallery.jpg, massive-pets.jpg, pets-and-eggs.jpg, inventory.jpg.
+The four deliverables and supporting sources, snapshot, tests and images were reopened/read and verified before delivery.
+

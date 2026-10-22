@@ -1,0 +1,53 @@
+{
+  "baseline": {
+    "command": "execute_luau(Edit, evidence/build03/baseline/tests/RUN_IN_STUDIO.luau)",
+    "result": "CONTRACTS_PASS checks=389 machines=25 silhouettes=25 pools=25 legacy=compatible purchases=disabled",
+    "isError": false
+  },
+  "modified": {
+    "command": "execute_luau(Edit, tests/RUN_IN_STUDIO.luau)",
+    "result": "CONTRACTS_PASS checks=649 machines=25 silhouettes=25 pools=25 legacy=compatible purchases=disabled",
+    "isError": false
+  },
+  "scene": {
+    "content": [
+      {
+        "type": "text",
+        "text": "SCENE_PASS cabinets=25 geometry_unique=25 target_claw_prompt_checks=25 studded_tiles=330 area=132000 districts=5 live_player_data=unchanged"
+      }
+    ],
+    "isError": false
+  },
+  "sourceSync": {
+    "content": [
+      {
+        "type": "text",
+        "text": "STUDIO_SOURCE_SYNC_PASS scripts=7 portable=matching"
+      }
+    ],
+    "isError": false
+  },
+  "studioRollback": {
+    "command": "execute_luau(Edit, evidence/build03/STUDIO_ROLLBACK.luau)",
+    "result": "BUILD03_STUDIO_ROLLBACK_PASS restored=Build02 cabinets=25 backup=retained",
+    "behavior": "RESTORED_BEHAVIOR_PASS build=02 machines=25 tiles=96 previous_hud=true",
+    "after": "Build03 reinstalled and source matched the portable package"
+  },
+  "liveChecks": [
+    "CATCH03_PASS before=11 after=12 replay_grants=0 reveal_models=1",
+    "REVEAL_DISPLAY_PASS item=12 shelves=2 overlay=closed",
+    "MISS03_PASS clamped=4,3 grants=0 reveal=false FX_cleaned=true",
+    "COLLECT03_PASS UI_clicked=true bank_transferred=true income_continues=true",
+    "FINAL_BUILD03_PASS grant=once reveal=centered FX=cleaned movement=restored",
+    "FINAL_PHONE03_PASS display=46 keep=44 safe_bounds=true preview=centered",
+    "FINAL_PORTRAIT03_PASS wallet_menu_play=inside_safe_canvas default_touch=restored",
+    "DEVICE_FINAL_PASS simulation=default orientation=landscape"
+  ],
+  "caveats": [
+    "The initial combined open-menu/collect click failed because the menu child did not yet exist; collection was then clicked separately and its wallet/bank delta asserted.",
+    "The initial cartoon button border issue was corrected in source and re-tested from a fresh Play.",
+    "The initial phone reveal shrank touch targets; the final layout uses native 46/44-pixel buttons.",
+    "CorePackages FoundationProvider and unrelated avatar asset warnings remain in CONSOLE.json. No final game-source errors were seen."
+  ],
+  "status": "Play is active in Place1 on Build03. Studio-only stored resume includes original progress plus QA through 14 catches; the live session includes the later QA catch. Portable place contains no personal snapshot."
+}

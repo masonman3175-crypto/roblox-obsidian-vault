@@ -1,0 +1,186 @@
+CLAW MACHINE EMPIRE — BUILD 01 / FIRST CATCH
+Recorded 2026-10-18. Result: playable Studio alpha; not a published launch game.
+
+CHANGED BRANCH / FIELDS
+No Git branch was created. A new isolated claw-machine-empire project was added.
+Empty-script packaging fixture -> seven Luau sources, generated runtime world and UI.
+Actual confirmed Studio target: Place1, e61098e4-d8d3-49ef-9f97-283fdbc2c530.
+New namespaces: ReplicatedStorage.ClawEmpire; ServerScriptService.ClawEmpire;
+StarterPlayer.StarterPlayerScripts.ClawEmpireClient; Workspace.ClawEmpirePreview.
+Play-only world: Workspace.ClawEmpirePlots, removed with the Play session.
+Current progression: Rusty -> Classic. Config.PurchasesEnabled=false, productId=0.
+Config.StudioSessionOnly=true; Classic alpha cost=250, not the draft $25K.
+Four game notes and preserved references were added under the existing Obsidian vault.
+No existing research notes, research rollback, Baseplate or SpawnLocation were replaced.
+
+FOUR TRANSACTION ARTIFACTS (absolute paths)
+MODIFIED_FILE: C:\Users\mason\OneDrive\Desktop\slopshitv1\claw-machine-empire\Claw Machine Empire.rbxlx
+DIFF_FILE: C:\Users\mason\OneDrive\Desktop\slopshitv1\claw-machine-empire\evidence\DIFF_FILE.diff
+VERIFICATION: C:\Users\mason\OneDrive\Desktop\slopshitv1\claw-machine-empire\evidence\VERIFICATION.txt
+ROLLBACK: C:\Users\mason\OneDrive\Desktop\slopshitv1\claw-machine-empire\ROLLBACK.sh
+
+RETAINED BASELINE / HASHES (SHA-256)
+Actual pre-install Studio state: evidence/BASELINE.json
+7F1160475E84208B5B68DFB5C25081E684B63A639B885FCF4C12BDB8FEFAF75E
+Empty-script packaging fixture: evidence/BASELINE.rbxlx
+60C1453EDD791E165BCCC029DD725B1580E5476E3CFEF8BE591484C2B4E90558
+MODIFIED_FILE:
+1FCC341C3C64D813E0F7498E76EB53A82E5ED1751DC804F4ECE9D748E28A962E
+Original attached design and preserved copy, byte-identical:
+319E5B26197D6BE8E5A0FFFC5CF4079A6851D7889E1FAC110F1C89FC25EA56B5
+Per-source and generated-file hashes are in evidence/SHA256.json.
+BASELINE.rbxlx is an explicitly synthetic packaging fixture, NOT an export of the
+original Place1 geometry. Actual Studio originals were retained in place.
+
+EXACT LOCAL COMMANDS / INPUT / LITERAL OUTPUT / EXIT STATUS
+Working directory for every command below:
+C:\Users\mason\OneDrive\Desktop\slopshitv1\claw-machine-empire
+Runtime: Python 3.14.6 at C:\Python314\python.exe.
+
+BUILD
+Command: & 'C:\Python314\python.exe' tools/build.py
+Input: src/**/*.luau, tests/contracts.luau, evidence/BASELINE.json; baseline fixture retained if already present.
+Output: BUILD_PASS scripts=7 place_xml=valid installer=generated baseline=preserved
+Exit status: 0
+
+BASELINE
+Command: & 'C:\Python314\python.exe' tools/verify.py baseline
+Input: evidence/BASELINE.rbxlx, evidence/BASELINE.json, evidence/SHA256.json.
+Output: BASELINE_PASS scripts=0 original=preserved
+Exit status: 0
+
+MODIFIED
+Command: & 'C:\Python314\python.exe' tools/verify.py modified
+Input: Claw Machine Empire.rbxlx; all seven src files; SHA256 manifest; installer, rollback and diff artifacts.
+Output: MODIFIED_PASS scripts=7 source_sync=true purchases=disabled
+Exit status: 0
+
+ROLLBACK ON ANOTHER COPY
+Command: & 'C:\Python314\python.exe' tools/verify.py rollback --test
+Input: delivered modified place copied into evidence/rollback-fixtures/cme-rollback-<temporary-id>.
+Output: ROLLBACK_PASS copy_restored=true later_edit_guard=true live_modified=true
+Exit status: 0
+Restored behavior/status: disposable copy becomes byte-identical to baseline with
+zero scripts; unrelated file survives; a later edit is rejected by the actual
+restore guard; the delivered MODIFIED_FILE remains changed and hash-identical.
+
+EXECUTABLE SHELL ENTRY POINT
+Command: & 'C:\Program Files\Git\bin\bash.exe' -c 'chmod +x ROLLBACK.sh && ./ROLLBACK.sh --test'
+Input: same disposable-copy rollback test, reached through the actual shell script.
+Output: ROLLBACK_PASS copy_restored=true later_edit_guard=true live_modified=true
+Exit status: 0
+Git Bash required an approved unsandboxed invocation because its MSYS object
+creation was denied inside the sandbox. An approval-review timeout on the first
+attempt was retried once successfully. No live rollback was run by this shell test.
+The first Python test also exposed a sandbox TEMP write denial; its temporary
+fixture directory was moved under this workspace and the test then passed.
+
+ROBLOX ENGINE VERIFICATION (tool return status, not OS process exit codes)
+Tool: mcp__Roblox_Studio__execute_luau.
+Studio ID: e61098e4-d8d3-49ef-9f97-283fdbc2c530.
+MCP success is reported as isError=false; this tool does not expose OS exit codes.
+Raw result records: evidence/ENGINE_RESULTS.json.
+
+BASELINE / Edit
+Input: read-only snapshot of Place1, workspace children, script counts, Lighting and camera.
+Literal baseline field: BASELINE_PASS empty-script-place existing-world-preserved
+Observed fields: placeId=0, gameId=0, serverScripts=0, clientScripts=0.
+Result status: isError=false; OS exit: not applicable.
+
+COMPILE / Edit
+Input: each of the seven final source strings passed through Roblox loadstring.
+Output: COMPILE_PASS scripts=7
+Result status: isError=false; OS exit: not applicable.
+
+CONTRACTS / Edit
+Input: tests/RUN_IN_STUDIO.luau, generated from the actual pure modules and tests/contracts.luau.
+Output: CONTRACTS_PASS checks=78 loop=catch-display-income-collect-classic persistence=fault-injected purchases=disabled
+Result status: isError=false; OS exit: not applicable.
+Checks include non-native exponents, invalid numbers, overspend, weighted bounds,
+unique grants, foreign IDs, duplicate display, collect/sale replay, caps, earned
+unlock, upgrades, corrupt profiles, owner exclusion, same-token load recovery,
+outage handling, retained data on rejoin, lease takeover and stale-owner rejection.
+These are actual Luau tests with an injected backend, not live DataStore tests.
+
+ACTUAL FINAL UI LOOP / Client
+Input: real user_mouse_input clicks: Play -> Drop -> Item1.Display -> Close ->
+Collect after real elapsed income -> Machines -> classic.Unlock.
+Read-only postcondition: PLAY CLASSIC >; cabinet status READY TO PLAY!.
+Output: FINAL_ENGINE_LOOP_PASS input=mouse catch=1 display=1 income=$5/sec collect=earned next_machine=Classic source=final
+Result status: isError=false; OS exit: not applicable.
+No wallet grants, time skips or test-only economy overrides funded this loop.
+
+ADDITIONAL GAMEPLAY
+Observed successful servo upgrade: Servo speed 1 / 4; toast Servo speed upgraded!.
+Observed Classic catch: You caught Mochi Bunny! Place it on a shelf.
+Keyboard D moved the server aim cursor; Space completed a catch.
+On-screen direction interaction moved the cursor and Drop completed a second catch.
+Final source smoke output:
+FINAL_ENGINE_SMOKE_PASS catch=Goofy_Duck display=1 income=$5/sec source=final
+Result status: isError=false; OS exit: not applicable.
+
+REMOTE VALIDATION / Client -> Server
+Input: sequential display(999999), display(NaN), upgrade('forged'), sell(infinity),
+unknown action; 0.25-second gaps; compare own authoritative snapshots before/after.
+Output: REMOTE_VALIDATION_PASS foreign_id nan infinity unknown_upgrade unknown_action inventory_wallet_unchanged
+Result status: isError=false; OS exit: not applicable.
+
+STUDIO ROLLBACK / Edit
+Input: generated STUDIO_ROLLBACK.luau after stopping Play.
+Output: STUDIO_ROLLBACK_PASS namespaces=removed original-baseplate-and-spawn=preserved lighting-camera=restored
+Follow-up assertion output: ENGINE_ROLLBACK_PASS original=empty-script-place baseplate=present spawn=present camera=Fixed
+Result status: isError=false; OS exit: not applicable.
+Restored behavior/status: original zero-script Studio state, original Baseplate and
+SpawnLocation retained, recorded camera and lighting restored. Game then reinstalled.
+
+FINAL SOURCE COMPARISON / Edit
+Input: exact string equality between the seven installed Script.Source values and
+the seven local source files used to build MODIFIED_FILE.
+Output: FINAL_SOURCE_COMPARE_PASS installed=7 local=7 exact_match=true
+Result status: isError=false; OS exit: not applicable.
+
+DEVICE / VISUAL CHECKS
+Settings: StarterGui.ScreenOrientation=Sensor; runtime ScreenGui uses default
+CoreUISafeInsets and retains the top-bar safe area. Camera framing adapts in portrait.
+Studio simulator presets: Average Laptop, iPhone 17 Pro landscape and portrait,
+iPad Pro M5 (13in) landscape. Actual recorded laptop viewport: 1366x766;
+phone landscape viewport: 749x381 (GUI 749x323); portrait: 401x777 (GUI 401x719).
+Final portrait assertion output:
+PORTRAIT_LAYOUT_PASS navigation=onscreen touch_targets>=44 camera=portrait-adapted source=final
+Image artifacts saved from actual engine captures (JPEG signatures verified):
+evidence/Laptop HUD.jpg
+evidence/Phone Landscape Aim.jpg
+evidence/Phone Portrait HUD.jpg
+evidence/Shop Preview.jpg
+Simulator instance-path clicking showed inset-related targeting inconsistencies
+on phone/tablet. Desktop UI loop and phone visual layout checks passed; physical
+touch input and exhaustive mobile interaction are not claimed as certified.
+
+FIXES DURING TESTING
+Initial UI initialization blocked on an absent default PlayerModule. It now
+queries controls asynchronously with a timeout; UI never waits indefinitely.
+Canvas sizing now uses actual GUI safe-area dimensions; tutorial/collect overlap
+was removed; short-landscape layout uses native-sized buttons; cabinet roofs hide
+locally while aiming; the home camera is held after the platform camera update;
+portrait framing keeps the playable cabinets visible; catches open inventory.
+No game-script exception was observed after these fixes. Host CorePackages
+FoundationProvider warnings and an avatar asset 203785492 type error remained;
+game sources do not reference that asset. Console was not falsely described as empty.
+
+REMAINING WORK / CURRENT STATUS
+Studio is left in Edit mode with the build installed, preview present and device
+simulation stopped (device=default). Studio reset to default viewport.
+The final portable place remains modified. No game was published and no Robux
+purchase enabled. Studio progress intentionally resets on Stop.
+Live persistent adapter operations require a published staging universe and API
+configuration; real backend failures and multi-server contention remain untested.
+Four plot slots exist; a real four-client isolation/performance run remains open.
+Only two machine tiers and six species are playable. Merge, ascension, expansion,
+quests, live commerce and original audio remain on the Build 02+ backlog.
+Scientific money is finite-precision and exponent-bounded, not mathematical infinity.
+
+HANDOFF
+Project instructions: C:\Users\mason\OneDrive\Desktop\slopshitv1\claw-machine-empire\README.md
+Obsidian hub: C:\Users\mason\OneDrive\Desktop\slopshitv1\slopshit\60 Games\Claw Machine Empire\Claw Machine Empire - Game Hub.md
+The full user design and four image references are preserved, and four new
+interlinked game notes connect the implementation to the existing research graph.

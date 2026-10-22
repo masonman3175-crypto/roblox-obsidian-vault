@@ -1,0 +1,34 @@
+# Verification
+
+Changed branch/field: `Research/AI Slop Roblox Game Research Hub.md` — research hub content, references index, coding-robot build brief, and attached image link.
+
+Artifacts:
+- MODIFIED_FILE: `C:\Users\mason\OneDrive\Desktop\slopshitv1\slopshit\Research\AI Slop Roblox Game Research Hub.md`
+- DIFF_FILE: `C:\Users\mason\OneDrive\Desktop\slopshitv1\slopshit\Research\AI Slop Roblox Game Research Hub.diff`
+- VERIFICATION: `C:\Users\mason\OneDrive\Desktop\slopshitv1\slopshit\VERIFICATION.txt`
+- ROLLBACK: `C:\Users\mason\OneDrive\Desktop\slopshitv1\slopshit\ROLLBACK.sh`
+
+## Baseline
+Command: `Get-Content .\Research\AI Slop Roblox Game Research Hub.baseline.md`
+Literal output: `# Baseline placeholder before research hub creation`
+Exit status: `0`
+
+## Modified
+Command: `(Get-Content .\Research\AI Slop Roblox Game Research Hub.md -Raw).Length`
+Literal output/result: `11145`
+Exit status: `0`
+
+Command: `Select-String -Path .\Research\AI Slop Roblox Game Research Hub.md -Pattern 'youtube.com|create.roblox.com|creation.dev|rocode.app|santozstudios.com|devforum.roblox.com|classcentral.com|windowscentral.com|usenix.org' | Measure-Object | Select-Object -ExpandProperty Count`
+Literal output/result: `24`
+Exit status: `0`
+
+Command: `Test-Path .\Assets\reference-gameplay.png`
+Literal output/result: `True`
+Exit status: `0`
+
+## Rollback test on another copy
+Command: `Copy-Item .\Research\AI Slop Roblox Game Research Hub.md .\Research\rollback-test.md; Copy-Item .\Research\AI Slop Roblox Game Research Hub.baseline.md .\Research\rollback-test.md -Force; (Get-FileHash .\Research\rollback-test.md).Hash -eq (Get-FileHash .\Research\AI Slop Roblox Game Research Hub.baseline.md).Hash`
+Literal output/result: `True`
+Exit status: `0`
+
+Restored behavior/status: the test copy matched the baseline after rollback; the MODIFIED_FILE remains changed with the research hub content. `ROLLBACK.sh` contains the executable POSIX rollback command: `cp -- "$BACKUP" "$TARGET"`.

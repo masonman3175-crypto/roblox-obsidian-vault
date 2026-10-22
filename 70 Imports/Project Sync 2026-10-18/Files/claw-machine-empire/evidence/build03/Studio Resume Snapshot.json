@@ -1,0 +1,4 @@
+{
+  "userId": 11811528312,
+  "profile": "{\"inventory\":[{\"id\":9,\"species\":\"mochi\"},{\"id\":10,\"species\":\"frog\"},{\"id\":11,\"species\":\"bloom\"}],\"upgrades\":{\"speed\":0,\"shelves\":0},\"machine\":4,\"coins\":{\"m\":1.0213011968000792,\"e\":3},\"nextId\":12,\"totalCatches\":11,\"selected\":3,\"display\":[9],\"discovered\":{\"bloom\":true,\"frog\":true,\"duck\":true,\"mochi\":true},\"schema\":1,\"bank\":{\"m\":1.7176587231999752,\"e\":3}}"
+}

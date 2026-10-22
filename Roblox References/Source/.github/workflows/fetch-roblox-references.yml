@@ -1,0 +1,28 @@
+name: Fetch Roblox PNG references
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/fetch_roblox_images.py'
+      - '.github/workflows/fetch-roblox-references.yml'
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download PNG references
+        run: python scripts/fetch_roblox_images.py
+      - name: Commit downloaded images and source manifest
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add thumbnails logos roblox-image-manifest.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Add Roblox thumbnail and logo PNG references"
+            git push
+          fi

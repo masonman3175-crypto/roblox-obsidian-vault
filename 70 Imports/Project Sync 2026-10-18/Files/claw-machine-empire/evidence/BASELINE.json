@@ -1,0 +1,56 @@
+{
+  "camera": {
+    "type": "Fixed",
+    "cframe": {
+      "1": -41.3100471496582,
+      "2": 29.611717224121094,
+      "3": -33.15898513793945,
+      "4": -0.7061503529548645,
+      "5": 0.3129655718803406,
+      "6": -0.635141134262085,
+      "7": 0,
+      "8": 0.8970135450363159,
+      "9": 0.4420031011104584,
+      "10": 0.708061933517456,
+      "11": 0.312120646238327,
+      "12": -0.6334264278411865
+    }
+  },
+  "baseline": "BASELINE_PASS empty-script-place existing-world-preserved",
+  "workspace": {
+    "1": {
+      "name": "Camera",
+      "class": "Camera"
+    },
+    "2": {
+      "name": "Baseplate",
+      "class": "Part"
+    },
+    "3": {
+      "name": "Terrain",
+      "class": "Terrain"
+    },
+    "4": {
+      "name": "SpawnLocation",
+      "class": "SpawnLocation"
+    }
+  },
+  "gameId": 0,
+  "serverScripts": 0,
+  "placeId": 0,
+  "lighting": {
+    "ClockTime": 14.5,
+    "Brightness": 3,
+    "Ambient": {
+      "1": 0.27450981736183167,
+      "2": 0.27450981736183167,
+      "3": 0.27450981736183167
+    },
+    "OutdoorAmbient": {
+      "1": 0.27450981736183167,
+      "2": 0.27450981736183167,
+      "3": 0.27450981736183167
+    }
+  },
+  "clientScripts": 0
+}

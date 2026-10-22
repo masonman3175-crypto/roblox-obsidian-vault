@@ -1,0 +1,39 @@
+TARGET: ultimate slopp v1 / PunchFxController audio and dummy CharacterVisual
+STATE: changed in open Studio Edit session; cloud save not verified
+CHANGED BRANCH/FIELD: PunchFxController impactAudio/playOneShot and Workspace.Map.Gameplay.PunchLane.Dummy.CharacterVisual
+ORIGINAL SHA-256: 5B8C5D18528703A5CB17A4D7E0A5915D08021E1AF5651E7D024E76EF089BF915
+MODIFIED SHA-256: EB16EB2933F6CDC347B62F49C356CA9BC29B9CDA4ED134E8DF092ACADEB20ED3
+
+FOUR ARTIFACTS:
+MODIFIED_FILE: C:\Users\mason\OneDrive\Desktop\slopshitv1\stat-sim-publish-ready\MODIFIED_FILE
+DIFF_FILE: C:\Users\mason\OneDrive\Desktop\slopshitv1\stat-sim-publish-ready\DIFF_FILE
+VERIFICATION.txt: C:\Users\mason\OneDrive\Desktop\slopshitv1\stat-sim-publish-ready\VERIFICATION.txt
+ROLLBACK.sh: C:\Users\mason\OneDrive\Desktop\slopshitv1\stat-sim-publish-ready\ROLLBACK.sh
+
+BASELINE COMMAND: python 'C:\Users\mason\OneDrive\Desktop\slopshitv1\stat-sim-publish-ready\validate.py' baseline
+BASELINE INPUT: baseline/PunchFxController.luau
+BASELINE LITERAL OUTPUT: BASELINE PASS: punch cutscene had no hit, whoosh, or boing audio
+BASELINE EXIT STATUS: 0
+
+MODIFIED COMMAND: python 'C:\Users\mason\OneDrive\Desktop\slopshitv1\stat-sim-publish-ready\validate.py' modified
+MODIFIED INPUT: modified/PunchFxController.luau, modified/install_visual.luau, MODIFIED_FILE
+MODIFIED LITERAL OUTPUT: MODIFIED PASS: cartoon visual installer, 3 punch SFX, 2-second hit cap, source mirror
+MODIFIED EXIT STATUS: 0
+
+ROLLBACK COMMAND: & 'C:\Program Files\Git\bin\bash.exe' 'C:\Users\mason\OneDrive\Desktop\slopshitv1\stat-sim-publish-ready\ROLLBACK.sh' 'C:\Users\mason\OneDrive\Desktop\slopshitv1\stat-sim-publish-ready\rollback-copy'
+ROLLBACK INPUT: rollback-copy/PunchFxController.luau initially copied from modified source
+ROLLBACK LITERAL OUTPUT: ROLLBACK PASS: baseline PunchFxController restored to target copy
+ROLLBACK EXIT STATUS: 0
+ROLLBACK CHECK COMMAND: python 'C:\Users\mason\OneDrive\Desktop\slopshitv1\stat-sim-publish-ready\validate.py' rollback
+ROLLBACK CHECK LITERAL OUTPUT: ROLLBACK PASS: original silent cutscene restored in test copy; modified source retained
+ROLLBACK CHECK EXIT STATUS: 0
+RESTORED BEHAVIOR/STATUS: isolated rollback-copy has original silent punch cutscene; active MODIFIED_FILE and Studio Edit remain changed. STUDIO_ROLLBACK.luau compiles and can restore the original visual and script from ServerStorage backup.
+
+STUDIO MODIFIED TEST: install_visual.luau -> VISUAL PASS: cartoon boy installed, 32 parts; prompt preserved
+STUDIO AUDIO TEST: prompt punch local client audio probe -> AUDIO=rbxassetid://9120709477;rbxassetid://7468131335;rbxassetid://75314486373846; camera=Enum.CameraType.Custom
+STUDIO EDIT CHECK: rollbackCompiles=true error=nil visual=CartoonBoy2026 fx=1898 backup=true
+MONETIZATION REGRESSION COMMAND: python 'C:\Users\mason\OneDrive\Desktop\slopshitv1\stat-sim-monetization\validate.py' modified
+MONETIZATION REGRESSION LITERAL OUTPUT: MODIFIED PASS: 13 passes, 14 products, max R$99, paid egg odds 100%, StudioPurchase removed
+MONETIZATION REGRESSION EXIT STATUS: 0
+
+LIMITATIONS: exact Tripo model export is locked behind Upgrade; YouTube clip is not a local/uploaded audio asset. Existing monetization catalog has 4 verified live IDs and 23 unbound listings. Computer Use ended because it could not verify the browser URL. Cloud save not verified.

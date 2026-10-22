@@ -1,0 +1,11 @@
+{
+  "placeVersion": 0,
+  "universeId": 10771586872,
+  "scripts": [
+    "Main",
+    "TrackExtensionRuntime"
+  ],
+  "placeId": 98823628319724,
+  "mode": "Play server snapshot",
+  "streaming": false
+}

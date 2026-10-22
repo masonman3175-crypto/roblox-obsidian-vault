@@ -1,0 +1,112 @@
+{
+  "baseline": {
+    "content": [
+      {
+        "type": "text",
+        "text": "CONTRACTS_PASS checks=78 loop=catch-display-income-collect-classic persistence=fault-injected purchases=disabled"
+      }
+    ],
+    "isError": false
+  },
+  "contracts": {
+    "content": [
+      {
+        "type": "text",
+        "text": "CONTRACTS_PASS checks=389 machines=25 silhouettes=25 pools=25 legacy=compatible purchases=disabled"
+      }
+    ],
+    "isError": false
+  },
+  "scene": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"decorations\":166,\"silhouettes\":25,\"studdedFloorTiles\":96,\"raisedWallStuds\":208,\"machines\":25,\"parts\":2200}"
+      }
+    ],
+    "isError": false
+  },
+  "sceneChecks": {
+    "content": [
+      {
+        "type": "text",
+        "text": "SCENE_PASS cabinets=25 geometry_unique=25 target_claw_prompt_checks=25 studded_tiles=96 live_player_data=unchanged"
+      }
+    ],
+    "isError": false
+  },
+  "studioRollback": {
+    "content": [
+      {
+        "type": "text",
+        "text": "BUILD02_STUDIO_ROLLBACK_PASS restored=Build01 cabinets=2 backup=retained"
+      }
+    ],
+    "isError": false
+  },
+  "restoredBaseline": {
+    "content": [
+      {
+        "type": "text",
+        "text": "BUILD02_RESTORED_BASELINE_PASS machines=2 preview=Build01"
+      }
+    ],
+    "isError": false
+  },
+  "resume": {
+    "content": [
+      {
+        "type": "text",
+        "text": "RESUME_PASS owned=2 selected=Classic wallet=$70 discoveries=retained Studio_only=true"
+      }
+    ],
+    "isError": false
+  },
+  "aim": {
+    "content": [
+      {
+        "type": "text",
+        "text": "AIM_VISUAL_PASS selected=Classic header_text=hidden camera=Scriptable"
+      }
+    ],
+    "isError": false
+  },
+  "gameplay": {
+    "content": [
+      {
+        "type": "text",
+        "text": "BUILD02_PLAY_PASS Classic=catch_display_income walk_camera=restored speed=16 header=restored"
+      }
+    ],
+    "isError": false
+  },
+  "prompt": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"promptActivated\":true,\"play\":\"DROP CLAW!\",\"position\":\"-44, 3.3980252742767334, 77\"}"
+      }
+    ],
+    "isError": false
+  },
+  "earnedUnlock": {
+    "content": [
+      {
+        "type": "text",
+        "text": "BUILD02_EARNED_UNLOCK_PASS third_machine=Candy price=$600 input=actual_scrolled_UI free_plays=true"
+      }
+    ],
+    "isError": false
+  },
+  "videoReview": {
+    "url": "https://www.youtube.com/watch?v=I12L26L6-Mo",
+    "method": "In-browser playback; sampled gameplay, not uninterrupted full watch",
+    "timestamps": [
+      "2:08",
+      "6:43",
+      "12:48",
+      "19:13"
+    ]
+  },
+  "finalState": "Edit; Build02 installed; 25 cabinets; Studio-only snapshot retained; viewport default"
+}

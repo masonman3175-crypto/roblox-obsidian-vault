@@ -1,0 +1,75 @@
+Target: ultimate slopp v1 / 98823628319724 / Studio7997c1e7-846e-48c9-8d6e-d9de612fece5
+Date:2026-10-18
+Final state: all three fixes installed in Edit; persistent asset IDs used; original worlds preserved; no publication.
+
+Changed fields: TimePlayedLeaderboard pivot and thumbnail decal visibility; Dummy visible geometry now nine uploaded MeshParts with original invisible Torso/PunchPrompt; Lighting.Brightness/ExposureCompensation; Bloom.Intensity/Size/Threshold; SlopColor.Saturation/Contrast; hub Light.Brightness and selected broad neon Material fields. No existing source code changed.
+
+FOUR PATHS
+C:/Users/mason/OneDrive/Desktop/slopshitv1/stat-sim-spawn-fixes/MODIFIED_FILE.luau
+C:/Users/mason/OneDrive/Desktop/slopshitv1/stat-sim-spawn-fixes/evidence/DIFF_FILE.diff
+C:/Users/mason/OneDrive/Desktop/slopshitv1/stat-sim-spawn-fixes/evidence/VERIFICATION.txt
+C:/Users/mason/OneDrive/Desktop/slopshitv1/stat-sim-spawn-fixes/evidence/ROLLBACK.sh
+
+BASELINE
+CWD:C:/Users/mason/OneDrive/Desktop/slopshitv1/stat-sim-spawn-fixes
+Exact command: C:\Python314\python.exe tools/check.py baseline
+Input: baseline/scene.json, baseline/scene.rbxm and sealed baseline/SHA256.json.
+Literal output: BASELINE_PASS scene_backup=preserved original_dummy_parts=5 bloom=1
+Exit status:0.
+Original backup scene.rbxm62072bytes SHA25688e69e11645f2e6c675c6394827fe1f9c1b640f398f3809fcd4dc899b61d2738.
+Baseline Studio state: five visible block parts, TimePlayedLeaderboard at origin and Bloom.Intensity1. The character's source blend hash is unchanged.
+
+MODIFIED
+Exact command: C:\Python314\python.exe tools/check.py verify
+Input: MODIFIED_FILE.luau, actual evidence/modified-scene.json, baseline scene and sealed modified hashes.
+Literal output: MODIFIED_PASS board=off_spawn dummy_meshes=9 bloom=0.14 gameplay_sources=unchanged
+Exit status:0.
+Engine command: Roblox_Studio.execute_luau(studio_id=7997c1e7-846e-48c9-8d6e-d9de612fece5,datamodel_type=Edit,code=contents of MODIFIED_FILE.luau).
+Literal result: INSTALL_PASS leaderboard=relocated dummy_meshes=9 old_blocks=hidden bloom=0.14 hub_lights=50_percent worlds=untouched
+MCP status:isError=false; engine calls have no process exit code.
+Engine command: same execute_luau with tests/SCENE.luau.
+Literal result: SCENE_PASS board=off_spawn above_plaza=true persistent_meshes=9 bloom=0.14 unchanged_scripts=40 track_parts=34986
+MCP status:isError=false.
+Original-world regression command: same execute_luau with C:/Users/mason/OneDrive/Desktop/slopshitv1/stat-sim-track-extension/tests/originals.luau.
+Literal result: ORIGINALS_PASS worlds=6 original_descendants=3531 geometry_colors_meshes_signs=preserved distance_boards=preserved exception=outer_end_backdrop_opened
+MCP status:isError=false.
+
+PLAY INPUT / RESULT
+Started Play; server teleported the loaded character to CFrame.lookAt(Vector3.new(27,4,0),Vector3.new(34,4,0)); waited1second.
+Client checked all nine MeshContent.SourceType==Uri and texture IDs131826601705851; PreloadAsync called.
+Literal result: CLIENT_ASSETS_PASS meshes=9 mesh_uri=true texture_uri=true
+User_keyboard_input ordered actions: E keyDown, wait350ms, E keyUp, wait9500ms.
+Client asserted all nine mesh transparencies and LocalTransparencyModifiers0, old Torso.Transparency1, enabled prompt, Custom camera, unanchored player, positive coins and best distance.
+Literal result: PLAY_PASS persistent_meshes=9 coins=65 best=104 camera_prompt=restored old_blocks=hidden
+MCP statuses:isError=false. Screenshot play-verified.jpg shows the actual new character in Play with65coins and104ft.
+Final-session console filtering found no PunchFx or TrackExtension error, mesh load error or authorization failure. Existing unrelated asset-type warnings remained. Play stopped afterward; same fixes reinstalled and scene assertions passed.
+
+ROLLBACK — REAL ENGINE COPY
+Exact command: Edit execute_luau with tests/COPY_ROLLBACK.luau.
+Input: disposable clones of Hub, PunchLane, TimePlayedLeaderboard and post-effects; numeric Lighting values copied into a table. No live scene is modified.
+Literal result: COPY_ROLLBACK_PASS dummy=restored board=restored lighting=restored unrelated=preserved later_edit_guard=true live=unchanged
+MCP status:isError=false.
+Restored behavior/status: exact original dummy instance in copied lane, original board pivot and lighting/material fields restored, unrelated fixture retained. A deliberate later-property edit rejected restoration before recovery. The copy is removed after the test.
+
+ROLLBACK — ACTUAL STUDIO
+Exact command: Edit execute_luau with evidence/STUDIO_ROLLBACK.luau.
+Literal result: STUDIO_ROLLBACK_PASS old_dummy=restored board_origin=restored lighting=restored worlds=untouched
+MCP status:isError=false.
+Follow-up command: assert Dummy descendants6/Torso transparency0, TimePlayedLeaderboard pivot origin, Bloom.Intensity1.
+Literal result: ROLLBACK_BEHAVIOR_PASS dummy_parts=5 board_at_origin=true bloom=1
+MCP status:isError=false. Actual rollback was tested during development and again after persistent import; fixes were reinstalled afterward. Native uploaded assets and visual prototypes are retained for reuse, not deleted from the account.
+
+ROLLBACK — EXECUTABLE LOCAL WRAPPER
+Exact Windows command: & 'C:\Program Files\Git\bin\bash.exe' -c 'chmod +x evidence/ROLLBACK.sh && test -x evidence/ROLLBACK.sh && ./evidence/ROLLBACK.sh --test'
+Input: actual modified scene manifest copied into a disposable temporary directory.
+Literal output: LOCAL_ROLLBACK_PASS copy=restored unrelated=preserved live=retained
+Exit status:0.
+Equivalent command: C:\Python314\python.exe tools/check.py rollback --test
+Same literal output and exit0.
+This wrapper restores LOCAL JSON manifests only. Live scene restoration uses STUDIO_ROLLBACK.luau through Studio; the shell does not silently control Studio.
+
+CORRECTIONS AND TEST BOUNDARIES
+The first Edit-only mesh prototype rendered in Edit but reached the Play client as Content.SourceType.None. That was a failing model test, not counted as completion. Runtime EditableMesh creation was blocked by existing experience settings; no settings were changed. The native 3D importer successfully uploaded a single-atlas FBX with nine meshes. Its persistent URIs now survive Play and cloning.
+The first FBX preview did not preserve the original multi-material texture layout; it was replaced before uploading with the single-atlas persistent FBX. The first board location sank into the raised plaza; final bottomY4.55/X=-100/Z=31 fixes that. The thumbnail image panel is hidden.
+Some tool actions encountered user-started Play; the appropriate Edit mode was restored before scene changes. An initial one-line PLAY assertion failed; the final persistent-mesh assertions and real input passed.
+Original source file and world styles are preserved. Leaderboard live datastore ranking and persistent saves are not tested because Studio API access remains disabled. No public publishing, new effects/audio or animation implementation is claimed by this three-fix task.

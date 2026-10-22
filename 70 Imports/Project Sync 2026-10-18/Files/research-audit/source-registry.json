@@ -1,0 +1,604 @@
+[
+  {
+    "id": "core",
+    "title": "Core loops",
+    "url": "https://create.roblox.com/docs/production/game-design/core-loops",
+    "summary": "Separates repeated interaction, repeated actions, and the progression engine.",
+    "inspection": "page-read"
+  },
+  {
+    "id": "prototype",
+    "title": "Prototyping",
+    "url": "https://create.roblox.com/docs/production/game-design/prototyping",
+    "summary": "Compares paper and Studio prototypes; tests scope, rules, UI, fun, and edge cases before production.",
+    "inspection": "page-read"
+  },
+  {
+    "id": "onboard",
+    "title": "Onboarding",
+    "url": "https://create.roblox.com/docs/production/game-design/onboarding",
+    "summary": "Teach essential controls and the loop, reach the fun quickly, and reveal future goals.",
+    "inspection": "page-read"
+  },
+  {
+    "id": "quests",
+    "title": "Introduction to quest design",
+    "url": "https://create.roblox.com/docs/production/game-design/introduction-to-quest-design",
+    "summary": "Quests combine an objective, a quantity, and a reward; short and long goals serve different roles.",
+    "inspection": "page-read"
+  },
+  {
+    "id": "design",
+    "title": "Design games on Roblox",
+    "url": "https://create.roblox.com/docs/production/game-design",
+    "summary": "Official map of design, onboarding, monetization, and live-operations topics.",
+    "inspection": "page-read"
+  },
+  {
+    "id": "ux",
+    "title": "UI and UX design",
+    "url": "https://create.roblox.com/docs/production/game-design/ui-ux-design",
+    "summary": "Information hierarchy and consistent visual language help players understand choices.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "ui",
+    "title": "User interface overview",
+    "url": "https://create.roblox.com/docs/ui",
+    "summary": "Screen UI, world UI, layouts, appearance modifiers, and interactive objects are built-in engine facilities.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "style",
+    "title": "UI styling",
+    "url": "https://create.roblox.com/docs/ui/styling",
+    "summary": "Style rules, reusable tokens, themes, and contextual queries support consistent UI.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "appearance",
+    "title": "UI appearance modifiers",
+    "url": "https://create.roblox.com/docs/ui/appearance-modifiers",
+    "summary": "UIStroke supports text outlines and borders; gradients can affect fill and outline separately.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "position",
+    "title": "UI position and size",
+    "url": "https://create.roblox.com/docs/ui/position-and-size",
+    "summary": "Official reference for UI placement and sizing; use it while checking responsive layouts.",
+    "inspection": "page-opened"
+  },
+  {
+    "id": "cross",
+    "title": "Cross-platform development",
+    "url": "https://create.roblox.com/docs/projects/cross-platform",
+    "summary": "Support touch, keyboard, and gamepad; adapt hints and layouts to primary input and screen characteristics.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "access",
+    "title": "Accessibility guidelines",
+    "url": "https://create.roblox.com/docs/production/publishing/accessibility",
+    "summary": "Text legibility and contrast are practical requirements, not just decoration.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "tween",
+    "title": "UI animation and tweens",
+    "url": "https://create.roblox.com/docs/ui/animation",
+    "summary": "TweenService can animate UI properties between states; CanvasGroup can animate grouped transparency.",
+    "inspection": "page-read"
+  },
+  {
+    "id": "prompt",
+    "title": "Proximity prompts",
+    "url": "https://create.roblox.com/docs/ui/proximity-prompts",
+    "summary": "Prompts describe object, action, and input; ProximityPromptService centralizes handling.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "money",
+    "title": "Monetization overview",
+    "url": "https://create.roblox.com/docs/production/monetization",
+    "summary": "Multiple revenue surfaces exist; product presentation should be clear, honest, and deliberate.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "foundation",
+    "title": "Monetization foundations",
+    "url": "https://create.roblox.com/docs/production/game-design/monetization-foundations",
+    "summary": "Readable shops and clear free-versus-premium rewards help players evaluate value.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "devprod",
+    "title": "Developer products",
+    "url": "https://create.roblox.com/docs/production/monetization/developer-products",
+    "summary": "Repeatable purchases require server receipt processing; prompt-finished events are not purchase-grant evidence.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "passes",
+    "title": "Passes",
+    "url": "https://create.roblox.com/docs/production/monetization/passes",
+    "summary": "Passes grant one-time-purchase privileges, unlike repeatable developer products.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "random",
+    "title": "Paid random item guidelines",
+    "url": "https://create.roblox.com/docs/production/monetization/paid-random-items",
+    "summary": "Paid randomness includes indirect paid currency and probability modifiers; disclose all outcomes and numerical odds, and apply per-user restrictions.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "policy",
+    "title": "PolicyService API",
+    "url": "https://create.roblox.com/docs/reference/engine/classes/PolicyService",
+    "summary": "API reference for player-specific policy information; consult exact fields and failure behavior during implementation.",
+    "inspection": "page-opened"
+  },
+  {
+    "id": "market",
+    "title": "MarketplaceService API",
+    "url": "https://create.roblox.com/docs/reference/engine/classes/MarketplaceService#ProcessReceipt",
+    "summary": "Canonical engine reference for purchase prompts, product information, ownership, and receipt callbacks.",
+    "inspection": "page-opened"
+  },
+  {
+    "id": "receipt",
+    "title": "Player data and purchasing systems",
+    "url": "https://create.roblox.com/docs/cloud-services/data-stores/player-data-purchasing",
+    "summary": "Receipt handling should record the purchase, apply it to session data, and persist it before acknowledgement; session ownership matters.",
+    "inspection": "page-read"
+  },
+  {
+    "id": "regional",
+    "title": "Regional pricing",
+    "url": "https://create.roblox.com/docs/production/monetization/regional-pricing",
+    "summary": "Managed prices can vary by player; display runtime product prices rather than baked-in numbers and consider transfer arbitrage.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "price",
+    "title": "Price optimization",
+    "url": "https://create.roblox.com/docs/production/monetization/price-optimization",
+    "summary": "Official reference for price experiments and dynamic-price checks; do not infer a universal best Robux price.",
+    "inspection": "page-opened"
+  },
+  {
+    "id": "season",
+    "title": "Season pass design",
+    "url": "https://create.roblox.com/docs/production/game-design/season-pass-design",
+    "summary": "Quest-aligned tiers need clear rewards, manageable effort, a defined season, and production capacity.",
+    "inspection": "page-read"
+  },
+  {
+    "id": "subdesign",
+    "title": "Subscription design",
+    "url": "https://create.roblox.com/docs/production/game-design/subscription-design",
+    "summary": "Design reference for recurring value; read alongside the implementation and eligibility documentation.",
+    "inspection": "page-opened"
+  },
+  {
+    "id": "subs",
+    "title": "Subscriptions",
+    "url": "https://create.roblox.com/docs/production/monetization/subscriptions",
+    "summary": "Implementation reference for subscription products; recheck availability, payment terms, and entitlement handling before launch.",
+    "inspection": "page-opened"
+  },
+  {
+    "id": "private",
+    "title": "Private servers",
+    "url": "https://create.roblox.com/docs/production/monetization/private-servers",
+    "summary": "Private servers may be free or monthly Robux subscriptions and let players choose their play group.",
+    "inspection": "page-read"
+  },
+  {
+    "id": "context",
+    "title": "Contextual purchases",
+    "url": "https://create.roblox.com/docs/production/game-design/contextual-purchases",
+    "summary": "Placement can be pre-play, in-play, lobby, or UI; purchase flows must not interrupt or confuse gameplay.",
+    "inspection": "page-read"
+  },
+  {
+    "id": "shop",
+    "title": "Roblox Shop listings",
+    "url": "https://create.roblox.com/docs/production/monetization/shop",
+    "summary": "Listing products can expose them outside the experience; correct receipt fulfilment remains essential.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "earn",
+    "title": "Roblox earning options",
+    "url": "https://create.roblox.com/docs/get-started/monetization",
+    "summary": "Overview of repeatable products, passes, subscriptions, and other earning paths; account eligibility is not established here.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "economy",
+    "title": "Balance virtual economies",
+    "url": "https://create.roblox.com/docs/production/game-design/balance-virtual-economies",
+    "summary": "Track sources and sinks and estimate event effects with expected value; isolated event currencies can limit spillover.",
+    "inspection": "page-read"
+  },
+  {
+    "id": "analytics",
+    "title": "Analytics overview",
+    "url": "https://create.roblox.com/docs/production/analytics",
+    "summary": "Measure retention and engagement before scaling acquisition, then monitor the impact of updates.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "astart",
+    "title": "Get started with analytics",
+    "url": "https://create.roblox.com/docs/production/analytics/get-started",
+    "summary": "Use metrics to locate onboarding, progression, feature-adoption, and shop problems; investigate causes rather than guessing.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "retention",
+    "title": "Retention",
+    "url": "https://create.roblox.com/docs/production/analytics/retention",
+    "summary": "D1, D7, and D30 cohorts show return behavior; compare cohorts around updates.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "funnel",
+    "title": "Funnel events",
+    "url": "https://create.roblox.com/docs/production/analytics/funnel-events",
+    "summary": "Consistent server-side step events reveal where players leave onboarding, progression, or shopping.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "econevent",
+    "title": "Economy events",
+    "url": "https://create.roblox.com/docs/production/analytics/economy-events",
+    "summary": "Log sources and sinks after successful operations, with positive amounts and the resulting balance; production events are server-side.",
+    "inspection": "page-read"
+  },
+  {
+    "id": "custom",
+    "title": "Custom events",
+    "url": "https://create.roblox.com/docs/production/analytics/custom-events",
+    "summary": "Counters and valued events cover game-specific behavior; use stable event names and dimensions rather than proliferating names.",
+    "inspection": "page-read"
+  },
+  {
+    "id": "fields",
+    "title": "Analytics custom fields",
+    "url": "https://create.roblox.com/docs/production/analytics/custom-fields",
+    "summary": "Custom dimensions support segmentation; use the documented keys and string values.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "eventtypes",
+    "title": "Analytics event types",
+    "url": "https://create.roblox.com/docs/production/analytics/event-types",
+    "summary": "Economy, funnel, and custom events answer different questions; live event inspection helps validate instrumentation.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "moneyanalytics",
+    "title": "Monetization analytics",
+    "url": "https://create.roblox.com/docs/production/analytics/monetization",
+    "summary": "Conversion, ARPPU, and ARPDAU describe different parts of revenue performance.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "dashboard",
+    "title": "Analytics dashboard",
+    "url": "https://create.roblox.com/docs/production/analytics/analytics-dashboard",
+    "summary": "Dashboard categories cover acquisition, retention, engagement, monetization, and performance; eligibility may change.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "customdash",
+    "title": "Custom dashboards",
+    "url": "https://create.roblox.com/docs/production/analytics/custom-dashboards",
+    "summary": "Group relevant metrics into a dashboard and share through existing team analytics permissions.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "acquire",
+    "title": "Acquisition",
+    "url": "https://create.roblox.com/docs/production/analytics/acquisition",
+    "summary": "Accurate, distinctive metadata and a functioning player experience matter before attracting additional traffic.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "discovery",
+    "title": "Discovery",
+    "url": "https://create.roblox.com/docs/discovery",
+    "summary": "Discovery surfaces and recommendation signals evolve; use current official guidance rather than algorithm folklore.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "discoveryold",
+    "title": "Discovery metadata guidance",
+    "url": "https://create.roblox.com/docs/production/promotion/discovery",
+    "summary": "Original imagery, accurate promises, and distinct experience content are preferred over misleading or closely duplicated metadata.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "thumb",
+    "title": "Thumbnails",
+    "url": "https://create.roblox.com/docs/production/publishing/thumbnails",
+    "summary": "Thumbnails showcase real features; personalization can use multiple truthful alternatives and is not a simple universal winner test.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "ads",
+    "title": "Advertising for creators",
+    "url": "https://create.roblox.com/docs/production/promotion/advertise",
+    "summary": "Ads Manager provides paid acquisition; marketing claims do not establish this project's likely return on spend.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "live",
+    "title": "LiveOps essentials",
+    "url": "https://create.roblox.com/docs/production/game-design/liveops-essentials",
+    "summary": "Post-launch support mixes content cadence, major updates, quality-of-life work, and fixes.",
+    "inspection": "page-read"
+  },
+  {
+    "id": "liveplan",
+    "title": "LiveOps planning",
+    "url": "https://create.roblox.com/docs/production/game-design/liveops-planning",
+    "summary": "Define event goals, communicate timing, and compare event and non-event economy and engagement data.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "updates",
+    "title": "Content updates",
+    "url": "https://create.roblox.com/docs/production/game-design/content-updates",
+    "summary": "Repeatable content cadence should reuse existing systems; new systems have different production costs.",
+    "inspection": "page-read"
+  },
+  {
+    "id": "events",
+    "title": "Experience events and updates",
+    "url": "https://create.roblox.com/docs/production/promotion/experience-events",
+    "summary": "Official tools for communicating scheduled experience activity and updates; confirm current requirements before publishing.",
+    "inspection": "page-opened"
+  },
+  {
+    "id": "remote",
+    "title": "Remote events and callbacks",
+    "url": "https://create.roblox.com/docs/scripting/events/remote",
+    "summary": "Events are one-way; functions yield for replies; critical game state must be server-owned and validated.",
+    "inspection": "page-read"
+  },
+  {
+    "id": "boundary",
+    "title": "Client-server boundary validation",
+    "url": "https://create.roblox.com/docs/scripting/security/client-server-boundary",
+    "summary": "Validate context, types, values, distance, and request frequency; prompts are also client-triggered attack surfaces.",
+    "inspection": "page-read"
+  },
+  {
+    "id": "security",
+    "title": "Security and cheat mitigation",
+    "url": "https://create.roblox.com/docs/scripting/security/security-tactics",
+    "summary": "Client-side state and code are not authoritative; protect valuable changes on the server.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "network",
+    "title": "Network ownership and movement",
+    "url": "https://create.roblox.com/docs/scripting/security/network-ownership",
+    "summary": "Client physics ownership can undermine naive spatial validation; movement rules must account for game mechanics and latency.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "store",
+    "title": "Data stores",
+    "url": "https://create.roblox.com/docs/cloud-services/data-stores",
+    "summary": "Official persistent-data reference; verify request limits, failure handling, and update semantics while implementing.",
+    "inspection": "page-opened"
+  },
+  {
+    "id": "luau",
+    "title": "Luau language overview",
+    "url": "https://create.roblox.com/docs/luau",
+    "summary": "Roblox's scripting language reference and entry point for language-specific behavior.",
+    "inspection": "page-opened"
+  },
+  {
+    "id": "types",
+    "title": "Luau types",
+    "url": "https://luau.org/types/",
+    "summary": "Gradual typing supports nocheck, nonstrict, and strict modes; annotations catch mistakes before runtime.",
+    "inspection": "page-read"
+  },
+  {
+    "id": "attrs",
+    "title": "Properties and attributes",
+    "url": "https://create.roblox.com/docs/scripting/attributes",
+    "summary": "Reference for configuring objects with properties and custom attributes; use stable identifiers for gameplay records.",
+    "inspection": "page-opened"
+  },
+  {
+    "id": "path",
+    "title": "Pathfinding",
+    "url": "https://create.roblox.com/docs/characters/pathfinding",
+    "summary": "PathfindingService computes paths and waypoints; account for blocked routes and computation failure.",
+    "inspection": "page-read"
+  },
+  {
+    "id": "test",
+    "title": "Studio testing modes",
+    "url": "https://create.roblox.com/docs/studio/testing-modes",
+    "summary": "Use client/server and multi-client simulations plus device and network emulation rather than only solo Play.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "version",
+    "title": "Version History",
+    "url": "https://create.roblox.com/docs/projects/version-history",
+    "summary": "Named saved/published checkpoints make releases traceable and enable restoring prior place versions.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "publish",
+    "title": "Publish games and places",
+    "url": "https://create.roblox.com/docs/production/publishing/publish-games-and-places",
+    "summary": "Places are separate scenes within an experience; publishing metadata shapes the first impression.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "perf",
+    "title": "Design for performance",
+    "url": "https://create.roblox.com/docs/performance-optimization/design",
+    "summary": "Choose a baseline device, monitor memory/frame rate, and consider streaming while designing the world.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "improve",
+    "title": "Improve performance",
+    "url": "https://create.roblox.com/docs/performance-optimization/improve",
+    "summary": "Reduce expensive per-frame work, overdraw, and unnecessary replication; profile before optimizing.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "micro",
+    "title": "MicroProfiler walkthrough",
+    "url": "https://create.roblox.com/docs/performance-optimization/microprofiler/use-microprofiler",
+    "summary": "Frame-time captures and custom profiling labels help identify an actual bottleneck.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "stream",
+    "title": "Instance streaming",
+    "url": "https://create.roblox.com/docs/workspace/streaming",
+    "summary": "Reference for dynamically loaded world content; client scripts must tolerate missing or unloaded instances.",
+    "inspection": "page-opened"
+  },
+  {
+    "id": "models",
+    "title": "Custom 3D assets",
+    "url": "https://create.roblox.com/docs/art/modeling",
+    "summary": "Custom meshes become MeshParts; the asset's intended use determines its technical requirements.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "import",
+    "title": "Studio Importer",
+    "url": "https://create.roblox.com/docs/studio/importer",
+    "summary": "Preview meshes, transforms, scale, pivots, textures, creator ownership, and usage permissions during import.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "blender",
+    "title": "Blender to Studio",
+    "url": "https://create.roblox.com/docs/art/blender",
+    "summary": "Modeling and export workflow reference; set asset creator and import transforms deliberately.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "particles",
+    "title": "ParticleEmitter API",
+    "url": "https://create.roblox.com/docs/reference/engine/classes/ParticleEmitter",
+    "summary": "Emit can create bounded bursts; Rate and Lifetime affect ongoing particle population.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "effects",
+    "title": "Effects overview",
+    "url": "https://create.roblox.com/docs/effects",
+    "summary": "Lighting, particles, beams, and other objects provide reusable visual feedback tools.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "audio",
+    "title": "Audio overview",
+    "url": "https://create.roblox.com/docs/audio",
+    "summary": "Positional and non-positional sound can provide feedback and wayfinding; modern audio objects offer flexible routing.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "audioasset",
+    "title": "Audio assets",
+    "url": "https://create.roblox.com/docs/audio/assets",
+    "summary": "Use audio you have rights to; imported audio has usage permissions and moderation requirements.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "localize",
+    "title": "Localization",
+    "url": "https://create.roblox.com/docs/production/localization",
+    "summary": "Source/supported languages and translation tables support global players; review automatic translations where meaning matters.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "dynamic",
+    "title": "Translate dynamic content",
+    "url": "https://create.roblox.com/docs/production/localization/translate-dynamic-content",
+    "summary": "Parameterized strings preserve translated sentence structure around names, quantities, and dates.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "badge",
+    "title": "Badges",
+    "url": "https://create.roblox.com/docs/production/publishing/badges",
+    "summary": "Reference for Roblox platform achievements; design milestones separately from paid product ownership.",
+    "inspection": "page-opened"
+  },
+  {
+    "id": "assistant",
+    "title": "Assistant for Studio",
+    "url": "https://create.roblox.com/docs/assistant/guide",
+    "summary": "Assistant can act on the data model, scripts, materials, and models; generated output still needs review and testing.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "aprompt",
+    "title": "Assistant prompt guide",
+    "url": "https://create.roblox.com/docs/assistant/prompt-engineering",
+    "summary": "Name exact instances, specify concrete behavior and parameters, and distinguish object-generation requests from image composition.",
+    "inspection": "search-excerpt"
+  },
+  {
+    "id": "codex",
+    "title": "Coding-agent best practices",
+    "url": "https://learn.chatgpt.com/guides/best-practices",
+    "summary": "Give the agent a goal, relevant context, constraints, and completion criteria; durable guidance and validation improve repeatability.",
+    "inspection": "page-read"
+  },
+  {
+    "id": "rojo",
+    "title": "Rojo introduction",
+    "url": "https://rojo.space/docs/v7/",
+    "summary": "File-based Roblox projects enable external editors, Git history, and static-analysis tools; optional, not a prerequisite.",
+    "inspection": "page-read"
+  },
+  {
+    "id": "selene",
+    "title": "Selene linter",
+    "url": "https://github.com/Kampfkarren/selene",
+    "summary": "Maintainer repository for a Lua linter; verify the installed version and Luau/Roblox configuration before use.",
+    "inspection": "page-read"
+  },
+  {
+    "id": "stylua",
+    "title": "StyLua formatter",
+    "url": "https://github.com/JohnnyMorganz/StyLua",
+    "summary": "Maintainer repository for formatting Lua/Luau source consistently; formatting is not a behavioral test.",
+    "inspection": "page-opened"
+  },
+  {
+    "id": "graph",
+    "title": "Obsidian Graph view",
+    "url": "https://obsidian.md/help/plugins/graph",
+    "summary": "Graph nodes are notes and links are internal links; groups color matching notes and forces change layout.",
+    "inspection": "page-read"
+  },
+  {
+    "id": "curriculum",
+    "title": "Roblox core curriculum",
+    "url": "https://create.roblox.com/docs/tutorials/curriculums/core",
+    "summary": "Structured Studio learning through a small platformer prototype and playtesting.",
+    "inspection": "search-excerpt"
+  }
+]

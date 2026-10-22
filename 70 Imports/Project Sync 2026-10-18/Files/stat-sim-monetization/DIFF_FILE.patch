@@ -1,0 +1,650 @@
+--- baseline/Eggs.luau
++++ modified/Eggs.luau
+@@ -24,6 +24,11 @@
+ 	InfernoPlus = egg("Inferno+ Egg", 4, 250000000, {"EmberFox", "ObsidianTurtle", "PhoenixChick", "MagmaTitan", "InfernoDemon", "DemonKing"}),
+ 	Galaxy = egg("Galaxy Egg", 5, 2500000000, {"Alien", "UFOCat", "StarWolf", "NebulaDragon", "VoidTitan", "CosmicGod"}),
+ 	GalaxyPlus = egg("Galaxy+ Egg", 5, 20000000000, {"MoonBunny", "AstroDog", "MeteorGolem", "BlackHoleBeast", "GalaxyLeviathan", "InfinityDragon"}),
++	Ultra = {Name = "Ultra Robux Egg", World = 1, Cost = 0, ProductKey = "UltraEgg", Pets = {
++		{Id = "CandyHydra", Chance = 65},
++		{Id = "BlizzardDragon", Chance = 25},
++		{Id = "DemonKing", Chance = 10},
++	}},
+ 	-- Robux egg: bought with the MegaEgg dev product, odds shown before buying
+ 	Mega = {Name = "Mega Egg", World = 1, Cost = 0, ProductKey = "MegaEgg", Pets = {
+ 		{Id = "DiamondDog", Chance = 70},
+--- baseline/EggService.luau
++++ modified/EggService.luau
+@@ -3,7 +3,7 @@
+ local MarketplaceService = game:GetService("MarketplaceService")
+ local Players = game:GetService("Players")
+ local ReplicatedStorage = game:GetService("ReplicatedStorage")
+-local RunService = game:GetService("RunService")
++local PolicyService = game:GetService("PolicyService")
+ 
+ local Config = ReplicatedStorage.Shared.Config
+ local Eggs = require(Config.Eggs)
+@@ -90,6 +90,10 @@
+ 		Remotes.Notify:FireClient(player, "Pet inventory full (" .. PetsConfig.MaxInventory .. ")")
+ 		return false
+ 	end
++	-- Paid eggs must only be hatched after a processed receipt.
++	if egg.ProductKey and not free then
++		return false
++	end
+ 	if not free then
+ 		local cost = egg.Cost * count
+ 		if profile.Coins < cost then
+@@ -127,12 +131,14 @@
+ 		return
+ 	end
+ 	lastHatch[player] = now
++	local requestedEgg = Eggs.List[eggId]
++	if not requestedEgg or requestedEgg.ProductKey then
++		return
++	end
+ 	if count > 1 and not StatService.OwnsPass(player, "TripleHatch") then
+ 		local pass = Monetization.Passes.TripleHatch
+ 		if pass.Id ~= 0 then
+ 			MarketplaceService:PromptGamePassPurchase(player, pass.Id)
+-		elseif RunService:IsStudio() then
+-			Remotes.Notify:FireClient(player, "Triple Hatch is a pass (free in Studio from the shop)")
+ 		else
+ 			Remotes.Notify:FireClient(player, "Triple Hatch is coming soon")
+ 		end
+@@ -142,16 +148,22 @@
+ end
+ 
+ local function promptMega(player)
+-	local product = Monetization.Products.MegaEgg
+-	if product.Id == 0 then
+-		if RunService:IsStudio() then
+-			EggService.Hatch(player, "Mega", 1, false, true)
+-		else
+-			Remotes.Notify:FireClient(player, "Mega Egg is coming soon")
+-		end
+-		return
+-	end
+-	MarketplaceService:PromptProductPurchase(player, product.Id)
++    local product = Monetization.Products.MegaEgg
++    if product.Id == 0 then
++        Remotes.Notify:FireClient(player, "Mega Egg is not on sale yet")
++        return
++    end
++    local ok, policy = pcall(PolicyService.GetPolicyInfoForPlayerAsync, PolicyService, player)
++    if not ok or policy.ArePaidRandomItemsRestricted then
++        Remotes.Notify:FireClient(player, "Paid random eggs are unavailable for this player")
++        return
++    end
++    local infoOk, info = pcall(MarketplaceService.GetProductInfo, MarketplaceService, product.Id, Enum.InfoType.Product)
++    if not infoOk or not info or type(info.PriceInRobux) ~= "number" or info.PriceInRobux ~= product.Price or info.PriceInRobux > Monetization.MaxRobux then
++        Remotes.Notify:FireClient(player, "Mega Egg listing price is not ready")
++        return
++    end
++    MarketplaceService:PromptProductPurchase(player, product.Id)
+ end
+ 
+ -- Cosmetic factory only: hatching, currency, pass checks and odds are unchanged.
+@@ -167,7 +179,7 @@
+ 		local color = PetsConfig.Rarities[pet.Rarity].Color
+ 		table.insert(lines, string.format("<font color=\"#%s\">%s</font> %s%%", color:ToHex(), pet.Name, tostring(entry.Chance)))
+ 	end
+-	local price = if egg.ProductKey then "ROBUX EGG" else Format.Number(egg.Cost) .. " Coins"
++	local price = if egg.ProductKey then "R$" .. tostring(Monetization.Products[egg.ProductKey].Price) else Format.Number(egg.Cost) .. " Coins"
+ 	local bb = Instance.new("BillboardGui")
+ 	bb.Name = "Odds"
+ 	bb.Size = UDim2.fromOffset(240, 200)
+--- baseline/EggVisual.luau
++++ modified/EggVisual.luau
+@@ -13,6 +13,7 @@
+ 	Galaxy={Color3.fromRGB(34,28,73),Color3.fromRGB(177,121,255),Color3.fromRGB(113,255,232)},
+ 	GalaxyPlus={Color3.fromRGB(22,20,45),Color3.fromRGB(130,143,255),Color3.fromRGB(255,128,232)},
+ 	Mega={Color3.fromRGB(55,48,25),Color3.fromRGB(255,210,73),Color3.fromRGB(255,248,180)},
++	Ultra={Color3.fromRGB(31,21,69),Color3.fromRGB(169,92,255),Color3.fromRGB(95,255,229)},
+ }
+ local animations=setmetatable({}, {__mode="k"})
+ function E.Make(id,options)
+--- baseline/HatchController.luau
++++ modified/HatchController.luau
+@@ -28,6 +28,7 @@
+ 	Galaxy = Color3.fromRGB(120, 70, 220),
+ 	GalaxyPlus = Color3.fromRGB(70, 30, 160),
+ 	Mega = Color3.fromRGB(255, 200, 40),
++	Ultra = Color3.fromRGB(169, 92, 255),
+ }
+ 
+ local gui: ScreenGui? = nil
+--- baseline/HudController.luau
++++ modified/HudController.luau
+@@ -61,18 +61,6 @@
+ 	return l
+ end
+ 
+-local ICONS = {
+-	Rebirth = "\u{1F504}",
+-	Pets = "\u{1F43E}",
+-	Shop = "\u{1F6D2}",
+-	Double = "\u{26A1}",
+-	AutoTrain = "\u{1F916}",
+-	AutoPunch = "\u{1F44A}",
+-	DoubleCoins = "\u{1FA99}",
+-	VIP = "\u{1F451}",
+-	Boost = "\u{1F680}",
+-	Train = "\u{1F4AA}",
+-}
+ 
+ local function button(name, text, color, size, parent, rainbow)
+ 	local square = size.X.Offset > 0 and size.X.Offset == size.Y.Offset
+@@ -82,7 +70,7 @@
+ 		Color = color,
+ 		Size = size,
+ 		Shape = if square then "Square" else "Wide",
+-		Icon = ICONS[name],
++		Logo = if not square and size.X.Offset < 130 then nil else name,
+ 		Rainbow = rainbow == true,
+ 		Parent = parent,
+ 	})
+@@ -377,8 +365,8 @@
+ 		multLine("Pets", attr("Mult_Pets", 1), "#FF9BD2"),
+ 		multLine("Boost", attr("Mult_Boost", 1), "#D59BFF"),
+ 	}, "  ")
+-	ui.CoinsText.Text = "\u{1FA99} " .. Format.Number(attr("Coins", 0)) .. " Coins"
+-	ui.BestText.Text = "\u{1F44A} Best: " .. Format.Number(attr("BestPunch", 0)) .. " ft"
++	ui.CoinsText.Text = "COINS  " .. Format.Number(attr("Coins", 0))
++	ui.BestText.Text = "BEST PUNCH  " .. Format.Number(attr("BestPunch", 0)) .. " ft"
+ 
+ 	for i, dot in ui.WorldDots do
+ 		dot.BackgroundTransparency = if i <= allowed then 0 else 0.6
+@@ -406,7 +394,7 @@
+ 		b.Label.Text = "+" .. Format.Number(gain * Monetization.Products[productKey].Clicks)
+ 	end
+ 
+-	ui.DoublePrice.Text = if attr("Pass_Double", false) then "OWNED" else "ONLY " .. Purchase.PriceText("Pass", "Double")
++	ui.DoublePrice.Text = if attr("Pass_Double", false) then "OWNED" else Purchase.PriceText("Pass", "Double")
+ 	ui.AutoClick.Label.Text = if attr("Pass_AutoTrain", false) then (if attr("AutoTrainOn", true) then "Auto Click: ON" else "Auto Click: OFF") else "Auto Click"
+ 	ui.AutoPunch.Label.Text = if attr("Pass_AutoPunch", false) then (if attr("AutoPunchOn", true) then "Auto Punch: ON" else "Auto Punch: OFF") else "Auto Punch"
+ 	local boostLeft = timeLeft("BoostEnd")
+@@ -440,7 +428,7 @@
+ 		else
+ 			shownStrength += (target - shownStrength) * math.min(1, dt * 6)
+ 		end
+-		ui.StrengthText.Text = "\u{1F4AA} " .. Format.Number(shownStrength) .. " Strength   +" .. Format.Number(passivePerSecond()) .. "/sec"
++		ui.StrengthText.Text = "STRENGTH  " .. Format.Number(shownStrength) .. "   +" .. Format.Number(passivePerSecond()) .. "/sec"
+ 	end)
+ 
+ 	-- the illusion: a +gain popup every 0.1s
+--- baseline/Monetization.luau
++++ modified/Monetization.luau
+@@ -1,43 +1,43 @@
+--- ALL gamepass and dev product IDs live here.
+--- Id 0 = not created yet: live servers show "Soon" and never prompt.
+--- In Studio, Id 0 buttons grant the item for free so we can test (server checks IsStudio).
+--- Prices are never written here; the UI reads the real price from Roblox.
++-- Catalog prices are the intended Creator Dashboard prices; Id=0 means not on sale.
++-- Never grant a purchase from an unbound listing.
+ local Monetization = {}
++Monetization.MaxRobux = 100
+ 
+ -- Tab = which shop tab shows it.
+ Monetization.Passes = {
+-	Double = {Id = 0, Tab = "Passes", Name = "x2 Strength", Description = "Double every Strength gain forever"},
+-	AutoTrain = {Id = 0, Tab = "Passes", Name = "Auto Click", Description = "+5 free clicks every second"},
+-	VIP = {Id = 0, Tab = "Passes", Name = "VIP", Description = "+50% Strength and Coins, VIP tag"},
+-	AutoPunch = {Id = 0, Tab = "Passes", Name = "Auto Punch", Description = "Keeps punching the dummy for you"},
+-	DoubleCoins = {Id = 0, Tab = "Passes", Name = "x2 Coins", Description = "Double Coins from every punch"},
+-	FastWalk = {Id = 0, Tab = "Passes", Name = "Speed Boots", Description = "+50% walk speed"},
+-	TripleHatch = {Id = 0, Tab = "Eggs", Name = "Triple Hatch", Description = "Open 3 eggs at once"},
+-	AutoHatch = {Id = 0, Tab = "Eggs", Name = "Auto Hatch", Description = "Keeps hatching the closest egg"},
+-	Lucky = {Id = 0, Tab = "Eggs", Name = "Lucky Eggs", Description = "x2 chance for Epic, Legendary, Mythic"},
+-	PetSlots = {Id = 0, Tab = "Eggs", Name = "+3 Pet Slots", Description = "Equip 6 pets instead of 3"},
+-	GymVIP = {Id = 0, Tab = "Gym", Name = "VIP Gym", Description = "Unlocks the x10 VIP bench"},
+-	GymMega = {Id = 0, Tab = "Gym", Name = "Mega Gym", Description = "Unlocks the x25 Mega bench"},
+-	GymAdmin = {Id = 0, Tab = "Gym", Name = "Admin Gym", Description = "Unlocks the x99 Admin bench"},
++	Double = {Id = 0, Price = 79, Tab = "Passes", Name = "x2 Strength", Description = "Double every Strength gain forever"},
++	AutoTrain = {Id = 0, Price = 49, Tab = "Passes", Name = "Auto Click", Description = "+5 free clicks every second"},
++	VIP = {Id = 0, Price = 99, Tab = "Passes", Name = "VIP", Description = "+50% Strength and Coins, VIP tag"},
++	AutoPunch = {Id = 0, Price = 59, Tab = "Passes", Name = "Auto Punch", Description = "Keeps punching the dummy for you"},
++	DoubleCoins = {Id = 0, Price = 49, Tab = "Passes", Name = "x2 Coins", Description = "Double Coins from every punch"},
++	FastWalk = {Id = 0, Price = 19, Tab = "Passes", Name = "Speed Boots", Description = "+50% walk speed"},
++	TripleHatch = {Id = 0, Price = 39, Tab = "Eggs", Name = "Triple Hatch", Description = "Open 3 eggs at once"},
++	AutoHatch = {Id = 0, Price = 69, Tab = "Eggs", Name = "Auto Hatch", Description = "Keeps hatching the closest egg"},
++	Lucky = {Id = 0, Price = 59, Tab = "Eggs", Name = "Lucky Eggs", Description = "x2 chance for Epic, Legendary, Mythic"},
++	PetSlots = {Id = 0, Price = 49, Tab = "Eggs", Name = "+3 Pet Slots", Description = "Equip 6 pets instead of 3"},
++	GymVIP = {Id = 0, Price = 19, Tab = "Gym", Name = "VIP Gym", Description = "Unlocks the x10 VIP bench"},
++	GymMega = {Id = 0, Price = 39, Tab = "Gym", Name = "Mega Gym", Description = "Unlocks the x25 Mega bench"},
++	GymAdmin = {Id = 0, Price = 79, Tab = "Gym", Name = "Admin Gym", Description = "Unlocks the x99 Admin bench"},
+ }
+ Monetization.PassOrder = {"Double", "AutoTrain", "VIP", "AutoPunch", "DoubleCoins", "FastWalk", "TripleHatch", "AutoHatch", "Lucky", "PetSlots", "GymVIP", "GymMega", "GymAdmin"}
+ 
+ Monetization.Products = {
+-	StrengthSmall = {Id = 0, Tab = "Boosts", Name = "Strength Pack", Description = "100 clicks of Strength", Clicks = 100},
+-	StrengthMedium = {Id = 0, Tab = "Boosts", Name = "Big Strength Pack", Description = "500 clicks of Strength", Clicks = 500},
+-	StrengthLarge = {Id = 0, Tab = "Boosts", Name = "Huge Strength Pack", Description = "2,500 clicks of Strength", Clicks = 2500},
+-	CoinsSmall = {Id = 0, Tab = "Coins", Name = "Coin Bag", Description = "10 punches worth of Coins", Punches = 10},
+-	CoinsMedium = {Id = 0, Tab = "Coins", Name = "Coin Chest", Description = "50 punches worth of Coins", Punches = 50},
+-	CoinsLarge = {Id = 0, Tab = "Coins", Name = "Coin Vault", Description = "250 punches worth of Coins", Punches = 250},
+-	Boost = {Id = 0, Tab = "Boosts", Name = "x2 Strength (15 min)", Description = "Double Strength for 15 minutes", Seconds = 900},
+-	CoinBoost = {Id = 0, Tab = "Boosts", Name = "x2 Coins (15 min)", Description = "Double Coins for 15 minutes", Seconds = 900},
+-	LuckBoost = {Id = 0, Tab = "Eggs", Name = "x2 Luck (15 min)", Description = "Lucky hatching for 15 minutes", Seconds = 900},
+-	Level = {Id = 0, Tab = "Boosts", Name = "+1 Level", Description = "Instantly gain a level"},
+-	RebirthSkip = {Id = 0, Tab = "Boosts", Name = "Rebirth Skip", Description = "+1 Rebirth and keep your Strength and level"},
+-	WorldSkip = {Id = 0, Tab = "Boosts", Name = "Unlock Next World", Description = "Opens the next world right now"},
+-	MegaEgg = {Id = 0, Tab = "Eggs", Name = "Mega Egg", Description = "70% Diamond Dog, 25% Rainbow Dragon, 5% Golden Cerberus"},
++	StrengthSmall = {Id = 3719745475, Price = 5, Tab = "Boosts", Name = "Strength Pack", Description = "100 clicks of Strength", Clicks = 100},
++	StrengthMedium = {Id = 3719749527, Price = 15, Tab = "Boosts", Name = "Big Strength Pack", Description = "500 clicks of Strength", Clicks = 500},
++	StrengthLarge = {Id = 3719749718, Price = 49, Tab = "Boosts", Name = "Huge Strength Pack", Description = "2,500 clicks of Strength", Clicks = 2500},
++	CoinsSmall = {Id = 3719749809, Price = 5, Tab = "Coins", Name = "Coin Bag", Description = "10 punches worth of Coins", Punches = 10},
++	CoinsMedium = {Id = 0, Price = 15, Tab = "Coins", Name = "Coin Chest", Description = "50 punches worth of Coins", Punches = 50},
++	CoinsLarge = {Id = 0, Price = 49, Tab = "Coins", Name = "Coin Vault", Description = "250 punches worth of Coins", Punches = 250},
++	Boost = {Id = 0, Price = 9, Tab = "Boosts", Name = "x2 Strength (15 min)", Description = "Double Strength for 15 minutes", Seconds = 900},
++	CoinBoost = {Id = 0, Price = 9, Tab = "Boosts", Name = "x2 Coins (15 min)", Description = "Double Coins for 15 minutes", Seconds = 900},
++	LuckBoost = {Id = 0, Price = 9, Tab = "Eggs", Name = "x2 Luck (15 min)", Description = "Lucky hatching for 15 minutes", Seconds = 900},
++	Level = {Id = 0, Price = 9, Tab = "Boosts", Name = "+1 Level", Description = "Instantly gain a level"},
++	RebirthSkip = {Id = 0, Price = 39, Tab = "Boosts", Name = "Rebirth Skip", Description = "+1 Rebirth and keep your Strength and level"},
++	WorldSkip = {Id = 0, Price = 59, Tab = "Boosts", Name = "Unlock Next World", Description = "Opens the next world right now"},
++	MegaEgg = {Id = 0, Price = 39, Tab = "Eggs", Name = "Mega Egg", Description = "One random pet; odds shown below"},
++	UltraEgg = {Id = 0, Price = 99, Tab = "Eggs", Name = "Ultra Robux Egg", Description = "One random ultra pet; odds shown below"},
+ }
+-Monetization.ProductOrder = {"StrengthSmall", "StrengthMedium", "StrengthLarge", "Boost", "Level", "RebirthSkip", "WorldSkip", "CoinsSmall", "CoinsMedium", "CoinsLarge", "CoinBoost", "MegaEgg", "LuckBoost"}
++Monetization.ProductOrder = {"StrengthSmall", "StrengthMedium", "StrengthLarge", "Boost", "Level", "RebirthSkip", "WorldSkip", "CoinsSmall", "CoinsMedium", "CoinsLarge", "CoinBoost", "MegaEgg", "UltraEgg", "LuckBoost"}
+ Monetization.Tabs = {"Passes", "Boosts", "Coins", "Eggs", "Gym"}
+ 
+ function Monetization.FindProduct(productId)
+--- baseline/MonetizationService.luau
++++ modified/MonetizationService.luau
+@@ -3,7 +3,6 @@
+ local MarketplaceService = game:GetService("MarketplaceService")
+ local Players = game:GetService("Players")
+ local ReplicatedStorage = game:GetService("ReplicatedStorage")
+-local RunService = game:GetService("RunService")
+ 
+ local Config = ReplicatedStorage.Shared.Config
+ local Monetization = require(Config.Monetization)
+@@ -47,15 +46,19 @@
+ 		StatService.AddLevels(player, 1)
+ 	end,
+ 	RebirthSkip = function(player)
+-		RebirthService.DoRebirth(player, false)
++		return RebirthService.DoRebirth(player, false)
+ 	end,
+ 	WorldSkip = function(player)
+ 		local profile = DataService.Get(player)
+-		profile.WorldUnlocked = math.min(StatService.AllowedWorld(profile) + 1, #Zones.List)
++		if StatService.AllowedWorld(profile) >= #Zones.List then return false end
++		profile.WorldUnlocked = StatService.AllowedWorld(profile) + 1
+ 		StatService.Refresh(player)
+ 	end,
+ 	MegaEgg = function(player)
+-		EggService.Hatch(player, "Mega", 1, false, true)
++		return EggService.Hatch(player, "Mega", 1, false, true)
++	end,
++	UltraEgg = function(player)
++		return EggService.Hatch(player, "Ultra", 1, false, true)
+ 	end,
+ }
+ 
+@@ -83,9 +86,9 @@
+ 		return Enum.ProductPurchaseDecision.NotProcessedYet
+ 	end
+ 
+-	local ok, err = pcall(grants[productKey], player, product)
+-	if not ok then
+-		warn("[Monetization] Grant failed: " .. tostring(err))
++	local ok, granted = pcall(grants[productKey], player, product)
++	if not ok or granted == false then
++		warn("[Monetization] Grant deferred: " .. tostring(granted))
+ 		return Enum.ProductPurchaseDecision.NotProcessedYet
+ 	end
+ 	DataService.AddReceipt(profile, info.PurchaseId)
+@@ -108,33 +111,8 @@
+ 	end
+ end
+ 
+--- Studio only: buttons whose Id is still 0 grant for free so we can test them.
+--- Live servers ignore this remote completely.
+-local function onStudioPurchase(player, kind, itemKey)
+-	if not RunService:IsStudio() then
+-		return
+-	end
+-	if typeof(kind) ~= "string" or typeof(itemKey) ~= "string" or not DataService.Get(player) then
+-		return
+-	end
+-	if kind == "Pass" then
+-		local pass = Monetization.Passes[itemKey]
+-		if pass and pass.Id == 0 then
+-			StatService.SetPass(player, itemKey, true)
+-			Remotes.Notify:FireClient(player, "[Studio test] " .. pass.Name .. " unlocked")
+-		end
+-	elseif kind == "Product" then
+-		local product = Monetization.Products[itemKey]
+-		if product and product.Id == 0 and grants[itemKey] then
+-			grants[itemKey](player, product)
+-			Remotes.Notify:FireClient(player, "[Studio test] " .. product.Name .. " received")
+-		end
+-	end
+-end
+-
+ function MonetizationService.Start()
+ 	MarketplaceService.ProcessReceipt = processReceipt
+-	Remotes.StudioPurchase.OnServerEvent:Connect(onStudioPurchase)
+ 	DataService.ProfileLoaded:Connect(checkPasses)
+ 
+ 	-- Fired by Roblox on the server, so the client cannot fake it
+--- baseline/Purchase.luau
++++ modified/Purchase.luau
+@@ -1,73 +1,69 @@
+--- Client helper: open the right Roblox purchase prompt, or in Studio grant
+--- Id-0 items through the StudioPurchase remote (the server re-checks IsStudio).
+--- The server grants everything; this only opens prompts and reads prices.
++-- Prompt only verified Creator Dashboard listings; receipts grant products on the server.
+ local MarketplaceService = game:GetService("MarketplaceService")
+ local Players = game:GetService("Players")
++local PolicyService = game:GetService("PolicyService")
+ local ReplicatedStorage = game:GetService("ReplicatedStorage")
+-local RunService = game:GetService("RunService")
+-
+ local Monetization = require(ReplicatedStorage.Shared.Config.Monetization)
++local Zones = require(ReplicatedStorage.Shared.Config.Zones)
+ 
+ local Purchase = {}
++local listingCache = {}
+ 
+-local ROBUX = utf8.char(0xE002)
+-local IS_STUDIO = RunService:IsStudio()
+-local prices = {}
+-
+-local function remotes()
+-	return ReplicatedStorage:WaitForChild("Remotes")
++local function listing(kind, item)
++    if item.Id == 0 then return false, "Listing not set up" end
++    local infoType = if kind == "Pass" then Enum.InfoType.GamePass else Enum.InfoType.Product
++    local ok, info = pcall(MarketplaceService.GetProductInfo, MarketplaceService, item.Id, infoType)
++    if not ok or not info then return false, "Roblox price unavailable; try again" end
++    local actual = info.PriceInRobux
++    if type(actual) ~= "number" or actual > Monetization.MaxRobux or actual ~= item.Price then
++        return false, "Listing price does not match the shop"
++    end
++    if info.IsForSale == false then return false, "Item is not on sale" end
++    return true
+ end
+ 
+--- Returns true if it did something, false + reason otherwise
+-function Purchase.Pass(passKey)
+-	local player = Players.LocalPlayer
+-	local pass = Monetization.Passes[passKey]
+-	if not pass then
+-		return false, "Unknown pass"
+-	end
+-	if player:GetAttribute("Pass_" .. passKey) then
+-		return false, "You already own " .. pass.Name
+-	end
+-	if pass.Id == 0 then
+-		if IS_STUDIO then
+-			remotes().StudioPurchase:FireServer("Pass", passKey)
+-			return true
+-		end
+-		return false, pass.Name .. " is coming soon"
+-	end
+-	MarketplaceService:PromptGamePassPurchase(player, pass.Id)
+-	return true
++function Purchase.Pass(key)
++    local player = Players.LocalPlayer
++    local item = Monetization.Passes[key]
++    if not item then return false, "Unknown pass" end
++    if player:GetAttribute("Pass_" .. key) then return false, "Already owned" end
++    local ok, reason = listing("Pass", item)
++    if not ok then return false, reason end
++    MarketplaceService:PromptGamePassPurchase(player, item.Id)
++    return true
+ end
+ 
+-function Purchase.Product(productKey)
+-	local product = Monetization.Products[productKey]
+-	if not product then
+-		return false, "Unknown product"
+-	end
+-	if product.Id == 0 then
+-		if IS_STUDIO then
+-			remotes().StudioPurchase:FireServer("Product", productKey)
+-			return true
+-		end
+-		return false, product.Name .. " is coming soon"
+-	end
+-	MarketplaceService:PromptProductPurchase(Players.LocalPlayer, product.Id)
+-	return true
++function Purchase.Product(key)
++    local player = Players.LocalPlayer
++    local item = Monetization.Products[key]
++    if not item then return false, "Unknown product" end
++    if key == "WorldSkip" and (player:GetAttribute("AllowedZone") or 1) >= #Zones.List then
++        return false, "All current worlds already unlocked"
++    end
++    if key == "MegaEgg" or key == "UltraEgg" then
++        local ok, policy = pcall(PolicyService.GetPolicyInfoForPlayerAsync, PolicyService, player)
++        if not ok or policy.ArePaidRandomItemsRestricted then
++            return false, "Paid random eggs are unavailable for this player"
++        end
++    end
++    local ok, reason = listing("Product", item)
++    if not ok then return false, reason end
++    MarketplaceService:PromptProductPurchase(player, item.Id)
++    return true
+ end
+ 
+--- Price label: real price from Roblox, "TEST" in Studio for Id 0, "Soon" live
+ function Purchase.PriceText(kind, key)
+-	local item = if kind == "Pass" then Monetization.Passes[key] else Monetization.Products[key]
+-	if not item or item.Id == 0 then
+-		return if IS_STUDIO then "TEST" else "Soon"
+-	end
+-	local cacheKey = kind .. item.Id
+-	if prices[cacheKey] == nil then
+-		local infoType = if kind == "Pass" then Enum.InfoType.GamePass else Enum.InfoType.Product
+-		local ok, info = pcall(MarketplaceService.GetProductInfo, MarketplaceService, item.Id, infoType)
+-		prices[cacheKey] = if ok and info.PriceInRobux then info.PriceInRobux else false
+-	end
+-	return if prices[cacheKey] then ROBUX .. prices[cacheKey] else "..."
++    local item = if kind == "Pass" then Monetization.Passes[key] else Monetization.Products[key]
++    if not item then return "UNAVAILABLE" end
++    if item.Id == 0 then return "R$" .. item.Price .. " · SETUP" end
++    local cacheKey = kind .. tostring(item.Id)
++    local cached = listingCache[cacheKey]
++    if not cached or os.clock() - cached.time > 60 then
++        local ok, reason = listing(kind, item)
++        cached = {time = os.clock(), ok = ok, reason = reason}
++        listingCache[cacheKey] = cached
++    end
++    return if cached.ok then "R$" .. item.Price else "UNAVAILABLE"
+ end
+ 
+ return Purchase
+--- baseline/ShopController.luau
++++ modified/ShopController.luau
+@@ -16,40 +16,11 @@
+ local CARD = Vector2.new(250, 230)
+ 
+ local TAB_STYLE = {
+-	Passes = { Color = C.Purple, Icon = "🎫" },
+-	Boosts = { Color = C.Red, Icon = "💪" },
+-	Coins = { Color = C.Gold, Icon = "🪙" },
+-	Eggs = { Color = C.Pink, Icon = "🥚" },
+-	Gym = { Color = C.Blue, Icon = "🏋️" },
+-}
+-
+-local ICONS = {
+-	Double = "💪",
+-	AutoTrain = "🖱️",
+-	VIP = "👑",
+-	AutoPunch = "🥊",
+-	DoubleCoins = "🪙",
+-	FastWalk = "👟",
+-	TripleHatch = "🥚",
+-	AutoHatch = "🔁",
+-	Lucky = "🍀",
+-	PetSlots = "🐾",
+-	GymVIP = "🏋️",
+-	GymMega = "🔥",
+-	GymAdmin = "⚡",
+-	StrengthSmall = "💪",
+-	StrengthMedium = "💪",
+-	StrengthLarge = "🦾",
+-	CoinsSmall = "💰",
+-	CoinsMedium = "🧰",
+-	CoinsLarge = "🏦",
+-	Boost = "⏱️",
+-	CoinBoost = "⏱️",
+-	LuckBoost = "🍀",
+-	Level = "⬆️",
+-	RebirthSkip = "🔄",
+-	WorldSkip = "🌍",
+-	MegaEgg = "🥚",
++    Passes = { Color = C.Purple, Logo = "Passes" },
++    Boosts = { Color = C.Red, Logo = "Boosts" },
++    Coins = { Color = C.Gold, Logo = "Coins" },
++    Eggs = { Color = C.Pink, Logo = "Eggs" },
++    Gym = { Color = C.Blue, Logo = "Gym" },
+ }
+ 
+ local RIBBONS = {
+@@ -61,6 +32,7 @@
+ -- Robux eggs whose odds must be shown on the card
+ local ODDS_FOR = {
+ 	MegaEgg = "Mega",
++	UltraEgg = "Ultra",
+ }
+ 
+ local gui: ScreenGui? = nil
+@@ -77,7 +49,7 @@
+ 	return false, "Not started"
+ end
+ local priceText: (string, string) -> string = function()
+-	return "TEST"
++	return "UNAVAILABLE"
+ end
+ local owns: (string) -> boolean = function()
+ 	return false
+@@ -207,16 +179,11 @@
+ 		LayoutOrder = order,
+ 		ZIndex = 12,
+ 	})
+-	UiStyle.Label({
+-		Name = "IconText",
+-		Text = ICONS[key] or "⭐",
+-		Position = UDim2.fromOffset(10, 8),
+-		Size = UDim2.fromOffset(64, 64),
+-		MaxTextSize = 56,
+-		StrokeThickness = 0,
+-		ZIndex = 21,
+-		Parent = card,
+-	})
++	UiStyle.Logo({
++        Name = "BrandLogo", Key = key, Color = color,
++        Position = UDim2.fromOffset(11, 9), Size = UDim2.fromOffset(62, 62),
++        ZIndex = 21, Parent = card,
++    })
+ 	UiStyle.Label({
+ 		Name = "Title",
+ 		Text = item.Name,
+@@ -263,7 +230,7 @@
+ 			buy.Label.Text = "OWNED"
+ 			recolor(buy, Color3.fromRGB(120, 120, 135))
+ 		else
+-			recolor(buy, C.Green)
++			recolor(buy, if item.Id == 0 then Color3.fromRGB(115, 115, 135) else C.Green)
+ 			buy.Label.Text = "..."
+ 			task.spawn(function()
+ 				local text = priceText(kind, key)
+@@ -311,7 +278,7 @@
+ 
+ 	local p = UiStyle.Panel({
+ 		Name = "ShopPanel",
+-		Title = "🛒 Shop",
++		Title = "SHOP",
+ 		Color = C.Gold,
+ 		Size = UDim2.fromOffset(860, 540),
+ 		Parent = g,
+@@ -365,11 +332,11 @@
+ 	end
+ 
+ 	for i, tab in Monetization.Tabs do
+-		local style = TAB_STYLE[tab] or { Color = C.Blue, Icon = "⭐" }
++		local style = TAB_STYLE[tab] or { Color = C.Blue, Logo = tab }
+ 		local tb = UiStyle.Button({
+ 			Name = tab,
+ 			Text = tab,
+-			Icon = style.Icon,
++			Logo = style.Logo,
+ 			Color = style.Color,
+ 			Size = UDim2.fromOffset(150, 50),
+ 			LayoutOrder = i,
+@@ -467,14 +434,4 @@
+ 	panel.Visible = true
+ end
+ 
+--- Edit-mode visual check only: builds the open shop on a tab under parent
+-function ShopController.Preview(parent: Instance, tab: string?): ScreenGui?
+-	owns = function(key)
+-		return key == "VIP"
+-	end
+-	build(parent)
+-	ShopController.Open(tab)
+-	return gui
+-end
+-
+ return ShopController
+--- baseline/UiStyle.luau
++++ modified/UiStyle.luau
+@@ -161,6 +161,43 @@
+ 	})
+ end
+ 
++-- Original typographic brand mark, built from GUI shapes rather than emoji stickers.
++local MARKS = {
++    Passes="PASS", Boosts="2X", Coins="C", Eggs="EGG", Gym="GYM",
++    Rebirth="REB", Pets="PET", Shop="SHOP", Train="STR", Double="2X",
++    AutoTrain="AUTO", VIP="VIP", AutoPunch="PUNCH", DoubleCoins="2X",
++    FastWalk="SPD", TripleHatch="3X", AutoHatch="AUTO", Lucky="LUCK",
++    PetSlots="+3", GymVIP="VIP", GymMega="25X", GymAdmin="99X",
++    StrengthSmall="100", StrengthMedium="500", StrengthLarge="2.5K",
++    CoinsSmall="10", CoinsMedium="50", CoinsLarge="250", Boost="2X",
++    CoinBoost="2X", LuckBoost="2X", Level="+1", RebirthSkip="REB",
++    WorldSkip="NEXT", MegaEgg="MEGA", UltraEgg="ULTRA",
++}
++
++function UiStyle.Logo(props: { [string]: any }): Frame
++    local z = props.ZIndex or 10
++    local color = props.Color or UiStyle.Colors.Gold
++    local frame = new("Frame", {
++        Name = props.Name or "Logo", Size = props.Size or UDim2.fromOffset(62, 62),
++        Position = props.Position or UDim2.new(), AnchorPoint = props.AnchorPoint or Vector2.zero,
++        BackgroundColor3 = darken(color, 0.48), ZIndex = z, Parent = props.Parent,
++    }, {corner(15), stroke(3, UiStyle.Colors.Outline)})
++    local face = new("Frame", {
++        Name="Face", Size=UDim2.new(1,-8,1,-10), Position=UDim2.fromOffset(4,3),
++        BackgroundColor3=color, ZIndex=z+1, Parent=frame,
++    }, {corner(12), new("UIGradient", {Rotation=90, Color=ColorSequence.new(Color3.new(1,1,1), darken(color,0.1))})})
++    new("Frame", {
++        Name="Underline", AnchorPoint=Vector2.new(0.5,1), Position=UDim2.new(0.5,0,1,-4),
++        Size=UDim2.new(0.55,0,0,4), BackgroundColor3=UiStyle.Colors.White,
++        ZIndex=z+2, Parent=face,
++    }, {corner(2)})
++    UiStyle.Label({Name="Mark", Text=MARKS[props.Key] or props.Key or "X",
++        Size=UDim2.new(1,-6,0.7,0), Position=UDim2.new(0,3,0.12,0),
++        MaxTextSize=if #(MARKS[props.Key] or props.Key or "X") > 3 then 22 else 32,
++        StrokeThickness=2.5, ZIndex=z+3, Parent=face})
++    return frame
++end
++
+ local function makeBadge(z: number): Frame
+ 	local badge = new("Frame", {
+ 		Name = "Badge",
+@@ -289,8 +326,8 @@
+ 		StrokeThickness = props.StrokeThickness or 3,
+ 	})
+ 
+-	if props.Icon ~= nil and props.Icon ~= "" then
+-		local icon = makeIcon(props.Icon, z + 6)
++	if props.Logo or (props.Icon ~= nil and props.Icon ~= "") then
++		local icon = if props.Logo then UiStyle.Logo({Key=props.Logo, Color=color, ZIndex=z+6}) else makeIcon(props.Icon, z + 6)
+ 		if shape == "Square" then
+ 			-- big icon fills the top and pokes past the edge like the reference
+ 			icon.AnchorPoint = Vector2.new(0.5, 0)

@@ -1,0 +1,515 @@
+{
+  "pets": [
+    {
+      "parts": 79,
+      "id": "Cerberus",
+      "species": "Cerberus",
+      "massive": false,
+      "extent": 6
+    },
+    {
+      "parts": 94,
+      "id": "CandyHydra",
+      "species": "Hydra",
+      "massive": true,
+      "extent": 13.999998092651367
+    },
+    {
+      "parts": 88,
+      "id": "GoldenCerberus",
+      "species": "Cerberus",
+      "massive": true,
+      "extent": 16
+    },
+    {
+      "parts": 46,
+      "id": "FrostTitan",
+      "species": "Golem",
+      "massive": true,
+      "extent": 12
+    },
+    {
+      "parts": 46,
+      "id": "FireBat",
+      "species": "Bat",
+      "massive": false,
+      "extent": 4.200000286102295
+    },
+    {
+      "parts": 33,
+      "id": "Doggy",
+      "species": "Dog",
+      "massive": false,
+      "extent": 3.5999999046325684
+    },
+    {
+      "parts": 45,
+      "id": "PhoenixChick",
+      "species": "Phoenix",
+      "massive": false,
+      "extent": 4.400000095367432
+    },
+    {
+      "parts": 45,
+      "id": "FrostPhoenix",
+      "species": "Phoenix",
+      "massive": false,
+      "extent": 6
+    },
+    {
+      "parts": 34,
+      "id": "Penguin",
+      "species": "Penguin",
+      "massive": false,
+      "extent": 3.5999999046325684
+    },
+    {
+      "parts": 50,
+      "id": "RainbowDragon",
+      "species": "Dragon",
+      "massive": false,
+      "extent": 6.999999046325684
+    },
+    {
+      "parts": 57,
+      "id": "CandyKing",
+      "species": "Lion",
+      "massive": false,
+      "extent": 6
+    },
+    {
+      "parts": 39,
+      "id": "ObsidianTurtle",
+      "species": "Turtle",
+      "massive": false,
+      "extent": 4.099999904632568
+    },
+    {
+      "parts": 57,
+      "id": "GalaxyLeviathan",
+      "species": "Dragon",
+      "massive": true,
+      "extent": 14.999999046325684
+    },
+    {
+      "parts": 39,
+      "id": "EmberFox",
+      "species": "Fox",
+      "massive": false,
+      "extent": 3.6000001430511475
+    },
+    {
+      "parts": 41,
+      "id": "Lion",
+      "species": "Lion",
+      "massive": false,
+      "extent": 4.299999713897705
+    },
+    {
+      "parts": 45,
+      "id": "DiamondDog",
+      "species": "Dog",
+      "massive": false,
+      "extent": 5
+    },
+    {
+      "parts": 63,
+      "id": "InfinityDragon",
+      "species": "Dragon",
+      "massive": true,
+      "extent": 22
+    },
+    {
+      "parts": 57,
+      "id": "BlackHoleBeast",
+      "species": "Demon",
+      "massive": false,
+      "extent": 6.999999046325684
+    },
+    {
+      "parts": 31,
+      "id": "Bunny",
+      "species": "Bunny",
+      "massive": false,
+      "extent": 3.5999999046325684
+    },
+    {
+      "parts": 49,
+      "id": "MarshmallowSheep",
+      "species": "Sheep",
+      "massive": false,
+      "extent": 3.9000003337860107
+    },
+    {
+      "parts": 48,
+      "id": "CupcakePup",
+      "species": "Dog",
+      "massive": false,
+      "extent": 4
+    },
+    {
+      "parts": 41,
+      "id": "GummyBear",
+      "species": "Bear",
+      "massive": false,
+      "extent": 3.5999996662139893
+    },
+    {
+      "parts": 46,
+      "id": "Alien",
+      "species": "Alien",
+      "massive": false,
+      "extent": 3.5999996662139893
+    },
+    {
+      "parts": 39,
+      "id": "IceWolf",
+      "species": "Wolf",
+      "massive": false,
+      "extent": 4.199999809265137
+    },
+    {
+      "parts": 46,
+      "id": "UFOCat",
+      "species": "Cat",
+      "massive": false,
+      "extent": 4.600000381469727
+    },
+    {
+      "parts": 33,
+      "id": "Kitty",
+      "species": "Cat",
+      "massive": false,
+      "extent": 3.6007466316223145
+    },
+    {
+      "parts": 90,
+      "id": "IceHydra",
+      "species": "Hydra",
+      "massive": false,
+      "extent": 7.999999523162842
+    },
+    {
+      "parts": 44,
+      "id": "MoonBunny",
+      "species": "Bunny",
+      "massive": false,
+      "extent": 4.399999618530273
+    },
+    {
+      "parts": 36,
+      "id": "SnowOwl",
+      "species": "Owl",
+      "massive": false,
+      "extent": 3.5999999046325684
+    },
+    {
+      "parts": 47,
+      "id": "VoidTitan",
+      "species": "Golem",
+      "massive": true,
+      "extent": 13.000000953674316
+    },
+    {
+      "parts": 57,
+      "id": "NebulaDragon",
+      "species": "Dragon",
+      "massive": false,
+      "extent": 6
+    },
+    {
+      "parts": 50,
+      "id": "StarWolf",
+      "species": "Wolf",
+      "massive": false,
+      "extent": 4.799999237060547
+    },
+    {
+      "parts": 44,
+      "id": "Unicorn",
+      "species": "Unicorn",
+      "massive": false,
+      "extent": 4.399999618530273
+    },
+    {
+      "parts": 49,
+      "id": "AstroDog",
+      "species": "Dog",
+      "massive": false,
+      "extent": 4.799999713897705
+    },
+    {
+      "parts": 37,
+      "id": "Fox",
+      "species": "Fox",
+      "massive": false,
+      "extent": 3.6000001430511475
+    },
+    {
+      "parts": 46,
+      "id": "CosmicGod",
+      "species": "Alien",
+      "massive": true,
+      "extent": 19
+    },
+    {
+      "parts": 39,
+      "id": "Gorilla",
+      "species": "Gorilla",
+      "massive": false,
+      "extent": 4
+    },
+    {
+      "parts": 41,
+      "id": "Yeti",
+      "species": "Yeti",
+      "massive": false,
+      "extent": 4.699999809265137
+    },
+    {
+      "parts": 46,
+      "id": "BlizzardDragon",
+      "species": "Dragon",
+      "massive": false,
+      "extent": 7.999999523162842
+    },
+    {
+      "parts": 46,
+      "id": "InfernoDemon",
+      "species": "Demon",
+      "massive": false,
+      "extent": 6.999999046325684
+    },
+    {
+      "parts": 35,
+      "id": "LavaHound",
+      "species": "Dog",
+      "massive": false,
+      "extent": 4.400000095367432
+    },
+    {
+      "parts": 50,
+      "id": "CandyDragon",
+      "species": "Dragon",
+      "massive": false,
+      "extent": 4.799999713897705
+    },
+    {
+      "parts": 36,
+      "id": "MagmaTitan",
+      "species": "Golem",
+      "massive": false,
+      "extent": 7
+    },
+    {
+      "parts": 90,
+      "id": "ThreeHeadedDragon",
+      "species": "Hydra",
+      "massive": true,
+      "extent": 14.999999046325684
+    },
+    {
+      "parts": 37,
+      "id": "Wolf",
+      "species": "Wolf",
+      "massive": false,
+      "extent": 3.8999998569488525
+    },
+    {
+      "parts": 39,
+      "id": "Hellhound",
+      "species": "Wolf",
+      "massive": false,
+      "extent": 5.999999523162842
+    },
+    {
+      "parts": 36,
+      "id": "FlameGolem",
+      "species": "Golem",
+      "massive": false,
+      "extent": 5.300000190734863
+    },
+    {
+      "parts": 44,
+      "id": "LollipopCat",
+      "species": "Cat",
+      "massive": false,
+      "extent": 3.8000001907348633
+    },
+    {
+      "parts": 36,
+      "id": "IceGolem",
+      "species": "Golem",
+      "massive": false,
+      "extent": 5
+    },
+    {
+      "parts": 37,
+      "id": "MagmaSlime",
+      "species": "Slime",
+      "massive": false,
+      "extent": 3.6000006198883057
+    },
+    {
+      "parts": 35,
+      "id": "Bear",
+      "species": "Bear",
+      "massive": false,
+      "extent": 3.5999996662139893
+    },
+    {
+      "parts": 31,
+      "id": "Walrus",
+      "species": "Walrus",
+      "massive": false,
+      "extent": 4.199999809265137
+    },
+    {
+      "parts": 56,
+      "id": "DemonKing",
+      "species": "Demon",
+      "massive": true,
+      "extent": 17
+    },
+    {
+      "parts": 47,
+      "id": "MeteorGolem",
+      "species": "Golem",
+      "massive": false,
+      "extent": 5.800000190734863
+    },
+    {
+      "parts": 39,
+      "id": "SnowFox",
+      "species": "Fox",
+      "massive": false,
+      "extent": 3.6000001430511475
+    },
+    {
+      "parts": 48,
+      "id": "CottonCandyFairy",
+      "species": "Fairy",
+      "massive": false,
+      "extent": 4.799999713897705
+    },
+    {
+      "parts": 50,
+      "id": "GoldenGorilla",
+      "species": "Gorilla",
+      "massive": true,
+      "extent": 11
+    },
+    {
+      "parts": 43,
+      "id": "DemiDog",
+      "species": "Dog",
+      "massive": false,
+      "extent": 5
+    },
+    {
+      "parts": 37,
+      "id": "ChocoBunny",
+      "species": "Bunny",
+      "massive": false,
+      "extent": 3.5999999046325684
+    },
+    {
+      "parts": 52,
+      "id": "DonutDog",
+      "species": "Dog",
+      "massive": false,
+      "extent": 4
+    },
+    {
+      "parts": 50,
+      "id": "SugarDemon",
+      "species": "Demon",
+      "massive": false,
+      "extent": 4.999999046325684
+    },
+    {
+      "parts": 58,
+      "id": "RainbowUnicorn",
+      "species": "Unicorn",
+      "massive": false,
+      "extent": 6
+    },
+    {
+      "parts": 37,
+      "id": "PolarBear",
+      "species": "Bear",
+      "massive": false,
+      "extent": 4.399999618530273
+    }
+  ],
+  "sources": {
+    "ReplicatedStorage.Shared.Util.EggVisual": "18768ac06c410fe2a68e7d4b3313ecd1a2ebe6ede4145092fe96d2fcb1705479",
+    "StarterPlayer.StarterPlayerScripts.Controllers.PetsController": "dc48718198bbc35ccb245f5a8dae15a4af19b972e9d4b1a056f9f530012d3e22",
+    "StarterPlayer.StarterPlayerScripts.Controllers.PetController": "29054a4f0a17d3e1b9d547a1d78d83a9acfbd6d6d9f805ce9196e9b0a1c38dbc",
+    "ReplicatedStorage.Shared.Util.PetModelBuilder": "593d9d420515837abb7a7476a17db7157909fc7ea194edea1b3ca77a33256770",
+    "ReplicatedStorage.Shared.Config.PetDesigns": "7be9ac9ad64bb9b76d497c256afbf3f4501a1cae07c800b557e483d3e1921a4e",
+    "ReplicatedStorage.Shared.Util.PetVisual": "fdb42980ea311ef46085ae97b5ba5f3f046bb6b3da47ef2bd96a1e3849a0b670",
+    "StarterPlayer.StarterPlayerScripts.Controllers.HatchController": "29072feecb1daed72a6369b559f0a011c8db7722671b863451d8a6f3a2fe8284",
+    "ServerScriptService.Services.EggService": "84fe0c31479b475fc2fde7158a77a8892baf5d3081f8abd34542e7beaacb8e36"
+  },
+  "trackParts": 34986,
+  "bloom": 0.14000000059604645,
+  "dummyMeshes": 9,
+  "eggs": [
+    {
+      "id": "Mega",
+      "path": "Workspace.Map.Gameplay.EggStands.EggStand_Mega",
+      "preview": true
+    },
+    {
+      "id": "Starter",
+      "path": "Workspace.Map.Gameplay.EggStands.EggStand_Starter",
+      "preview": true
+    },
+    {
+      "id": "Buff",
+      "path": "Workspace.Map.Gameplay.EggStands.EggStand_Buff",
+      "preview": true
+    },
+    {
+      "id": "CandyPlus",
+      "path": "Workspace.Map.Gameplay.Worlds.World2.EggStand_CandyPlus",
+      "preview": true
+    },
+    {
+      "id": "Candy",
+      "path": "Workspace.Map.Gameplay.Worlds.World2.EggStand_Candy",
+      "preview": true
+    },
+    {
+      "id": "FrostPlus",
+      "path": "Workspace.Map.Gameplay.Worlds.World3.EggStand_FrostPlus",
+      "preview": true
+    },
+    {
+      "id": "Frost",
+      "path": "Workspace.Map.Gameplay.Worlds.World3.EggStand_Frost",
+      "preview": true
+    },
+    {
+      "id": "InfernoPlus",
+      "path": "Workspace.Map.Gameplay.Worlds.World4.EggStand_InfernoPlus",
+      "preview": true
+    },
+    {
+      "id": "Inferno",
+      "path": "Workspace.Map.Gameplay.Worlds.World4.EggStand_Inferno",
+      "preview": true
+    },
+    {
+      "id": "GalaxyPlus",
+      "path": "Workspace.Map.Gameplay.Worlds.World5.EggStand_GalaxyPlus",
+      "preview": true
+    },
+    {
+      "id": "Galaxy",
+      "path": "Workspace.Map.Gameplay.Worlds.World5.EggStand_Galaxy",
+      "preview": true
+    }
+  ]
+}

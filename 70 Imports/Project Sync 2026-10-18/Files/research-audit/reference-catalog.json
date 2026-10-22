@@ -1,0 +1,602 @@
+[
+  {
+    "title": "LEGACY REF - AlvinBlox tycoon tutorial part 2",
+    "path": "20 References/Inherited/LEGACY REF - AlvinBlox tycoon tutorial part 2.md",
+    "inspection": "legacy-unverified",
+    "url": "https://www.youtube.com/watch?v=muULrxFFP4Y"
+  },
+  {
+    "title": "LEGACY REF - AlvinBlox tycoon tutorial",
+    "path": "20 References/Inherited/LEGACY REF - AlvinBlox tycoon tutorial.md",
+    "inspection": "legacy-unverified",
+    "url": "https://www.youtube.com/watch?v=m-fN3ww_PzU"
+  },
+  {
+    "title": "LEGACY REF - Coverage of Roblox clones",
+    "path": "20 References/Inherited/LEGACY REF - Coverage of Roblox clones.md",
+    "inspection": "legacy-unverified",
+    "url": "https://www.windowscentral.com/gaming/how-roblox-theft-is-becoming-a-big-problem"
+  },
+  {
+    "title": "LEGACY REF - Game loop framework - Santoz",
+    "path": "20 References/Inherited/LEGACY REF - Game loop framework - Santoz.md",
+    "inspection": "legacy-unverified",
+    "url": "https://santozstudios.com/blog/roblox-game-loop-design-guide/"
+  },
+  {
+    "title": "LEGACY REF - Gamepass shop community tutorial",
+    "path": "20 References/Inherited/LEGACY REF - Gamepass shop community tutorial.md",
+    "inspection": "legacy-unverified",
+    "url": "https://devforum.roblox.com/t/tutorial-easy-how-to-make-a-working-gamepass-shop-gui/970082"
+  },
+  {
+    "title": "LEGACY REF - Simulator guide - creation.dev",
+    "path": "20 References/Inherited/LEGACY REF - Simulator guide - creation.dev.md",
+    "inspection": "legacy-unverified",
+    "url": "https://www.creation.dev/learn/how-to-make-simulator-roblox"
+  },
+  {
+    "title": "LEGACY REF - Simulator guide - rocode",
+    "path": "20 References/Inherited/LEGACY REF - Simulator guide - rocode.md",
+    "inspection": "legacy-unverified",
+    "url": "https://www.rocode.app/guides/roblox-simulator-game"
+  },
+  {
+    "title": "LEGACY REF - Steal a Whole Egg - Chuy Mine",
+    "path": "20 References/Inherited/LEGACY REF - Steal a Whole Egg - Chuy Mine.md",
+    "inspection": "legacy-unverified",
+    "url": "https://www.youtube.com/watch?v=lxzd6g8Hv6Q"
+  },
+  {
+    "title": "LEGACY REF - Steal an Egg gameplay - Yaszoca",
+    "path": "20 References/Inherited/LEGACY REF - Steal an Egg gameplay - Yaszoca.md",
+    "inspection": "legacy-unverified",
+    "url": "https://www.youtube.com/watch?v=kMGzsqBMqOs"
+  },
+  {
+    "title": "LEGACY REF - Tycoon course listing",
+    "path": "20 References/Inherited/LEGACY REF - Tycoon course listing.md",
+    "inspection": "legacy-unverified",
+    "url": "https://www.classcentral.com/course/youtube-how-to-make-a-tycoon-on-roblox-2024-288726"
+  },
+  {
+    "title": "LEGACY REF - USENIX monetization proceedings",
+    "path": "20 References/Inherited/LEGACY REF - USENIX monetization proceedings.md",
+    "inspection": "legacy-unverified",
+    "url": "https://www.usenix.org/system/files/soups2025_full-proceedings-interior.pdf"
+  },
+  {
+    "title": "REF - Accessibility guidelines",
+    "path": "20 References/Official and Maintainers/REF - Accessibility guidelines.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/production/publishing/accessibility"
+  },
+  {
+    "title": "REF - Acquisition",
+    "path": "20 References/Official and Maintainers/REF - Acquisition.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/production/analytics/acquisition"
+  },
+  {
+    "title": "REF - Advertising for creators",
+    "path": "20 References/Official and Maintainers/REF - Advertising for creators.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/production/promotion/advertise"
+  },
+  {
+    "title": "REF - Analytics custom fields",
+    "path": "20 References/Official and Maintainers/REF - Analytics custom fields.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/production/analytics/custom-fields"
+  },
+  {
+    "title": "REF - Analytics dashboard",
+    "path": "20 References/Official and Maintainers/REF - Analytics dashboard.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/production/analytics/analytics-dashboard"
+  },
+  {
+    "title": "REF - Analytics event types",
+    "path": "20 References/Official and Maintainers/REF - Analytics event types.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/production/analytics/event-types"
+  },
+  {
+    "title": "REF - Analytics overview",
+    "path": "20 References/Official and Maintainers/REF - Analytics overview.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/production/analytics"
+  },
+  {
+    "title": "REF - Assistant for Studio",
+    "path": "20 References/Official and Maintainers/REF - Assistant for Studio.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/assistant/guide"
+  },
+  {
+    "title": "REF - Assistant prompt guide",
+    "path": "20 References/Official and Maintainers/REF - Assistant prompt guide.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/assistant/prompt-engineering"
+  },
+  {
+    "title": "REF - Audio assets",
+    "path": "20 References/Official and Maintainers/REF - Audio assets.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/audio/assets"
+  },
+  {
+    "title": "REF - Audio overview",
+    "path": "20 References/Official and Maintainers/REF - Audio overview.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/audio"
+  },
+  {
+    "title": "REF - Badges",
+    "path": "20 References/Official and Maintainers/REF - Badges.md",
+    "inspection": "page-opened",
+    "url": "https://create.roblox.com/docs/production/publishing/badges"
+  },
+  {
+    "title": "REF - Balance virtual economies",
+    "path": "20 References/Official and Maintainers/REF - Balance virtual economies.md",
+    "inspection": "page-read",
+    "url": "https://create.roblox.com/docs/production/game-design/balance-virtual-economies"
+  },
+  {
+    "title": "REF - Blender to Studio",
+    "path": "20 References/Official and Maintainers/REF - Blender to Studio.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/art/blender"
+  },
+  {
+    "title": "REF - Client-server boundary validation",
+    "path": "20 References/Official and Maintainers/REF - Client-server boundary validation.md",
+    "inspection": "page-read",
+    "url": "https://create.roblox.com/docs/scripting/security/client-server-boundary"
+  },
+  {
+    "title": "REF - Coding-agent best practices",
+    "path": "20 References/Official and Maintainers/REF - Coding-agent best practices.md",
+    "inspection": "page-read",
+    "url": "https://learn.chatgpt.com/guides/best-practices"
+  },
+  {
+    "title": "REF - Content updates",
+    "path": "20 References/Official and Maintainers/REF - Content updates.md",
+    "inspection": "page-read",
+    "url": "https://create.roblox.com/docs/production/game-design/content-updates"
+  },
+  {
+    "title": "REF - Contextual purchases",
+    "path": "20 References/Official and Maintainers/REF - Contextual purchases.md",
+    "inspection": "page-read",
+    "url": "https://create.roblox.com/docs/production/game-design/contextual-purchases"
+  },
+  {
+    "title": "REF - Core loops",
+    "path": "20 References/Official and Maintainers/REF - Core loops.md",
+    "inspection": "page-read",
+    "url": "https://create.roblox.com/docs/production/game-design/core-loops"
+  },
+  {
+    "title": "REF - Cross-platform development",
+    "path": "20 References/Official and Maintainers/REF - Cross-platform development.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/projects/cross-platform"
+  },
+  {
+    "title": "REF - Custom 3D assets",
+    "path": "20 References/Official and Maintainers/REF - Custom 3D assets.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/art/modeling"
+  },
+  {
+    "title": "REF - Custom dashboards",
+    "path": "20 References/Official and Maintainers/REF - Custom dashboards.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/production/analytics/custom-dashboards"
+  },
+  {
+    "title": "REF - Custom events",
+    "path": "20 References/Official and Maintainers/REF - Custom events.md",
+    "inspection": "page-read",
+    "url": "https://create.roblox.com/docs/production/analytics/custom-events"
+  },
+  {
+    "title": "REF - Data stores",
+    "path": "20 References/Official and Maintainers/REF - Data stores.md",
+    "inspection": "page-opened",
+    "url": "https://create.roblox.com/docs/cloud-services/data-stores"
+  },
+  {
+    "title": "REF - Design for performance",
+    "path": "20 References/Official and Maintainers/REF - Design for performance.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/performance-optimization/design"
+  },
+  {
+    "title": "REF - Design games on Roblox",
+    "path": "20 References/Official and Maintainers/REF - Design games on Roblox.md",
+    "inspection": "page-read",
+    "url": "https://create.roblox.com/docs/production/game-design"
+  },
+  {
+    "title": "REF - Developer products",
+    "path": "20 References/Official and Maintainers/REF - Developer products.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/production/monetization/developer-products"
+  },
+  {
+    "title": "REF - Discovery metadata guidance",
+    "path": "20 References/Official and Maintainers/REF - Discovery metadata guidance.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/production/promotion/discovery"
+  },
+  {
+    "title": "REF - Discovery",
+    "path": "20 References/Official and Maintainers/REF - Discovery.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/discovery"
+  },
+  {
+    "title": "REF - Economy events",
+    "path": "20 References/Official and Maintainers/REF - Economy events.md",
+    "inspection": "page-read",
+    "url": "https://create.roblox.com/docs/production/analytics/economy-events"
+  },
+  {
+    "title": "REF - Effects overview",
+    "path": "20 References/Official and Maintainers/REF - Effects overview.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/effects"
+  },
+  {
+    "title": "REF - Experience events and updates",
+    "path": "20 References/Official and Maintainers/REF - Experience events and updates.md",
+    "inspection": "page-opened",
+    "url": "https://create.roblox.com/docs/production/promotion/experience-events"
+  },
+  {
+    "title": "REF - Funnel events",
+    "path": "20 References/Official and Maintainers/REF - Funnel events.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/production/analytics/funnel-events"
+  },
+  {
+    "title": "REF - Get started with analytics",
+    "path": "20 References/Official and Maintainers/REF - Get started with analytics.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/production/analytics/get-started"
+  },
+  {
+    "title": "REF - Improve performance",
+    "path": "20 References/Official and Maintainers/REF - Improve performance.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/performance-optimization/improve"
+  },
+  {
+    "title": "REF - Instance streaming",
+    "path": "20 References/Official and Maintainers/REF - Instance streaming.md",
+    "inspection": "page-opened",
+    "url": "https://create.roblox.com/docs/workspace/streaming"
+  },
+  {
+    "title": "REF - Introduction to quest design",
+    "path": "20 References/Official and Maintainers/REF - Introduction to quest design.md",
+    "inspection": "page-read",
+    "url": "https://create.roblox.com/docs/production/game-design/introduction-to-quest-design"
+  },
+  {
+    "title": "REF - LiveOps essentials",
+    "path": "20 References/Official and Maintainers/REF - LiveOps essentials.md",
+    "inspection": "page-read",
+    "url": "https://create.roblox.com/docs/production/game-design/liveops-essentials"
+  },
+  {
+    "title": "REF - LiveOps planning",
+    "path": "20 References/Official and Maintainers/REF - LiveOps planning.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/production/game-design/liveops-planning"
+  },
+  {
+    "title": "REF - Localization",
+    "path": "20 References/Official and Maintainers/REF - Localization.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/production/localization"
+  },
+  {
+    "title": "REF - Luau language overview",
+    "path": "20 References/Official and Maintainers/REF - Luau language overview.md",
+    "inspection": "page-opened",
+    "url": "https://create.roblox.com/docs/luau"
+  },
+  {
+    "title": "REF - Luau types",
+    "path": "20 References/Official and Maintainers/REF - Luau types.md",
+    "inspection": "page-read",
+    "url": "https://luau.org/types/"
+  },
+  {
+    "title": "REF - MarketplaceService API",
+    "path": "20 References/Official and Maintainers/REF - MarketplaceService API.md",
+    "inspection": "page-opened",
+    "url": "https://create.roblox.com/docs/reference/engine/classes/MarketplaceService#ProcessReceipt"
+  },
+  {
+    "title": "REF - MicroProfiler walkthrough",
+    "path": "20 References/Official and Maintainers/REF - MicroProfiler walkthrough.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/performance-optimization/microprofiler/use-microprofiler"
+  },
+  {
+    "title": "REF - Monetization analytics",
+    "path": "20 References/Official and Maintainers/REF - Monetization analytics.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/production/analytics/monetization"
+  },
+  {
+    "title": "REF - Monetization foundations",
+    "path": "20 References/Official and Maintainers/REF - Monetization foundations.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/production/game-design/monetization-foundations"
+  },
+  {
+    "title": "REF - Monetization overview",
+    "path": "20 References/Official and Maintainers/REF - Monetization overview.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/production/monetization"
+  },
+  {
+    "title": "REF - Network ownership and movement",
+    "path": "20 References/Official and Maintainers/REF - Network ownership and movement.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/scripting/security/network-ownership"
+  },
+  {
+    "title": "REF - Obsidian Graph view",
+    "path": "20 References/Official and Maintainers/REF - Obsidian Graph view.md",
+    "inspection": "page-read",
+    "url": "https://obsidian.md/help/plugins/graph"
+  },
+  {
+    "title": "REF - Onboarding",
+    "path": "20 References/Official and Maintainers/REF - Onboarding.md",
+    "inspection": "page-read",
+    "url": "https://create.roblox.com/docs/production/game-design/onboarding"
+  },
+  {
+    "title": "REF - Paid random item guidelines",
+    "path": "20 References/Official and Maintainers/REF - Paid random item guidelines.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/production/monetization/paid-random-items"
+  },
+  {
+    "title": "REF - ParticleEmitter API",
+    "path": "20 References/Official and Maintainers/REF - ParticleEmitter API.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/reference/engine/classes/ParticleEmitter"
+  },
+  {
+    "title": "REF - Passes",
+    "path": "20 References/Official and Maintainers/REF - Passes.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/production/monetization/passes"
+  },
+  {
+    "title": "REF - Pathfinding",
+    "path": "20 References/Official and Maintainers/REF - Pathfinding.md",
+    "inspection": "page-read",
+    "url": "https://create.roblox.com/docs/characters/pathfinding"
+  },
+  {
+    "title": "REF - Player data and purchasing systems",
+    "path": "20 References/Official and Maintainers/REF - Player data and purchasing systems.md",
+    "inspection": "page-read",
+    "url": "https://create.roblox.com/docs/cloud-services/data-stores/player-data-purchasing"
+  },
+  {
+    "title": "REF - PolicyService API",
+    "path": "20 References/Official and Maintainers/REF - PolicyService API.md",
+    "inspection": "page-opened",
+    "url": "https://create.roblox.com/docs/reference/engine/classes/PolicyService"
+  },
+  {
+    "title": "REF - Price optimization",
+    "path": "20 References/Official and Maintainers/REF - Price optimization.md",
+    "inspection": "page-opened",
+    "url": "https://create.roblox.com/docs/production/monetization/price-optimization"
+  },
+  {
+    "title": "REF - Private servers",
+    "path": "20 References/Official and Maintainers/REF - Private servers.md",
+    "inspection": "page-read",
+    "url": "https://create.roblox.com/docs/production/monetization/private-servers"
+  },
+  {
+    "title": "REF - Properties and attributes",
+    "path": "20 References/Official and Maintainers/REF - Properties and attributes.md",
+    "inspection": "page-opened",
+    "url": "https://create.roblox.com/docs/scripting/attributes"
+  },
+  {
+    "title": "REF - Prototyping",
+    "path": "20 References/Official and Maintainers/REF - Prototyping.md",
+    "inspection": "page-read",
+    "url": "https://create.roblox.com/docs/production/game-design/prototyping"
+  },
+  {
+    "title": "REF - Proximity prompts",
+    "path": "20 References/Official and Maintainers/REF - Proximity prompts.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/ui/proximity-prompts"
+  },
+  {
+    "title": "REF - Publish games and places",
+    "path": "20 References/Official and Maintainers/REF - Publish games and places.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/production/publishing/publish-games-and-places"
+  },
+  {
+    "title": "REF - Regional pricing",
+    "path": "20 References/Official and Maintainers/REF - Regional pricing.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/production/monetization/regional-pricing"
+  },
+  {
+    "title": "REF - Remote events and callbacks",
+    "path": "20 References/Official and Maintainers/REF - Remote events and callbacks.md",
+    "inspection": "page-read",
+    "url": "https://create.roblox.com/docs/scripting/events/remote"
+  },
+  {
+    "title": "REF - Retention",
+    "path": "20 References/Official and Maintainers/REF - Retention.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/production/analytics/retention"
+  },
+  {
+    "title": "REF - Roblox core curriculum",
+    "path": "20 References/Official and Maintainers/REF - Roblox core curriculum.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/tutorials/curriculums/core"
+  },
+  {
+    "title": "REF - Roblox earning options",
+    "path": "20 References/Official and Maintainers/REF - Roblox earning options.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/get-started/monetization"
+  },
+  {
+    "title": "REF - Roblox Shop listings",
+    "path": "20 References/Official and Maintainers/REF - Roblox Shop listings.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/production/monetization/shop"
+  },
+  {
+    "title": "REF - Rojo introduction",
+    "path": "20 References/Official and Maintainers/REF - Rojo introduction.md",
+    "inspection": "page-read",
+    "url": "https://rojo.space/docs/v7/"
+  },
+  {
+    "title": "REF - Season pass design",
+    "path": "20 References/Official and Maintainers/REF - Season pass design.md",
+    "inspection": "page-read",
+    "url": "https://create.roblox.com/docs/production/game-design/season-pass-design"
+  },
+  {
+    "title": "REF - Security and cheat mitigation",
+    "path": "20 References/Official and Maintainers/REF - Security and cheat mitigation.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/scripting/security/security-tactics"
+  },
+  {
+    "title": "REF - Selene linter",
+    "path": "20 References/Official and Maintainers/REF - Selene linter.md",
+    "inspection": "page-read",
+    "url": "https://github.com/Kampfkarren/selene"
+  },
+  {
+    "title": "REF - Studio Importer",
+    "path": "20 References/Official and Maintainers/REF - Studio Importer.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/studio/importer"
+  },
+  {
+    "title": "REF - Studio testing modes",
+    "path": "20 References/Official and Maintainers/REF - Studio testing modes.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/studio/testing-modes"
+  },
+  {
+    "title": "REF - StyLua formatter",
+    "path": "20 References/Official and Maintainers/REF - StyLua formatter.md",
+    "inspection": "page-opened",
+    "url": "https://github.com/JohnnyMorganz/StyLua"
+  },
+  {
+    "title": "REF - Subscription design",
+    "path": "20 References/Official and Maintainers/REF - Subscription design.md",
+    "inspection": "page-opened",
+    "url": "https://create.roblox.com/docs/production/game-design/subscription-design"
+  },
+  {
+    "title": "REF - Subscriptions",
+    "path": "20 References/Official and Maintainers/REF - Subscriptions.md",
+    "inspection": "page-opened",
+    "url": "https://create.roblox.com/docs/production/monetization/subscriptions"
+  },
+  {
+    "title": "REF - Thumbnails",
+    "path": "20 References/Official and Maintainers/REF - Thumbnails.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/production/publishing/thumbnails"
+  },
+  {
+    "title": "REF - Translate dynamic content",
+    "path": "20 References/Official and Maintainers/REF - Translate dynamic content.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/production/localization/translate-dynamic-content"
+  },
+  {
+    "title": "REF - UI and UX design",
+    "path": "20 References/Official and Maintainers/REF - UI and UX design.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/production/game-design/ui-ux-design"
+  },
+  {
+    "title": "REF - UI animation and tweens",
+    "path": "20 References/Official and Maintainers/REF - UI animation and tweens.md",
+    "inspection": "page-read",
+    "url": "https://create.roblox.com/docs/ui/animation"
+  },
+  {
+    "title": "REF - UI appearance modifiers",
+    "path": "20 References/Official and Maintainers/REF - UI appearance modifiers.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/ui/appearance-modifiers"
+  },
+  {
+    "title": "REF - UI position and size",
+    "path": "20 References/Official and Maintainers/REF - UI position and size.md",
+    "inspection": "page-opened",
+    "url": "https://create.roblox.com/docs/ui/position-and-size"
+  },
+  {
+    "title": "REF - UI styling",
+    "path": "20 References/Official and Maintainers/REF - UI styling.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/ui/styling"
+  },
+  {
+    "title": "REF - User interface overview",
+    "path": "20 References/Official and Maintainers/REF - User interface overview.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/ui"
+  },
+  {
+    "title": "REF - Version History",
+    "path": "20 References/Official and Maintainers/REF - Version History.md",
+    "inspection": "search-excerpt",
+    "url": "https://create.roblox.com/docs/projects/version-history"
+  },
+  {
+    "title": "VIDEO 01 - AI-assisted Roblox build and iteration",
+    "path": "20 References/Video Reviews/VIDEO 01 - AI-assisted Roblox build and iteration.md",
+    "inspection": "transcript-reviewed",
+    "url": "https://www.youtube.com/watch?v=elqpTtfFD40"
+  },
+  {
+    "title": "VIDEO 02 - One-shot Steal an Egg comparison",
+    "path": "20 References/Video Reviews/VIDEO 02 - One-shot Steal an Egg comparison.md",
+    "inspection": "transcript-reviewed",
+    "url": "https://www.youtube.com/watch?v=KKNkv549dJM"
+  },
+  {
+    "title": "VIDEO 03 - Polished launch with weak early retention",
+    "path": "20 References/Video Reviews/VIDEO 03 - Polished launch with weak early retention.md",
+    "inspection": "transcript-reviewed",
+    "url": "https://www.youtube.com/watch?v=XAkHq5cFEcM"
+  }
+]

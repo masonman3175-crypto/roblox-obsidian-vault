@@ -1,0 +1,5089 @@
+{
+ "generated": "2026-10-20",
+ "note": "Auto-generated from folder READMEs. Verification status is stated in each entry and in cookbook headers.",
+ "entries": [
+  {
+   "id": "gui-001",
+   "area": "gui",
+   "number": 1,
+   "name": "Classic Stud GUI",
+   "path": "ui-styles/01-classic-stud-gui/",
+   "description": "Bright flat panel with a subtle round-stud pattern, chunky dark outline. Palette `#2B90FF #FFD23F #1B1B2F`. Recipe: Frame + tiled stud ImageLabel at 6-12% opacity, UIStroke 3-4px, UICorner 10. Best: simulators, tycoons. Refs: R3 R5 R6 R7, in-repo `visual-refs/studs-ui/`.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/roblox-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-002",
+   "area": "gui",
+   "number": 2,
+   "name": "Clean Stud (minimal)",
+   "path": "ui-styles/02-clean-stud-minimal/",
+   "description": "Studs only on header or buttons, large flat body. Palette `#FFFFFF #3AA0FF #20263A`. Refs: R6 R7.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/minimal-user-interface/",
+    "previews/roblox-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-003",
+   "area": "gui",
+   "number": 3,
+   "name": "Ultimate Studded",
+   "path": "ui-styles/03-ultimate-studded/",
+   "description": "Dense studs on every container, bevel highlights. Recipe: two-layer stud image, top-light UIGradient. Refs: R8.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/roblox-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-004",
+   "area": "gui",
+   "number": 4,
+   "name": "Stud Candy",
+   "path": "ui-styles/04-stud-candy/",
+   "description": "Studs plus saturated candy colours and a glossy highlight strip. Palette `#FF5FA2 #7C5CFF #FFE066`. Refs: R4 R13.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/casual-user-interface/",
+    "previews/roblox-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-005",
+   "area": "gui",
+   "number": 5,
+   "name": "LEGO-Brick UI",
+   "path": "ui-styles/05-lego-brick-ui/",
+   "description": "Brick-shaped panels with raised cylinders, grid-aligned. Recipe: circular ImageLabels along the top edge. Refs: R5, S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/roblox-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-006",
+   "area": "gui",
+   "number": 6,
+   "name": "Stud Dark",
+   "path": "ui-styles/06-stud-dark/",
+   "description": "Dark navy panel, faint studs, neon-coloured buttons. Palette `#12151F #1F2740 #4DE1FF`. Refs: R7, S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/dark-user-interface/",
+    "previews/gothic-user-interface/",
+    "previews/roblox-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-007",
+   "area": "gui",
+   "number": 7,
+   "name": "Stud Pastel",
+   "path": "ui-styles/07-stud-pastel/",
+   "description": "Soft pastel panels with white studs. Palette `#FFD6E8 #D6F0FF #FFF3C4`. Refs: R3, S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/casual-user-interface/",
+    "previews/roblox-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-008",
+   "area": "gui",
+   "number": 8,
+   "name": "Stud Wood/Metal",
+   "path": "ui-styles/08-stud-wood-metal/",
+   "description": "Studs as rivets on wood or steel plates. Recipe: material texture + rivet ImageLabels. Refs: S, R16 (filter by texture).",
+   "roblox_recipe": "",
+   "local_images": [
+    "ui-styles/08-stud-wood-metal/medieval-age-wood-1.jpg",
+    "ui-styles/08-stud-wood-metal/medieval-age-wood-3.png"
+   ],
+   "preview_galleries": [
+    "previews/nature-user-interface/",
+    "previews/roblox-user-interface/",
+    "previews/wood-user-interface/"
+   ],
+   "external_links": [
+    "https://pzuh.itch.io/medieval-age-game-gui",
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-009",
+   "area": "gui",
+   "number": 9,
+   "name": "Modern Cartoon Simulator",
+   "path": "ui-styles/09-modern-cartoon-simulator/",
+   "description": "Thick outline, saturated gradient fill, big rounded corners, bouncy buttons. Palette `#34C759 #FFB020 #3B2A6B`. Recipe: vertical UIGradient, UIStroke 4px, UICorner 14-20, scale tween on hover. Refs: R4 R9 R10.",
+   "roblox_recipe": "",
+   "local_images": [
+    "ui-styles/09-modern-cartoon-simulator/gui-bundle-1.png",
+    "ui-styles/09-modern-cartoon-simulator/rhos-cartoony-1.png"
+   ],
+   "preview_galleries": [
+    "previews/casual-user-interface/"
+   ],
+   "external_links": [
+    "https://alexpoopy1.itch.io/gui-bundle",
+    "https://rhosgfx.itch.io/cartoony-ui-pack",
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-010",
+   "area": "gui",
+   "number": 10,
+   "name": "Chunky Candy Buttons",
+   "path": "ui-styles/10-chunky-candy-buttons/",
+   "description": "Two-tone button with a darker \"lip\" duplicate offset 6px below. Refs: R9 R13.",
+   "roblox_recipe": "",
+   "local_images": [
+    "ui-styles/10-chunky-candy-buttons/casual-260-1.png",
+    "ui-styles/10-chunky-candy-buttons/casual-260-3.png"
+   ],
+   "preview_galleries": [
+    "previews/casual-user-interface/"
+   ],
+   "external_links": [
+    "https://sungraphica.itch.io/casual-mobile-game-ui-kit-260-icons",
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-100",
+   "area": "gui",
+   "number": 100,
+   "name": "Gamepass Carousel Shop",
+   "path": "ui-styles/100-gamepass-carousel-shop/",
+   "description": "Large offer cards with Robux price tags, limited-time ribbons.",
+   "roblox_recipe": "MarketplaceService prompts, server grant on receipt.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/styling/compatibility",
+    "https://www.gameuidatabase.com/about.php"
+   ]
+  },
+  {
+   "id": "gui-101",
+   "area": "gui",
+   "number": 101,
+   "name": "Toast Notifications",
+   "path": "ui-styles/101-toast-notifications/",
+   "description": "Stacked slide-in toasts with icon, auto-dismiss, severity colours.",
+   "roblox_recipe": "Pooled Frames, tween in/out, cap of 3-4 visible.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/buttons-user-interface/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/appearance-modifiers",
+    "https://www.creation.dev/blog/roblox-ui-design-best-practices"
+   ]
+  },
+  {
+   "id": "gui-102",
+   "area": "gui",
+   "number": 102,
+   "name": "Loading Screen with Tips",
+   "path": "ui-styles/102-loading-screen-with-tips/",
+   "description": "Logo, progress bar, rotating tips, background art.",
+   "roblox_recipe": "ReplicatedFirst, ContentProvider:PreloadAsync.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/loading/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/styling/compatibility",
+    "https://www.gameuidatabase.com/about.php"
+   ]
+  },
+  {
+   "id": "gui-103",
+   "area": "gui",
+   "number": 103,
+   "name": "Settings Menu",
+   "path": "ui-styles/103-settings-menu/",
+   "description": "Tabs (audio, graphics, controls), sliders, toggles, reset.",
+   "roblox_recipe": "Slider via InputChanged, persist with DataStore.",
+   "local_images": [
+    "ui-styles/103-settings-menu/roblox-button-fx-1.png"
+   ],
+   "preview_galleries": [
+    "previews/buttons-user-interface/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/appearance-modifiers",
+    "https://maxuno.itch.io/roblox-button-ui-effects",
+    "https://www.creation.dev/blog/roblox-ui-design-best-practices"
+   ]
+  },
+  {
+   "id": "gui-104",
+   "area": "gui",
+   "number": 104,
+   "name": "Inventory Hotbar",
+   "path": "ui-styles/104-inventory-hotbar/",
+   "description": "Numbered slots, equipped highlight, drag-reorder, cooldown overlay.",
+   "roblox_recipe": "UIGridLayout, keybind per slot.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/styling/compatibility",
+    "https://www.gameuidatabase.com/about.php"
+   ]
+  },
+  {
+   "id": "gui-105",
+   "area": "gui",
+   "number": 105,
+   "name": "Emote Chat Wheel",
+   "path": "ui-styles/105-emote-chat-wheel/",
+   "description": "Radial menu with 6-8 slots, hover scale, gamepad stick select.",
+   "roblox_recipe": "Angle maths on thumbstick, UIGradient wedges.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/visual-novel-user-interface/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/appearance-modifiers",
+    "https://www.creation.dev/blog/roblox-ui-design-best-practices"
+   ]
+  },
+  {
+   "id": "gui-106",
+   "area": "gui",
+   "number": 106,
+   "name": "Health and Boss Bars",
+   "path": "ui-styles/106-health-and-boss-bars/",
+   "description": "Chunky player bar and wide boss bar with damage trail and name plate.",
+   "roblox_recipe": "Two-layer bar (instant + delayed trail tween).",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/styling/compatibility",
+    "https://www.gameuidatabase.com/about.php"
+   ]
+  },
+  {
+   "id": "gui-107",
+   "area": "gui",
+   "number": 107,
+   "name": "Minimap Compass",
+   "path": "ui-styles/107-minimap-compass/",
+   "description": "Circular minimap or top compass strip with markers.",
+   "roblox_recipe": "ViewportFrame top-down camera or marker projection.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/appearance-modifiers",
+    "https://www.creation.dev/blog/roblox-ui-design-best-practices"
+   ]
+  },
+  {
+   "id": "gui-108",
+   "area": "gui",
+   "number": 108,
+   "name": "Damage Numbers",
+   "path": "ui-styles/108-damage-numbers/",
+   "description": "Floating numbers with crit scaling, colour by type, arc motion.",
+   "roblox_recipe": "BillboardGui pooled, tween up + fade.",
+   "local_images": [
+    "ui-styles/108-damage-numbers/combat-fx-1.png"
+   ],
+   "preview_galleries": [],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/styling/compatibility",
+    "https://gegx.itch.io/combat-fx",
+    "https://www.gameuidatabase.com/about.php"
+   ]
+  },
+  {
+   "id": "gui-109",
+   "area": "gui",
+   "number": 109,
+   "name": "Tutorial Highlight Arrow",
+   "path": "ui-styles/109-tutorial-highlight-arrow/",
+   "description": "Dim overlay with spotlight cut-out, bouncing arrow, step text.",
+   "roblox_recipe": "Overlay with ring cutout (UIStroke huge) + arrow tween.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/casual-user-interface/",
+    "previews/roblox-user-interface/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/appearance-modifiers",
+    "https://www.creation.dev/blog/roblox-ui-design-best-practices"
+   ]
+  },
+  {
+   "id": "gui-011",
+   "area": "gui",
+   "number": 11,
+   "name": "Glossy Bubble",
+   "path": "ui-styles/11-glossy-bubble/",
+   "description": "White highlight ellipse on the upper third, drop shadow below. Refs: R13.",
+   "roblox_recipe": "",
+   "local_images": [
+    "ui-styles/11-glossy-bubble/casual-red-1.jpg",
+    "ui-styles/11-glossy-bubble/casual-red-2.jpg"
+   ],
+   "preview_galleries": [
+    "previews/casual-user-interface/"
+   ],
+   "external_links": [
+    "https://nebuhanka.itch.io/casual-mobile-game-ui-kit-red-theme",
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-110",
+   "area": "gui",
+   "number": 110,
+   "name": "Limited-Time Offer Popup",
+   "path": "ui-styles/110-limited-time-offer-popup/",
+   "description": "Countdown banner popup with discount badge, urgency colours.",
+   "roblox_recipe": "Server timestamp countdown; don't spam popups.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/buttons-user-interface/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/styling/compatibility",
+    "https://www.gameuidatabase.com/about.php"
+   ]
+  },
+  {
+   "id": "gui-111",
+   "area": "gui",
+   "number": 111,
+   "name": "Codes Redeem Box",
+   "path": "ui-styles/111-codes-redeem-box/",
+   "description": "Text box, redeem button, success/fail feedback, rewards list.",
+   "roblox_recipe": "Server-validated codes, rate limit.",
+   "local_images": [
+    "ui-styles/111-codes-redeem-box/gag-ui-3.png"
+   ],
+   "preview_galleries": [
+    "previews/buttons-user-interface/"
+   ],
+   "external_links": [
+    "https://adrianart.itch.io/gag-ui-pack",
+    "https://create.roblox.com/docs/en-us/ui/appearance-modifiers",
+    "https://www.creation.dev/blog/roblox-ui-design-best-practices"
+   ]
+  },
+  {
+   "id": "gui-112",
+   "area": "gui",
+   "number": 112,
+   "name": "Gamepad Focus Navigation",
+   "path": "ui-styles/112-gamepad-focus-navigation/",
+   "description": "Big selection ring, SelectionImage, D-pad order, button prompts.",
+   "roblox_recipe": "GuiService.SelectedObject, NextSelection props.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/mobile-user-interface/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/styling/compatibility",
+    "https://www.gameuidatabase.com/about.php"
+   ]
+  },
+  {
+   "id": "gui-012",
+   "area": "gui",
+   "number": 12,
+   "name": "Hit-Game Layout (original art)",
+   "path": "ui-styles/12-hit-game-layout-original-art/",
+   "description": "Borrow the structure seen in hit simulators (tab column, centre grid, detail panel) but never their assets. Refs: R16, S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/casual-user-interface/",
+    "previews/roblox-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-013",
+   "area": "gui",
+   "number": 13,
+   "name": "Pet-Collector Grid",
+   "path": "ui-styles/13-pet-collector-grid/",
+   "description": "Rarity-coloured cards in a UIGridLayout, egg/pet icons, index tab. Recipe: card Frame with rarity-coloured UIStroke. Refs: R10 R15, in-repo `visual-refs/icons/`.",
+   "roblox_recipe": "",
+   "local_images": [
+    "ui-styles/13-pet-collector-grid/cute-cartoony-1.png"
+   ],
+   "preview_galleries": [
+    "previews/casual-user-interface/"
+   ],
+   "external_links": [
+    "https://coffee-beans-studio.itch.io/casual-game-ui-pack-icons-buttons",
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-014",
+   "area": "gui",
+   "number": 14,
+   "name": "Rebirth/Prestige Panel",
+   "path": "ui-styles/14-rebirth-prestige-panel/",
+   "description": "Big central button, multiplier counter, glowing aura. Refs: R4.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/casual-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-015",
+   "area": "gui",
+   "number": 15,
+   "name": "Daily Reward Calendar",
+   "path": "ui-styles/15-daily-reward-calendar/",
+   "description": "7/30-day grid with claimed, today and locked states. Refs: R10, in-repo `visual-refs/studs-ui/Stud-DailyRewards.png`, calendar icons.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/casual-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-016",
+   "area": "gui",
+   "number": 16,
+   "name": "Garden/Farm Cozy",
+   "path": "ui-styles/16-garden-farm-cozy/",
+   "description": "Warm greens, wood trim, leaf motifs. Palette `#7BC65A #C9965A #FFF4D6`. Refs: R15.",
+   "roblox_recipe": "",
+   "local_images": [
+    "ui-styles/16-garden-farm-cozy/gag-ui-1.png",
+    "ui-styles/16-garden-farm-cozy/gag-ui-2.png",
+    "ui-styles/16-garden-farm-cozy/gag-ui-3.png"
+   ],
+   "preview_galleries": [
+    "previews/casual-user-interface/",
+    "previews/nature-user-interface/",
+    "previews/wood-user-interface/"
+   ],
+   "external_links": [
+    "https://adrianart.itch.io/gag-ui-pack",
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-017",
+   "area": "gui",
+   "number": 17,
+   "name": "Tycoon Cash HUD",
+   "path": "ui-styles/17-tycoon-cash-hud/",
+   "description": "Large money counter with coin icon, \"+$\" floaters. Refs: R3 R4.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/casual-user-interface/",
+    "previews/idle-user-interface/",
+    "previews/tycoon-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-018",
+   "area": "gui",
+   "number": 18,
+   "name": "Idle/Clicker Orb",
+   "path": "ui-styles/18-idle-clicker-orb/",
+   "description": "Central tap target, ring progress, upgrade list below. Refs: R9, S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/casual-user-interface/",
+    "previews/idle-user-interface/",
+    "previews/tycoon-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-019",
+   "area": "gui",
+   "number": 19,
+   "name": "Gacha/Egg Hatch",
+   "path": "ui-styles/19-gacha-egg-hatch/",
+   "description": "Dim full-screen, egg shake, rarity-burst reveal card. Refs: R10, in-repo `visual-refs/icons/Basic Egg`.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/casual-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-020",
+   "area": "gui",
+   "number": 20,
+   "name": "Obby Checkpoint Bar",
+   "path": "ui-styles/20-obby-checkpoint-bar/",
+   "description": "Thin top stage bar, stage number, skip-purchase button. Refs: R3, S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/casual-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-021",
+   "area": "gui",
+   "number": 21,
+   "name": "Glowing Fantasy",
+   "path": "ui-styles/21-glowing-fantasy/",
+   "description": "Dark violet panels, gold filigree, glowing rarity borders. Palette `#1B1030 #D4AF37 #8E5CFF`. Refs: R11.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/fantasy-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-022",
+   "area": "gui",
+   "number": 22,
+   "name": "Modern Medieval",
+   "path": "ui-styles/22-modern-medieval/",
+   "description": "Parchment and iron, rarity labels, equip/sell buttons. Refs: R12.",
+   "roblox_recipe": "",
+   "local_images": [
+    "ui-styles/22-modern-medieval/medieval-gothic-gold-1.png",
+    "ui-styles/22-modern-medieval/medieval-gothic-gold-2.jpg",
+    "ui-styles/22-modern-medieval/medieval-gothic-gold-3.jpg"
+   ],
+   "preview_galleries": [
+    "previews/medieval-user-interface/"
+   ],
+   "external_links": [
+    "https://vill8tion.itch.io/medieval-fantasy-rpg-ui-kit-gothic-gold-4k",
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-023",
+   "area": "gui",
+   "number": 23,
+   "name": "Parchment Scroll",
+   "path": "ui-styles/23-parchment-scroll/",
+   "description": "Aged paper, serif font, wax-seal buttons. Refs: in-repo `visual-refs/icons/Scroll`, S.",
+   "roblox_recipe": "",
+   "local_images": [
+    "ui-styles/23-parchment-scroll/medieval-majesty-1.png",
+    "ui-styles/23-parchment-scroll/medieval-majesty-2.png",
+    "ui-styles/23-parchment-scroll/medieval-majesty-3.png"
+   ],
+   "preview_galleries": [
+    "previews/medieval-user-interface/"
+   ],
+   "external_links": [
+    "https://finnmercury.itch.io/medieval-majesty",
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-024",
+   "area": "gui",
+   "number": 24,
+   "name": "Stone Dungeon",
+   "path": "ui-styles/24-stone-dungeon/",
+   "description": "Rough grey slabs, torch-orange accents. Refs: S, R16.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/dark-user-interface/",
+    "previews/gothic-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-025",
+   "area": "gui",
+   "number": 25,
+   "name": "Elven Nature",
+   "path": "ui-styles/25-elven-nature/",
+   "description": "Vines, leaf corners, soft green glow. Refs: S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/fantasy-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-026",
+   "area": "gui",
+   "number": 26,
+   "name": "Souls-like Minimal",
+   "path": "ui-styles/26-souls-like-minimal/",
+   "description": "Thin bars, desaturated, no outlines, serif text. Refs: R16.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/dark-user-interface/",
+    "previews/gothic-user-interface/",
+    "previews/minimal-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-027",
+   "area": "gui",
+   "number": 27,
+   "name": "Anime RPG Sidebar",
+   "path": "ui-styles/27-anime-rpg-sidebar/",
+   "description": "Left icon menu, right info panel, diagonal cuts. Palette `#0F1226 #FF4D6D #FFFFFF`. Refs: S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/fighting-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-028",
+   "area": "gui",
+   "number": 28,
+   "name": "Gacha Character Cards",
+   "path": "ui-styles/28-gacha-character-cards/",
+   "description": "Tall cards with star rows and elemental badges. Refs: R16, S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/card-game-user-interface/",
+    "previews/casual-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-029",
+   "area": "gui",
+   "number": 29,
+   "name": "Skill Tree Web",
+   "path": "ui-styles/29-skill-tree-web/",
+   "description": "Node-and-line canvas, locked/unlocked glow. Refs: R16.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/dark-user-interface/",
+    "previews/gothic-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-030",
+   "area": "gui",
+   "number": 30,
+   "name": "Quest Journal",
+   "path": "ui-styles/30-quest-journal/",
+   "description": "Book layout with tabs and ribbon bookmarks. Refs: in-repo `visual-refs/icons/Book`, S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/medieval-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-031",
+   "area": "gui",
+   "number": 31,
+   "name": "Neon Cyberpunk",
+   "path": "ui-styles/31-neon-cyberpunk/",
+   "description": "Black base, cyan/magenta neon strokes with glow. Palette `#0A0A14 #00F0FF #FF2BD6`. Recipe: UIStroke plus a blurred duplicate. Refs: R13, S.",
+   "roblox_recipe": "",
+   "local_images": [
+    "ui-styles/31-neon-cyberpunk/cyberpunk-neon-hud-3.png",
+    "ui-styles/31-neon-cyberpunk/neoncore-1.jpg",
+    "ui-styles/31-neon-cyberpunk/neoncore-3.jpg"
+   ],
+   "preview_galleries": [
+    "previews/cyberpunk-user-interface/",
+    "previews/neon-user-interface/"
+   ],
+   "external_links": [
+    "https://hollow-pixel.itch.io/cyberpunk-neon-hud-ui-kit-280-pixel-ui-assets",
+    "https://tonekya.itch.io/neoncore-ui-pack",
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-032",
+   "area": "gui",
+   "number": 32,
+   "name": "Holographic HUD",
+   "path": "ui-styles/32-holographic-hud/",
+   "description": "Transparent blue panels, thin lines, scanline overlay. Refs: S.",
+   "roblox_recipe": "",
+   "local_images": [
+    "ui-styles/32-holographic-hud/cyberpunk-v1-1.png",
+    "ui-styles/32-holographic-hud/holographic-hud-2.png",
+    "ui-styles/32-holographic-hud/holographic-hud-3.png"
+   ],
+   "preview_galleries": [],
+   "external_links": [
+    "https://ckgndodocat.itch.io/cyberpunk-ui-asset-pack-v1",
+    "https://vill8tion.itch.io/sci-fi-holographic-hud-kit-cyberpunk-ui-4k",
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-033",
+   "area": "gui",
+   "number": 33,
+   "name": "Military Tactical",
+   "path": "ui-styles/33-military-tactical/",
+   "description": "Olive/black, stencil font, clipped angular corners. Refs: S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-034",
+   "area": "gui",
+   "number": 34,
+   "name": "Space Station",
+   "path": "ui-styles/34-space-station/",
+   "description": "White/grey modular panels, orange warning accents. Refs: S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-035",
+   "area": "gui",
+   "number": 35,
+   "name": "Terminal/Hacker",
+   "path": "ui-styles/35-terminal-hacker/",
+   "description": "Monospace green on black, blinking cursor. Refs: S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-036",
+   "area": "gui",
+   "number": 36,
+   "name": "Mecha Cockpit",
+   "path": "ui-styles/36-mecha-cockpit/",
+   "description": "Segmented bars, hex readouts, red alert state. Refs: R16.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-037",
+   "area": "gui",
+   "number": 37,
+   "name": "Synthwave",
+   "path": "ui-styles/37-synthwave/",
+   "description": "Purple-pink sunset gradients, grid-floor motif. Refs: S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/cyberpunk-user-interface/",
+    "previews/neon-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-038",
+   "area": "gui",
+   "number": 38,
+   "name": "Glitch",
+   "path": "ui-styles/38-glitch/",
+   "description": "Chromatic-split text, jitter tween, noise overlay. Refs: S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/cyberpunk-user-interface/",
+    "previews/neon-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-039",
+   "area": "gui",
+   "number": 39,
+   "name": "Vector Minimal Tech",
+   "path": "ui-styles/39-vector-minimal-tech/",
+   "description": "Flat monochrome, hairlines, whitespace. Refs: R18.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/minimal-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-040",
+   "area": "gui",
+   "number": 40,
+   "name": "Futuristic Racing",
+   "path": "ui-styles/40-futuristic-racing/",
+   "description": "Slanted speedometer, boost bar, italic numerals. Refs: R16.",
+   "roblox_recipe": "",
+   "local_images": [
+    "ui-styles/40-futuristic-racing/racing-hud-1.png",
+    "ui-styles/40-futuristic-racing/racing-hud-2.png",
+    "ui-styles/40-futuristic-racing/racing-hud-3.png"
+   ],
+   "preview_galleries": [
+    "previews/racing-user-interface/"
+   ],
+   "external_links": [
+    "https://gamedeveloperstudio.itch.io/racing-game-hud",
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-041",
+   "area": "gui",
+   "number": 41,
+   "name": "Glassmorphism",
+   "path": "ui-styles/41-glassmorphism/",
+   "description": "Translucent panels, 1px light border, soft shadow. Recipe: high-transparency Frame + UIStroke + subtle gradient. Real blur is limited in Roblox UI. Refs: S (no Roblox kit found).",
+   "roblox_recipe": "",
+   "local_images": [
+    "ui-styles/41-glassmorphism/glassmorphism-1.png",
+    "ui-styles/41-glassmorphism/glassmorphism-2.png",
+    "ui-styles/41-glassmorphism/glassmorphism-3.png"
+   ],
+   "preview_galleries": [
+    "previews/minimal-user-interface/"
+   ],
+   "external_links": [
+    "https://audaciousgabe.itch.io/audacious-assets-glassmorphism",
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-042",
+   "area": "gui",
+   "number": 42,
+   "name": "Flat Material",
+   "path": "ui-styles/42-flat-material/",
+   "description": "Solid colours, elevation shadows, 8px radius. Refs: R18.",
+   "roblox_recipe": "",
+   "local_images": [
+    "ui-styles/42-flat-material/clean-slate-1.png",
+    "ui-styles/42-flat-material/clean-slate-3.png"
+   ],
+   "preview_galleries": [
+    "previews/minimal-user-interface/"
+   ],
+   "external_links": [
+    "https://csaf.itch.io/clean-slate-modern-minimal-ui-kit",
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-043",
+   "area": "gui",
+   "number": 43,
+   "name": "Dark Mode Pro",
+   "path": "ui-styles/43-dark-mode-pro/",
+   "description": "Near-black cards, one accent. Palette `#0E0F13 #1A1C23 #5B8CFF`. Refs: R18.",
+   "roblox_recipe": "",
+   "local_images": [
+    "ui-styles/43-dark-mode-pro/minimal-260-1.png",
+    "ui-styles/43-dark-mode-pro/minimal-260-2.png",
+    "ui-styles/43-dark-mode-pro/minimal-260-3.png",
+    "ui-styles/43-dark-mode-pro/modern-dark-2.png"
+   ],
+   "preview_galleries": [
+    "previews/dark-user-interface/",
+    "previews/gothic-user-interface/",
+    "previews/minimal-user-interface/"
+   ],
+   "external_links": [
+    "https://sungraphica.itch.io/clean-and-minimal-game-ui-kit-260-icons",
+    "https://vantui.itch.io/modern-dark-ui-kit",
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-044",
+   "area": "gui",
+   "number": 44,
+   "name": "iOS-Soft",
+   "path": "ui-styles/44-ios-soft/",
+   "description": "Radius 24+, pill buttons, clean sans font. Refs: S.",
+   "roblox_recipe": "",
+   "local_images": [
+    "ui-styles/44-ios-soft/simple-pink-1.png",
+    "ui-styles/44-ios-soft/simple-pink-3.png"
+   ],
+   "preview_galleries": [
+    "previews/minimal-user-interface/"
+   ],
+   "external_links": [
+    "https://marta-vidal.itch.io/pinkuipack",
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-045",
+   "area": "gui",
+   "number": 45,
+   "name": "Neumorphism",
+   "path": "ui-styles/45-neumorphism/",
+   "description": "Soft inner/outer shadows on a same-colour surface. Caution: low contrast. Refs: S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/minimal-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-046",
+   "area": "gui",
+   "number": 46,
+   "name": "Brutalist",
+   "path": "ui-styles/46-brutalist/",
+   "description": "Hard black borders, offset hard shadows, bright flat fills. Refs: S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/minimal-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-047",
+   "area": "gui",
+   "number": 47,
+   "name": "Minimal Monochrome",
+   "path": "ui-styles/47-minimal-monochrome/",
+   "description": "Black and white only, type-led. Refs: R18.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/minimal-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-048",
+   "area": "gui",
+   "number": 48,
+   "name": "Pill-Tab Dashboard",
+   "path": "ui-styles/48-pill-tab-dashboard/",
+   "description": "Top pill tabs, card grid, stat tiles. Refs: R10.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/medieval-user-interface/",
+    "previews/minimal-user-interface/",
+    "previews/racing-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-049",
+   "area": "gui",
+   "number": 49,
+   "name": "Compact Mobile HUD",
+   "path": "ui-styles/49-compact-mobile-hud/",
+   "description": "Large thumb targets, bottom-anchored actions. Refs: R2 R18.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/mobile-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-050",
+   "area": "gui",
+   "number": 50,
+   "name": "Gamepad Radial",
+   "path": "ui-styles/50-gamepad-radial/",
+   "description": "Radial menu for controller, big focus ring. Refs: R16.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/mobile-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-051",
+   "area": "gui",
+   "number": 51,
+   "name": "Backrooms Liminal",
+   "path": "ui-styles/51-backrooms-liminal/",
+   "description": "Beige/yellow, flat office-grade UI, low-res stamped font. Refs: S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/gothic-user-interface/",
+    "previews/horror-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-052",
+   "area": "gui",
+   "number": 52,
+   "name": "Gothic Horror",
+   "path": "ui-styles/52-gothic-horror/",
+   "description": "Blood red on black, ornate serif, cracked-glass border. Refs: S.",
+   "roblox_recipe": "",
+   "local_images": [
+    "ui-styles/52-gothic-horror/gothic-pixel-1.jpg",
+    "ui-styles/52-gothic-horror/gothic-pixel-3.png",
+    "ui-styles/52-gothic-horror/horror-creator-kit-1.png",
+    "ui-styles/52-gothic-horror/horror-creator-kit-3.jpg"
+   ],
+   "preview_galleries": [
+    "previews/gothic-user-interface/",
+    "previews/horror-user-interface/"
+   ],
+   "external_links": [
+    "https://abyssowl.itch.io/gothic-pixel-ui",
+    "https://sungraphica.itch.io/creepy-game-ui",
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-053",
+   "area": "gui",
+   "number": 53,
+   "name": "VHS/Found Footage",
+   "path": "ui-styles/53-vhs-found-footage/",
+   "description": "Timestamp, REC dot, scanlines, tracking noise. Refs: S.",
+   "roblox_recipe": "",
+   "local_images": [
+    "ui-styles/53-vhs-found-footage/indie-horror-kit-1.png",
+    "ui-styles/53-vhs-found-footage/indie-horror-kit-2.png"
+   ],
+   "preview_galleries": [
+    "previews/gothic-user-interface/",
+    "previews/horror-user-interface/"
+   ],
+   "external_links": [
+    "https://mtw1man2.itch.io/indie-horror-ui-kit-survival-horror-menus-inventory-interaction-system",
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-054",
+   "area": "gui",
+   "number": 54,
+   "name": "Asylum Paper",
+   "path": "ui-styles/54-asylum-paper/",
+   "description": "Stained paper, typewriter text, ink stamps. Refs: S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/gothic-user-interface/",
+    "previews/horror-user-interface/",
+    "previews/paper-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-055",
+   "area": "gui",
+   "number": 55,
+   "name": "Minimal Survival HUD",
+   "path": "ui-styles/55-minimal-survival-hud/",
+   "description": "Tiny vitals, vignette, nothing else. Refs: R18.",
+   "roblox_recipe": "",
+   "local_images": [
+    "ui-styles/55-minimal-survival-hud/survival-horror-modular-1.png",
+    "ui-styles/55-minimal-survival-hud/survival-horror-modular-2.png",
+    "ui-styles/55-minimal-survival-hud/survival-horror-modular-3.png"
+   ],
+   "preview_galleries": [
+    "previews/gothic-user-interface/",
+    "previews/horror-user-interface/",
+    "previews/minimal-user-interface/"
+   ],
+   "external_links": [
+    "https://emrekarakaya.itch.io/survival-horror-ui-modular-interaction-kit",
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-056",
+   "area": "gui",
+   "number": 56,
+   "name": "Cursed Glitch Dark",
+   "path": "ui-styles/56-cursed-glitch-dark/",
+   "description": "Dark base, distorted text, flicker animation. Refs: S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/cyberpunk-user-interface/",
+    "previews/dark-user-interface/",
+    "previews/gothic-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-057",
+   "area": "gui",
+   "number": 57,
+   "name": "Pixel Art Retro",
+   "path": "ui-styles/57-pixel-art-retro/",
+   "description": "Integer-scaled pixel frames, bitmap font, limited palette. Recipe: ImageLabel with `ResampleMode = Pixelated`. Refs: R14.",
+   "roblox_recipe": "",
+   "local_images": [
+    "ui-styles/57-pixel-art-retro/pixelblox-1.png",
+    "ui-styles/57-pixel-art-retro/rpg-ui-pixel-2.png"
+   ],
+   "preview_galleries": [
+    "previews/pixel-art-user-interface/",
+    "previews/retro-user-interface/"
+   ],
+   "external_links": [
+    "https://bloxbuilders.itch.io/pixelblox-vol1",
+    "https://pluguezada.itch.io/rpg-ui-asset-pack-pixel-art-32128px-codeloot",
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-058",
+   "area": "gui",
+   "number": 58,
+   "name": "8-bit Arcade",
+   "path": "ui-styles/58-8-bit-arcade/",
+   "description": "Chunky borders, score ticker, blinking prompts. Refs: R14.",
+   "roblox_recipe": "",
+   "local_images": [
+    "ui-styles/58-8-bit-arcade/fighting-hud-pixel-1.png",
+    "ui-styles/58-8-bit-arcade/neon-pixel-hud-1.png"
+   ],
+   "preview_galleries": [
+    "previews/pixel-art-user-interface/",
+    "previews/retro-user-interface/"
+   ],
+   "external_links": [
+    "https://hasthoth.itch.io/neon-pixel-hud-ui-pack",
+    "https://richard-macedo.itch.io/fighting-game-hudui-and-texts",
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-059",
+   "area": "gui",
+   "number": 59,
+   "name": "16-bit JRPG Box",
+   "path": "ui-styles/59-16-bit-jrpg-box/",
+   "description": "Blue gradient dialogue box with white border. Refs: R14, S.",
+   "roblox_recipe": "",
+   "local_images": [
+    "ui-styles/59-16-bit-jrpg-box/pixel-rpg-dialogue-1.png",
+    "ui-styles/59-16-bit-jrpg-box/retro-rpg-vol1-1.png",
+    "ui-styles/59-16-bit-jrpg-box/retro-rpg-vol1-3.png"
+   ],
+   "preview_galleries": [
+    "previews/pixel-art-user-interface/",
+    "previews/retro-user-interface/"
+   ],
+   "external_links": [
+    "https://indigolay.itch.io/pixel-rpg-dialogue-ui",
+    "https://molinus66.itch.io/retro-rpg-ui-icons-pack-vol-1",
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-060",
+   "area": "gui",
+   "number": 60,
+   "name": "Comic/Manga",
+   "path": "ui-styles/60-comic-manga/",
+   "description": "Halftone dots, speech-bubble panels, bold action text. Refs: S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-061",
+   "area": "gui",
+   "number": 61,
+   "name": "Hand-Drawn Sketch",
+   "path": "ui-styles/61-hand-drawn-sketch/",
+   "description": "Wobbly outlines, paper background, crayon fill. Refs: S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/hand-drawn-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-062",
+   "area": "gui",
+   "number": 62,
+   "name": "Paper Craft",
+   "path": "ui-styles/62-paper-craft/",
+   "description": "Layered cut-paper shadows, folded corners. Refs: S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/paper-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-063",
+   "area": "gui",
+   "number": 63,
+   "name": "Claymation",
+   "path": "ui-styles/63-claymation/",
+   "description": "Soft 3D blobs, fingerprint-texture highlights. Refs: S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/casual-user-interface/",
+    "previews/roblox-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-064",
+   "area": "gui",
+   "number": 64,
+   "name": "Low-Poly Faceted",
+   "path": "ui-styles/64-low-poly-faceted/",
+   "description": "Triangular shards, flat-shaded gradient fills. Refs: S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/low-poly-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-065",
+   "area": "gui",
+   "number": 65,
+   "name": "Sports Broadcast",
+   "path": "ui-styles/65-sports-broadcast/",
+   "description": "Scoreboard bars, team colours, slanted ribbons. Refs: in-repo `visual-refs/sports/` (Basketball, Boxing, Football, Main Menu, Loading Screen).",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-066",
+   "area": "gui",
+   "number": 66,
+   "name": "Fighting Game",
+   "path": "ui-styles/66-fighting-game/",
+   "description": "Big health bars with timer, combo counter, VS screen. Refs: R16.",
+   "roblox_recipe": "",
+   "local_images": [
+    "ui-styles/66-fighting-game/fighting-hud-pixel-3.png",
+    "ui-styles/66-fighting-game/fighting-uikit-1.png",
+    "ui-styles/66-fighting-game/fighting-uikit-2.png"
+   ],
+   "preview_galleries": [
+    "previews/fighting-user-interface/"
+   ],
+   "external_links": [
+    "https://richard-macedo.itch.io/fighting-game-hudui-and-texts",
+    "https://rupertbastos.itch.io/fighting-game-uikit-pack-v1",
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-067",
+   "area": "gui",
+   "number": 67,
+   "name": "Shooter Tactical HUD",
+   "path": "ui-styles/67-shooter-tactical-hud/",
+   "description": "Ammo counter, compass strip, hitmarkers. Refs: R16.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/shooter-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-068",
+   "area": "gui",
+   "number": 68,
+   "name": "Racing Dashboard",
+   "path": "ui-styles/68-racing-dashboard/",
+   "description": "As #40 plus a lap/position tower. Refs: R16.",
+   "roblox_recipe": "",
+   "local_images": [
+    "ui-styles/68-racing-dashboard/racing-ui-kit-1.png",
+    "ui-styles/68-racing-dashboard/racing-ui-kit-2.jpg",
+    "ui-styles/68-racing-dashboard/racing-ui-kit-3.png"
+   ],
+   "preview_galleries": [
+    "previews/medieval-user-interface/",
+    "previews/minimal-user-interface/",
+    "previews/racing-user-interface/"
+   ],
+   "external_links": [
+    "https://villesep.itch.io/racing-ui-kit",
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-069",
+   "area": "gui",
+   "number": 69,
+   "name": "Roleplay Town",
+   "path": "ui-styles/69-roleplay-town/",
+   "description": "Phone-style app grid, chat bubbles, pastel. Refs: S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-070",
+   "area": "gui",
+   "number": 70,
+   "name": "Tower Defense",
+   "path": "ui-styles/70-tower-defense/",
+   "description": "Bottom tower bar with costs, wave banner, lives top-right. Refs: R16.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/tower-defense-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-071",
+   "area": "gui",
+   "number": 71,
+   "name": "Horror Co-op Lobby",
+   "path": "ui-styles/71-horror-co-op-lobby/",
+   "description": "Vote cards, ready ticks, ominous palette. Refs: S.",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/casual-user-interface/",
+    "previews/gothic-user-interface/",
+    "previews/horror-user-interface/"
+   ],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-072",
+   "area": "gui",
+   "number": 72,
+   "name": "Holiday/Seasonal",
+   "path": "ui-styles/72-holiday-seasonal/",
+   "description": "Snowflakes, candy-cane borders, calendar. Refs: in-repo `visual-refs/icons/` (Christmas Tree, Snowman, Candy Cane, Snowflake).",
+   "roblox_recipe": "",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": [
+    "https://www.gameuidatabase.com/"
+   ]
+  },
+  {
+   "id": "gui-073",
+   "area": "gui",
+   "number": 73,
+   "name": "Steampunk Brass",
+   "path": "ui-styles/73-steampunk-brass/",
+   "description": "Brass plates, rivets, gears and gauges on dark leather. Palette `#B8862B #3A2A1A #E8D8A0`.",
+   "roblox_recipe": "Frame + brass UIGradient, UIStroke dark brown, rotating gear ImageLabels via RenderStepped (cheap) or Tween.",
+   "local_images": [
+    "ui-styles/73-steampunk-brass/steampunk-game-gui-1.jpg",
+    "ui-styles/73-steampunk-brass/steampunk-ui-1.jpg",
+    "ui-styles/73-steampunk-brass/steampunk-ui-3.png"
+   ],
+   "preview_galleries": [],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/appearance-modifiers",
+    "https://gabrielatot.itch.io/steampunk-ui",
+    "https://pzuh.itch.io/steampunk-game-gui",
+    "https://www.creation.dev/blog/roblox-ui-design-best-practices"
+   ]
+  },
+  {
+   "id": "gui-074",
+   "area": "gui",
+   "number": 74,
+   "name": "Kawaii Pastel",
+   "path": "ui-styles/74-kawaii-pastel/",
+   "description": "Pink/mint pastel panels, heart and star motifs, huge radius, bouncy tweens. Palette `#FFC8DD #BDE0FE #FFAFCC`.",
+   "roblox_recipe": "UICorner 20+, thin white UIStroke, sparkle ImageLabels.",
+   "local_images": [
+    "ui-styles/74-kawaii-pastel/simple-pink-3.png"
+   ],
+   "preview_galleries": [
+    "previews/casual-user-interface/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/styling/compatibility",
+    "https://marta-vidal.itch.io/pinkuipack",
+    "https://www.gameuidatabase.com/about.php"
+   ]
+  },
+  {
+   "id": "gui-075",
+   "area": "gui",
+   "number": 75,
+   "name": "Cozy Farm Wood",
+   "path": "ui-styles/75-cozy-farm-wood/",
+   "description": "Wooden planks with cream parchment labels and leaf icons. Palette `#8B5A2B #F4E3B2 #6BA368`.",
+   "roblox_recipe": "Wood-texture Frame, UIStroke darker wood, hand-lettered font.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/casual-user-interface/",
+    "previews/nature-user-interface/",
+    "previews/wood-user-interface/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/appearance-modifiers",
+    "https://www.creation.dev/blog/roblox-ui-design-best-practices"
+   ]
+  },
+  {
+   "id": "gui-076",
+   "area": "gui",
+   "number": 76,
+   "name": "Frozen Ice",
+   "path": "ui-styles/76-frozen-ice/",
+   "description": "Pale blue frosted panels, snowflake corners, cold glow. Palette `#CFF0FF #7FC8F8 #1D3B6B`.",
+   "roblox_recipe": "Light gradient, white UIStroke, shimmering UIGradient offset tween.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/minimal-user-interface/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/styling/compatibility",
+    "https://www.gameuidatabase.com/about.php"
+   ]
+  },
+  {
+   "id": "gui-077",
+   "area": "gui",
+   "number": 77,
+   "name": "Volcanic Lava",
+   "path": "ui-styles/77-volcanic-lava/",
+   "description": "Dark basalt panels with orange-red glowing cracks. Palette `#1A0E0A #FF5A1F #FFB347`.",
+   "roblox_recipe": "Dark Frame, crack ImageLabel, UIStroke orange, pulsing glow tween.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/fantasy-user-interface/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/appearance-modifiers",
+    "https://www.creation.dev/blog/roblox-ui-design-best-practices"
+   ]
+  },
+  {
+   "id": "gui-078",
+   "area": "gui",
+   "number": 78,
+   "name": "Tropical Beach",
+   "path": "ui-styles/78-tropical-beach/",
+   "description": "Sand, turquoise and coral, palm silhouettes, rope-trim borders. Palette `#F6D7A7 #19B5C4 #FF6B6B`.",
+   "roblox_recipe": "Warm gradient, rope-texture strokes.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/nature-user-interface/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/styling/compatibility",
+    "https://www.gameuidatabase.com/about.php"
+   ]
+  },
+  {
+   "id": "gui-079",
+   "area": "gui",
+   "number": 79,
+   "name": "Candy Land",
+   "path": "ui-styles/79-candy-land/",
+   "description": "Swirled candy borders, lollipop icons, striped buttons. Palette `#FF7BAC #FFE66D #7AE7C7`.",
+   "roblox_recipe": "UIGradient with diagonal stripes via rotated gradient.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/casual-user-interface/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/appearance-modifiers",
+    "https://www.creation.dev/blog/roblox-ui-design-best-practices"
+   ]
+  },
+  {
+   "id": "gui-080",
+   "area": "gui",
+   "number": 80,
+   "name": "Deep Ocean",
+   "path": "ui-styles/80-deep-ocean/",
+   "description": "Deep teal with bubbles and shell icons, wavy edges, light-ray overlay. Palette `#04293A #064663 #41D3BD`.",
+   "roblox_recipe": "Gradient + animated bubble ImageLabels (pooled).",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/nature-user-interface/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/styling/compatibility",
+    "https://www.gameuidatabase.com/about.php"
+   ]
+  },
+  {
+   "id": "gui-081",
+   "area": "gui",
+   "number": 81,
+   "name": "Desert Egyptian",
+   "path": "ui-styles/81-desert-egyptian/",
+   "description": "Sandstone panels, gold hieroglyph trim, turquoise gems. Palette `#D9B779 #C99A3E #1AA6A6`.",
+   "roblox_recipe": "Stone texture + gold UIStroke, glyph ImageLabel border.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/appearance-modifiers",
+    "https://www.creation.dev/blog/roblox-ui-design-best-practices"
+   ]
+  },
+  {
+   "id": "gui-082",
+   "area": "gui",
+   "number": 82,
+   "name": "Samurai Japanese",
+   "path": "ui-styles/82-samurai-japanese/",
+   "description": "Ink black and vermilion, brush strokes, paper-lantern accents. Palette `#101010 #C8102E #F2E8CF`.",
+   "roblox_recipe": "Brush-stroke images, angular clipped corners via image masks.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/styling/compatibility",
+    "https://www.gameuidatabase.com/about.php"
+   ]
+  },
+  {
+   "id": "gui-083",
+   "area": "gui",
+   "number": 83,
+   "name": "Pirate Parchment",
+   "path": "ui-styles/83-pirate-parchment/",
+   "description": "Torn parchment maps, rope, skull-and-compass icons. Palette `#E8D3A2 #7A4B21 #9C1C1C`.",
+   "roblox_recipe": "Parchment texture, rope UIStroke image, sway tween.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/medieval-user-interface/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/appearance-modifiers",
+    "https://www.creation.dev/blog/roblox-ui-design-best-practices"
+   ]
+  },
+  {
+   "id": "gui-084",
+   "area": "gui",
+   "number": 84,
+   "name": "Wild West",
+   "path": "ui-styles/84-wild-west/",
+   "description": "Wanted-poster paper, nailed wood, slab-serif fonts. Palette `#D8B77A #5B3A1E #8B1E1E`.",
+   "roblox_recipe": "Slab-serif font, nail ImageLabels at corners.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/western-user-interface/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/styling/compatibility",
+    "https://www.gameuidatabase.com/about.php"
+   ]
+  },
+  {
+   "id": "gui-085",
+   "area": "gui",
+   "number": 85,
+   "name": "Cosmic Cartoon Space",
+   "path": "ui-styles/85-cosmic-cartoon-space/",
+   "description": "Purple galaxy gradients, planets, chunky rounded cartoon outlines. Palette `#1B0B46 #6C3CF0 #FFD166`.",
+   "roblox_recipe": "Gradient + star particle ImageLabels, thick UIStroke.",
+   "local_images": [
+    "ui-styles/85-cosmic-cartoon-space/casual-260-3.png"
+   ],
+   "preview_galleries": [
+    "previews/casual-user-interface/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/appearance-modifiers",
+    "https://sungraphica.itch.io/casual-mobile-game-ui-kit-260-icons",
+    "https://www.creation.dev/blog/roblox-ui-design-best-practices"
+   ]
+  },
+  {
+   "id": "gui-086",
+   "area": "gui",
+   "number": 86,
+   "name": "Toy Plastic",
+   "path": "ui-styles/86-toy-plastic/",
+   "description": "Glossy injection-moulded plastic, seams and screw dots, primary colours. Palette `#E63946 #1D6FE8 #FFD60A`.",
+   "roblox_recipe": "Highlight strip + inner shadow, thick rounded corners.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/casual-user-interface/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/styling/compatibility",
+    "https://www.gameuidatabase.com/about.php"
+   ]
+  },
+  {
+   "id": "gui-087",
+   "area": "gui",
+   "number": 87,
+   "name": "Graffiti Street",
+   "path": "ui-styles/87-graffiti-street/",
+   "description": "Spray-paint lettering, stickers, concrete texture, drips. Palette `#2B2B2B #FF2E63 #08D9D6`.",
+   "roblox_recipe": "Concrete texture, rotated sticker labels (Rotation 3-8).",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/casual-user-interface/",
+    "previews/roblox-user-interface/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/appearance-modifiers",
+    "https://www.creation.dev/blog/roblox-ui-design-best-practices"
+   ]
+  },
+  {
+   "id": "gui-088",
+   "area": "gui",
+   "number": 88,
+   "name": "Zen Garden Minimal",
+   "path": "ui-styles/88-zen-garden-minimal/",
+   "description": "Soft greys and moss green, thin lines, lots of space, stone icons. Palette `#EFEFE8 #7A8B6F #2F3A2F`.",
+   "roblox_recipe": "Flat Frames, hairline UIStroke, slow fades.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/casual-user-interface/",
+    "previews/minimal-user-interface/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/styling/compatibility",
+    "https://www.gameuidatabase.com/about.php"
+   ]
+  },
+  {
+   "id": "gui-089",
+   "area": "gui",
+   "number": 89,
+   "name": "Brainrot Meme Chaos",
+   "path": "ui-styles/89-brainrot-meme-chaos/",
+   "description": "Loud saturated colours, meme stickers, comic fonts, jittery text. Fits meme-themed simulators.",
+   "roblox_recipe": "Rotate/scale jitter tween, sticker ImageLabels, high-contrast strokes.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/casual-user-interface/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/appearance-modifiers",
+    "https://www.creation.dev/blog/roblox-ui-design-best-practices"
+   ]
+  },
+  {
+   "id": "gui-090",
+   "area": "gui",
+   "number": 90,
+   "name": "Anime Fighter Menu",
+   "path": "ui-styles/90-anime-fighter-menu/",
+   "description": "Diagonal-cut panels, bold italic numerals, power-level readouts, red/black accents.",
+   "roblox_recipe": "Parallelogram via rotated Frames or masks, bold stats.",
+   "local_images": [
+    "ui-styles/90-anime-fighter-menu/anime-attack-vfx-1.gif"
+   ],
+   "preview_galleries": [
+    "previews/fighting-user-interface/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/styling/compatibility",
+    "https://sangoro.itch.io/attack-vfx",
+    "https://www.gameuidatabase.com/about.php"
+   ]
+  },
+  {
+   "id": "gui-091",
+   "area": "gui",
+   "number": 91,
+   "name": "Card Battle Deck",
+   "path": "ui-styles/91-card-battle-deck/",
+   "description": "Fanned hand of cards with cost gems, rarity frames, drag-to-play lanes.",
+   "roblox_recipe": "UIListLayout + per-card Rotation fan, UIDragDetector or custom drag.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/card-game-user-interface/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/appearance-modifiers",
+    "https://www.creation.dev/blog/roblox-ui-design-best-practices"
+   ]
+  },
+  {
+   "id": "gui-092",
+   "area": "gui",
+   "number": 92,
+   "name": "Roleplay Phone OS",
+   "path": "ui-styles/92-roleplay-phone-os/",
+   "description": "In-world phone: app grid, status bar, chat, camera and bank apps.",
+   "roblox_recipe": "Portrait Frame centred, UICorner 24, ScreenGui or SurfaceGui.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/styling/compatibility",
+    "https://www.gameuidatabase.com/about.php"
+   ]
+  },
+  {
+   "id": "gui-093",
+   "area": "gui",
+   "number": 93,
+   "name": "Dress-Up Boutique",
+   "path": "ui-styles/93-dress-up-boutique/",
+   "description": "Hanger rails, outfit cards, colour swatches, camera framing.",
+   "roblox_recipe": "ViewportFrame preview + ScrollingFrame grid.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/appearance-modifiers",
+    "https://www.creation.dev/blog/roblox-ui-design-best-practices"
+   ]
+  },
+  {
+   "id": "gui-094",
+   "area": "gui",
+   "number": 94,
+   "name": "Rainbow Obby",
+   "path": "ui-styles/94-rainbow-obby/",
+   "description": "Bright rainbow gradient stage bar, big stage number, skip button.",
+   "roblox_recipe": "UIGradient colour sequence cycling.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/casual-user-interface/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/styling/compatibility",
+    "https://www.gameuidatabase.com/about.php"
+   ]
+  },
+  {
+   "id": "gui-095",
+   "area": "gui",
+   "number": 95,
+   "name": "Admin Dev Panel",
+   "path": "ui-styles/95-admin-dev-panel/",
+   "description": "Dense dark table UI, monospace, filters, danger buttons. Server-validated.",
+   "roblox_recipe": "ScrollingFrame + strict server checks for every action.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/casual-user-interface/",
+    "previews/roblox-user-interface/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/appearance-modifiers",
+    "https://www.creation.dev/blog/roblox-ui-design-best-practices"
+   ]
+  },
+  {
+   "id": "gui-096",
+   "area": "gui",
+   "number": 96,
+   "name": "Trading Window",
+   "path": "ui-styles/96-trading-window/",
+   "description": "Two-sided offer grids, accept lock countdown, scam-warning banner.",
+   "roblox_recipe": "Server-held trade state, lock timer, both-confirm.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/styling/compatibility",
+    "https://www.gameuidatabase.com/about.php"
+   ]
+  },
+  {
+   "id": "gui-097",
+   "area": "gui",
+   "number": 97,
+   "name": "Battle Pass Track",
+   "path": "ui-styles/97-battle-pass-track/",
+   "description": "Horizontal tier track, free/premium rows, claim glow, XP bar.",
+   "roblox_recipe": "Horizontal ScrollingFrame, server-side claim.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/appearance-modifiers",
+    "https://www.creation.dev/blog/roblox-ui-design-best-practices"
+   ]
+  },
+  {
+   "id": "gui-098",
+   "area": "gui",
+   "number": 98,
+   "name": "Leaderboard Podium",
+   "path": "ui-styles/98-leaderboard-podium/",
+   "description": "Top 3 podium with avatars (headshots), scrolling ranks below.",
+   "roblox_recipe": "Players:GetUserThumbnailAsync, OrderedDataStore.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/medieval-user-interface/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/styling/compatibility",
+    "https://www.gameuidatabase.com/about.php"
+   ]
+  },
+  {
+   "id": "gui-099",
+   "area": "gui",
+   "number": 99,
+   "name": "Quest Board",
+   "path": "ui-styles/99-quest-board/",
+   "description": "Pinned notes/cards, progress bars, claim buttons, timers.",
+   "roblox_recipe": "Card template + server progress.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/medieval-user-interface/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/en-us/ui/appearance-modifiers",
+    "https://www.creation.dev/blog/roblox-ui-design-best-practices"
+   ]
+  },
+  {
+   "id": "animation-001",
+   "area": "animation",
+   "number": 1,
+   "name": "Button Hover Scale",
+   "path": "animations/01-button-hover-scale/",
+   "description": "Button grows 5-8% on hover and settles back. Roblox recipe: UIScale tween 1 to 1.06 with Quad Out, 0.12s.",
+   "roblox_recipe": "",
+   "local_images": [
+    "animations/01-button-hover-scale/roblox-button-fx-1.png",
+    "animations/01-button-hover-scale/roblox-button-fx-3.gif"
+   ],
+   "preview_galleries": [
+    "previews/animation-user-interface/",
+    "previews/buttons-user-interface/"
+   ],
+   "external_links": [
+    "https://devforum.roblox.com/t/how-would-i-smoothly-tween-the-transparency-of-a-particle-emitter/829204",
+    "https://maxuno.itch.io/roblox-button-ui-effects"
+   ]
+  },
+  {
+   "id": "animation-002",
+   "area": "animation",
+   "number": 2,
+   "name": "Click Squash and Stretch",
+   "path": "animations/02-click-squash-and-stretch/",
+   "description": "Press squashes to 0.92 then springs past 1.05 and settles.",
+   "roblox_recipe": "two chained tweens or a spring.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/animation-user-interface/",
+    "previews/buttons-user-interface/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "animation-003",
+   "area": "animation",
+   "number": 3,
+   "name": "Pop-in Spring Open",
+   "path": "animations/03-pop-in-spring-open/",
+   "description": "Panel scales 0.6 to 1 with overshoot (Back/Elastic Out) while fading in.",
+   "roblox_recipe": "UIScale + GroupTransparency on a CanvasGroup.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/animation-user-interface/",
+    "previews/buttons-user-interface/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "animation-004",
+   "area": "animation",
+   "number": 4,
+   "name": "Slide Panel",
+   "path": "animations/04-slide-panel/",
+   "description": "Panel slides from an edge with Quint Out.",
+   "roblox_recipe": "tween Position scale offsets, keep AnchorPoint consistent.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/animation-user-interface/",
+    "previews/buttons-user-interface/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "animation-005",
+   "area": "animation",
+   "number": 5,
+   "name": "Error Shake",
+   "path": "animations/05-error-shake/",
+   "description": "Short horizontal shake on invalid input.",
+   "roblox_recipe": "4-6 tweens of +/-6px with Linear, 0.05s each.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/animation-user-interface/",
+    "previews/buttons-user-interface/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "animation-006",
+   "area": "animation",
+   "number": 6,
+   "name": "Currency Count-up",
+   "path": "animations/06-currency-count-up/",
+   "description": "Number rolls up to the new value.",
+   "roblox_recipe": "tween a NumberValue and update text on Changed.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/animation-user-interface/",
+    "previews/buttons-user-interface/"
+   ],
+   "external_links": [
+    "https://devforum.roblox.com/t/trying-to-tween-a-particleemitters-size-numbersequence/647332"
+   ]
+  },
+  {
+   "id": "animation-007",
+   "area": "animation",
+   "number": 7,
+   "name": "Floating Plus-N Popup",
+   "path": "animations/07-floating-plus-n-popup/",
+   "description": "+N rises, fades and drifts.",
+   "roblox_recipe": "pooled TextLabels, tween Position and TextTransparency.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/animation-user-interface/",
+    "previews/buttons-user-interface/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "animation-008",
+   "area": "animation",
+   "number": 8,
+   "name": "Reward Chest Open",
+   "path": "animations/08-reward-chest-open/",
+   "description": "Chest shakes, lid pops, light rays burst, item card scales in.",
+   "roblox_recipe": "sequence of tweens + ParticleEmitter:Emit.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/animation-user-interface/",
+    "previews/buttons-user-interface/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "animation-009",
+   "area": "animation",
+   "number": 9,
+   "name": "Rainbow Gradient Cycle",
+   "path": "animations/09-rainbow-gradient-cycle/",
+   "description": "Gradient colours scroll continuously.",
+   "roblox_recipe": "tween UIGradient.Offset or Rotation looped.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/animation-user-interface/",
+    "previews/buttons-user-interface/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "animation-010",
+   "area": "animation",
+   "number": 10,
+   "name": "Shine Sweep",
+   "path": "animations/10-shine-sweep/",
+   "description": "White diagonal highlight sweeps across a button every few seconds.",
+   "roblox_recipe": "UIGradient with Transparency sequence, tween Offset -1 to 1.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/animation-user-interface/",
+    "previews/buttons-user-interface/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "animation-011",
+   "area": "animation",
+   "number": 11,
+   "name": "Tab Switch",
+   "path": "animations/11-tab-switch/",
+   "description": "Content fades/slides while the tab indicator glides.",
+   "roblox_recipe": "tween indicator Position, swap pages with CanvasGroup.",
+   "local_images": [
+    "animations/11-tab-switch/ui-book-styles-1.gif"
+   ],
+   "preview_galleries": [
+    "previews/animation-user-interface/",
+    "previews/buttons-user-interface/"
+   ],
+   "external_links": [
+    "https://crusenho.itch.io/complete-ui-book-styles-pack"
+   ]
+  },
+  {
+   "id": "animation-012",
+   "area": "animation",
+   "number": 12,
+   "name": "Toast Slide",
+   "path": "animations/12-toast-slide/",
+   "description": "Toast enters from the side, waits, exits.",
+   "roblox_recipe": "Back Out in, Quad In out, task.delay.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/animation-user-interface/",
+    "previews/buttons-user-interface/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "animation-013",
+   "area": "animation",
+   "number": 13,
+   "name": "Egg Hatch Shake",
+   "path": "animations/13-egg-hatch-shake/",
+   "description": "Egg wobbles with increasing amplitude, cracks, bursts.",
+   "roblox_recipe": "Rotation tweens with growing angle, then reveal.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/animation-user-interface/",
+    "previews/buttons-user-interface/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "animation-014",
+   "area": "animation",
+   "number": 14,
+   "name": "Wheel Spin",
+   "path": "animations/14-wheel-spin/",
+   "description": "Wheel spins fast and eases to a server-chosen result.",
+   "roblox_recipe": "tween Rotation with Quint Out; the server picks the prize first.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/animation-user-interface/",
+    "previews/buttons-user-interface/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "animation-015",
+   "area": "animation",
+   "number": 15,
+   "name": "Progress Bar Fill",
+   "path": "animations/15-progress-bar-fill/",
+   "description": "Bar fills smoothly with a bright leading edge.",
+   "roblox_recipe": "tween Size X; overlay shine.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/animation-user-interface/",
+    "previews/buttons-user-interface/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "animation-016",
+   "area": "animation",
+   "number": 16,
+   "name": "Idle Breathing",
+   "path": "animations/16-idle-breathing/",
+   "description": "Subtle chest rise and weight shift loop.",
+   "roblox_recipe": "Animation Editor, 2-4s loop, low amplitude.",
+   "local_images": [
+    "animations/16-idle-breathing/hero-animation-3.gif"
+   ],
+   "preview_galleries": [],
+   "external_links": [
+    "https://wxhaust.itch.io/free-hero-animation-pack"
+   ]
+  },
+  {
+   "id": "animation-017",
+   "area": "animation",
+   "number": 17,
+   "name": "Run Cycle Lean",
+   "path": "animations/17-run-cycle-lean/",
+   "description": "Run loop with forward lean and arm swing, speed-scaled.",
+   "roblox_recipe": "AnimationTrack:AdjustSpeed with velocity.",
+   "local_images": [
+    "animations/17-run-cycle-lean/hero-animation-1.gif"
+   ],
+   "preview_galleries": [],
+   "external_links": [
+    "https://wxhaust.itch.io/free-hero-animation-pack"
+   ]
+  },
+  {
+   "id": "animation-018",
+   "area": "animation",
+   "number": 18,
+   "name": "Jump Squash",
+   "path": "animations/18-jump-squash/",
+   "description": "Anticipation crouch, launch stretch, landing squash.",
+   "roblox_recipe": "Jumping/Landed state events trigger tracks.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": []
+  },
+  {
+   "id": "animation-019",
+   "area": "animation",
+   "number": 19,
+   "name": "Punch Combo",
+   "path": "animations/19-punch-combo/",
+   "description": "3-hit combo with increasing weight and a finisher.",
+   "roblox_recipe": "marker events for hitbox timing, server validates.",
+   "local_images": [
+    "animations/19-punch-combo/anime-attack-vfx-1.gif"
+   ],
+   "preview_galleries": [
+    "previews/animation-combat/"
+   ],
+   "external_links": [
+    "https://sangoro.itch.io/attack-vfx"
+   ]
+  },
+  {
+   "id": "animation-020",
+   "area": "animation",
+   "number": 20,
+   "name": "Sword Swing Combo",
+   "path": "animations/20-sword-swing-combo/",
+   "description": "Chained slashes with cancel windows.",
+   "roblox_recipe": "KeyframeMarkers for hit frames, combo timer reset.",
+   "local_images": [
+    "animations/20-sword-swing-combo/hero-animation-2.gif",
+    "animations/20-sword-swing-combo/pixel-sword-vfx-1.gif"
+   ],
+   "preview_galleries": [
+    "previews/animation-combat/"
+   ],
+   "external_links": [
+    "https://metpxl.itch.io/pixel-art-sword-vfx-attack-slash-animation-pack",
+    "https://wxhaust.itch.io/free-hero-animation-pack"
+   ]
+  },
+  {
+   "id": "animation-021",
+   "area": "animation",
+   "number": 21,
+   "name": "Dodge Roll",
+   "path": "animations/21-dodge-roll/",
+   "description": "Quick roll with brief i-frames.",
+   "roblox_recipe": "animation + server-side invulnerability window.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/animation-combat/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "animation-022",
+   "area": "animation",
+   "number": 22,
+   "name": "Hit Reaction Flinch",
+   "path": "animations/22-hit-reaction-flinch/",
+   "description": "Short additive flinch scaled by damage.",
+   "roblox_recipe": "priority Action, 0.2s.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/animation-combat/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "animation-023",
+   "area": "animation",
+   "number": 23,
+   "name": "Death and Ragdoll",
+   "path": "animations/23-death-and-ragdoll/",
+   "description": "Blend from hit into ragdoll, camera lingers.",
+   "roblox_recipe": "BallSocketConstraints on Humanoid.Died.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/animation-combat/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "animation-024",
+   "area": "animation",
+   "number": 24,
+   "name": "Emote Dance",
+   "path": "animations/24-emote-dance/",
+   "description": "Looping emote with prop sync.",
+   "roblox_recipe": "Animator:LoadAnimation, Looped = true, stop on move.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": []
+  },
+  {
+   "id": "animation-025",
+   "area": "animation",
+   "number": 25,
+   "name": "Victory Pose",
+   "path": "animations/25-victory-pose/",
+   "description": "Celebratory pose at round end with confetti.",
+   "roblox_recipe": "play track + VFX at winner.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": []
+  },
+  {
+   "id": "animation-026",
+   "area": "animation",
+   "number": 26,
+   "name": "Tool Equip Animation",
+   "path": "animations/26-tool-equip-animation/",
+   "description": "Draw/holster animation that attaches the tool at a keyframe.",
+   "roblox_recipe": "Motor6D or tool grip on marker.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": []
+  },
+  {
+   "id": "animation-027",
+   "area": "animation",
+   "number": 27,
+   "name": "Cast Spell",
+   "path": "animations/27-cast-spell/",
+   "description": "Wind-up, release, recovery with hand glow.",
+   "roblox_recipe": "markers drive projectile spawn.",
+   "local_images": [
+    "animations/27-cast-spell/wizard-pack-1.gif",
+    "animations/27-cast-spell/wizard-pack-3.gif"
+   ],
+   "preview_galleries": [
+    "previews/animation-combat/"
+   ],
+   "external_links": [
+    "https://luizmelo.itch.io/wizard-pack"
+   ]
+  },
+  {
+   "id": "animation-028",
+   "area": "animation",
+   "number": 28,
+   "name": "Block and Parry",
+   "path": "animations/28-block-and-parry/",
+   "description": "Guard stance with parry-flash timing window.",
+   "roblox_recipe": "short active frames, server timing check.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/animation-combat/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "animation-029",
+   "area": "animation",
+   "number": 29,
+   "name": "Dash and Slide",
+   "path": "animations/29-dash-and-slide/",
+   "description": "Burst dash with stretched pose and speed lines.",
+   "roblox_recipe": "LinearVelocity + animation + VFX.",
+   "local_images": [
+    "animations/29-dash-and-slide/speed-line-1.gif"
+   ],
+   "preview_galleries": [
+    "previews/animation-combat/",
+    "previews/animation-user-interface/",
+    "previews/buttons-user-interface/"
+   ],
+   "external_links": [
+    "https://heosphorus.itch.io/speed-line"
+   ]
+  },
+  {
+   "id": "animation-030",
+   "area": "animation",
+   "number": 30,
+   "name": "Sprint Camera Feel",
+   "path": "animations/30-sprint-camera-feel/",
+   "description": "FOV widens and subtle bob while sprinting.",
+   "roblox_recipe": "tween Camera.FieldOfView 70 to 80.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": [
+    "https://devforum.roblox.com/t/how-to-i-make-a-players-camera-follow-a-tweend-part-for-example-this-camera-part-on-top-of-this-car/1890509"
+   ]
+  },
+  {
+   "id": "animation-031",
+   "area": "animation",
+   "number": 31,
+   "name": "Mount and Ride",
+   "path": "animations/31-mount-and-ride/",
+   "description": "Seat pose with idle sway and steering lean.",
+   "roblox_recipe": "Seat + looped animation, lean from input.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": []
+  },
+  {
+   "id": "animation-032",
+   "area": "animation",
+   "number": 32,
+   "name": "Boss Telegraph Windup",
+   "path": "animations/32-boss-telegraph-windup/",
+   "description": "Exaggerated anticipation with a ground warning.",
+   "roblox_recipe": "telegraph decal fills while windup plays.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/animation-combat/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "animation-033",
+   "area": "animation",
+   "number": 33,
+   "name": "2D Sprite Reference Sets",
+   "path": "animations/33-2d-sprite-reference-sets/",
+   "description": "Idle/run/jump/attack/die sprite sets are a useful timing reference for key poses.",
+   "roblox_recipe": "",
+   "local_images": [
+    "animations/33-2d-sprite-reference-sets/fat-berry-char-1.png",
+    "animations/33-2d-sprite-reference-sets/platformer-char-3.jpg"
+   ],
+   "preview_galleries": [
+    "previews/animated/",
+    "previews/sprite-sheet-animation/"
+   ],
+   "external_links": [
+    "https://fatberry.itch.io/free-pixel-character",
+    "https://ludicarts.itch.io/free-platformer-character"
+   ]
+  },
+  {
+   "id": "cutscene-001",
+   "area": "cutscene",
+   "number": 1,
+   "name": "Intro Fly-over",
+   "path": "cutscenes/01-intro-fly-over/",
+   "description": "Scriptable camera glides over the map to the lobby.",
+   "roblox_recipe": "CameraType Scriptable, tween CFrame between marker parts, restore to Custom.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/cinematic/",
+    "previews/cutscene/",
+    "previews/intro/"
+   ],
+   "external_links": [
+    "https://devforum.roblox.com/t/2625480",
+    "https://devforum.roblox.com/t/how-to-create-camera-cutscenes/1629318"
+   ]
+  },
+  {
+   "id": "cutscene-002",
+   "area": "cutscene",
+   "number": 2,
+   "name": "Dolly Tracking Shot",
+   "path": "cutscenes/02-dolly-tracking-shot/",
+   "description": "Camera follows a moving subject.",
+   "roblox_recipe": "RenderStepped CFrame lerp to an offset from the target.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/cinematic/",
+    "previews/cutscene/",
+    "previews/intro/"
+   ],
+   "external_links": [
+    "https://devforum.roblox.com/t/how-to-i-make-a-players-camera-follow-a-tweend-part-for-example-this-camera-part-on-top-of-this-car/1890509"
+   ]
+  },
+  {
+   "id": "cutscene-003",
+   "area": "cutscene",
+   "number": 3,
+   "name": "Orbit Reveal",
+   "path": "cutscenes/03-orbit-reveal/",
+   "description": "Camera circles an object or boss.",
+   "roblox_recipe": "CFrame.Angles rotation around a pivot over time.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/cinematic/",
+    "previews/cutscene/",
+    "previews/intro/"
+   ],
+   "external_links": [
+    "https://devforum.roblox.com/t/how-to-create-camera-cutscenes/1629318"
+   ]
+  },
+  {
+   "id": "cutscene-004",
+   "area": "cutscene",
+   "number": 4,
+   "name": "Letterbox Bars",
+   "path": "cutscenes/04-letterbox-bars/",
+   "description": "Black bars slide in for cinematic mode.",
+   "roblox_recipe": "two Frames tween Size Y from 0 to 0.12.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": []
+  },
+  {
+   "id": "cutscene-005",
+   "area": "cutscene",
+   "number": 5,
+   "name": "Over-the-Shoulder Dialogue",
+   "path": "cutscenes/05-over-the-shoulder-dialogue/",
+   "description": "Alternating shoulder shots for conversations.",
+   "roblox_recipe": "two camera parts per speaker, cut on lines.",
+   "local_images": [
+    "cutscenes/05-over-the-shoulder-dialogue/vn-dialogue-gui-1.png"
+   ],
+   "preview_galleries": [
+    "previews/visual-novel-user-interface/"
+   ],
+   "external_links": [
+    "https://devforum.roblox.com/t/how-to-create-camera-cutscenes/1629318",
+    "https://onelevelstudio.itch.io/dialogue-gui"
+   ]
+  },
+  {
+   "id": "cutscene-006",
+   "area": "cutscene",
+   "number": 6,
+   "name": "Boss Intro Cinematic",
+   "path": "cutscenes/06-boss-intro-cinematic/",
+   "description": "Slow reveal, name card, roar, health bar fills.",
+   "roblox_recipe": "tween sequence + camera shake + UI title.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/cinematic/",
+    "previews/cutscene/",
+    "previews/intro/"
+   ],
+   "external_links": [
+    "https://devforum.roblox.com/t/how-do-you-make-cutscenes/975405"
+   ]
+  },
+  {
+   "id": "cutscene-007",
+   "area": "cutscene",
+   "number": 7,
+   "name": "Round Start Countdown",
+   "path": "cutscenes/07-round-start-countdown/",
+   "description": "3-2-1 with camera push and sound hits.",
+   "roblox_recipe": "scale-punch TextLabel per second.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/cinematic/",
+    "previews/cutscene/",
+    "previews/intro/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "cutscene-008",
+   "area": "cutscene",
+   "number": 8,
+   "name": "Victory Podium",
+   "path": "cutscenes/08-victory-podium/",
+   "description": "Winners posed on podium, camera pans across.",
+   "roblox_recipe": "cloned rigs + animations.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/cinematic/",
+    "previews/cutscene/",
+    "previews/intro/"
+   ],
+   "external_links": [
+    "https://devforum.roblox.com/t/how-do-you-make-cutscenes/975405"
+   ]
+  },
+  {
+   "id": "cutscene-009",
+   "area": "cutscene",
+   "number": 9,
+   "name": "Killcam",
+   "path": "cutscenes/09-killcam/",
+   "description": "Replay the killer's view or a freeze with slow-mo.",
+   "roblox_recipe": "camera to killer attachment for 2s.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/cinematic/",
+    "previews/cutscene/",
+    "previews/intro/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "cutscene-010",
+   "area": "cutscene",
+   "number": 10,
+   "name": "Impact Hit-Stop",
+   "path": "cutscenes/10-impact-hit-stop/",
+   "description": "Brief freeze/slow on heavy hits plus a white flash frame.",
+   "roblox_recipe": "AdjustSpeed 0.1 on tracks for 0.08s, overlay flash.",
+   "local_images": [
+    "cutscenes/10-impact-hit-stop/action-fx-vn-2.png"
+   ],
+   "preview_galleries": [
+    "previews/cinematic/",
+    "previews/cutscene/",
+    "previews/intro/"
+   ],
+   "external_links": [
+    "https://makevisualnovels.itch.io/actfx"
+   ]
+  },
+  {
+   "id": "cutscene-011",
+   "area": "cutscene",
+   "number": 11,
+   "name": "Fade Transition",
+   "path": "cutscenes/11-fade-transition/",
+   "description": "Fade to black between scenes.",
+   "roblox_recipe": "full-screen Frame transparency tween.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": []
+  },
+  {
+   "id": "cutscene-012",
+   "area": "cutscene",
+   "number": 12,
+   "name": "Comic Panel Split",
+   "path": "cutscenes/12-comic-panel-split/",
+   "description": "Screen splits into panels with slanted dividers.",
+   "roblox_recipe": "multiple ViewportFrames or masked frames.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": []
+  },
+  {
+   "id": "cutscene-013",
+   "area": "cutscene",
+   "number": 13,
+   "name": "Tutorial Camera Guide",
+   "path": "cutscenes/13-tutorial-camera-guide/",
+   "description": "Camera nudges to the next objective then returns.",
+   "roblox_recipe": "short tween, then restore.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/cinematic/",
+    "previews/cutscene/",
+    "previews/intro/"
+   ],
+   "external_links": [
+    "https://devforum.roblox.com/t/2622789"
+   ]
+  },
+  {
+   "id": "cutscene-014",
+   "area": "cutscene",
+   "number": 14,
+   "name": "Map Reveal Pan",
+   "path": "cutscenes/14-map-reveal-pan/",
+   "description": "High pan across the arena at match start.",
+   "roblox_recipe": "spline of marker CFrames.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/cinematic/",
+    "previews/cutscene/",
+    "previews/intro/"
+   ],
+   "external_links": [
+    "https://devforum.roblox.com/t/how-to-create-camera-cutscenes/1629318"
+   ]
+  },
+  {
+   "id": "cutscene-015",
+   "area": "cutscene",
+   "number": 15,
+   "name": "Item Reveal Spotlight",
+   "path": "cutscenes/15-item-reveal-spotlight/",
+   "description": "Dim the world and spotlight a new pet/item.",
+   "roblox_recipe": "ViewportFrame + rotating model + rarity VFX.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/cinematic/",
+    "previews/cutscene/",
+    "previews/intro/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "cutscene-016",
+   "area": "cutscene",
+   "number": 16,
+   "name": "Jumpscare Zoom",
+   "path": "cutscenes/16-jumpscare-zoom/",
+   "description": "Fast FOV crush and shake with audio sting.",
+   "roblox_recipe": "tween FOV 70 to 40 + shake + overlay.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/cinematic/",
+    "previews/cutscene/",
+    "previews/intro/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "cutscene-017",
+   "area": "cutscene",
+   "number": 17,
+   "name": "Visual-Novel Dialogue Scene",
+   "path": "cutscenes/17-visual-novel-dialogue-scene/",
+   "description": "Portrait, name tag, typewriter text, choices.",
+   "roblox_recipe": "text reveal loop, remote events for choices.",
+   "local_images": [
+    "cutscenes/17-visual-novel-dialogue-scene/vn-dialogue-boxes-1.jpeg",
+    "cutscenes/17-visual-novel-dialogue-scene/vn-dialogue-gui-1.png"
+   ],
+   "preview_galleries": [
+    "previews/visual-novel-user-interface/"
+   ],
+   "external_links": [
+    "https://charcoalstudios.itch.io/visual-novel-dialogue-boxes",
+    "https://devforum.roblox.com/t/cutsceneservice/3283407",
+    "https://onelevelstudio.itch.io/dialogue-gui"
+   ]
+  },
+  {
+   "id": "cutscene-018",
+   "area": "cutscene",
+   "number": 18,
+   "name": "Rig-Animated Scene",
+   "path": "cutscenes/18-rig-animated-scene/",
+   "description": "Pre-authored scene animated on rigs (Moon Animator or Animation Editor) with a camera rig.",
+   "roblox_recipe": "play tracks on cloned NPCs from a script.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/cinematic/",
+    "previews/cutscene/",
+    "previews/intro/"
+   ],
+   "external_links": [
+    "https://devforum.roblox.com/t/cutsceneservice/3283407",
+    "https://devforum.roblox.com/t/how-do-you-make-cutscenes/975405"
+   ]
+  },
+  {
+   "id": "vfx-001",
+   "area": "vfx",
+   "number": 1,
+   "name": "Hit Spark",
+   "path": "vfx/01-hit-spark/",
+   "description": "Bright burst at the point of impact.",
+   "roblox_recipe": "ParticleEmitter, Lifetime 0.15-0.3, Rate 0, call Emit(8-15), LightEmission 1.",
+   "local_images": [
+    "vfx/01-hit-spark/combat-fx-1.png",
+    "vfx/01-hit-spark/pixel-combat-hit-1.gif"
+   ],
+   "preview_galleries": [
+    "previews/effects-impact/",
+    "previews/vfx-hit/"
+   ],
+   "external_links": [
+    "https://devforum.roblox.com/t/dear-vfx-makers-i-present-to-you-jads-emit-plugin/1986838",
+    "https://gegx.itch.io/combat-fx",
+    "https://lesed.itch.io/pixel-combat-hit-fx"
+   ]
+  },
+  {
+   "id": "vfx-002",
+   "area": "vfx",
+   "number": 2,
+   "name": "Slash Arc Trail",
+   "path": "vfx/02-slash-arc-trail/",
+   "description": "Crescent smear following a swing.",
+   "roblox_recipe": "Trail between two attachments on the blade, or a mesh arc faded with tween.",
+   "local_images": [
+    "vfx/02-slash-arc-trail/battle-vfx-slashes-1.png",
+    "vfx/02-slash-arc-trail/battle-vfx-slashes-3.png",
+    "vfx/02-slash-arc-trail/pixel-sword-vfx-1.gif"
+   ],
+   "preview_galleries": [
+    "previews/sprite-sheet-effects/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/reference/engine/classes/Trail",
+    "https://metpxl.itch.io/pixel-art-sword-vfx-attack-slash-animation-pack",
+    "https://pimen.itch.io/battle-vfx-slashes-and-thrusts"
+   ]
+  },
+  {
+   "id": "vfx-003",
+   "area": "vfx",
+   "number": 3,
+   "name": "Impact Ring Shockwave",
+   "path": "vfx/03-impact-ring-shockwave/",
+   "description": "Expanding ring on heavy hits or landings.",
+   "roblox_recipe": "neon ring mesh, tween Size up and Transparency to 1.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/effects-impact/",
+    "previews/vfx-hit/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "vfx-004",
+   "area": "vfx",
+   "number": 4,
+   "name": "Speed Lines Dash",
+   "path": "vfx/04-speed-lines-dash/",
+   "description": "Radial lines around the screen or character on dash.",
+   "roblox_recipe": "ImageLabel overlay tween, or particles streaking backward.",
+   "local_images": [
+    "vfx/04-speed-lines-dash/action-fx-vn-2.png",
+    "vfx/04-speed-lines-dash/speed-line-1.gif"
+   ],
+   "preview_galleries": [
+    "previews/sprite-sheet-effects/"
+   ],
+   "external_links": [
+    "https://heosphorus.itch.io/speed-line",
+    "https://makevisualnovels.itch.io/actfx"
+   ]
+  },
+  {
+   "id": "vfx-005",
+   "area": "vfx",
+   "number": 5,
+   "name": "Anime Impact Frame",
+   "path": "vfx/05-anime-impact-frame/",
+   "description": "One-frame high-contrast inverted flash on a big hit.",
+   "roblox_recipe": "full-screen white/black Frame for 1-2 frames plus ColorCorrection.",
+   "local_images": [
+    "vfx/05-anime-impact-frame/action-fx-vn-2.png"
+   ],
+   "preview_galleries": [
+    "previews/effects-impact/",
+    "previews/vfx-hit/"
+   ],
+   "external_links": [
+    "https://makevisualnovels.itch.io/actfx"
+   ]
+  },
+  {
+   "id": "vfx-006",
+   "area": "vfx",
+   "number": 6,
+   "name": "Muzzle Flash",
+   "path": "vfx/06-muzzle-flash/",
+   "description": "Short bright cone at the barrel.",
+   "roblox_recipe": "PointLight + particle emit 1 frame, Rotation random.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/effects-explosions/",
+    "previews/vfx-fire/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "vfx-007",
+   "area": "vfx",
+   "number": 7,
+   "name": "Shield Bubble",
+   "path": "vfx/07-shield-bubble/",
+   "description": "Translucent sphere with hex pattern that ripples on hit.",
+   "roblox_recipe": "Neon sphere, Fresnel-like transparency, scale pulse on damage.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": []
+  },
+  {
+   "id": "vfx-008",
+   "area": "vfx",
+   "number": 8,
+   "name": "Blood Splat Stylised",
+   "path": "vfx/08-blood-splat-stylised/",
+   "description": "Colour-neutral splat (paint, slime) for family-friendly games.",
+   "roblox_recipe": "decal burst, no gore.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/vfx/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "vfx-009",
+   "area": "vfx",
+   "number": 9,
+   "name": "Magic Circle Cast",
+   "path": "vfx/09-magic-circle-cast/",
+   "description": "Rotating rune circle on the ground while casting.",
+   "roblox_recipe": "Decal/SurfaceGui image, tween Rotation, fade out.",
+   "local_images": [
+    "vfx/09-magic-circle-cast/essential-vfx-31-3.gif",
+    "vfx/09-magic-circle-cast/pixel-vfx-64-1.png"
+   ],
+   "preview_galleries": [
+    "previews/vfx-magic/"
+   ],
+   "external_links": [
+    "https://bonkiloki.itch.io/essential-vfx-pack-31-animated-effects",
+    "https://phzm.itch.io/pixel-vfx-pack"
+   ]
+  },
+  {
+   "id": "vfx-010",
+   "area": "vfx",
+   "number": 10,
+   "name": "Heal Aura",
+   "path": "vfx/10-heal-aura/",
+   "description": "Rising green sparkles and soft glow.",
+   "roblox_recipe": "ParticleEmitter upward Speed, LightEmission 0.5.",
+   "local_images": [
+    "vfx/10-heal-aura/essential-vfx-31-1.png"
+   ],
+   "preview_galleries": [
+    "previews/vfx-magic/"
+   ],
+   "external_links": [
+    "https://bonkiloki.itch.io/essential-vfx-pack-31-animated-effects"
+   ]
+  },
+  {
+   "id": "vfx-011",
+   "area": "vfx",
+   "number": 11,
+   "name": "Lightning Bolt",
+   "path": "vfx/11-lightning-bolt/",
+   "description": "Jagged beam flickering between points.",
+   "roblox_recipe": "Beam with random mid attachments, rebuild each 0.05s.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/effects-lightning/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/reference/engine/classes/Trail"
+   ]
+  },
+  {
+   "id": "vfx-012",
+   "area": "vfx",
+   "number": 12,
+   "name": "Ice Shatter",
+   "path": "vfx/12-ice-shatter/",
+   "description": "Crystals burst outward with cold mist.",
+   "roblox_recipe": "shard parts with velocity + particle mist.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": []
+  },
+  {
+   "id": "vfx-013",
+   "area": "vfx",
+   "number": 13,
+   "name": "Water Splash",
+   "path": "vfx/13-water-splash/",
+   "description": "Droplets and ring on contact.",
+   "roblox_recipe": "emit droplets with gravity (Acceleration), ripple ring.",
+   "local_images": [
+    "vfx/13-water-splash/spells-fx-1.gif"
+   ],
+   "preview_galleries": [
+    "previews/vfx-water/",
+    "previews/vfx-weather/"
+   ],
+   "external_links": [
+    "https://ragnapixel.itch.io/spells-fx"
+   ]
+  },
+  {
+   "id": "vfx-014",
+   "area": "vfx",
+   "number": 14,
+   "name": "Fireball Explosion",
+   "path": "vfx/14-fireball-explosion/",
+   "description": "Fire core, smoke and debris.",
+   "roblox_recipe": "layered emitters (flash, fire, smoke), Explosion with no damage for push.",
+   "local_images": [
+    "vfx/14-fireball-explosion/brackeys-vfx-1.png",
+    "vfx/14-fireball-explosion/brackeys-vfx-3.png"
+   ],
+   "preview_galleries": [
+    "previews/effects-explosions/",
+    "previews/vfx-fire/"
+   ],
+   "external_links": [
+    "https://brackeysgames.itch.io/brackeys-vfx-bundle"
+   ]
+  },
+  {
+   "id": "vfx-015",
+   "area": "vfx",
+   "number": 15,
+   "name": "Black Hole Vortex",
+   "path": "vfx/15-black-hole-vortex/",
+   "description": "Swirling particles pulled to centre.",
+   "roblox_recipe": "emitter with negative Acceleration toward centre + rotating mesh.",
+   "local_images": [
+    "vfx/15-black-hole-vortex/pixel-vfx-64-1.png"
+   ],
+   "preview_galleries": [],
+   "external_links": [
+    "https://phzm.itch.io/pixel-vfx-pack"
+   ]
+  },
+  {
+   "id": "vfx-016",
+   "area": "vfx",
+   "number": 16,
+   "name": "Meteor Impact",
+   "path": "vfx/16-meteor-impact/",
+   "description": "Fire trail, impact flash, crater dust.",
+   "roblox_recipe": "Trail + particle burst + camera shake.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/effects-explosions/",
+    "previews/effects-impact/",
+    "previews/vfx-hit/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "vfx-017",
+   "area": "vfx",
+   "number": 17,
+   "name": "Teleport Portal",
+   "path": "vfx/17-teleport-portal/",
+   "description": "Ring with swirling inner and flash on entry.",
+   "roblox_recipe": "Rotating mesh, particle swirl, light.",
+   "local_images": [
+    "vfx/17-teleport-portal/essential-vfx-31-3.gif"
+   ],
+   "preview_galleries": [],
+   "external_links": [
+    "https://bonkiloki.itch.io/essential-vfx-pack-31-animated-effects"
+   ]
+  },
+  {
+   "id": "vfx-018",
+   "area": "vfx",
+   "number": 18,
+   "name": "Poison Cloud",
+   "path": "vfx/18-poison-cloud/",
+   "description": "Low green fog with bubbles.",
+   "roblox_recipe": "slow big particles, Transparency 0.6.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/vfx/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "vfx-019",
+   "area": "vfx",
+   "number": 19,
+   "name": "Rain and Snow",
+   "path": "vfx/19-rain-and-snow/",
+   "description": "Weather particles following the camera.",
+   "roblox_recipe": "emitter in a part above the camera, or collision-aware rain.",
+   "local_images": [
+    "vfx/19-rain-and-snow/roblox-rain-1.png",
+    "vfx/19-rain-and-snow/roblox-rain-2.png"
+   ],
+   "preview_galleries": [
+    "previews/vfx-water/",
+    "previews/vfx-weather/"
+   ],
+   "external_links": [
+    "https://reeceik.itch.io/realistic-particle-physics-roblox-studio"
+   ]
+  },
+  {
+   "id": "vfx-020",
+   "area": "vfx",
+   "number": 20,
+   "name": "Dust Footsteps",
+   "path": "vfx/20-dust-footsteps/",
+   "description": "Small puffs at feet when running or landing.",
+   "roblox_recipe": "emit 3-5 on Running state or animation markers.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/vfx-water/",
+    "previews/vfx-weather/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "vfx-021",
+   "area": "vfx",
+   "number": 21,
+   "name": "Smoke Puff",
+   "path": "vfx/21-smoke-puff/",
+   "description": "Soft rising smoke.",
+   "roblox_recipe": "texture sheet, Size grows, Transparency to 1.",
+   "local_images": [
+    "vfx/21-smoke-puff/brackeys-vfx-3.png"
+   ],
+   "preview_galleries": [],
+   "external_links": [
+    "https://brackeysgames.itch.io/brackeys-vfx-bundle"
+   ]
+  },
+  {
+   "id": "vfx-022",
+   "area": "vfx",
+   "number": 22,
+   "name": "Torch Fire",
+   "path": "vfx/22-torch-fire/",
+   "description": "Looping flame with embers and flicker light.",
+   "roblox_recipe": "Fire emitter + PointLight Brightness noise.",
+   "local_images": [
+    "vfx/22-torch-fire/brackeys-vfx-1.png"
+   ],
+   "preview_galleries": [
+    "previews/vfx-fire/"
+   ],
+   "external_links": [
+    "https://brackeysgames.itch.io/brackeys-vfx-bundle"
+   ]
+  },
+  {
+   "id": "vfx-023",
+   "area": "vfx",
+   "number": 23,
+   "name": "God Rays Light Shafts",
+   "path": "vfx/23-god-rays-light-shafts/",
+   "description": "Beams from a window or sky.",
+   "roblox_recipe": "SunRaysEffect or stretched neon planes at low alpha.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/vfx/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "vfx-024",
+   "area": "vfx",
+   "number": 24,
+   "name": "Fireflies Ambient",
+   "path": "vfx/24-fireflies-ambient/",
+   "description": "Glowing motes drifting in dusk scenes.",
+   "roblox_recipe": "low-rate emitters with random Rotation and fading glow.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/vfx-fire/",
+    "previews/vfx-water/",
+    "previews/vfx-weather/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "vfx-025",
+   "area": "vfx",
+   "number": 25,
+   "name": "Rocket Smoke Trail",
+   "path": "vfx/25-rocket-smoke-trail/",
+   "description": "Smoke line behind projectiles.",
+   "roblox_recipe": "Trail plus smoke emitter attached to the rocket.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sprite-sheet-effects/"
+   ],
+   "external_links": [
+    "https://create.roblox.com/docs/reference/engine/classes/Trail"
+   ]
+  },
+  {
+   "id": "vfx-026",
+   "area": "vfx",
+   "number": 26,
+   "name": "Level-Up Burst",
+   "path": "vfx/26-level-up-burst/",
+   "description": "Gold burst, rays and banner.",
+   "roblox_recipe": "UI ImageLabel scale + 2D particle spritesheet.",
+   "local_images": [
+    "vfx/26-level-up-burst/cartoon-vfx-mega-1.png"
+   ],
+   "preview_galleries": [
+    "previews/vfx-confetti/"
+   ],
+   "external_links": [
+    "https://cartooncoffee.itch.io/megapack-spritesheets"
+   ]
+  },
+  {
+   "id": "vfx-027",
+   "area": "vfx",
+   "number": 27,
+   "name": "Coin Gem Sparkle",
+   "path": "vfx/27-coin-gem-sparkle/",
+   "description": "Sparkles on pickup that fly to the HUD counter.",
+   "roblox_recipe": "tween clones toward the currency icon, then count up.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/effects-impact/",
+    "previews/vfx-confetti/",
+    "previews/vfx-hit/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "vfx-028",
+   "area": "vfx",
+   "number": 28,
+   "name": "Rarity Glow Beam",
+   "path": "vfx/28-rarity-glow-beam/",
+   "description": "Coloured light pillar by rarity when a drop spawns.",
+   "roblox_recipe": "tall Neon part + Beam, colour from rarity table.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/vfx-confetti/",
+    "previews/vfx-magic/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "vfx-029",
+   "area": "vfx",
+   "number": 29,
+   "name": "Confetti Celebration",
+   "path": "vfx/29-confetti-celebration/",
+   "description": "Multi-colour falling pieces.",
+   "roblox_recipe": "emitter with ColorSequence random keypoints, gravity.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/vfx-confetti/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "vfx-030",
+   "area": "vfx",
+   "number": 30,
+   "name": "Damage Number Pop",
+   "path": "vfx/30-damage-number-pop/",
+   "description": "Numbers arc up with scale punch.",
+   "roblox_recipe": "pooled BillboardGui, tween.",
+   "local_images": [
+    "vfx/30-damage-number-pop/combat-fx-1.png"
+   ],
+   "preview_galleries": [
+    "previews/vfx-confetti/"
+   ],
+   "external_links": [
+    "https://gegx.itch.io/combat-fx"
+   ]
+  },
+  {
+   "id": "vfx-031",
+   "area": "vfx",
+   "number": 31,
+   "name": "Screen Damage Vignette",
+   "path": "vfx/31-screen-damage-vignette/",
+   "description": "Red edges pulse at low health.",
+   "roblox_recipe": "full-screen gradient frame with transparency tween.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/vfx-confetti/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "vfx-032",
+   "area": "vfx",
+   "number": 32,
+   "name": "Glitch Chromatic Pulse",
+   "path": "vfx/32-glitch-chromatic-pulse/",
+   "description": "RGB split and jitter for hacks or hits.",
+   "roblox_recipe": "ColorCorrection/Blur tween + offset duplicate frames.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/effects-lightning/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "vfx-033",
+   "area": "vfx",
+   "number": 33,
+   "name": "Powerup Aura Flames",
+   "path": "vfx/33-powerup-aura-flames/",
+   "description": "Body-wrapped flame aura for boosted states.",
+   "roblox_recipe": "emitters on limbs, LightEmission 1.",
+   "local_images": [
+    "vfx/33-powerup-aura-flames/action-fx-vn-1.png",
+    "vfx/33-powerup-aura-flames/anime-attack-vfx-1.gif"
+   ],
+   "preview_galleries": [
+    "previews/vfx-magic/"
+   ],
+   "external_links": [
+    "https://makevisualnovels.itch.io/actfx",
+    "https://sangoro.itch.io/attack-vfx"
+   ]
+  },
+  {
+   "id": "vfx-034",
+   "area": "vfx",
+   "number": 34,
+   "name": "Spawn Dissolve",
+   "path": "vfx/34-spawn-dissolve/",
+   "description": "Materialize or dissolve with edge glow.",
+   "roblox_recipe": "tween part Transparency + particles at edges.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/vfx-magic/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "vfx-035",
+   "area": "vfx",
+   "number": 35,
+   "name": "Particle Texture Library",
+   "path": "vfx/35-particle-texture-library/",
+   "description": "Texture sheets for ParticleEmitters (sparks, smoke, rings, beams).",
+   "roblox_recipe": "use greyscale/white PNGs and tint with ColorSequence.",
+   "local_images": [
+    "vfx/35-particle-texture-library/brackeys-vfx-2.png",
+    "vfx/35-particle-texture-library/particle-textures-1.png"
+   ],
+   "preview_galleries": [
+    "previews/sprite-sheet-effects/"
+   ],
+   "external_links": [
+    "https://brackeysgames.itch.io/brackeys-vfx-bundle",
+    "https://devforum.roblox.com/t/dear-vfx-makers-i-present-to-you-jads-emit-plugin/1986838",
+    "https://devforum.roblox.com/t/how-would-i-smoothly-tween-the-transparency-of-a-particle-emitter/829204",
+    "https://devforum.roblox.com/t/trying-to-tween-a-particleemitters-size-numbersequence/647332",
+    "https://reactorcore.itch.io/particle-effect-texture-essentials"
+   ]
+  },
+  {
+   "id": "vfx-036",
+   "area": "vfx",
+   "number": 36,
+   "name": "Cartoon VFX Spritesheets",
+   "path": "vfx/36-cartoon-vfx-spritesheets/",
+   "description": "Stylised cartoon burst, smoke and impact sheets.",
+   "roblox_recipe": "flipbook via ParticleEmitter FlipbookLayout.",
+   "local_images": [
+    "vfx/36-cartoon-vfx-spritesheets/cartoon-vfx-mega-1.png",
+    "vfx/36-cartoon-vfx-spritesheets/cartoon-vfx-mega-3.png"
+   ],
+   "preview_galleries": [
+    "previews/sprite-sheet-effects/"
+   ],
+   "external_links": [
+    "https://cartooncoffee.itch.io/megapack-spritesheets"
+   ]
+  },
+  {
+   "id": "sfx-001",
+   "area": "sfx",
+   "number": 1,
+   "name": "Button Click",
+   "path": "sfx/01-button-click/",
+   "description": "Short, dry, mid-high click (30-120 ms) that confirms a press. Keep it quiet and consistent: players hear it hundreds of times.",
+   "roblox_recipe": "Sound in a UI SoundGroup at Volume 0.3-0.5, play with SoundService:PlayLocalSound so it does not replicate; vary PlaybackSpeed 0.97-1.03 only.",
+   "local_images": [
+    "sfx/01-button-click/sfx-fast-ui-1.jpg",
+    "sfx/01-button-click/sfx-interface-buttons-1.png",
+    "sfx/01-button-click/sfx-ui-clicks-1.png"
+   ],
+   "preview_galleries": [
+    "previews/sound-effects-user-interface/"
+   ],
+   "external_links": [
+    "https://ad-sounds.itch.io/fast-ui-sounds-sound-effects",
+    "https://bleeoop.itch.io/ui-clicks",
+    "https://kenney.nl/assets/category:Audio",
+    "https://morphonaut.itch.io/interfacebuttons-sound-pack",
+    "https://opengameart.org/content/87-clickety-clips",
+    "https://opengameart.org/content/interface-sounds"
+   ]
+  },
+  {
+   "id": "sfx-002",
+   "area": "sfx",
+   "number": 2,
+   "name": "Button Hover Tick",
+   "path": "sfx/02-button-hover-tick/",
+   "description": "Very soft tick (10-40 ms), lower volume than click. Use sparingly on desktop only.",
+   "roblox_recipe": "trigger from MouseEnter, throttle to once per 80 ms, skip on touch.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-user-interface/"
+   ],
+   "external_links": [
+    "https://opengameart.org/content/87-clickety-clips"
+   ]
+  },
+  {
+   "id": "sfx-003",
+   "area": "sfx",
+   "number": 3,
+   "name": "Menu Open Whoosh",
+   "path": "sfx/03-menu-open-whoosh/",
+   "description": "Soft rising whoosh (150-300 ms) on panel open, mirrored falling version on close.",
+   "roblox_recipe": "pair with the pop-in tween so sound peak lands when the scale overshoots.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-user-interface/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-004",
+   "area": "sfx",
+   "number": 4,
+   "name": "Confirm Success Chime",
+   "path": "sfx/04-confirm-success-chime/",
+   "description": "Bright two-note rising chime (200-400 ms).",
+   "roblox_recipe": "for purchases and claims, play after server confirmation, not on click.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-user-interface/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-005",
+   "area": "sfx",
+   "number": 5,
+   "name": "Error Buzz",
+   "path": "sfx/05-error-buzz/",
+   "description": "Low short buzz or dull thud (100-250 ms), never harsh.",
+   "roblox_recipe": "pair with the UI error shake.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-user-interface/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-006",
+   "area": "sfx",
+   "number": 6,
+   "name": "Toggle Switch",
+   "path": "sfx/06-toggle-switch/",
+   "description": "Two distinct pitches for on and off (slight pitch up for on).",
+   "roblox_recipe": "one Sound, set PlaybackSpeed 1.1 or 0.9.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-user-interface/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-007",
+   "area": "sfx",
+   "number": 7,
+   "name": "Notification Ping",
+   "path": "sfx/07-notification-ping/",
+   "description": "Gentle bell or pluck, 300-600 ms, rate-limited.",
+   "roblox_recipe": "cap to one ping per second; group ducking not needed.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-user-interface/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-008",
+   "area": "sfx",
+   "number": 8,
+   "name": "Purchase Cha-Ching",
+   "path": "sfx/08-purchase-cha-ching/",
+   "description": "Coin and register sparkle (400-800 ms) for purchases.",
+   "roblox_recipe": "play locally on server-confirmed purchase.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-user-interface/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-009",
+   "area": "sfx",
+   "number": 9,
+   "name": "Coin Pickup Pitch Ladder",
+   "path": "sfx/09-coin-pickup-pitch-ladder/",
+   "description": "Coin tick whose pitch rises on consecutive pickups, resetting after a pause.",
+   "roblox_recipe": "PlaybackSpeed = 1 + 0.05*combo capped at 1.6.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-user-interface/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-010",
+   "area": "sfx",
+   "number": 10,
+   "name": "Level-Up Fanfare",
+   "path": "sfx/10-level-up-fanfare/",
+   "description": "Short ascending brass or synth stinger (1-2 s) with a sparkle tail.",
+   "roblox_recipe": "duck music via SoundGroup volume tween while it plays.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-user-interface/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-011",
+   "area": "sfx",
+   "number": 11,
+   "name": "Reward Chest Open",
+   "path": "sfx/11-reward-chest-open/",
+   "description": "Creak or latch, burst, then sparkle shimmer layered over 1-2 s.",
+   "roblox_recipe": "three Sounds timed to the chest animation markers.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-user-interface/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-012",
+   "area": "sfx",
+   "number": 12,
+   "name": "Countdown Beep",
+   "path": "sfx/12-countdown-beep/",
+   "description": "Three identical beeps and a higher final beep.",
+   "roblox_recipe": "PlaybackSpeed 1.0 for 3-2-1, 1.5 for GO.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-user-interface/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-013",
+   "area": "sfx",
+   "number": 13,
+   "name": "Typewriter Text Blip",
+   "path": "sfx/13-typewriter-text-blip/",
+   "description": "Tiny blip per character, pitch-randomised slightly, per speaker voice.",
+   "roblox_recipe": "play every 2nd character, skip spaces.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-user-interface/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-014",
+   "area": "sfx",
+   "number": 14,
+   "name": "Sword Swing Whoosh",
+   "path": "sfx/14-sword-swing-whoosh/",
+   "description": "Fast airy whoosh (150-300 ms), several variants rotated.",
+   "roblox_recipe": "start the sound on the animation marker, 3-5 variants, PlaybackSpeed jitter 0.92-1.08.",
+   "local_images": [
+    "sfx/14-sword-swing-whoosh/sfx-forge-fantasy-1.png",
+    "sfx/14-sword-swing-whoosh/sfx-forge-fantasy-2.png",
+    "sfx/14-sword-swing-whoosh/sfx-sword-free-1.png"
+   ],
+   "preview_galleries": [
+    "previews/sound-effects-swords/",
+    "previews/sound-effects-weapons/",
+    "previews/sound-effects-whoosh/"
+   ],
+   "external_links": [
+    "https://caseportman.itch.io/forge-fantasy-weapon-sfx",
+    "https://hoveaudio.itch.io/sword-combat-sound-effects-pack-free-version"
+   ]
+  },
+  {
+   "id": "sfx-015",
+   "area": "sfx",
+   "number": 15,
+   "name": "Sword Hit Metal",
+   "path": "sfx/15-sword-hit-metal/",
+   "description": "Metallic clang with short ring (200-500 ms).",
+   "roblox_recipe": "layer a low thud under the clang; play at the hit position.",
+   "local_images": [
+    "sfx/15-sword-hit-metal/sfx-forge-fantasy-3.png",
+    "sfx/15-sword-hit-metal/sfx-scifi-swords-1.png"
+   ],
+   "preview_galleries": [
+    "previews/sound-effects-swords/",
+    "previews/sound-effects-weapons/",
+    "previews/sound-effects-whoosh/"
+   ],
+   "external_links": [
+    "https://caseportman.itch.io/forge-fantasy-weapon-sfx",
+    "https://magicsoundeffects.itch.io/sci-fi-swords-sound-pack"
+   ]
+  },
+  {
+   "id": "sfx-016",
+   "area": "sfx",
+   "number": 16,
+   "name": "Punch Impact",
+   "path": "sfx/16-punch-impact/",
+   "description": "Meaty low thump plus short noise slap (100-250 ms).",
+   "roblox_recipe": "4+ variants, louder for crits, 3D rolloff with RollOffMaxDistance about 60.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-swords/",
+    "previews/sound-effects-weapons/",
+    "previews/sound-effects-whoosh/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-017",
+   "area": "sfx",
+   "number": 17,
+   "name": "Heavy Slam",
+   "path": "sfx/17-heavy-slam/",
+   "description": "Deep boom with sub tail (500-1000 ms) and debris rattle.",
+   "roblox_recipe": "low-pass via EqualizerSoundEffect for distant players.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-swords/",
+    "previews/sound-effects-weapons/",
+    "previews/sound-effects-whoosh/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-018",
+   "area": "sfx",
+   "number": 18,
+   "name": "Block Parry Clang",
+   "path": "sfx/18-block-parry-clang/",
+   "description": "Sharp metallic ping, brighter than a normal hit so the parry reads clearly.",
+   "roblox_recipe": "distinct pitch band from hit sounds.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-swords/",
+    "previews/sound-effects-weapons/",
+    "previews/sound-effects-whoosh/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-019",
+   "area": "sfx",
+   "number": 19,
+   "name": "Projectile Whoosh",
+   "path": "sfx/19-projectile-whoosh/",
+   "description": "Passing whoosh with Doppler feel.",
+   "roblox_recipe": "3D sound parented to the projectile, RollOffMode InverseTapered.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": []
+  },
+  {
+   "id": "sfx-020",
+   "area": "sfx",
+   "number": 20,
+   "name": "Gunshot",
+   "path": "sfx/20-gunshot/",
+   "description": "Transient crack plus tail.",
+   "roblox_recipe": "short tail for close, longer reverb for outdoors; compress to avoid clipping.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-explosions/",
+    "previews/sound-effects-weapons/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-021",
+   "area": "sfx",
+   "number": 21,
+   "name": "Reload Click",
+   "path": "sfx/21-reload-click/",
+   "description": "Mechanical clicks in sequence synced to animation.",
+   "roblox_recipe": "one Sound per marker (mag out, mag in, bolt).",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-explosions/",
+    "previews/sound-effects-user-interface/",
+    "previews/sound-effects-weapons/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-022",
+   "area": "sfx",
+   "number": 22,
+   "name": "Explosion",
+   "path": "sfx/22-explosion/",
+   "description": "Initial crack, low boom, long rumble tail (1-3 s).",
+   "roblox_recipe": "distance-based low-pass and delay for far players.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-explosions/",
+    "previews/sound-effects-weapons/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-023",
+   "area": "sfx",
+   "number": 23,
+   "name": "Shield Break",
+   "path": "sfx/23-shield-break/",
+   "description": "Glassy shatter plus low thud.",
+   "roblox_recipe": "layer chimes at high pitch.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-explosions/",
+    "previews/sound-effects-weapons/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-024",
+   "area": "sfx",
+   "number": 24,
+   "name": "Critical Hit Sting",
+   "path": "sfx/24-critical-hit-sting/",
+   "description": "Short bright sting above the normal hit.",
+   "roblox_recipe": "tie to the crit damage-number pop.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-explosions/",
+    "previews/sound-effects-weapons/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-025",
+   "area": "sfx",
+   "number": 25,
+   "name": "Hurt Grunt",
+   "path": "sfx/25-hurt-grunt/",
+   "description": "Short voice grunt, several variants, rate-limited so low health spam is not annoying.",
+   "roblox_recipe": "cooldown 0.5 s per player.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-explosions/",
+    "previews/sound-effects-weapons/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-026",
+   "area": "sfx",
+   "number": 26,
+   "name": "Death Sound",
+   "path": "sfx/26-death-sound/",
+   "description": "Distinct non-annoying stinger.",
+   "roblox_recipe": "global low-pass dip for 0.5 s on local player death.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-explosions/",
+    "previews/sound-effects-weapons/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-027",
+   "area": "sfx",
+   "number": 27,
+   "name": "Spell Cast Charge",
+   "path": "sfx/27-spell-cast-charge/",
+   "description": "Rising shimmer that builds to the release.",
+   "roblox_recipe": "tween PlaybackSpeed 0.8 to 1.3 over the charge time.",
+   "local_images": [
+    "sfx/27-spell-cast-charge/sfx-combat-magic-1.jpg",
+    "sfx/27-spell-cast-charge/sfx-combat-magic-3.jpg"
+   ],
+   "preview_galleries": [],
+   "external_links": [
+    "https://ad-sounds.itch.io/combat-magic-spells-sound-effects",
+    "https://itch.io/t/5286574/free-magic-spells-sound-effects"
+   ]
+  },
+  {
+   "id": "sfx-028",
+   "area": "sfx",
+   "number": 28,
+   "name": "Magic Impact",
+   "path": "sfx/28-magic-impact/",
+   "description": "Boom with sparkle shatter.",
+   "roblox_recipe": "reverb on SFX group, brighter EQ for ice, darker for dark magic.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": [
+    "https://itch.io/t/5286574/free-magic-spells-sound-effects"
+   ]
+  },
+  {
+   "id": "sfx-029",
+   "area": "sfx",
+   "number": 29,
+   "name": "Heal Chime",
+   "path": "sfx/29-heal-chime/",
+   "description": "Warm ascending arpeggio, soft attack.",
+   "roblox_recipe": "low volume, no sharp transient.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": []
+  },
+  {
+   "id": "sfx-030",
+   "area": "sfx",
+   "number": 30,
+   "name": "Lightning Zap",
+   "path": "sfx/30-lightning-zap/",
+   "description": "Crackle burst with sub thump.",
+   "roblox_recipe": "add DistortionSoundEffect lightly for edge.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": []
+  },
+  {
+   "id": "sfx-031",
+   "area": "sfx",
+   "number": 31,
+   "name": "Fire Whoosh",
+   "path": "sfx/31-fire-whoosh/",
+   "description": "Noise whoosh with low roar.",
+   "roblox_recipe": "loop a crackle bed for burning objects (3D, Looped).",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": []
+  },
+  {
+   "id": "sfx-032",
+   "area": "sfx",
+   "number": 32,
+   "name": "Ice Crackle",
+   "path": "sfx/32-ice-crackle/",
+   "description": "High glassy crackle with short tinkles.",
+   "roblox_recipe": "EQ boost around 6-8 kHz.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-ambience/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-033",
+   "area": "sfx",
+   "number": 33,
+   "name": "Laser Beam",
+   "path": "sfx/33-laser-beam/",
+   "description": "Sustained hum plus onset zap.",
+   "roblox_recipe": "Looped Sound with PlaybackSpeed modulated by charge.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-sci-fi/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-034",
+   "area": "sfx",
+   "number": 34,
+   "name": "Teleport Whoosh",
+   "path": "sfx/34-teleport-whoosh/",
+   "description": "Reversed whoosh into a tight pop.",
+   "roblox_recipe": "sync pop with the portal flash VFX.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": []
+  },
+  {
+   "id": "sfx-035",
+   "area": "sfx",
+   "number": 35,
+   "name": "Power-Up Jingle",
+   "path": "sfx/35-power-up-jingle/",
+   "description": "Quick rising arpeggio with sparkle.",
+   "roblox_recipe": "short (500 ms) to avoid blocking gameplay.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-user-interface/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-036",
+   "area": "sfx",
+   "number": 36,
+   "name": "Shield Hum",
+   "path": "sfx/36-shield-hum/",
+   "description": "Low sustained hum with slight tremolo.",
+   "roblox_recipe": "Looped, volume tween on activate.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-explosions/",
+    "previews/sound-effects-sci-fi/",
+    "previews/sound-effects-weapons/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-037",
+   "area": "sfx",
+   "number": 37,
+   "name": "Footsteps by Surface",
+   "path": "sfx/37-footsteps-by-surface/",
+   "description": "Short steps with 4-6 variants per material, triggered by animation markers and Humanoid.FloorMaterial.",
+   "roblox_recipe": "map Enum.Material to a SoundGroup of variants; random pick avoiding repeat.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": []
+  },
+  {
+   "id": "sfx-038",
+   "area": "sfx",
+   "number": 38,
+   "name": "Jump and Land",
+   "path": "sfx/38-jump-and-land/",
+   "description": "Soft cloth or gear rustle on jump, thump on land scaled by fall speed.",
+   "roblox_recipe": "Humanoid.StateChanged Jumping and Landed.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": []
+  },
+  {
+   "id": "sfx-039",
+   "area": "sfx",
+   "number": 39,
+   "name": "Swim Splash",
+   "path": "sfx/39-swim-splash/",
+   "description": "Splash on entry, soft bubbling loop underwater with low-pass.",
+   "roblox_recipe": "EqualizerSoundEffect on the local group when camera is underwater.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": []
+  },
+  {
+   "id": "sfx-040",
+   "area": "sfx",
+   "number": 40,
+   "name": "Door and Mechanism",
+   "path": "sfx/40-door-and-mechanism/",
+   "description": "Creak, latch, slide with positional rolloff.",
+   "roblox_recipe": "3D sounds on the model, play on open/close tween.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": []
+  },
+  {
+   "id": "sfx-041",
+   "area": "sfx",
+   "number": 41,
+   "name": "Wind Ambience Loop",
+   "path": "sfx/41-wind-ambience-loop/",
+   "description": "Low wind bed, volume modulated slowly.",
+   "roblox_recipe": "Looped Sound in an Ambient group, tween volume with noise.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-ambience/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-042",
+   "area": "sfx",
+   "number": 42,
+   "name": "Rain Ambience Loop",
+   "path": "sfx/42-rain-ambience-loop/",
+   "description": "Steady rain bed, crossfade indoors.",
+   "roblox_recipe": "reduce volume and low-pass when roofed (raycast up).",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-ambience/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-043",
+   "area": "sfx",
+   "number": 43,
+   "name": "Forest Ambience",
+   "path": "sfx/43-forest-ambience/",
+   "description": "Birds and rustle layered over wind.",
+   "roblox_recipe": "layer 3 loops with different lengths so it never repeats audibly.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-ambience/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-044",
+   "area": "sfx",
+   "number": 44,
+   "name": "Cave Reverb",
+   "path": "sfx/44-cave-reverb/",
+   "description": "Long reverb on footsteps and voices inside caves.",
+   "roblox_recipe": "ReverbSoundEffect on an area SoundGroup, enable on zone enter.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-ambience/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-045",
+   "area": "sfx",
+   "number": 45,
+   "name": "Fire Crackle Loop",
+   "path": "sfx/45-fire-crackle-loop/",
+   "description": "Positional crackle for torches and campfires.",
+   "roblox_recipe": "3D Looped, RollOffMaxDistance 40.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-ambience/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-046",
+   "area": "sfx",
+   "number": 46,
+   "name": "Vehicle Engine Loop",
+   "path": "sfx/46-vehicle-engine-loop/",
+   "description": "Looped engine whose PlaybackSpeed follows speed.",
+   "roblox_recipe": "map velocity to PlaybackSpeed 0.8-2.0.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-vehicle/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-047",
+   "area": "sfx",
+   "number": 47,
+   "name": "Crowd and Pet Cute Sounds",
+   "path": "sfx/47-crowd-and-pet-cute-sounds/",
+   "description": "Short chirps and squeaks for pets, randomised pitch per pet.",
+   "roblox_recipe": "per-pet pitch seed.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-voice/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-048",
+   "area": "sfx",
+   "number": 48,
+   "name": "Lobby Music Loop",
+   "path": "sfx/48-lobby-music-loop/",
+   "description": "Seamless loop 60-120 s with no abrupt ending.",
+   "roblox_recipe": "Looped Sound in a Music group, fade between tracks over 1-2 s.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/music/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-049",
+   "area": "sfx",
+   "number": 49,
+   "name": "Adaptive Combat Layers",
+   "path": "sfx/49-adaptive-combat-layers/",
+   "description": "Add or remove stems (drums, bass, lead) by intensity.",
+   "roblox_recipe": "several synced Sounds, tween volumes by tension value.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/music/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-050",
+   "area": "sfx",
+   "number": 50,
+   "name": "Boss Intro Stinger",
+   "path": "sfx/50-boss-intro-stinger/",
+   "description": "Big hit plus riser (2-4 s) timed to the boss reveal.",
+   "roblox_recipe": "duck all other groups while it plays.",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/music/",
+    "previews/sound-effects-user-interface/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-051",
+   "area": "sfx",
+   "number": 51,
+   "name": "Round Start End Stingers",
+   "path": "sfx/51-round-start-end-stingers/",
+   "description": "Short fanfares for start and win/lose.",
+   "roblox_recipe": "differentiate win (major) and lose (minor).",
+   "local_images": [],
+   "preview_galleries": [
+    "previews/sound-effects-user-interface/"
+   ],
+   "external_links": []
+  },
+  {
+   "id": "sfx-052",
+   "area": "sfx",
+   "number": 52,
+   "name": "Horror Drone",
+   "path": "sfx/52-horror-drone/",
+   "description": "Low evolving drone, filtered noise, occasional sub pulses.",
+   "roblox_recipe": "Looped, slow volume swell, low-pass EQ.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": []
+  },
+  {
+   "id": "sfx-053",
+   "area": "sfx",
+   "number": 53,
+   "name": "Jumpscare Sting",
+   "path": "sfx/53-jumpscare-sting/",
+   "description": "Loud short sting with a quiet lead-in for contrast.",
+   "roblox_recipe": "compress heavily, play once; accessibility option to reduce.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": []
+  },
+  {
+   "id": "sfx-054",
+   "area": "sfx",
+   "number": 54,
+   "name": "Heartbeat Low Health",
+   "path": "sfx/54-heartbeat-low-health/",
+   "description": "Looped heartbeat that speeds up as health falls.",
+   "roblox_recipe": "PlaybackSpeed 1 to 1.6, plus low-pass on other sounds.",
+   "local_images": [],
+   "preview_galleries": [],
+   "external_links": []
+  },
+  {
+   "id": "cookbook-ui-01-hover-scale",
+   "area": "cookbook",
+   "name": "Button hover scale + press squash",
+   "path": "cookbook/ui/01-hover-scale.luau",
+   "description": "Grows a button on hover and squashes on press using UIScale, so layout is unaffected.",
+   "tags": [
+    "gui",
+    "animation",
+    "tween",
+    "uiscale"
+   ]
+  },
+  {
+   "id": "cookbook-ui-02-pop-in-open",
+   "area": "cookbook",
+   "name": "Pop-in panel open/close",
+   "path": "cookbook/ui/02-pop-in-open.luau",
+   "description": "Panel scales from 0.8 to 1 with a Back overshoot while fading in via a CanvasGroup.",
+   "tags": [
+    "gui",
+    "animation",
+    "canvasgroup"
+   ]
+  },
+  {
+   "id": "cookbook-ui-03-count-up",
+   "area": "cookbook",
+   "name": "Currency count-up",
+   "path": "cookbook/ui/03-count-up.luau",
+   "description": "Rolls a number to a new value by tweening a NumberValue (TweenService cannot tween text directly).",
+   "tags": [
+    "gui",
+    "tween",
+    "hud"
+   ]
+  },
+  {
+   "id": "cookbook-ui-04-shine-sweep",
+   "area": "cookbook",
+   "name": "Shine sweep across a button",
+   "path": "cookbook/ui/04-shine-sweep.luau",
+   "description": "A diagonal white highlight sweeps across a button using a UIGradient transparency ramp and an Offset tween.",
+   "tags": [
+    "gui",
+    "uigradient",
+    "polish"
+   ]
+  },
+  {
+   "id": "cookbook-ui-05-error-shake",
+   "area": "cookbook",
+   "name": "Error shake",
+   "path": "cookbook/ui/05-error-shake.luau",
+   "description": "Short horizontal shake for invalid input or a failed purchase.",
+   "tags": [
+    "gui",
+    "animation",
+    "feedback"
+   ]
+  },
+  {
+   "id": "cookbook-ui-06-responsive-scale",
+   "area": "cookbook",
+   "name": "Responsive scale + safe area",
+   "path": "cookbook/ui/06-responsive-scale.luau",
+   "description": "Scales a fixed-design ScreenGui to any viewport with UIScale and respects device safe insets.",
+   "tags": [
+    "gui",
+    "mobile",
+    "responsive"
+   ]
+  },
+  {
+   "id": "cookbook-ui-07-toast-stack",
+   "area": "cookbook",
+   "name": "Pooled toast notifications",
+   "path": "cookbook/ui/07-toast-stack.luau",
+   "description": "Stacks up to N toasts with slide-in/out, auto-dismiss and a UIListLayout.",
+   "tags": [
+    "gui",
+    "notifications",
+    "pooling"
+   ]
+  },
+  {
+   "id": "cookbook-vfx-01-hit-spark",
+   "area": "cookbook",
+   "name": "Hit spark burst",
+   "path": "cookbook/vfx/01-hit-spark.luau",
+   "description": "One-shot spark burst at an impact point using ParticleEmitter:Emit and a short Lifetime.",
+   "tags": [
+    "vfx",
+    "particles",
+    "combat"
+   ]
+  },
+  {
+   "id": "cookbook-vfx-02-shockwave-ring",
+   "area": "cookbook",
+   "name": "Shockwave ring",
+   "path": "cookbook/vfx/02-shockwave-ring.luau",
+   "description": "Expanding flat ring for landings and heavy hits, built from a Neon cylinder and a tween.",
+   "tags": [
+    "vfx",
+    "impact",
+    "tween"
+   ]
+  },
+  {
+   "id": "cookbook-vfx-03-lightning-beam",
+   "area": "cookbook",
+   "name": "Lightning bolt with Beams",
+   "path": "cookbook/vfx/03-lightning-beam.luau",
+   "description": "Jagged beam between two points rebuilt a few times so it flickers.",
+   "tags": [
+    "vfx",
+    "beam",
+    "magic"
+   ]
+  },
+  {
+   "id": "cookbook-vfx-04-weapon-trail",
+   "area": "cookbook",
+   "name": "Weapon swing Trail",
+   "path": "cookbook/vfx/04-weapon-trail.luau",
+   "description": "Adds a Trail between two attachments on a blade and toggles it during swings.",
+   "tags": [
+    "vfx",
+    "trail",
+    "combat"
+   ]
+  },
+  {
+   "id": "cookbook-vfx-05-confetti",
+   "area": "cookbook",
+   "name": "Confetti burst",
+   "path": "cookbook/vfx/05-confetti.luau",
+   "description": "Multi-colour falling confetti using random ColorSequence keypoints and gravity.",
+   "tags": [
+    "vfx",
+    "particles",
+    "reward"
+   ]
+  },
+  {
+   "id": "cookbook-vfx-06-tween-particle-numbersequence",
+   "area": "cookbook",
+   "name": "Tween a ParticleEmitter NumberSequence",
+   "path": "cookbook/vfx/06-tween-particle-numbersequence.luau",
+   "description": "TweenService cannot tween NumberSequence properties, so drive them from a NumberValue.",
+   "tags": [
+    "vfx",
+    "particles",
+    "tween"
+   ]
+  },
+  {
+   "id": "cookbook-cutscene-01-camera-cutscene",
+   "area": "cookbook",
+   "name": "Scriptable camera cutscene",
+   "path": "cookbook/cutscene/01-camera-cutscene.luau",
+   "description": "Plays a list of camera shots by tweening Camera.CFrame between marker parts, then restores control.",
+   "tags": [
+    "cutscene",
+    "camera",
+    "tween"
+   ]
+  },
+  {
+   "id": "cookbook-cutscene-02-letterbox",
+   "area": "cookbook",
+   "name": "Letterbox bars",
+   "path": "cookbook/cutscene/02-letterbox.luau",
+   "description": "Two black bars slide in for cinematic mode and out afterwards.",
+   "tags": [
+    "cutscene",
+    "gui",
+    "cinematic"
+   ]
+  },
+  {
+   "id": "cookbook-cutscene-03-camera-shake",
+   "area": "cookbook",
+   "name": "Simple camera shake",
+   "path": "cookbook/cutscene/03-camera-shake.luau",
+   "description": "Decaying random camera offset applied each frame on top of the default camera.",
+   "tags": [
+    "cutscene",
+    "camera",
+    "juice"
+   ]
+  },
+  {
+   "id": "cookbook-cutscene-04-fov-sprint",
+   "area": "cookbook",
+   "name": "Sprint FOV kick",
+   "path": "cookbook/cutscene/04-fov-sprint.luau",
+   "description": "Widens field of view while sprinting and eases back.",
+   "tags": [
+    "camera",
+    "animation"
+   ]
+  },
+  {
+   "id": "cookbook-animation-01-play-with-markers",
+   "area": "cookbook",
+   "name": "Play an animation and react to keyframe markers",
+   "path": "cookbook/animation/01-play-with-markers.luau",
+   "description": "Loads an animation on the character's Animator and fires logic on named KeyframeMarkers (hit frames, footsteps).",
+   "tags": [
+    "animation",
+    "combat",
+    "markers"
+   ]
+  },
+  {
+   "id": "cookbook-animation-02-combo-client",
+   "area": "cookbook",
+   "name": "Combo input (client) with server validation",
+   "path": "cookbook/animation/02-combo-client.luau",
+   "description": "Client sends the intent; the server checks cooldown and combo window. Never trust client timing.",
+   "tags": [
+    "animation",
+    "combat",
+    "security"
+   ]
+  },
+  {
+   "id": "cookbook-sfx-01-play-with-variation",
+   "area": "cookbook",
+   "name": "Play an SFX with pitch/volume variation",
+   "path": "cookbook/sfx/01-play-with-variation.luau",
+   "description": "Clones a template Sound, randomises pitch and volume slightly so repeated hits do not sound identical.",
+   "tags": [
+    "sfx",
+    "audio",
+    "variation"
+   ]
+  },
+  {
+   "id": "cookbook-sfx-02-soundgroup-mix",
+   "area": "cookbook",
+   "name": "SoundGroup mixing bus",
+   "path": "cookbook/sfx/02-soundgroup-mix.luau",
+   "description": "Creates Music / SFX / UI groups, applies a shared Reverb once and exposes volume sliders.",
+   "tags": [
+    "sfx",
+    "audio",
+    "mixing"
+   ]
+  },
+  {
+   "id": "cookbook-sfx-03-positional-sound",
+   "area": "cookbook",
+   "name": "3D positional sound with rolloff",
+   "path": "cookbook/sfx/03-positional-sound.luau",
+   "description": "A sound attached to a part with a defined audible range.",
+   "tags": [
+    "sfx",
+    "audio",
+    "3d"
+   ]
+  },
+  {
+   "id": "cookbook-sfx-04-ui-sound-bus",
+   "area": "cookbook",
+   "name": "Local UI click/hover sounds",
+   "path": "cookbook/sfx/04-ui-sound-bus.luau",
+   "description": "Plays UI sounds locally (no replication) through SoundService:PlayLocalSound.",
+   "tags": [
+    "sfx",
+    "gui",
+    "audio"
+   ]
+  },
+  {
+   "id": "doc-animation-capture",
+   "area": "official-docs",
+   "name": "Animation capture",
+   "path": "official-docs/guides/animation/capture.md",
+   "description": "Animation Capture in the Animation Editor allows you to generate high-quality, realistic animations for faces and bodies."
+  },
+  {
+   "id": "doc-animation-curve-editor",
+   "area": "official-docs",
+   "name": "Curve Editor",
+   "path": "official-docs/guides/animation/curve-editor.md",
+   "description": "Curve Editor is a curve-based animation editing interface that lets you see and modify a rig's position and orientation."
+  },
+  {
+   "id": "doc-animation-editor",
+   "area": "official-docs",
+   "name": "Animation Editor",
+   "path": "official-docs/guides/animation/editor.md",
+   "description": "Animation Editor allows you to design and publish custom animations on rigs."
+  },
+  {
+   "id": "doc-animation-events",
+   "area": "official-docs",
+   "name": "Animation events",
+   "path": "official-docs/guides/animation/events.md",
+   "description": "Animation Events are markers across the timeline span in the Animation Editor."
+  },
+  {
+   "id": "doc-animation-expressions",
+   "area": "official-docs",
+   "name": "Graph Editor expressions",
+   "path": "official-docs/guides/animation/expressions.md",
+   "description": "Expressions let you calculate animation graph property and transition condition values with Luau-like formulas."
+  },
+  {
+   "id": "doc-animation-graph-editor-state-machine",
+   "area": "official-docs",
+   "name": "Graph Editor state machines",
+   "path": "official-docs/guides/animation/graph-editor-state-machine.md",
+   "description": "Use state machines in the Animation Graph Editor to organize state-driven animations and control how they transition."
+  },
+  {
+   "id": "doc-animation-graph-editor",
+   "area": "official-docs",
+   "name": "Animation Graph Editor",
+   "path": "official-docs/guides/animation/graph-editor.md",
+   "description": "The animation graph editor is a visual, node-based tool that lets you build complex animation logic."
+  },
+  {
+   "id": "doc-animation-index",
+   "area": "official-docs",
+   "name": "Animation in Roblox",
+   "path": "official-docs/guides/animation/index.md",
+   "description": "An overview of all animation tools in Roblox Studio."
+  },
+  {
+   "id": "doc-animation-inverse-kinematics",
+   "area": "official-docs",
+   "name": "Inverse Kinematics",
+   "path": "official-docs/guides/animation/inverse-kinematics.md",
+   "description": "Inverse Kinematics is a technique in computer animation to make characters move and interact with their environment."
+  },
+  {
+   "id": "doc-animation-using",
+   "area": "official-docs",
+   "name": "Use animations",
+   "path": "official-docs/guides/animation/using.md",
+   "description": "Explains the process of playing animations through scripts, and replacing default animations."
+  },
+  {
+   "id": "doc-audio-assets",
+   "area": "official-docs",
+   "name": "Audio assets",
+   "path": "official-docs/guides/audio/assets.md",
+   "description": "Explore how to find and import audio assets for use in your games."
+  },
+  {
+   "id": "doc-audio-effects",
+   "area": "official-docs",
+   "name": "Audio effects",
+   "path": "official-docs/guides/audio/effects.md",
+   "description": "Audio effects modify or enhance audio streams in your games."
+  },
+  {
+   "id": "doc-audio-index",
+   "area": "official-docs",
+   "name": "Audio",
+   "path": "official-docs/guides/audio/index.md",
+   "description": "An overview of audio features on Roblox."
+  },
+  {
+   "id": "doc-audio-objects",
+   "area": "official-docs",
+   "name": "Audio objects",
+   "path": "official-docs/guides/audio/objects.md",
+   "description": "An overview of modular audio objects on Roblox."
+  },
+  {
+   "id": "doc-camera-free-camera",
+   "area": "official-docs",
+   "name": "Free camera mode",
+   "path": "official-docs/guides/camera/free-camera.md",
+   "description": "Free camera mode allows free roam of the local camera around the scene."
+  },
+  {
+   "id": "doc-camera-index",
+   "area": "official-docs",
+   "name": "Customize the camera",
+   "path": "official-docs/guides/camera/index.md",
+   "description": "Explains how to configure a game's camera settings."
+  },
+  {
+   "id": "doc-characters-adaptive-animation",
+   "area": "official-docs",
+   "name": "Adaptive Animation",
+   "path": "official-docs/guides/characters/adaptive-animation.md",
+   "description": "Set up your character rig to support universal sets of animations and emotes."
+  },
+  {
+   "id": "doc-characters-appearance",
+   "area": "official-docs",
+   "name": "Character appearance",
+   "path": "official-docs/guides/characters/appearance.md",
+   "description": "Customize your in-game character appearance and properties."
+  },
+  {
+   "id": "doc-characters-character-controller-library-custom-abilities",
+   "area": "official-docs",
+   "name": "Custom abilities",
+   "path": "official-docs/guides/characters/character-controller-library/custom-abilities.md",
+   "description": "Custom abilities in the Character Controller Library (CCL) evaluate what a character can do, as well as enable flexible behavior composition such as a character being able to move while also aiming and crouching."
+  },
+  {
+   "id": "doc-characters-character-controller-library-index",
+   "area": "official-docs",
+   "name": "Character Controller Library",
+   "path": "official-docs/guides/characters/character-controller-library/index.md",
+   "description": "The Character Controller Library (CCL) is a modular framework for building character movement and behaviors through attributes and Luau scripts."
+  },
+  {
+   "id": "doc-characters-character-controller-library-quick-start",
+   "area": "official-docs",
+   "name": "CCL quick start",
+   "path": "official-docs/guides/characters/character-controller-library/quick-start.md",
+   "description": "Traditional character abilities (run, climb, jump, swim, etc.) are easily configurable through scripting."
+  },
+  {
+   "id": "doc-characters-emotes",
+   "area": "official-docs",
+   "name": "Emotes",
+   "path": "official-docs/guides/characters/emotes.md",
+   "description": "Emotes are character animations used through chat commands, or accessing the emotes menu."
+  },
+  {
+   "id": "doc-characters-index",
+   "area": "official-docs",
+   "name": "Characters",
+   "path": "official-docs/guides/characters/index.md",
+   "description": "Characters are interactive models that players control or interact with in games."
+  },
+  {
+   "id": "doc-characters-name-health-display",
+   "area": "official-docs",
+   "name": "Character name/health display",
+   "path": "official-docs/guides/characters/name-health-display.md",
+   "description": "You can customize character UI, like name and health displays, using Class.Humanoid."
+  },
+  {
+   "id": "doc-characters-pathfinding",
+   "area": "official-docs",
+   "name": "Pathfinding",
+   "path": "official-docs/guides/characters/pathfinding.md",
+   "description": "Pathfinding is the process of moving a character or object (agent) along a logical path to reach a destination."
+  },
+  {
+   "id": "doc-effects-beams",
+   "area": "official-docs",
+   "name": "Beams",
+   "path": "official-docs/guides/effects/beams.md",
+   "description": "Beams create a visual, animatable effect between two attachments."
+  },
+  {
+   "id": "doc-effects-highlighting",
+   "area": "official-docs",
+   "name": "Highlighting objects",
+   "path": "official-docs/guides/effects/highlighting.md",
+   "description": "Highlighting objects lets you call attention to specific objects within your game."
+  },
+  {
+   "id": "doc-effects-index",
+   "area": "official-docs",
+   "name": "Effects",
+   "path": "official-docs/guides/effects/index.md",
+   "description": "Learn how to add visual effects to your games."
+  },
+  {
+   "id": "doc-effects-light-sources",
+   "area": "official-docs",
+   "name": "Light sources",
+   "path": "official-docs/guides/effects/light-sources.md",
+   "description": "Light sources simulate realistic lighting from objects such as torches, spotlights, and screens."
+  },
+  {
+   "id": "doc-effects-particle-emitters",
+   "area": "official-docs",
+   "name": "Particle emitters",
+   "path": "official-docs/guides/effects/particle-emitters.md",
+   "description": "Particle emitters emit 2D images to simulate special effects like fire, smoke, and sparks."
+  },
+  {
+   "id": "doc-effects-trails",
+   "area": "official-docs",
+   "name": "Trails",
+   "path": "official-docs/guides/effects/trails.md",
+   "description": "Trails create visual motion effects as an object moves through space."
+  },
+  {
+   "id": "doc-environment-atmosphere",
+   "area": "official-docs",
+   "name": "Atmospheric effects",
+   "path": "official-docs/guides/environment/atmosphere.md",
+   "description": "Atmospheric effects simulate realistic environments by scattering sunlight in unique ways."
+  },
+  {
+   "id": "doc-environment-clouds",
+   "area": "official-docs",
+   "name": "Dynamic clouds",
+   "path": "official-docs/guides/environment/clouds.md",
+   "description": "Dynamic Clouds render realistic, customizable clouds that drift slowly across the sky."
+  },
+  {
+   "id": "doc-environment-global-wind",
+   "area": "official-docs",
+   "name": "Global wind",
+   "path": "official-docs/guides/environment/global-wind.md",
+   "description": "The global wind vector sets the direction and strength that wind blows through a game, affecting terrain grass, dynamic clouds, and particles."
+  },
+  {
+   "id": "doc-environment-index",
+   "area": "official-docs",
+   "name": "Lighting and effects",
+   "path": "official-docs/guides/environment/index.md",
+   "description": "Create more immersive environments through lighting, atmospheres, and special effects."
+  },
+  {
+   "id": "doc-environment-lighting",
+   "area": "official-docs",
+   "name": "Global lighting",
+   "path": "official-docs/guides/environment/lighting.md",
+   "description": "Explains how to customize the global lighting with the Lighting service."
+  },
+  {
+   "id": "doc-environment-post-processing-effects",
+   "area": "official-docs",
+   "name": "Post-processing effects",
+   "path": "official-docs/guides/environment/post-processing-effects.md",
+   "description": "Post-processing effects are customizable filters that quickly enrich the visuals of a game."
+  },
+  {
+   "id": "doc-environment-skybox",
+   "area": "official-docs",
+   "name": "Skyboxes",
+   "path": "official-docs/guides/environment/skybox.md",
+   "description": "Skyboxes are cubes made up of six individual images that create an immersive background."
+  },
+  {
+   "id": "doc-input-gamepad",
+   "area": "official-docs",
+   "name": "Gamepad input",
+   "path": "official-docs/guides/input/gamepad.md",
+   "description": "Explains how to accept input from USB gamepads, such as Xbox and PlayStation controllers."
+  },
+  {
+   "id": "doc-input-index",
+   "area": "official-docs",
+   "name": "Input",
+   "path": "official-docs/guides/input/index.md",
+   "description": "Summary of cross-platform input on Roblox and implementation guidelines."
+  },
+  {
+   "id": "doc-input-input-action-system",
+   "area": "official-docs",
+   "name": "Input Action System",
+   "path": "official-docs/guides/input/input-action-system.md",
+   "description": "The cross-platform Input Action System lets you connect actions and arrange bindings across various hardware inputs at edit time."
+  },
+  {
+   "id": "doc-input-micro-gamepad",
+   "area": "official-docs",
+   "name": "Micro gamepad input",
+   "path": "official-docs/guides/input/micro-gamepad.md",
+   "description": "Explains how to accept input from micro gamepads, such as TV remotes, which provide directional navigation and a small set of buttons."
+  },
+  {
+   "id": "doc-input-mobile",
+   "area": "official-docs",
+   "name": "Mobile input",
+   "path": "official-docs/guides/input/mobile.md",
+   "description": "Explains Roblox support for mobile devices."
+  },
+  {
+   "id": "doc-input-mouse-and-keyboard",
+   "area": "official-docs",
+   "name": "Mouse and keyboard input",
+   "path": "official-docs/guides/input/mouse-and-keyboard.md",
+   "description": "Explains Roblox support for computer mice and keyboards."
+  },
+  {
+   "id": "doc-performance-optimization-design",
+   "area": "official-docs",
+   "name": "Design for performance",
+   "path": "official-docs/guides/performance-optimization/design.md",
+   "description": "Outlines performance best practices to follow as you build a new game."
+  },
+  {
+   "id": "doc-performance-optimization-identify",
+   "area": "official-docs",
+   "name": "Identify performance issues",
+   "path": "official-docs/guides/performance-optimization/identify.md",
+   "description": "Explains how to use Roblox tools to identify performance issues."
+  },
+  {
+   "id": "doc-performance-optimization-improve",
+   "area": "official-docs",
+   "name": "Improve performance",
+   "path": "official-docs/guides/performance-optimization/improve.md",
+   "description": "Lists common performance problems and steps to mitigate them."
+  },
+  {
+   "id": "doc-performance-optimization-index",
+   "area": "official-docs",
+   "name": "Performance optimization",
+   "path": "official-docs/guides/performance-optimization/index.md",
+   "description": "Introduces the performance optimization process for games on Roblox."
+  },
+  {
+   "id": "doc-performance-optimization-microprofiler-index",
+   "area": "official-docs",
+   "name": "MicroProfiler",
+   "path": "official-docs/guides/performance-optimization/microprofiler/index.md",
+   "description": "The MicroProfiler is a Studio and client tool for optimizing your games on Roblox."
+  },
+  {
+   "id": "doc-performance-optimization-microprofiler-modes",
+   "area": "official-docs",
+   "name": "MicroProfiler modes",
+   "path": "official-docs/guides/performance-optimization/microprofiler/modes.md",
+   "description": "The MicroProfiler includes several different modes, all of which offer different ways to understand your game's performance profile."
+  },
+  {
+   "id": "doc-performance-optimization-microprofiler-network",
+   "area": "official-docs",
+   "name": "Network usage",
+   "path": "official-docs/guides/performance-optimization/microprofiler/network.md",
+   "description": "The MicroProfiler provides detailed information on network usage within your game."
+  },
+  {
+   "id": "doc-performance-optimization-microprofiler-tag-table",
+   "area": "official-docs",
+   "name": "Tag reference",
+   "path": "official-docs/guides/performance-optimization/microprofiler/tag-table.md",
+   "description": "A list of tags for the MicroProfiler."
+  },
+  {
+   "id": "doc-performance-optimization-microprofiler-task-scheduler",
+   "area": "official-docs",
+   "name": "Task scheduler",
+   "path": "official-docs/guides/performance-optimization/microprofiler/task-scheduler.md",
+   "description": "Task Scheduler coordinates tasks done in each frame as the game runs."
+  },
+  {
+   "id": "doc-performance-optimization-microprofiler-use-microprofiler",
+   "area": "official-docs",
+   "name": "MicroProfiler walkthrough",
+   "path": "official-docs/guides/performance-optimization/microprofiler/use-microprofiler.md",
+   "description": "Explains how using the MicroProfiler can help you optimize portions of your game."
+  },
+  {
+   "id": "doc-performance-optimization-monitor",
+   "area": "official-docs",
+   "name": "Monitor performance",
+   "path": "official-docs/guides/performance-optimization/monitor.md",
+   "description": "Explains how to use the Performance Dashboard to monitor your games."
+  },
+  {
+   "id": "doc-performance-optimization-scene-analysis",
+   "area": "official-docs",
+   "name": "Scene Analysis",
+   "path": "official-docs/guides/performance-optimization/scene-analysis.md",
+   "description": "Use the Scene Analysis tool to identify and resolve performance issues in your game. Check script memory, unparented instances, audio memory, animation memory, the instance composition view, and the extended scene triangle breakdown."
+  },
+  {
+   "id": "doc-performance-optimization-test-on-hardware",
+   "area": "official-docs",
+   "name": "Test on hardware",
+   "path": "official-docs/guides/performance-optimization/test-on-hardware.md",
+   "description": "Explains why and how to test your game on real devices to catch performance and usability issues before your players do."
+  },
+  {
+   "id": "doc-sound-dynamic-effects",
+   "area": "official-docs",
+   "name": "Dynamic effects",
+   "path": "official-docs/guides/sound/dynamic-effects.md",
+   "description": "Legacy effects that modify or enhance Sound objects in your games."
+  },
+  {
+   "id": "doc-sound-groups",
+   "area": "official-docs",
+   "name": "Sound groups",
+   "path": "official-docs/guides/sound/groups.md",
+   "description": "Legacy audio mixers that group multiple Sound objects so you can control the properties of multiple audio signals at once."
+  },
+  {
+   "id": "doc-sound-index",
+   "area": "official-docs",
+   "name": "Sound",
+   "path": "official-docs/guides/sound/index.md",
+   "description": "An overview of legacy Sound objects and effects."
+  },
+  {
+   "id": "doc-sound-objects",
+   "area": "official-docs",
+   "name": "Sound objects",
+   "path": "official-docs/guides/sound/objects.md",
+   "description": "Sound objects are legacy instances that emit sound within a game."
+  },
+  {
+   "id": "doc-ui-2D-paths",
+   "area": "official-docs",
+   "name": "2D paths",
+   "path": "official-docs/guides/ui/2D-paths.md",
+   "description": "The Path2D instance, along with its API methods and properties, lets you implement 2D splines and 2D curved lines."
+  },
+  {
+   "id": "doc-ui-3D-drag-detectors",
+   "area": "official-docs",
+   "name": "3D drag detectors",
+   "path": "official-docs/guides/ui/3D-drag-detectors.md",
+   "description": "3D drag detectors facilitate and encourage interaction with 3D objects in a game, such as opening doors and drawers, sliding a part around, and much more."
+  },
+  {
+   "id": "doc-ui-9-slice",
+   "area": "official-docs",
+   "name": "UI 9-slice design",
+   "path": "official-docs/guides/ui/9-slice.md",
+   "description": "UI 9-slice design lets you create UI elements of varying sizes without distorting the borders or corners."
+  },
+  {
+   "id": "doc-ui-animation",
+   "area": "official-docs",
+   "name": "UI animation/tweens",
+   "path": "official-docs/guides/ui/animation.md",
+   "description": "Explains how to animate GuiObjects using the process of tweening."
+  },
+  {
+   "id": "doc-ui-appearance-modifiers",
+   "area": "official-docs",
+   "name": "UI appearance modifiers",
+   "path": "official-docs/guides/ui/appearance-modifiers.md",
+   "description": "Explains how to use appearance modifiers to customize basic user interface objects."
+  },
+  {
+   "id": "doc-ui-buttons",
+   "area": "official-docs",
+   "name": "Text & image buttons",
+   "path": "official-docs/guides/ui/buttons.md",
+   "description": "Buttons allow players to prompt an action."
+  },
+  {
+   "id": "doc-ui-frames",
+   "area": "official-docs",
+   "name": "Frames",
+   "path": "official-docs/guides/ui/frames.md",
+   "description": "Frames are basic containers for UI objects."
+  },
+  {
+   "id": "doc-ui-grid-table-layouts",
+   "area": "official-docs",
+   "name": "Grid and table layouts",
+   "path": "official-docs/guides/ui/grid-table-layouts.md",
+   "description": "How to use grid and table layouts for highly structured user interfaces."
+  },
+  {
+   "id": "doc-ui-in-experience-containers",
+   "area": "official-docs",
+   "name": "In-game UI containers",
+   "path": "official-docs/guides/ui/in-experience-containers.md",
+   "description": "In-game UI containers hold SurfaceGuis, BillboardGuis, and GuiObjects that you want to display in the 3D space."
+  },
+  {
+   "id": "doc-ui-index",
+   "area": "official-docs",
+   "name": "User interface",
+   "path": "official-docs/guides/ui/index.md",
+   "description": "Explore the wide variety of user interface elements that players can interact with."
+  },
+  {
+   "id": "doc-ui-labels",
+   "area": "official-docs",
+   "name": "Text & image labels",
+   "path": "official-docs/guides/ui/labels.md",
+   "description": "Explore how labels display customizable text and images in user interfaces."
+  },
+  {
+   "id": "doc-ui-list-flex-layouts",
+   "area": "official-docs",
+   "name": "List and flex layouts",
+   "path": "official-docs/guides/ui/list-flex-layouts.md",
+   "description": "How to use list layouts and flex settings for highly responsive user interfaces."
+  },
+  {
+   "id": "doc-ui-on-screen-containers",
+   "area": "official-docs",
+   "name": "On-screen UI containers",
+   "path": "official-docs/guides/ui/on-screen-containers.md",
+   "description": "Learn how to display UI objects on a user's screen."
+  },
+  {
+   "id": "doc-ui-page-layouts",
+   "area": "official-docs",
+   "name": "Page layouts",
+   "path": "official-docs/guides/ui/page-layouts.md",
+   "description": "Explore how page layouts organize interface content into distinct pages."
+  },
+  {
+   "id": "doc-ui-position-and-size",
+   "area": "official-docs",
+   "name": "Position and size UI objects",
+   "path": "official-docs/guides/ui/position-and-size.md",
+   "description": "Explains the process of positioning, sizing, and ordering UI objects on a player's screen."
+  },
+  {
+   "id": "doc-ui-proximity-prompts",
+   "area": "official-docs",
+   "name": "Proximity prompts",
+   "path": "official-docs/guides/ui/proximity-prompts.md",
+   "description": "Proximity Prompts allow users to trigger actions when they approach objects in the 3D space."
+  },
+  {
+   "id": "doc-ui-rich-text",
+   "area": "official-docs",
+   "name": "Rich text markup",
+   "path": "official-docs/guides/ui/rich-text.md",
+   "description": "Rich Text Markup are simple markup tags to style sections of a string."
+  },
+  {
+   "id": "doc-ui-scrolling-frames",
+   "area": "official-docs",
+   "name": "Scrolling frames",
+   "path": "official-docs/guides/ui/scrolling-frames.md",
+   "description": "ScrollingFrames feature built-in scrolling interactivity and are ideal for displaying a lot of information in a confined space."
+  },
+  {
+   "id": "doc-ui-size-modifiers",
+   "area": "official-docs",
+   "name": "Size modifiers and constraints",
+   "path": "official-docs/guides/ui/size-modifiers.md",
+   "description": "Explains how use size modifiers and size constraints with user interface objects."
+  },
+  {
+   "id": "doc-ui-styling-compatibility",
+   "area": "official-docs",
+   "name": "UI styling compatibility",
+   "path": "official-docs/guides/ui/styling/compatibility.md",
+   "description": "Outlines all of the classes and associated properties which can be styled."
+  },
+  {
+   "id": "doc-ui-styling-css-comparisons",
+   "area": "official-docs",
+   "name": "CSS Comparisons",
+   "path": "official-docs/guides/ui/styling/css-comparisons.md",
+   "description": "Explore how CSS concepts map to Roblox UI styling concepts."
+  },
+  {
+   "id": "doc-ui-styling-editor",
+   "area": "official-docs",
+   "name": "Style Editor",
+   "path": "official-docs/guides/ui/styling/editor.md",
+   "description": "Explore the built-in Style Editor, a comprehensive tool that allows you to create, manage, and apply UI styles for Roblox games."
+  },
+  {
+   "id": "doc-ui-styling-index",
+   "area": "official-docs",
+   "name": "UI styling",
+   "path": "official-docs/guides/ui/styling/index.md",
+   "description": "Explore how stylesheets let you declare and globally apply overrides to UI instance properties."
+  },
+  {
+   "id": "doc-ui-text-filtering",
+   "area": "official-docs",
+   "name": "Text filtering",
+   "path": "official-docs/guides/ui/text-filtering.md",
+   "description": "Text filtering prevents users from seeing inappropriate language and blocks personally identifiable information."
+  },
+  {
+   "id": "doc-ui-text-input",
+   "area": "official-docs",
+   "name": "Text input fields",
+   "path": "official-docs/guides/ui/text-input.md",
+   "description": "Text input fields allow users to input text from their physical or on-screen keyboard."
+  },
+  {
+   "id": "doc-ui-ui-drag-detectors",
+   "area": "official-docs",
+   "name": "UI drag detectors",
+   "path": "official-docs/guides/ui/ui-drag-detectors.md",
+   "description": "UI drag detectors facilitate and encourage interaction with 2D user interface elements in a game, such as sliders and spinners."
+  },
+  {
+   "id": "doc-ui-video-frames",
+   "area": "official-docs",
+   "name": "Video frames",
+   "path": "official-docs/guides/ui/video-frames.md",
+   "description": "Video assets used on VideoFrame instances allow for video playback in games."
+  },
+  {
+   "id": "doc-ui-viewport-frames",
+   "area": "official-docs",
+   "name": "Viewport frames",
+   "path": "official-docs/guides/ui/viewport-frames.md",
+   "description": "ViewportFrames use a camera to render 3D objects into a 2D viewport."
+  }
+ ]
+}

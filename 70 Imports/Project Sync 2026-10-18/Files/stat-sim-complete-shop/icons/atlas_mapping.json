@@ -1,0 +1,146 @@
+{
+  "Passes": [
+    0,
+    0
+  ],
+  "Boosts": [
+    128,
+    0
+  ],
+  "Coins": [
+    256,
+    0
+  ],
+  "Eggs": [
+    384,
+    0
+  ],
+  "Gym": [
+    512,
+    0
+  ],
+  "Rebirth": [
+    640,
+    0
+  ],
+  "Pets": [
+    0,
+    128
+  ],
+  "Shop": [
+    128,
+    128
+  ],
+  "Train": [
+    256,
+    128
+  ],
+  "Double": [
+    384,
+    128
+  ],
+  "AutoTrain": [
+    512,
+    128
+  ],
+  "VIP": [
+    640,
+    128
+  ],
+  "AutoPunch": [
+    0,
+    256
+  ],
+  "DoubleCoins": [
+    128,
+    256
+  ],
+  "FastWalk": [
+    256,
+    256
+  ],
+  "TripleHatch": [
+    384,
+    256
+  ],
+  "AutoHatch": [
+    512,
+    256
+  ],
+  "Lucky": [
+    640,
+    256
+  ],
+  "PetSlots": [
+    0,
+    384
+  ],
+  "GymVIP": [
+    128,
+    384
+  ],
+  "GymMega": [
+    256,
+    384
+  ],
+  "GymAdmin": [
+    384,
+    384
+  ],
+  "StrengthSmall": [
+    512,
+    384
+  ],
+  "StrengthMedium": [
+    640,
+    384
+  ],
+  "StrengthLarge": [
+    0,
+    512
+  ],
+  "CoinsSmall": [
+    128,
+    512
+  ],
+  "CoinsMedium": [
+    256,
+    512
+  ],
+  "CoinsLarge": [
+    384,
+    512
+  ],
+  "Boost": [
+    512,
+    512
+  ],
+  "CoinBoost": [
+    640,
+    512
+  ],
+  "LuckBoost": [
+    0,
+    640
+  ],
+  "Level": [
+    128,
+    640
+  ],
+  "RebirthSkip": [
+    256,
+    640
+  ],
+  "WorldSkip": [
+    384,
+    640
+  ],
+  "MegaEgg": [
+    512,
+    640
+  ],
+  "UltraEgg": [
+    640,
+    640
+  ]
+}

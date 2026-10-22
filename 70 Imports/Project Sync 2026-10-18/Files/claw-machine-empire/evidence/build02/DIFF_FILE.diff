@@ -1,0 +1,993 @@
+--- Build01.rbxlx
++++ Build02.rbxlx
+@@ -55,10 +55,10 @@
+         <Item class="ModuleScript" referent="RBX7">
+           <Properties>
+             <string name="Name">Config</string>
+-            <ProtectedString name="Source">-- Build 01: deliberately fast alpha balance, not launch pricing.
++            <ProtectedString name="Source">-- Build 02: hand-authored toybox arcade, deliberately fast early alpha balance.
+ local Config = {}
+ Config.Schema = 1
+-Config.Build = "01 - FIRST CATCH"
++Config.Build = "02 - TOYBOX ARCADE"
+ Config.StudioSessionOnly = true -- Never touches live player data from Studio.
+ Config.PurchasesEnabled = false
+ Config.MaxPlayers = 4
+@@ -68,10 +68,43 @@
+ Config.AttemptRefillSeconds = 12
+ Config.RoundSeconds = 25
+ Config.DropSeconds = 2.6
++Config.PlotSpacing = 190
++Config.Bounds = {halfWidth=70, back=-94, front=105}
+ Config.Machines = {
+-    {id="rusty", name="Rusty Claw", cost=0, color={255,161,87}, minTier=1, maxTier=3},
+-    {id="classic", name="Classic Arcade", cost=250, color={255,81,135}, minTier=2, maxTier=6},
++    {id="rusty", name="Rusty Claw", short="RUSTY", cost=0, color={233,157,92}, skin="workshop", mascot="duck", pool={"duck","mochi","frog"}},
++    {id="classic", name="Classic Arcade", short="CLASSIC", cost=250, color={249,78,117}, skin="classic", mascot="mochi", pool={"mochi","frog","dino","cat","star"}},
++    {id="candy", name="Candy Cloud", short="CANDY", cost=600, color={255,156,212}, skin="cloud", mascot="dino", pool={"mochi","dino","bloom"}},
++    {id="pond", name="Frog Pond", short="POND", cost=1200, color={126,224,151}, skin="frog", mascot="frog", pool={"frog","bloom","bee"}},
++    {id="bloom", name="Bunny Bloom", short="BLOOM", cost=2200, color={232,175,255}, skin="bunny", mascot="bloom", pool={"mochi","bloom","bee"}},
++    {id="shark", name="Shark Splash", short="SHARK", cost=3800, color={74,172,244}, skin="shark", mascot="shark", pool={"frog","shark","pearl"}},
++    {id="lucky", name="Lucky Cat", short="LUCKY", cost=6000, color={255,202,116}, skin="cat", mascot="cat", pool={"cat","bee","mimic"}},
++    {id="honey", name="Honey Hive", short="HONEY", cost=9000, color={255,209,74}, skin="hive", mascot="bee", pool={"bee","bloom","leaf"}},
++    {id="dino", name="Dino Den", short="DINO", cost=14000, color={147,211,107}, skin="dino", mascot="tricera", pool={"dino","tricera","leaf"}},
++    {id="rocket", name="Rocket Rally", short="ROCKET", cost=21000, color={250,119,107}, skin="rocket", mascot="rocket", pool={"cat","rocket","ufo"}},
++    {id="soda", name="Cherry Soda", short="SODA", cost=32000, color={255,109,160}, skin="soda", mascot="cherry", pool={"bloom","cherry","pixel"}},
++    {id="ufo", name="Cosmic UFO", short="UFO", cost=48000, color={111,226,210}, skin="ufo", mascot="ufo", pool={"star","ufo","rocket"}},
++    {id="pearl", name="Ocean Pearl", short="PEARL", cost=72000, color={168,206,255}, skin="shell", mascot="pearl", pool={"shark","pearl","penguin"}},
++    {id="treasure", name="Treasure Chest", short="TREASURE", cost=110000, color={198,132,82}, skin="treasure", mascot="mimic", pool={"mimic","lion","cherry"}},
++    {id="pixel", name="Pixel Party", short="PIXEL", cost=165000, color={157,130,255}, skin="pixel", mascot="pixel", pool={"pixel","robot","unicorn"}},
++    {id="ice", name="Ice Palace", short="ICE", cost=250000, color={129,231,255}, skin="ice", mascot="penguin", pool={"penguin","gemfox","pearl"}},
++    {id="magma", name="Magma Forge", short="MAGMA", cost=380000, color={255,129,76}, skin="magma", mascot="ember", pool={"ember","lion","rocket"}},
++    {id="jungle", name="Jungle Ruins", short="JUNGLE", cost=570000, color={100,187,135}, skin="jungle", mascot="leaf", pool={"leaf","tricera","gemfox"}},
++    {id="rainbow", name="Rainbow Parade", short="RAINBOW", cost=850000, color={255,145,212}, skin="rainbow", mascot="unicorn", pool={"unicorn","star","gemfox"}},
++    {id="royal", name="Golden Crown", short="ROYAL", cost=1300000, color={255,213,81}, skin="crown", mascot="lion", pool={"lion","unicorn","mimic"}},
++    {id="diamond", name="Diamond Vault", short="DIAMOND", cost=2000000, color={121,199,255}, skin="diamond", mascot="gemfox", pool={"gemfox","penguin","robot"}},
++    {id="galaxy", name="Galaxy Gate", short="GALAXY", cost=3000000, color={153,128,241}, skin="galaxy", mascot="star", pool={"star","ufo","voidbat"}},
++    {id="cyber", name="Cyber Circuit", short="CYBER", cost=4500000, color={81,229,203}, skin="circuit", mascot="robot", pool={"robot","pixel","voidbat"}},
++    {id="void", name="Void Reactor", short="VOID", cost=6800000, color={121,92,201}, skin="void", mascot="voidbat", pool={"voidbat","star","infinity"}},
++    {id="infinity", name="Infinity Carnival", short="INFINITY", cost=10000000, color={247,164,238}, skin="carnival", mascot="infinity", pool={"infinity","unicorn","voidbat"}},
+ }
++-- Five deliberately laid-out gallery rows, front to back. Aisles are 34 studs deep.
++for i,machine in ipairs(Config.Machines) do
++    machine.position=({{-44,0,64},{-22,0,64},{0,0,64},{22,0,64},{44,0,64},
++        {-44,0,30},{-22,0,30},{0,0,30},{22,0,30},{44,0,30},
++        {-44,0,-4},{-22,0,-4},{0,0,-4},{22,0,-4},{44,0,-4},
++        {-44,0,-38},{-22,0,-38},{0,0,-38},{22,0,-38},{44,0,-38},
++        {-44,0,-72},{-22,0,-72},{0,0,-72},{22,0,-72},{44,0,-72}})[i]
++end
+ Config.Plushies = {
+     {id="duck", name="Goofy Duck", rarity="Common", income=5, weight=60, color={255,219,79}, shape="duck"},
+     {id="mochi", name="Mochi Bunny", rarity="Uncommon", income=8, weight=30, color={255,171,209}, shape="bunny"},
+@@ -79,6 +112,25 @@
+     {id="dino", name="Bubblegum Dino", rarity="Epic", income=24, weight=10, color={177,137,255}, shape="dino"},
+     {id="cat", name="Space Cat", rarity="Legendary", income=40, weight=4, color={109,218,255}, shape="cat"},
+     {id="star", name="Pocket Supernova", rarity="Mythical", income=65, weight=1, color={255,139,96}, shape="star"},
++    {id="bloom", name="Petal Puff", rarity="Rare", income=18, weight=18, color={239,183,255}, shape="bunny"},
++    {id="shark", name="Snack Shark", rarity="Rare", income=25, weight=20, color={103,183,250}, shape="shark"},
++    {id="bee", name="Bumble Bean", rarity="Epic", income=35, weight=12, color={255,216,82}, shape="bee"},
++    {id="tricera", name="Tiny Tricera", rarity="Epic", income=50, weight=12, color={157,224,143}, shape="dino"},
++    {id="rocket", name="Booster Bean", rarity="Legendary", income=75, weight=10, color={250,141,122}, shape="cat"},
++    {id="cherry", name="Cherry Cheeks", rarity="Epic", income=100, weight=12, color={255,128,171}, shape="cherry"},
++    {id="ufo", name="Sleepy Saucer", rarity="Legendary", income=150, weight=8, color={117,232,203}, shape="ufo"},
++    {id="pearl", name="Pearl Pudding", rarity="Legendary", income=220, weight=10, color={193,210,255}, shape="shell"},
++    {id="mimic", name="Treasure Tater", rarity="Legendary", income=330, weight=8, color={225,163,87}, shape="chest"},
++    {id="pixel", name="Pixel Pancake", rarity="Legendary", income=500, weight=10, color={185,155,255}, shape="robot"},
++    {id="penguin", name="Frosty Waddle", rarity="Legendary", income=750, weight=10, color={151,227,255}, shape="penguin"},
++    {id="ember", name="Ember Dumpling", rarity="Mythical", income=1100, weight=8, color={255,151,98}, shape="dino"},
++    {id="leaf", name="Leafy Loaf", rarity="Mythical", income=1700, weight=8, color={135,209,126}, shape="frog"},
++    {id="unicorn", name="Prism Pony", rarity="Mythical", income=2500, weight=6, color={255,183,232}, shape="unicorn"},
++    {id="lion", name="Royal Roar", rarity="Mythical", income=3800, weight=8, color={255,211,99}, shape="lion"},
++    {id="gemfox", name="Crystal Foxlet", rarity="Secret", income=5600, weight=5, color={154,209,255}, shape="cat"},
++    {id="robot", name="Circuit Sprout", rarity="Secret", income=8500, weight=6, color={113,234,205}, shape="robot"},
++    {id="voidbat", name="Midnight Marshmallow", rarity="Divine", income=13000, weight=3, color={168,133,230}, shape="bat"},
++    {id="infinity", name="Infinity Sundae", rarity="Infinity", income=20000, weight=2, color={255,189,234}, shape="unicorn"},
+ }
+ Config.Upgrades = {
+     speed={name="Servo speed", cost=60, max=4, description="Faster aim movement. Earned coins only."},
+@@ -89,7 +141,7 @@
+     {id="confetti", name="Confetti party", kind="Product", productId=0, benefit="One deterministic cosmetic celebration."},
+     {id="nameplate", name="VIP nameplate", kind="Pass", productId=0, benefit="One cosmetic nameplate. No gameplay odds change."},
+ }
+-Config.FutureTiers = {"Neon", "Golden", "Diamond", "Rainbow", "Galaxy", "Quantum", "Void", "Infinity"}
++Config.FutureTiers = {}
+ function Config.plushie(id)
+     for _, item in ipairs(Config.Plushies) do if item.id == id then return item end end
+     return nil
+@@ -169,7 +221,7 @@
+ local Big = require(script.Parent.BigNumber)
+ local Economy = {}
+ function Economy.new()
+-    return {schema=Config.Schema,coins=Big.new(0),bank=Big.new(0),machine=1,
++    return {schema=Config.Schema,coins=Big.new(0),bank=Big.new(0),machine=1,selected=1,
+         inventory={},display={},discovered={},nextId=1,upgrades={speed=0,shelves=0},totalCatches=0}
+ end
+ function Economy.validate(s)
+@@ -179,6 +231,7 @@
+         or type(s.machine)~="number" or s.machine%1~=0 or s.machine&lt;1 or s.machine&gt;#Config.Machines
+         or type(s.nextId)~="number" or s.nextId%1~=0 or s.nextId&lt;1 or s.nextId&gt;1e12
+         or type(s.totalCatches)~="number" or s.totalCatches%1~=0 or s.totalCatches&lt;0 or s.totalCatches&gt;1e12 then return false end
++    if s.selected~=nil and (type(s.selected)~="number" or s.selected%1~=0 or s.selected&lt;1 or s.selected&gt;s.machine) then return false end
+     for key, spec in pairs(Config.Upgrades) do
+         local level=s.upgrades[key]
+         if type(level)~="number" or level%1~=0 or level&lt;0 or level&gt;spec.max then return false end
+@@ -200,15 +253,21 @@
+ end
+ function Economy.roll(s,u)
+     assert(type(u)=="number" and u==u and u&gt;=0 and u&lt;1, "invalid random sample")
+-    local machine=Config.Machines[s.machine]
++    local machine=Config.Machines[Economy.selected(s)]
+     local total=0
+-    for i=machine.minTier,machine.maxTier do total+=Config.Plushies[i].weight end
++    for _,id in ipairs(machine.pool) do total+=Config.plushie(id).weight end
+     local needle=u*total
+-    for i=machine.minTier,machine.maxTier do
+-        needle-=Config.Plushies[i].weight
+-        if needle&lt;0 then return Config.Plushies[i].id end
+-    end
+-    return Config.Plushies[machine.maxTier].id
++    for _,id in ipairs(machine.pool) do
++        needle-=Config.plushie(id).weight
++        if needle&lt;0 then return id end
++    end
++    return machine.pool[#machine.pool]
++end
++function Economy.selected(s) return s.selected or s.machine end
++function Economy.select(s,index)
++    if type(index)~="number" or index~=index or index%1~=0 or index&lt;1 or index&gt;s.machine then return false,"Unlock this machine first." end
++    s.selected=index
++    return true,"Selected "..Config.Machines[index].name
+ end
+ function Economy.grant(s,species)
+     if #s.inventory&gt;=Config.Storage then return false,"Storage full. Display your collection; more storage comes later." end
+@@ -261,10 +320,10 @@
+ end
+ function Economy.unlock(s)
+     local target=Config.Machines[s.machine+1]
+-    if not target then return false,"Classic unlocked! More machines arrive in Build 02." end
++    if not target then return false,"All 25 machines unlocked. Welcome to the Infinity Carnival!" end
+     local cost=Big.new(target.cost)
+     if Big.compare(s.coins,cost)&lt;0 then return false,"Collect $"..Big.format(cost).." to unlock "..target.name end
+-    s.coins=Big.sub(s.coins,cost); s.machine+=1
++    s.coins=Big.sub(s.coins,cost); s.machine+=1; s.selected=s.machine
+     return true,target.name.." unlocked! New plushies are inside."
+ end
+ function Economy.upgrade(s,key)
+@@ -295,165 +354,430 @@
+       <Item class="ModuleScript" referent="RBX12">
+         <Properties>
+           <string name="Name">World</string>
+-          <ProtectedString name="Source">local Config=require(game.ReplicatedStorage.ClawEmpire.Shared.Config)
++          <ProtectedString name="Source">-- Hand-authored parts, cabinet silhouettes and toybox architecture. No Toolbox assets.
++local Config=require(game.ReplicatedStorage.ClawEmpire.Shared.Config)
++local Big=require(game.ReplicatedStorage.ClawEmpire.Shared.BigNumber)
+ local TweenService=game:GetService("TweenService")
+ local World={}
+-local C={navy=Color3.fromRGB(24,23,55),floor=Color3.fromRGB(48,44,81),mint=Color3.fromRGB(80,255,201),
+-    pink=Color3.fromRGB(255,83,159),gold=Color3.fromRGB(255,216,89),white=Color3.fromRGB(247,246,255)}
++local C={ink=Color3.fromRGB(67,47,94),pink=Color3.fromRGB(244,167,211),lilac=Color3.fromRGB(174,163,231),
++    mint=Color3.fromRGB(134,237,197),gold=Color3.fromRGB(255,218,103),white=Color3.fromRGB(255,250,242),
++    blue=Color3.fromRGB(151,205,250),rose=Color3.fromRGB(248,111,166)}
++local function rgb(t) return Color3.fromRGB(table.unpack(t)) end
+ local function part(parent,name,size,pos,color,material,shape)
+     local p=Instance.new("Part"); p.Name=name; p.Size=size; p.Position=pos; p.Anchored=true
+-    p.Color=color; p.Material=material or Enum.Material.SmoothPlastic
++    p.Color=color; p.Material=material or Enum.Material.Plastic
+     p.TopSurface=Enum.SurfaceType.Smooth; p.BottomSurface=Enum.SurfaceType.Smooth
+     if shape then p.Shape=shape end
+     p.Parent=parent; return p
+ end
+-local function sign(parent,name,size,pos,text,bg,fg)
++local function cylinder(parent,name,size,pos,color,axis)
++    local p=part(parent,name,size,pos,color,nil,Enum.PartType.Cylinder)
++    p.Orientation=if axis=="z" then Vector3.new(0,90,0) else Vector3.new(0,0,90)
++    return p
++end
++local function sign(parent,name,size,pos,value,bg,fg,face)
+     local p=part(parent,name,size,pos,bg)
+-    local gui=Instance.new("SurfaceGui"); gui.Name="Sign"; gui.Face=Enum.NormalId.Back
+-    gui.SizingMode=Enum.SurfaceGuiSizingMode.PixelsPerStud; gui.PixelsPerStud=45; gui.Parent=p
++    local gui=Instance.new("SurfaceGui"); gui.Name="Sign"; gui.Face=face or Enum.NormalId.Back
++    gui.SizingMode=Enum.SurfaceGuiSizingMode.PixelsPerStud; gui.PixelsPerStud=32; gui.Parent=p
+     local label=Instance.new("TextLabel"); label.Size=UDim2.fromScale(1,1); label.BackgroundTransparency=1
+-    label.Text=text; label.TextColor3=fg or C.white; label.Font=Enum.Font.FredokaOne
+-    label.TextScaled=true; label.TextStrokeColor3=C.navy; label.TextStrokeTransparency=0.1; label.Parent=gui
++    label.Text=value; label.TextColor3=fg or C.white; label.Font=Enum.Font.FredokaOne
++    label.TextScaled=true; label.TextStrokeColor3=C.ink; label.TextStrokeTransparency=0.15; label.Parent=gui
+     local pad=Instance.new("UIPadding"); pad.PaddingLeft=UDim.new(0.04,0); pad.PaddingRight=UDim.new(0.04,0); pad.Parent=label
+     return p,label
+ end
+-function World.plush(parent,species,pos,scale)
+-    local item=Config.plushie(species); scale=scale or 1
++local function beam(parent,name,a,b,width,color)
++    local p=part(parent,name,Vector3.new(width,width,(b-a).Magnitude),(a+b)/2,color)
++    p.CFrame=CFrame.lookAt((a+b)/2,b); return p
++end
++local function folder(parent,name)
++    local f=Instance.new("Model"); f.Name=name; f.Parent=parent; return f
++end
++function World.plush(parent,species,pos,scale,simple)
++    scale=scale or 1
++    local item=Config.plushie(species); local col=rgb(item.color)
+     local model=Instance.new("Model"); model.Name=item.name
+-    local color=Color3.fromRGB(table.unpack(item.color))
+-    local function ball(name,size,offset,col)
+-        local p=part(model,name,size*scale,pos+offset*scale,col or color,nil,Enum.PartType.Ball)
+-        p.CanCollide=false; return p
++    local function ball(n,s,v,c)
++        local p=part(model,n,s*scale,pos+v*scale,c or col,nil,Enum.PartType.Ball); p.CanCollide=false; return p
++    end
++    local function block(n,s,v,c)
++        local p=part(model,n,s*scale,pos+v*scale,c or col); p.CanCollide=false; return p
+     end
+     local body=ball("SoftBody",Vector3.new(2.2,2.2,1.8),Vector3.zero)
+-    ball("CreamBelly",Vector3.new(1.5,1.4,0.35),Vector3.new(0,-0.22,0.8),C.white)
+-    for _,x in ipairs({-0.48,0.48}) do
+-        ball("ButtonEye",Vector3.new(0.22,0.28,0.12),Vector3.new(x,0.3,0.91),C.navy)
+-        ball("EyeGlint",Vector3.new(0.075,0.09,0.06),Vector3.new(x-0.035,0.36,0.98),C.white)
+-        ball("Blush",Vector3.new(0.35,0.18,0.06),Vector3.new(x*1.48,0.04,0.9),C.pink)
+-        ball("Foot",Vector3.new(0.7,0.5,0.8),Vector3.new(x,-0.92,0.25))
+-    end
+-    ball("Smile",Vector3.new(0.23,0.12,0.1),Vector3.new(0,0.02,1),C.navy)
+-    if item.shape=="bunny" then
+-        for _,x in ipairs({-0.55,0.55}) do
+-            ball("Ear",Vector3.new(0.55,1.8,0.6),Vector3.new(x,1.35,0))
+-            ball("EarPatch",Vector3.new(0.25,1.1,0.1),Vector3.new(x,1.45,0.3),C.white)
+-        end
+-    elseif item.shape=="duck" then
+-        ball("Beak",Vector3.new(0.7,0.3,0.6),Vector3.new(0,0,1.05),Color3.fromRGB(255,141,58))
+-        ball("Quiff",Vector3.new(0.45,0.6,0.45),Vector3.new(0,1.05,0))
+-    elseif item.shape=="frog" then
+-        for _,x in ipairs({-0.7,0.7}) do
+-            ball("FrogEye",Vector3.new(0.85,0.85,0.7),Vector3.new(x,0.85,0.1))
+-            ball("TopPupil",Vector3.new(0.25,0.3,0.1),Vector3.new(x,0.93,0.47),C.navy)
+-        end
+-    elseif item.shape=="cat" then
+-        for _,x in ipairs({-0.75,0.75}) do ball("CatEar",Vector3.new(0.7,1,0.6),Vector3.new(x,0.98,0)) end
+-        local ring=part(model,"SpaceCollar",Vector3.new(2.5,0.15,2),pos+Vector3.new(0,-0.5,0)*scale,C.gold,Enum.Material.Neon)
+-        ring.Size*=scale; ring.CanCollide=false
+-    elseif item.shape=="dino" then
+-        for i=1,3 do ball("CandySpike",Vector3.new(0.6,0.8,0.5),Vector3.new(0,1.15-(i-1)*0.35,-0.15-(i-1)*0.4),C.mint) end
++    if item.shape=="robot" or item.shape=="chest" then body.Shape=Enum.PartType.Block; body.Size=Vector3.new(2,1.8,1.6)*scale end
++    if not simple then
++        ball("CreamBelly",Vector3.new(1.45,1.3,0.25),Vector3.new(0,-0.25,0.82),C.white)
++        for _,x in ipairs({-0.5,0.5}) do
++            ball("Blush",Vector3.new(0.3,0.16,0.06),Vector3.new(x*1.45,0.03,0.94),C.rose)
++            ball("Foot",Vector3.new(0.6,0.45,0.75),Vector3.new(x,-0.9,0.25))
++        end
++    end
++    for _,x in ipairs({-0.48,0.48}) do ball("ButtonEye",Vector3.new(0.22,0.28,0.12),Vector3.new(x,0.3,0.94),C.ink) end
++    ball("Smile",Vector3.new(0.24,0.12,0.1),Vector3.new(0,0.02,1),C.ink)
++    local shape=item.shape
++    if shape=="bunny" then
++        for _,x in ipairs({-0.55,0.55}) do ball("Ear",Vector3.new(0.55,1.8,0.6),Vector3.new(x,1.35,0)) end
++    elseif shape=="duck" or shape=="penguin" then
++        ball("Beak",Vector3.new(0.6,0.28,0.5),Vector3.new(0,0.03,1.05),C.gold)
++        if shape=="duck" then ball("Tuft",Vector3.new(0.4,0.55,0.4),Vector3.new(0,1,0)) end
++    elseif shape=="frog" then
++        for _,x in ipairs({-0.7,0.7}) do ball("EyeBulge",Vector3.new(0.8,0.8,0.7),Vector3.new(x,0.8,0.1)) end
++    elseif shape=="cat" or shape=="bat" then
++        for _,x in ipairs({-0.8,0.8}) do
++            local ear=block("Ear",Vector3.new(0.65,0.85,0.6),Vector3.new(x,1,0)); ear.Orientation=Vector3.new(0,0,x*24)
++            if shape=="bat" then ball("Wing",Vector3.new(1.5,0.65,0.3),Vector3.new(x*1.8,0.2,0),C.lilac) end
++        end
++    elseif shape=="dino" then
++        for i=1,3 do ball("Spike",Vector3.new(0.55,0.7,0.5),Vector3.new(0,1.05-(i-1)*0.3,-(i-1)*0.4),C.mint) end
++    elseif shape=="shark" then
++        local fin=block("DorsalFin",Vector3.new(0.3,1.1,0.8),Vector3.new(0,1,0)); fin.Orientation=Vector3.new(25,0,0)
++        block("SharkMouth",Vector3.new(1.2,0.24,0.15),Vector3.new(0,-0.18,0.99),C.white)
++    elseif shape=="bee" then
++        for _,x in ipairs({-1.05,1.05}) do ball("Wing",Vector3.new(0.8,1.2,0.3),Vector3.new(x,0.35,-0.2),C.white) end
++        block("BeeStripe",Vector3.new(2.12,0.3,0.15),Vector3.new(0,-0.32,0.88),C.ink)
++    elseif shape=="ufo" or shape=="shell" then
++        ball("Rim",Vector3.new(2.8,0.45,2),Vector3.new(0,-0.4,0),C.mint)
++    elseif shape=="cherry" then
++        block("Stem",Vector3.new(0.16,0.7,0.16),Vector3.new(0,1.25,0),C.mint)
++        ball("Leaf",Vector3.new(0.7,0.2,0.4),Vector3.new(0.3,1.4,0),C.mint)
++    elseif shape=="unicorn" then
++        local horn=block("Horn",Vector3.new(0.35,1.1,0.35),Vector3.new(0,1.3,0),C.gold); horn.Orientation=Vector3.new(0,0,12)
++        for _,x in ipairs({-0.7,0.7}) do ball("Ear",Vector3.new(0.45,0.65,0.45),Vector3.new(x,0.9,0)) end
++    elseif shape=="lion" then
++        for i=1,7 do local a=i*math.pi*2/7; ball("Mane",Vector3.new(0.65,0.65,0.4),Vector3.new(math.sin(a)*1.05,math.cos(a)*1.05,-0.1),C.gold) end
++    elseif shape=="robot" then
++        block("Antenna",Vector3.new(0.1,0.65,0.1),Vector3.new(0,1.1,0),C.ink)
++        ball("Signal",Vector3.new(0.4,0.4,0.4),Vector3.new(0,1.5,0),C.rose)
++    elseif shape=="chest" then
++        block("GoldLatch",Vector3.new(0.4,0.6,0.2),Vector3.new(0,-0.5,0.9),C.gold)
+     else
+-        for i=1,5 do
+-            local angle=i*math.pi*2/5
+-            ball("StarPoint",Vector3.new(0.75,0.9,0.6),Vector3.new(math.sin(angle)*1.05,math.cos(angle)*1.05,0),C.gold)
+-        end
++        for i=1,5 do local a=i*math.pi*2/5; ball("StarPoint",Vector3.new(0.65,0.8,0.6),Vector3.new(math.sin(a),math.cos(a),0),C.gold) end
+     end
+     model.PrimaryPart=body; model.Parent=parent; return model
+ end
++
++-- Twenty-five separately authored crown/trim assemblies. Shared playable mechanics,
++-- different actual geometry, not random accessories or a palette-only variation.
++local skins={}
++function skins.workshop(p,b)
++    p("CrankBase",Vector3.new(1.2,2,1),Vector3.new(6.7,5,0),C.ink)
++    p("CrankArm",Vector3.new(0.3,3,0.3),Vector3.new(7.4,6,0),C.gold)
++    for _,x in ipairs({-4.5,4.5}) do p("PatchPlate",Vector3.new(2.1,1.6,0.25),Vector3.new(x,2.5,5.8),C.gold) end
++    for x=-4,4,2 do b("RoofBolt",Vector3.new(0.55,0.55,0.55),Vector3.new(x,20,0),C.ink) end
++end
++function skins.classic(p,b)
++    for x=-5,5,2 do p("CandyStripe",Vector3.new(0.8,3.6,0.15),Vector3.new(x,3.4,5.85),C.white) end
++    for x=-5,5,2 do b("MarqueeBulb",Vector3.new(0.6,0.6,0.5),Vector3.new(x,20,5.5),C.gold) end
++    p("ScoreTower",Vector3.new(5,2,2),Vector3.new(0,21,0),C.gold)
++end
++function skins.cloud(p,b)
++    for i=-2,2 do b("CloudPuff",Vector3.new(3.4,3.5-math.abs(i)*0.3,3),Vector3.new(i*2.1,20.3,0),C.white) end
++    for _,x in ipairs({-6.6,6.6}) do p("CandyCane",Vector3.new(0.55,9,0.55),Vector3.new(x,11,5),C.rose) end
++end
++function skins.frog(p,b)
++    b("FrogHead",Vector3.new(11,3.5,6),Vector3.new(0,20,0),C.mint)
++    for _,x in ipairs({-3.5,3.5}) do
++        b("FrogEye",Vector3.new(3.2,3.2,2.5),Vector3.new(x,22,0.8),C.mint)
++        b("FrogPupil",Vector3.new(1,1.4,0.3),Vector3.new(x,22.2,2),C.ink)
++    end
++    p("LilyPad",Vector3.new(5,0.25,3),Vector3.new(0,1.3,7),C.mint)
++end
++function skins.bunny(p,b)
++    for _,x in ipairs({-3.1,3.1}) do
++        b("BunnyEar",Vector3.new(2.4,7,2.5),Vector3.new(x,22.5,0),C.white)
++        b("EarInset",Vector3.new(1.1,4.8,0.2),Vector3.new(x,22.8,1.2),C.pink)
++    end
++    for _,x in ipairs({-4,4}) do b("FlowerPetal",Vector3.new(2,2,0.3),Vector3.new(x,3,6),C.pink) end
++end
++function skins.shark(p,b)
++    local fin=p("DorsalFin",Vector3.new(0.7,5,4),Vector3.new(0,21.3,-1),C.blue); fin.Orientation=Vector3.new(25,0,0)
++    for x=-5,5,2 do local tooth=p("SharkTooth",Vector3.new(0.9,1.6,0.8),Vector3.new(x,16.7,5.9),C.white); tooth.Orientation=Vector3.new(0,0,45) end
++    for _,x in ipairs({-4.5,4.5}) do b("SharkEye",Vector3.new(1.3,1.3,0.3),Vector3.new(x,20,5.5),C.ink) end
++end
++function skins.cat(p,b)
++    for _,x in ipairs({-4.7,4.7}) do local ear=p("CatEar",Vector3.new(2.8,3.8,2.5),Vector3.new(x,21.3,0),C.gold); ear.Orientation=Vector3.new(0,0,x*4) end
++    b("Bell",Vector3.new(1.6,1.6,1),Vector3.new(0,3.8,6),C.gold)
++    for _,x in ipairs({-3.3,3.3}) do for y=2,4 do p("Whisker",Vector3.new(2,0.12,0.2),Vector3.new(x,y,5.9),C.white) end end
++end
++function skins.hive(p,b)
++    for y=2,5 do p("BeeStripe",Vector3.new(12.5,0.4,0.12),Vector3.new(0,y,5.8),C.ink) end
++    for _,x in ipairs({-3.5,3.5}) do p("Antenna",Vector3.new(0.3,3,0.3),Vector3.new(x,21,0),C.ink); b("AntennaBall",Vector3.new(1.4,1.4,1.4),Vector3.new(x,23,0),C.gold) end
++    for _,x in ipairs({-7,7}) do b("Wing",Vector3.new(2.4,5,0.6),Vector3.new(x,16,-1),C.white) end
++end
++function skins.dino(p,b)
++    for z=-4,4,2 do local s=p("DinoSpine",Vector3.new(1,2.6,1.6),Vector3.new(0,21,z),C.gold); s.Orientation=Vector3.new(20,0,0) end
++    b("DinoTail",Vector3.new(2,2,6),Vector3.new(0,3,-7),C.mint)
++    for _,x in ipairs({-4.5,4.5}) do b("DinoNostril",Vector3.new(0.6,0.8,0.3),Vector3.new(x,20,5.7),C.ink) end
++end
++function skins.rocket(p,b)
++    p("RocketTower",Vector3.new(3.4,5,3.4),Vector3.new(0,21,0),C.white)
++    local nose=p("RocketNose",Vector3.new(2.8,2.8,2.8),Vector3.new(0,24,0),C.rose); nose.Orientation=Vector3.new(0,0,45)
++    for _,x in ipairs({-3.8,3.8}) do local wing=p("RocketFin",Vector3.new(2,3.6,3),Vector3.new(x,19,0),C.rose); wing.Orientation=Vector3.new(0,0,x*6) end
++    b("Porthole",Vector3.new(1.6,1.6,0.3),Vector3.new(0,21,1.8),C.blue)
++end
++function skins.soda(p,b)
++    p("CanLid",Vector3.new(12,0.35,10),Vector3.new(0,20,0),C.white)
++    local straw=p("DrinkingStraw",Vector3.new(0.6,6,0.6),Vector3.new(3,22,0),C.rose); straw.Orientation=Vector3.new(0,0,-15)
++    b("Cherry",Vector3.new(3.3,3.3,3.3),Vector3.new(-2.6,21,0),C.rose)
++    p("CherryStem",Vector3.new(0.2,2,0.2),Vector3.new(-2.6,23,0),C.mint)
++    for x=-4,4,2 do b("SodaBubble",Vector3.new(0.6,0.6,0.2),Vector3.new(x,3+x%3,5.9),C.white) end
++end
++function skins.ufo(p,b)
++    b("Saucer",Vector3.new(16,1.5,12),Vector3.new(0,20,0),C.mint)
++    b("AlienCockpit",Vector3.new(6,4,5),Vector3.new(0,21,0),C.blue)
++    for x=-5,5,2 do b("SaucerLight",Vector3.new(0.7,0.7,0.7),Vector3.new(x,19.7,5.5),C.gold) end
++end
++function skins.shell(p,b)
++    for i=-3,3 do local rib=p("ShellRib",Vector3.new(1.5,6-math.abs(i)*0.7,1.6),Vector3.new(i*1.6,21-math.abs(i)*0.2,0),if i%2==0 then C.pink else C.white); rib.Orientation=Vector3.new(0,0,-i*12) end
++    b("GiantPearl",Vector3.new(2.3,2.3,2.3),Vector3.new(0,20.5,2),C.white)
++end
++function skins.treasure(p,b)
++    b("ChestLid",Vector3.new(13.5,4,10),Vector3.new(0,20,0),Color3.fromRGB(192,127,78))
++    for _,x in ipairs({-4,4}) do p("GoldStrap",Vector3.new(0.65,4,10.5),Vector3.new(x,19,0),C.gold) end
++    p("ChestLock",Vector3.new(1.5,2,0.6),Vector3.new(0,19,5.6),C.gold)
++end
++function skins.pixel(p,b)
++    for x=-2,2 do for y=0,2 do if (x+y)%2==0 then p("PixelCrown",Vector3.new(1.5,1.5,1.5),Vector3.new(x*1.7,20+y*1.5,0),if y%2==0 then C.mint else C.rose) end end end
++    p("DpadVertical",Vector3.new(0.5,2.1,0.3),Vector3.new(-3.8,3.4,6),C.ink)
++    p("DpadHorizontal",Vector3.new(2.1,0.5,0.3),Vector3.new(-3.8,3.4,6),C.ink)
++end
++function skins.ice(p,b)
++    for i=-2,2 do local ice=p("CrystalSpire",Vector3.new(1.5,5-math.abs(i),1.5),Vector3.new(i*2.2,21,0),C.blue); ice.Orientation=Vector3.new(0,0,i*10) end
++    for _,x in ipairs({-6.8,6.8}) do p("Icicle",Vector3.new(0.4,10,0.4),Vector3.new(x,11,0),C.white) end
++end
++function skins.magma(p,b)
++    for _,x in ipairs({-4,4}) do p("Chimney",Vector3.new(2.6,5,2.8),Vector3.new(x,21,0),C.ink); b("Ember",Vector3.new(2,2,2),Vector3.new(x,24,0),C.gold) end
++    for i=-2,2 do local crack=p("LavaCrack",Vector3.new(0.25,3.2,0.18),Vector3.new(i*2,3.5,6),C.gold); crack.Orientation=Vector3.new(0,0,i*17) end
++end
++function skins.jungle(p,b)
++    p("StoneLintel",Vector3.new(14.5,2.4,10),Vector3.new(0,20,0),Color3.fromRGB(157,174,153))
++    for _,x in ipairs({-6.6,6.6}) do p("Vine",Vector3.new(0.4,15,0.4),Vector3.new(x,12,5),C.mint); for y=7,18,4 do b("Leaf",Vector3.new(2,0.6,1),Vector3.new(x,y,5.3),C.mint) end end
++end
++function skins.rainbow(p,b)
++    local colors={C.rose,C.gold,C.mint,C.blue,C.lilac}
++    for i=1,5 do
++        p("RainbowStep",Vector3.new(13-i*1.5,0.7,3.5),Vector3.new(0,19.6+i*0.7,0),colors[i])
++        b("RainbowCloud",Vector3.new(2.6,2,3),Vector3.new(-6+i*0.25,19.5,0),C.white)
++    end
++end
++function skins.crown(p,b)
++    p("CrownBand",Vector3.new(12,1.7,5),Vector3.new(0,20,0),C.gold)
++    for x=-4,4,2 do local t=p("CrownPoint",Vector3.new(1.5,3,1.5),Vector3.new(x,22,0),C.gold); t.Orientation=Vector3.new(0,0,45); b("CrownJewel",Vector3.new(0.7,0.9,0.35),Vector3.new(x,20.2,2.6),C.rose) end
++end
++function skins.diamond(p,b)
++    local gem=p("Diamond",Vector3.new(4.5,4.5,4.5),Vector3.new(0,22,0),C.blue); gem.Orientation=Vector3.new(0,45,45)
++    for _,x in ipairs({-4.8,4.8}) do p("VaultBar",Vector3.new(0.5,4,0.6),Vector3.new(x,3.5,6),C.white) end
++    p("VaultLock",Vector3.new(2.1,2.1,0.5),Vector3.new(0,3.4,6),C.white)
++end
++function skins.galaxy(p,b)
++    for i=1,10 do local a=i*math.pi*2/10; b("GalaxyOrbit",Vector3.new(1.4,1.4,1.4),Vector3.new(math.sin(a)*5.2,21+math.cos(a)*3.3,0),if i%2==0 then C.gold else C.blue) end
++    b("GalaxyPlanet",Vector3.new(3,3,3),Vector3.new(0,21,0),C.rose)
++end
++function skins.circuit(p,b)
++    for i=-2,2 do p("CircuitTrace",Vector3.new(0.15,3.7,0.2),Vector3.new(i*2,3.5,6),C.mint); b("CircuitNode",Vector3.new(0.65,0.65,0.25),Vector3.new(i*2,5.1,6),C.gold) end
++    for _,x in ipairs({-4,4}) do p("Aerial",Vector3.new(0.4,4,0.4),Vector3.new(x,21,0),C.ink); b("SignalOrb",Vector3.new(1.4,1.4,1.4),Vector3.new(x,23.5,0),C.mint) end
++end
++function skins.void(p,b)
++    for i=1,8 do local a=i*math.pi/4; local seg=p("ReactorRing",Vector3.new(1.8,0.8,1.5),Vector3.new(math.sin(a)*4.5,21+math.cos(a)*3,0),C.lilac); seg.Orientation=Vector3.new(0,0,-i*45) end
++    b("ReactorCore",Vector3.new(3.2,3.2,3.2),Vector3.new(0,21,0),C.rose)
++    p("ReactorPedestal",Vector3.new(4,0.3,5),Vector3.new(0,1.4,6),C.lilac)
++end
++function skins.carnival(p,b)
++    for i=-2,2 do p("CarouselStripe",Vector3.new(2.5,1.2,10.8),Vector3.new(i*2.5,20,0),({C.pink,C.gold,C.mint,C.blue,C.lilac})[i+3]) end
++    for _,x in ipairs({-5,5}) do p("FinialStem",Vector3.new(0.4,3.5,0.4),Vector3.new(x,22,0),C.gold); b("Finial",Vector3.new(1.8,1.8,1.8),Vector3.new(x,24,0),C.gold) end
++    p("InfinityLeft",Vector3.new(3.3,1.1,1),Vector3.new(-1.7,23,0),C.white).Orientation=Vector3.new(0,0,35)
++    p("InfinityRight",Vector3.new(3.3,1.1,1),Vector3.new(1.7,23,0),C.white).Orientation=Vector3.new(0,0,-35)
++end
++
+ local function cabinet(parent,origin,index)
+-    local spec=Config.Machines[index]; local color=Color3.fromRGB(table.unpack(spec.color))
+-    local model=Instance.new("Model"); model.Name=spec.id; model.Parent=parent
+-    local function p(name,size,offset,col,material) return part(model,name,size,origin+offset,col,material) end
+-    p("OutlinePlinth",Vector3.new(14,1,13),Vector3.new(0,0.6,0),C.navy)
+-    p("NeonFoot",Vector3.new(13.4,0.25,12.4),Vector3.new(0,1.2,0),color,Enum.Material.Neon)
+-    p("LowerCabinet",Vector3.new(12.4,4.7,11.4),Vector3.new(0,3.7,0),color)
+-    p("PrizeBed",Vector3.new(11.6,0.5,10.5),Vector3.new(0,6.3,0),C.white)
++    local spec=Config.Machines[index]; local color=rgb(spec.color)
++    local model=folder(parent,spec.id); model:SetAttribute("MachineIndex",index); model:SetAttribute("Skin",spec.skin)
++    local function p(n,s,v,c,m)
++        local obj=part(model,n,s,origin+v,c or color,m)
++        if v.Y&gt;=17.5 then obj:SetAttribute("AimOccluder",true) end
++        return obj
++    end
++    local function b(n,s,v,c) local obj=p(n,s,v,c); obj.Shape=Enum.PartType.Ball; return obj end
++    p("Plinth",Vector3.new(14,0.8,13),Vector3.new(0,0.6,0),C.ink)
++    p("BaseTrim",Vector3.new(13.5,0.25,12.4),Vector3.new(0,1.15,0),C.white)
++    p("LowerCabinet",Vector3.new(12.5,4.8,11.3),Vector3.new(0,3.7,0),color).TopSurface=Enum.SurfaceType.Studs
++    p("PrizeBed",Vector3.new(11.6,0.4,10.5),Vector3.new(0,6.3,0),C.white)
++    p("CabinetBack",Vector3.new(12,11.4,0.3),Vector3.new(0,12,-5.5),color:Lerp(C.white,0.65))
+     for _,x in ipairs({-6,6}) do
+         for _,z in ipairs({-5.5,5.5}) do
+-            p("Frame",Vector3.new(0.6,12,0.6),Vector3.new(x,12,z),C.navy)
+-            p("LED",Vector3.new(0.16,11.5,0.16),Vector3.new(x,12,z+0.35),C.mint,Enum.Material.Neon)
+-        end
+-        local glass=p("SideGlass",Vector3.new(0.1,11,10.5),Vector3.new(x,12,0),Color3.fromRGB(156,238,255),Enum.Material.Glass)
+-        glass.Transparency=0.85; glass.CanCollide=false
+-    end
+-    p("TopCapOutline",Vector3.new(13.5,1.5,12.5),Vector3.new(0,18.3,0),C.navy)
+-    p("TopCap",Vector3.new(12.9,0.8,11.9),Vector3.new(0,19.25,0),color)
+-    sign(model,"Header",Vector3.new(12.5,2,0.35),origin+Vector3.new(0,18,6.1),string.upper(spec.name),color)
+-    sign(model,"Instructions",Vector3.new(9.8,1.1,0.2),origin+Vector3.new(0,5.3,5.9),"FREE PLAYS  /  BIG DREAMS",C.navy,C.mint)
+-    p("ControlDeck",Vector3.new(12,0.5,3),Vector3.new(0,6,6.5),C.navy)
+-    p("ControlAccent",Vector3.new(11.4,0.12,2.6),Vector3.new(0,6.28,6.5),color)
+-    p("Joystick",Vector3.new(0.2,0.8,0.2),Vector3.new(-2.5,6.8,6.7),C.white)
+-    local knob=p("JoystickBall",Vector3.new(0.8,0.8,0.8),Vector3.new(-2.5,7.3,6.7),C.navy); knob.Shape=Enum.PartType.Ball
+-    local button=p("DropButton",Vector3.new(1.5,0.22,1.5),Vector3.new(2.5,6.5,6.7),C.mint,Enum.Material.Neon); button.Shape=Enum.PartType.Cylinder
+-    button.Orientation=Vector3.new(0,0,90)
+-    local claw=Instance.new("Model"); claw.Name="Claw"; claw.Parent=model
++            p("Frame",Vector3.new(0.55,12,0.55),Vector3.new(x,12,z),C.white)
++            p("LED",Vector3.new(0.14,11.5,0.14),Vector3.new(x,12,z+0.3),C.gold,Enum.Material.Neon)
++        end
++        local glass=p("SideGlass",Vector3.new(0.1,10.8,10.5),Vector3.new(x,12,0),C.blue,Enum.Material.Glass)
++        glass.Transparency=0.88; glass.CanCollide=false
++    end
++    p("TopCapOutline",Vector3.new(13.5,1.3,12),Vector3.new(0,18.3,0),C.white)
++    p("TopCap",Vector3.new(13,0.7,11.6),Vector3.new(0,19.2,0),color)
++    local header=sign(model,"Header",Vector3.new(12.6,1.65,0.3),origin+Vector3.new(0,18.4,6.1),string.upper(spec.name),color)
++    header:SetAttribute("AimOccluder",true)
++    sign(model,"NumberPlate",Vector3.new(1.8,1.1,0.2),origin+Vector3.new(-4.7,1.9,5.9),string.format("%02d",index),C.white,C.ink)
++    sign(model,"Instructions",Vector3.new(9.5,0.9,0.2),origin+Vector3.new(0,5.3,5.9),"AIM  /  DROP  /  COLLECT",C.ink,C.white)
++    p("ControlDeck",Vector3.new(12,0.45,3),Vector3.new(0,6.1,6.4),C.white)
++    p("Joystick",Vector3.new(0.18,0.8,0.18),Vector3.new(-2.5,6.7,6.4),C.ink)
++    b("JoystickBall",Vector3.new(0.75,0.75,0.75),Vector3.new(-2.5,7.2,6.4),color)
++    local drop=cylinder(model,"DropButton",Vector3.new(0.25,1.3,1.3),origin+Vector3.new(2.5,6.5,6.4),C.mint)
++    local prompt=Instance.new("ProximityPrompt"); prompt.Name="Operate"; prompt.ActionText=if index==1 then "Play free" else "Unlock $"..Big.format(Big.new(spec.cost))
++    prompt.ObjectText=spec.name; prompt.MaxActivationDistance=14; prompt.RequiresLineOfSight=false
++    prompt.HoldDuration=0.2; prompt.Parent=drop
++    skins[spec.skin](p,b)
++    local claw=folder(model,"Claw")
+     local head=part(claw,"Head",Vector3.new(1.2,0.6,1.2),origin+Vector3.new(0,15,0),C.gold,Enum.Material.Metal)
+-    for _,x in ipairs({-0.7,0.7}) do
+-        local arm=part(claw,"Finger",Vector3.new(0.2,1.2,0.25),origin+Vector3.new(x,14.4,0),C.white,Enum.Material.Metal)
+-        arm.Orientation=Vector3.new(0,0,x*22)
+-    end
+-    part(claw,"Cable",Vector3.new(0.12,2,0.12),origin+Vector3.new(0,16.1,0),C.navy)
+-    claw.PrimaryPart=head
+-    local prizes=Instance.new("Folder"); prizes.Name="Prizes"; prizes.Parent=model
+-    for i=1,6 do World.plush(prizes,Config.Plushies[math.min(i,spec.maxTier)].id,origin+Vector3.new((i-1)%3*3-3,7.55,math.floor((i-1)/3)*3-1.5),0.9) end
+-    local _,status=sign(model,"Status",Vector3.new(9,1.8,0.2),origin+Vector3.new(0,3.2,5.9),if index==1 then "READY TO PLAY!" else "UNLOCK  $250",C.navy,if index==1 then C.mint else C.gold)
+-    return {root=model,origin=origin,claw=claw,prizes=prizes,status=status}
++    for _,v in ipairs({Vector3.new(-0.65,-0.8,0),Vector3.new(0.65,-0.8,0),Vector3.new(0,-0.8,-0.65)}) do
++        local finger=part(claw,"Finger",Vector3.new(0.18,1.5,0.2),head.Position+v,C.white,Enum.Material.Metal); finger.CanCollide=false
++    end
++    part(claw,"Cable",Vector3.new(0.1,2,0.1),origin+Vector3.new(0,16.1,0),C.ink); claw.PrimaryPart=head
++    local prizes=folder(model,"Prizes")
++    for i,v in ipairs({Vector3.new(-3,7.5,-1.5),Vector3.new(0,7.5,1.5),Vector3.new(3,7.5,-1.5)}) do
++        World.plush(prizes,if i==2 then spec.mascot else spec.pool[i%#spec.pool+1],origin+v,0.85,true)
++    end
++    local _,status=sign(model,"Status",Vector3.new(8.4,1.6,0.2),origin+Vector3.new(0,3.3,5.9),if index==1 then "FREE PLAYS!" else "$"..Big.format(Big.new(spec.cost)),C.white,C.ink)
++    return {root=model,origin=origin,claw=claw,prizes=prizes,status=status,prompt=prompt}
++end
++
++local function architecture(root,offset)
++    local floor=folder(root,"HandbuiltStudFloor")
++    part(floor,"Foundation",Vector3.new(142,1,204),offset+Vector3.new(0,-0.5,5),C.lilac)
++    for x=0,7 do for z=0,11 do
++        local tile=part(floor,"StuddedTile",Vector3.new(17.45,0.4,16.55),offset+Vector3.new(-61.25+x*17.5,0.2,-86.5+z*16.6),if (x+z)%2==0 then C.pink else C.pink:Lerp(C.white,0.2))
++        tile.TopSurface=Enum.SurfaceType.Studs
++    end end
++    -- Native square studs cover every floor tile; real raised caps reinforce the
++    -- toy-brick construction in the broad circulation aisles at walking height.
++    for row=0,5 do for x=-64,64,4 do
++        cylinder(floor,"RaisedFloorStud",Vector3.new(0.18,0.85,0.85),offset+Vector3.new(x,0.49,86-row*34),C.pink:Lerp(C.white,0.28))
++    end end
++    task.wait()
++    local walls=folder(root,"HandbuiltStudWalls")
++    local function wall(name,size,pos,color,face)
++        local p=part(walls,name,size,offset+pos,color); p[face.."Surface"]=Enum.SurfaceType.Studs
++        return p
++    end
++    for i=0,7 do
++        local x=-61.25+i*17.5
++        wall("BackWallPanel",Vector3.new(17.4,31,1.3),Vector3.new(x,15.7,-94),C.lilac,"Back")
++        for _,y in ipairs({4,12,20,28}) do
++            for _,dx in ipairs({-5,5}) do cylinder(walls,"BackWallStud",Vector3.new(0.22,0.8,0.8),offset+Vector3.new(x+dx,y,-93.2),C.lilac:Lerp(C.white,0.25),"z") end
++        end
++        if i%2==0 then
++            beam(walls,"PanelBrace",offset+Vector3.new(x-7,3,-93),offset+Vector3.new(x+7,28,-93),0.5,C.white)
++            beam(walls,"PanelBrace",offset+Vector3.new(x+7,3,-93),offset+Vector3.new(x-7,28,-93),0.5,C.white)
++        end
++    end
++    for _,side in ipairs({-1,1}) do
++        for row=0,5 do
++            local z=-77+row*34
++            wall("SideWallPanel",Vector3.new(1.3,31,33.8),Vector3.new(side*70,15.7,z),if row%2==0 then C.pink else C.lilac,if side&lt;0 then "Right" else "Left")
++            for _,y in ipairs({5,13,21,28}) do
++                for _,dz in ipairs({-10,0,10}) do
++                    local stud=part(walls,"SideWallStud",Vector3.new(0.22,0.8,0.8),offset+Vector3.new(side*69.2,y,z+dz),C.white,nil,Enum.PartType.Cylinder)
++                    stud.CanCollide=false
++                end
++            end
++            part(walls,"WallPillar",Vector3.new(1.6,32,1.6),offset+Vector3.new(side*68.8,16,z-16.5),C.white)
++            part(walls,"WallFootrail",Vector3.new(0.8,2,33),offset+Vector3.new(side*69,1.5,z),C.rose)
++            part(walls,"WallCornice",Vector3.new(1,1,34),offset+Vector3.new(side*69,31,z),C.white)
++        end
++    end
++    for _,x in ipairs({-43,43}) do wall("FrontWallPanel",Vector3.new(54,31,1.3),Vector3.new(x,15.7,104),C.lilac,"Front") end
++    sign(walls,"MainMarquee",Vector3.new(67,4.5,0.35),offset+Vector3.new(0,27,-92.8),"CLAW MACHINE EMPIRE",C.rose)
++    sign(walls,"BackWallTagline",Vector3.new(50,1.6,0.3),offset+Vector3.new(0,23.3,-92.7),"25 MACHINES.  ONE CUTE EMPIRE.",C.lilac,C.white)
++    local names={"TOYBOX WELCOME","CREATURE CORNER","SWEET SPACE","DREAM PARADE","INFINITY AVENUE"}
++    for row=1,5 do
++        local z=81-(row-1)*34
++        for _,x in ipairs({-63,63}) do
++            part(walls,"GalleryColumn",Vector3.new(1.3,29,1.3),offset+Vector3.new(x,14.5,z),C.white)
++            part(walls,"ColumnCap",Vector3.new(2.3,0.6,2.3),offset+Vector3.new(x,29,z),C.gold)
++        end
++        part(walls,"CeilingBeam",Vector3.new(127,1,1.4),offset+Vector3.new(0,30,z),C.white)
++        part(walls,"CeilingLight",Vector3.new(38,0.25,1),offset+Vector3.new(0,29.4,z),C.white,Enum.Material.Neon)
++        sign(walls,"GalleryLabel",Vector3.new(25,2.4,0.25),offset+Vector3.new(0,27.4,z),names[row],C.rose)
++    end
++    task.wait()
++end
++local function decorations(root,offset)
++    local decor=folder(root,"HandmadeDecorations")
++    local function p(n,s,v,c,m,shape) return part(decor,n,s,offset+v,c,m,shape) end
++    local function ball(n,s,v,c) return p(n,s,v,c,nil,Enum.PartType.Ball) end
++    local function planter(x,z)
++        cylinder(decor,"PlanterPot",Vector3.new(2.5,3,3),offset+Vector3.new(x,1.6,z),C.white)
++        for i=1,4 do local a=i*math.pi/2; ball("TopiaryLeaf",Vector3.new(2.2,3.3,2.2),Vector3.new(x+math.sin(a)*0.8,4,z+math.cos(a)*0.8),C.mint) end
++    end
++    local function bench(x,z)
++        p("BenchSeat",Vector3.new(4.5,0.5,10),Vector3.new(x,2,z),C.gold)
++        for _,dz in ipairs({-3.7,3.7}) do p("BenchLeg",Vector3.new(2,2,0.5),Vector3.new(x,1,z+dz),C.white) end
++        p("BenchBack",Vector3.new(0.5,2.5,10),Vector3.new(x+(if x&lt;0 then -2 else 2),3.2,z),C.rose)
++    end
++    for _,x in ipairs({-60,60}) do for _,z in ipairs({48,-20,-86}) do planter(x,z) end end
++    for _,x in ipairs({-61,61}) do for _,z in ipairs({14,-54}) do bench(x,z) end end
++    World.plush(decor,"duck",offset+Vector3.new(-59,5.2,94),2.6)
++    World.plush(decor,"mochi",offset+Vector3.new(58,5.2,94),2.6)
++    for _,x in ipairs({-59,58}) do cylinder(decor,"MascotPodium",Vector3.new(2,7,7),offset+Vector3.new(x,1.4,94),C.lilac) end
++    -- A ticket counter, gumball dispenser and vending machine made from parts.
++    p("TicketCounter",Vector3.new(19,5.5,6),Vector3.new(-37,3,94),C.rose)
++    p("CounterTop",Vector3.new(20,0.5,6.6),Vector3.new(-37,6,94),C.white)
++    sign(decor,"TicketSign",Vector3.new(16,2.5,0.2),offset+Vector3.new(-37,3.3,90.9),"WELCOME, COLLECTOR!",C.rose,C.white,Enum.NormalId.Front)
++    p("Register",Vector3.new(3,2.5,2),Vector3.new(-38,7.5,94),C.lilac)
++    p("RegisterScreen",Vector3.new(2.5,1.5,0.2),Vector3.new(-38,7.8,92.9),C.mint)
++    cylinder(decor,"GumballBase",Vector3.new(3.5,2.5,2.5),offset+Vector3.new(-20,2,94),C.rose)
++    local globe=ball("GumballGlobe",Vector3.new(4.8,4.8,4.8),Vector3.new(-20,5.5,94),C.blue); globe.Material=Enum.Material.Glass; globe.Transparency=0.65
++    for i=1,12 do local a=i*2.4; ball("Gumball",Vector3.new(0.65,0.65,0.65),Vector3.new(-20+math.sin(a)*1.2,4.3+(i%3)*0.7,94+math.cos(a)*1.2),({C.rose,C.gold,C.mint,C.lilac})[i%4+1]) end
++    p("GumballCap",Vector3.new(3.2,0.4,3.2),Vector3.new(-20,7.9,94),C.white)
++    p("VendingCabinet",Vector3.new(6.5,11,4),Vector3.new(-6,5.8,95),C.lilac)
++    p("VendingWindow",Vector3.new(4.7,6.3,0.2),Vector3.new(-6.5,6.9,92.8),C.ink)
++    for i=1,6 do p("DrinkCarton",Vector3.new(1,1.5,0.8),Vector3.new(-7.8+(i%3)*1.3,5.5+math.floor((i-1)/3)*2.4,92.5),({C.rose,C.gold,C.mint})[i%3+1]) end
++    sign(decor,"VendingHeader",Vector3.new(6,1.4,0.2),offset+Vector3.new(-6,10.4,92.8),"SODA POP",C.lilac,C.white,Enum.NormalId.Front)
++    for i=1,3 do ball("VendingButton",Vector3.new(0.4,0.4,0.2),Vector3.new(-3.6,5+i,92.7),C.gold) end
++    -- Wall poster graphics, cross-braced toy blocks and anchored balloon bouquets.
++    for _,side in ipairs({-1,1}) do
++        for j,z in ipairs({60,-8,-76}) do
++            local art=sign(decor,"WallPoster",Vector3.new(0.35,6,11),offset+Vector3.new(side*68.2,19,z),({"CATCH\nSOMETHING CUTE","FREE PLAYS\nREFILL AUTOMATICALLY","BUILD YOUR\nDREAM ARCADE"})[j],if j%2==0 then C.blue else C.rose)
++            art.Sign.Face=if side&lt;0 then Enum.NormalId.Right else Enum.NormalId.Left
++        end
++        for j=1,3 do
++            local x=side*58+(j-2)*1.6; local z=81+j*0.6
++            ball("Balloon",Vector3.new(2.5,3.2,2.5),Vector3.new(x,13+j%2,z),({C.pink,C.gold,C.mint})[j])
++            beam(decor,"BalloonString",offset+Vector3.new(side*58,0.6,83),offset+Vector3.new(x,11.6+j%2,z),0.06,C.white)
++        end
++    end
++    -- Eight display positions live in the entrance lounge, away from the lanes.
++    local shelf=folder(root,"DisplayPlushies")
++    for row=0,1 do
++        p("DisplayShelf",Vector3.new(22,0.65,5.5),Vector3.new(22,3.2+row*4.5,92),C.white)
++        p("ShelfLip",Vector3.new(22,0.3,0.3),Vector3.new(22,3.6+row*4.5,89.2),C.mint)
++    end
++    for _,x in ipairs({11.5,32.5}) do p("ShelfUpright",Vector3.new(0.6,10,1),Vector3.new(x,5,94),C.lilac) end
++    sign(decor,"ShelfHeading",Vector3.new(23,2.5,0.25),offset+Vector3.new(22,11.4,92),"YOUR CUTE CREW",C.rose,C.white,Enum.NormalId.Front)
++    local _,income=sign(decor,"IncomeSign",Vector3.new(22,1.7,0.25),offset+Vector3.new(22,1.7,89.1),"DISPLAY PLUSHIES TO EARN!",C.lilac,C.white,Enum.NormalId.Front)
++    local terminal=p("CollectTerminal",Vector3.new(5,3,4),Vector3.new(40,1.8,87),C.mint)
++    sign(decor,"CollectLabel",Vector3.new(4.6,1.6,0.2),offset+Vector3.new(40,3,84.8),"COLLECT",C.mint,C.white,Enum.NormalId.Front)
++    local prompt=Instance.new("ProximityPrompt"); prompt.Name="CollectIncome"; prompt.ActionText="Collect shelf bank"; prompt.ObjectText="Your arcade income"
++    prompt.MaxActivationDistance=12; prompt.RequiresLineOfSight=false; prompt.Parent=terminal
++    return shelf,income,prompt
+ end
+ function World.build(parent,name,offset)
+-    local root=Instance.new("Model"); root.Name=name; root.Parent=parent
+-    local function p(n,s,v,c,m) return part(root,n,s,offset+v,c,m) end
+-    p("Foundation",Vector3.new(94,1,78),Vector3.new(0,-0.5,0),C.navy)
+-    p("MainFloor",Vector3.new(90,0.2,74),Vector3.new(0,0.1,0),C.floor)
+-    for x=-4,4 do for z=-3,3 do
+-        if (x+z)%2==0 then p("FloorTile",Vector3.new(9.8,0.04,9.8),Vector3.new(x*10,0.23,z*10),Color3.fromRGB(56,52,94)) end
+-    end end
+-    p("BackWall",Vector3.new(92,29,1),Vector3.new(0,14,-36.5),C.navy)
+-    for _,x in ipairs({-44,44}) do
+-        p("LightRail",Vector3.new(0.25,0.16,73),Vector3.new(x,0.45,0),C.mint,Enum.Material.Neon)
+-        p("PortalPillar",Vector3.new(1.5,26,1.5),Vector3.new(x,13,-35),C.pink,Enum.Material.Neon)
+-    end
+-    for i=-4,4 do p("WallStripe",Vector3.new(0.3,21,0.2),Vector3.new(i*9,11,-35.8),if i%2==0 then C.pink else C.mint,Enum.Material.Neon) end
+-    sign(root,"MarqueeShadow",Vector3.new(71,6.5,0.5),offset+Vector3.new(0,24,-35.4),"CLAW MACHINE EMPIRE",C.navy,C.white)
+-    sign(root,"Subheading",Vector3.new(50,2.2,0.2),offset+Vector3.new(0,19.3,-35),"CATCH CUTE.  BUILD BIG.",C.navy,C.mint)
+-    p("HeroRugOutline",Vector3.new(61,0.12,13),Vector3.new(-10,0.4,9),C.navy)
+-    p("HeroRug",Vector3.new(60,0.12,12),Vector3.new(-10,0.48,9),Color3.fromRGB(102,69,151))
+-    for i=-2,2 do p("RugDash",Vector3.new(7,0.05,0.3),Vector3.new(i*11-10,0.57,14),C.gold,Enum.Material.Neon) end
+-    local machines={cabinet(root,offset+Vector3.new(-23,0,-14),1),cabinet(root,offset+Vector3.new(-4,0,-14),2)}
+-    -- A clearly labeled future bay, not an interactable unfinished button.
+-    p("FutureBay",Vector3.new(14,0.6,13),Vector3.new(15,0.5,-14),C.navy)
+-    sign(root,"FutureSign",Vector3.new(13,5,0.4),offset+Vector3.new(15,10,-16),"NEON CLAW\nBUILD 02",C.navy,C.pink)
+-    local shelf=Instance.new("Folder"); shelf.Name="DisplayPlushies"; shelf.Parent=root
+-    for row=0,1 do
+-        p("ShelfOutline",Vector3.new(21,0.9,6),Vector3.new(31,3+row*5,4),C.navy)
+-        p("Shelf",Vector3.new(20.5,0.3,5.8),Vector3.new(31,3.6+row*5,4),C.white)
+-        p("ShelfGlow",Vector3.new(20.5,0.2,0.2),Vector3.new(31,3.7+row*5,7),C.mint,Enum.Material.Neon)
+-    end
+-    sign(root,"ShelfHeader",Vector3.new(22,3.2,0.5),offset+Vector3.new(31,13,4),"THE CUTE CREW",C.navy,C.gold)
+-    local _,income=sign(root,"IncomeSign",Vector3.new(22,2.3,0.5),offset+Vector3.new(31,1.7,7),"DISPLAY PLUSHIES TO EARN!",C.navy,C.mint)
+-    for _,x in ipairs({21.5,40.5}) do p("ShelfLeg",Vector3.new(0.8,9,1),Vector3.new(x,4.5,3),C.navy) end
+-    p("CollectPedestal",Vector3.new(10,2,6),Vector3.new(29,1,16),C.navy)
+-    sign(root,"CollectSign",Vector3.new(9.5,2.3,0.2),offset+Vector3.new(29,2,19.1),"SHELF BANK",C.mint,C.navy)
+-    local spawn=Instance.new("SpawnLocation"); spawn.Name="ArcadeSpawn"; spawn.Size=Vector3.new(6,0.2,6)
+-    spawn.Position=offset+Vector3.new(0,0.6,27); spawn.Anchored=true; spawn.Transparency=1
++    local root=folder(parent,name); root:SetAttribute("Build","02 - TOYBOX ARCADE")
++    architecture(root,offset)
++    local shelf,income,collectPrompt=decorations(root,offset)
++    local machines={}
++    for i,spec in ipairs(Config.Machines) do
++        machines[i]=cabinet(root,offset+Vector3.new(table.unpack(spec.position)),i)
++        if i%5==0 then task.wait() end
++    end
++    local spawn=Instance.new("SpawnLocation"); spawn.Name="ArcadeSpawn"; spawn.Size=Vector3.new(5,0.2,5)
++    spawn.Position=offset+Vector3.new(-44,0.8,77); spawn.Anchored=true; spawn.Transparency=1
+     spawn.CanCollide=false; spawn.Neutral=true; spawn.Duration=0; spawn.Parent=root
+-    local confettiColors={C.mint,C.pink,C.gold}
+-    for i=1,12 do
+-        local disc=p("ConfettiTile",Vector3.new(0.7,0.03,1.8),Vector3.new((i*17)%70-35,0.38,(i*11)%24+11),confettiColors[i%3+1])
+-        disc.Orientation=Vector3.new(0,i*37,0)
+-    end
+-    return {root=root,offset=offset,machines=machines,shelf=shelf,income=income,spawn=spawn}
++    return {root=root,offset=offset,machines=machines,shelf=shelf,income=income,spawn=spawn,collectPrompt=collectPrompt}
+ end
+ function World.shelves(plot,state)
+     plot.shelf:ClearAllChildren()
+-    for i,id in ipairs(state.display) do
+-        for _,item in ipairs(state.inventory) do
+-            if item.id==id then
+-                World.plush(plot.shelf,item.species,plot.offset+Vector3.new(23.5+((i-1)%4)*5,5.1+math.floor((i-1)/4)*5,4),1)
+-                break
+-            end
+-        end
+-    end
++    for i,id in ipairs(state.display) do for _,item in ipairs(state.inventory) do if item.id==id then
++        local plush=World.plush(plot.shelf,item.species,plot.offset+Vector3.new(14.5+((i-1)%4)*5,4.7+math.floor((i-1)/4)*4.5,92),0.95)
++        plush:PivotTo(plush:GetPivot()*CFrame.Angles(0,math.pi,0)); break
++    end end end
+ end
+ function World.targets(plot,tier,targets)
+     local machine=plot.machines[tier]; machine.prizes:ClearAllChildren()
+@@ -467,11 +791,10 @@
+ end
+ function World.unlock(plot,tier)
+     local machine=plot.machines[tier]
+-    machine.status.Text="READY TO PLAY!"; machine.status.TextColor3=C.mint
++    machine.status.Text="FREE PLAYS!"; machine.status.TextColor3=C.ink; machine.prompt.ActionText="Play free"
+     for _,p in ipairs(machine.root:GetDescendants()) do
+         if p:IsA("BasePart") and p.Name=="LED" then
+-            p.Color=C.gold
+-            TweenService:Create(p,TweenInfo.new(1,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut,2,true),{Color=C.pink}):Play()
++            TweenService:Create(p,TweenInfo.new(0.6,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut,2,true),{Color=C.mint}):Play()
+         end
+     end
+ end
+@@ -549,11 +872,22 @@
+ local plots=Instance.new("Folder"); plots.Name="ClawEmpirePlots"; plots.Parent=workspace
+ local preview=workspace:FindFirstChild("ClawEmpirePreview"); if preview then preview:Destroy() end
+ local sessionOnly=RunService:IsStudio() and Config.StudioSessionOnly
++local resumed={}
+ local backend
+ if sessionOnly then
+     local records={}
+     backend={UpdateAsync=function(_,key,transform)
+-        local nextValue=transform(ProfileStore.copy(records[key]))
++        local previous=records[key]
++        -- Optional explicit developer snapshot. Never consulted outside Studio.
++        if previous==nil then
++            local resume=game.ServerStorage:FindFirstChild("CME_StudioResume")
++            local entry=resume and resume:GetAttribute("Enabled")==true and resume:FindFirstChild(key)
++            if entry and entry:IsA("StringValue") then
++                local ok,decoded=pcall(HttpService.JSONDecode,HttpService,entry.Value)
++                if ok and Economy.validate(decoded) then previous={data=decoded}; resumed[key]=true end
++            end
++        end
++        local nextValue=transform(ProfileStore.copy(previous))
+         if nextValue==nil then return nil end
+         records[key]=ProfileStore.copy(nextValue); return ProfileStore.copy(nextValue)
+     end}
+@@ -568,8 +902,9 @@
+     update:FireClient(player,{state=p.session.data,attempts=p.attempts,
+         nextAttempt=math.max(0,Config.AttemptRefillSeconds-(os.clock()-p.lastRefill)),
+         round=p.round and {id=p.round.id,phase=p.round.phase,x=p.round.x,z=p.round.z,
+-            remaining=math.max(0,p.round.expires-os.clock()),targets=p.round.targets} or false,
+-        offset=p.plot.offset,sessionOnly=sessionOnly,message=message,kind=kind})
++            remaining=math.max(0,p.round.expires-os.clock()),targets=p.round.targets,
++            machine=p.round.tier,origin=p.plot.machines[p.round.tier].origin} or false,
++        offset=p.plot.offset,sessionOnly=sessionOnly,studioSnapshot=resumed["u_"..player.UserId]==true,message=message,kind=kind})
+ end
+ local function healthy(p)
+     return not p.leaving and not p.session.closed and p.session.expires&gt;os.time()+20
+@@ -578,7 +913,10 @@
+     local char=player.Character
+     local root=char and char:FindFirstChild("HumanoidRootPart")
+     local hum=char and char:FindFirstChildOfClass("Humanoid")
+-    return root and hum and hum.Health&gt;0 and (root.Position-p.plot.offset).Magnitude&lt;70
++    if not root or not hum or hum.Health&lt;=0 then return false end
++    local localPos=root.Position-p.plot.offset
++    return math.abs(localPos.X)&lt;Config.Bounds.halfWidth and localPos.Z&gt;Config.Bounds.back
++        and localPos.Z&lt;Config.Bounds.front and localPos.Y&gt;-4 and localPos.Y&lt;45
+ end
+ local function shelf(p)
+     World.shelves(p.plot,p.session.data)
+@@ -596,7 +934,7 @@
+         table.insert(targets,{x=x,z=z,species=species})
+     end end
+     p.round={id=HttpService:GenerateGUID(false),phase="aim",x=0,z=0,dx=0,dz=0,
+-        expires=os.clock()+Config.RoundSeconds,targets=targets,tier=p.session.data.machine}
++        expires=os.clock()+Config.RoundSeconds,targets=targets,tier=Economy.selected(p.session.data)}
+     World.targets(p.plot,p.round.tier,targets); World.aim(p.plot,p.round.tier,0,0)
+     return true,if p.session.data.totalCatches==0 then "Aim, then DROP! Your first duck is in the center."
+         else "Aim over a plushie, then DROP! These plays are always free."
+@@ -652,6 +990,9 @@
+     elseif action=="unlock" then
+         if p.round then ok,message=false,"Finish your round before unlocking a machine."
+         else ok,message=Economy.unlock(p.session.data); if ok then World.unlock(p.plot,p.session.data.machine) end end
++    elseif action=="select" then
++        if p.round then ok,message=false,"Finish this round before switching machines."
++        else ok,message=Economy.select(p.session.data,payload) end
+     elseif action=="upgrade" then
+         if type(payload)~="string" or #payload&gt;20 then return end
+         ok,message=Economy.upgrade(p.session.data,payload); if ok then shelf(p) end
+@@ -675,10 +1016,32 @@
+         if player.Parent==Players then player:Kick(err or "Profile load interrupted") end
+         return
+     end
+-    local plot=World.build(plots,"Arcade_"..player.UserId,Vector3.new((slot-1)*140,0,0))
++    local plot=World.build(plots,"Arcade_"..player.UserId,Vector3.new((slot-1)*Config.PlotSpacing,0,0))
+     local p={session=session,plot=plot,slot=slot,attempts=Config.FreeAttempts,lastRefill=os.clock(),
+         tokens=24,lastToken=os.clock(),lastAction=0,lastSave=os.clock(),tickAt=os.clock()}
+     active[player]=p; player.RespawnLocation=plot.spawn
++    for tier,machine in ipairs(plot.machines) do
++        machine.prompt.Triggered:Connect(function(who)
++            if who~=player or not healthy(p) or not inside(player,p) or p.round then return end
++            local char=player.Character; local root=char and char:FindFirstChild("HumanoidRootPart")
++            if not root or (root.Position-(machine.origin+Vector3.new(0,4,7))).Magnitude&gt;18 then return end
++            local ok,message
++            if tier&lt;=p.session.data.machine then
++                ok,message=Economy.select(p.session.data,tier)
++                if ok then ok,message=startRound(player,p) end
++            elseif tier==p.session.data.machine+1 then
++                ok,message=Economy.unlock(p.session.data)
++                if ok then World.unlock(plot,tier) end
++            else ok,message=false,"Unlock the machines in gallery order first." end
++            send(player,message,if ok then "success" else "error")
++        end)
++    end
++    plot.collectPrompt.Triggered:Connect(function(who)
++        if who~=player or not healthy(p) or not inside(player,p) then return end
++        local root=player.Character and player.Character:FindFirstChild("HumanoidRootPart")
++        if not root or (root.Position-plot.collectPrompt.Parent.Position).Magnitude&gt;16 then return end
++        local _,message=Economy.collect(p.session.data); send(player,message,"success")
++    end)
+     local function spawnCharacter(character)
+         local root=character:WaitForChild("HumanoidRootPart",10)
+         if root then character:PivotTo(CFrame.new(plot.spawn.Position+Vector3.new(0,4,0))) end
+@@ -796,6 +1159,8 @@
+     white=Color3.fromRGB(251,250,255),muted=Color3.fromRGB(173,171,200)}
+ local latest,panelName,lastRoundId,offset=nil,nil,nil,Vector3.zero
+ local keys,held={},{}
++local overview=false
++local frozenHumanoid,previousSpeed
+ local cameraState=Instance.new("CFrameValue")
+ cameraState.Value=CFrame.lookAt(Vector3.new(48,35,65),Vector3.new(0,9,-9))
+ local controls
+@@ -839,7 +1204,7 @@
+ end
+ local title=text(root,"Title","CLAW MACHINE\nEMPIRE",UDim2.fromOffset(24,12),UDim2.fromOffset(330,92),34)
+ title.TextXAlignment=Enum.TextXAlignment.Left
+-local buildLabel=text(root,"BuildLabel","BUILD 01  /  FIRST CATCH",UDim2.fromOffset(26,104),UDim2.fromOffset(300,22),15,C.mint)
++local buildLabel=text(root,"BuildLabel","BUILD 02  /  25 TOYBOX MACHINES",UDim2.fromOffset(26,104),UDim2.fromOffset(310,22),15,C.mint)
+ buildLabel.TextXAlignment=Enum.TextXAlignment.Left
+ local stats={}
+ for i,spec in ipairs({{"Coins","COINS",C.yellow},{"Bank","SHELF BANK",C.mint},{"Rate","PER SECOND",C.cyan}}) do
+@@ -872,6 +1237,9 @@
+ end)
+ local attempts=text(root,"Attempts","3 FREE PLAYS  /  RECHARGE: 12s",UDim2.new(0.5,-210,1,-30),UDim2.fromOffset(420,22),16,C.white)
+ local collect=button(root,"Collect","COLLECT  $0",UDim2.new(1,-282,1,-112),UDim2.fromOffset(258,58),C.yellow,function() request:FireServer("collect") end)
++local viewButton=button(root,"CameraMode","MAP VIEW",UDim2.new(0,24,1,-105),UDim2.fromOffset(166,52),C.cyan,function()
++    overview=not overview
++end)
+ local status=frame(root,"Toast",UDim2.new(0.5,0,0,137),UDim2.fromOffset(600,50),C.navy)
+ status.AnchorPoint=Vector2.new(0.5,0); stroke(status,C.mint,2)
+ local statusText=text(status,"Message","Ready for your first catch? Press PLAY CLAW!",UDim2.fromOffset(12,5),UDim2.new(1,-24,1,-10),19)
+@@ -904,8 +1272,8 @@
+ end
+ local w,h,phone=1440,800,false
+ local function homeCamera()
+-    return if phone then CFrame.lookAt(offset+Vector3.new(14,36,82),offset+Vector3.new(-8,9,-10))
+-        else CFrame.lookAt(offset+Vector3.new(48,35,65),offset+Vector3.new(0,9,-9))
++    return if phone then CFrame.lookAt(offset+Vector3.new(105,240,320),offset+Vector3.new(0,0,2))
++        else CFrame.lookAt(offset+Vector3.new(115,142,180),offset+Vector3.new(0,0,0))
+ end
+ local function layout()
+     local viewport=gui.AbsoluteSize
+@@ -914,6 +1282,10 @@
+     local s=if phone or short then 1 else math.clamp(viewport.X/1440,0.85,1.3)
+     scale.Scale=s; w,h=viewport.X/s,viewport.Y/s
+     root.Size=UDim2.fromOffset(w,h)
++    viewButton.Visible=not short and not (latest and latest.round)
++    viewButton.Position=if phone then UDim2.new(1,-108,1,-187) else UDim2.new(0,24,1,-105)
++    viewButton.Size=if phone then UDim2.fromOffset(96,44) else UDim2.fromOffset(166,52)
++    viewButton.TextSize=if phone then 16 else 21
+     panel.Size=UDim2.fromOffset(if phone then w-20 else math.min(760,w-380),math.max(250,math.min(520,h-180)))
+     status.Size=UDim2.fromOffset(if phone then w-24 else math.min(600,w-390),if phone then 56 else 50)
+     if phone then
+@@ -1046,15 +1418,21 @@
+             end
+         end
+     elseif panelName=="Machines" then
++        local info=row("MachineCount",72,C.navy)
++        rowText(info,state.machine.." / 25 MACHINES OWNED",8,if phone then 18 else 23,C.yellow)
++        rowText(info,"Walk up and press E, or select an owned cabinet below.",42,if phone then 12 else 15,C.white)
+         for i,spec in ipairs(Config.Machines) do
+             local f=row(spec.id,140,Color3.fromRGB(table.unpack(spec.color)))
+             rowText(f,spec.name,12,27)
+-            rowText(f,if i&lt;=state.machine then "OWNED  /  FREE CLAW PLAYS" else "Unlock for $"..spec.cost.." earned coins",52,16)
++            rowText(f,if i&lt;=state.machine then "OWNED  /  FREE CLAW PLAYS" else "Unlock for $"..Big.format(Big.new(spec.cost)).." earned coins",52,16)
+             if i==state.machine+1 then
+-                button(f,"Unlock","UNLOCK  $"..spec.cost,UDim2.fromOffset(16,87),UDim2.new(1,-32,0,44),C.mint,function() request:FireServer("unlock") end).TextSize=20
+-            else rowText(f,if i==state.machine then "CURRENT MACHINE" else "COMPLETED",92,18) end
+-        end
+-        local f=row("Next",95,C.navy); rowText(f,"NEXT: NEON CLAW",10,23,C.pink); rowText(f,"Build 02 adds more tiers. Not playable yet.",51,15,C.white)
++                button(f,"Unlock","UNLOCK  $"..Big.format(Big.new(spec.cost)),UDim2.fromOffset(16,87),UDim2.new(1,-32,0,44),C.mint,function() request:FireServer("unlock") end).TextSize=20
++            elseif i&lt;=state.machine then
++                if i==Economy.selected(state) then rowText(f,"CURRENT MACHINE",92,18)
++                else button(f,"Select","USE MACHINE",UDim2.fromOffset(16,87),UDim2.new(1,-32,0,44),C.cyan,function() request:FireServer("select",i) end).TextSize=19 end
++            else rowText(f,"UNLOCK EARLIER MACHINES FIRST",92,if phone then 13 else 17) end
++        end
++        local f=row("Next",95,C.navy); rowText(f,"25 THEMES. ALL EARNABLE.",10,if phone then 19 else 23,C.pink); rowText(f,"Every owned machine has free replenishing plays.",51,if phone then 13 else 15,C.white)
+     elseif panelName=="Upgrades" then
+         for _,key in ipairs({"speed","shelves"}) do
+             local spec=Config.Upgrades[key]; local level=state.upgrades[key]
+@@ -1092,28 +1470,37 @@
+     stats.Coins.Text="$"..Big.format(state.coins); stats.Bank.Text="$"..Big.format(state.bank)
+     stats.Rate.Text="$"..Big.format(Economy.rate(state))
+     collect.Text="COLLECT  $"..Big.format(state.bank)
+-    mode.Text=if data.sessionOnly then "STUDIO DEMO  /  PROGRESS RESETS WHEN PLAY STOPS" else "PERSISTENT ARCADE  /  AUTOSAVE ON"
++    mode.Text=if data.sessionOnly then (if data.studioSnapshot then "STUDIO DEMO  /  DEV SNAPSHOT RESTORED" else "STUDIO DEMO  /  PROGRESS RESETS WHEN PLAY STOPS") else "PERSISTENT ARCADE  /  AUTOSAVE ON"
+     local roundData=data.round
+     aimPanel.Visible=roundData~=false; dpad.Visible=roundData~=false; exit.Visible=roundData~=false
+     nav.Visible=roundData==false; collect.Visible=roundData==false
++    viewButton.Visible=roundData==false and h&gt;=500
++    viewButton.Text=if overview then "WALK VIEW" else "MAP VIEW"
+     tutorial.Visible=roundData==false and not phone and h&gt;=650
+     local newId=roundData and roundData.id or nil
+     if newId~=lastRoundId then
+         keys={}; held={}; panelName=nil; panel.Visible=false
+         if controls then if newId then controls:Disable() else controls:Enable() end end
++        if newId then
++            frozenHumanoid=player.Character and player.Character:FindFirstChildOfClass("Humanoid")
++            if frozenHumanoid then previousSpeed=frozenHumanoid.WalkSpeed; frozenHumanoid.WalkSpeed=0 end
++        elseif frozenHumanoid and frozenHumanoid.Parent then
++            frozenHumanoid.WalkSpeed=previousSpeed or 16; frozenHumanoid=nil
++        end
+         if roundData then drawTargets(roundData.targets) end
+         lastRoundId=newId
+         local target
+         if newId then
+-            local x=if state.machine==1 then -23 else -4
+-            target=CFrame.lookAt(offset+Vector3.new(x,33,2),offset+Vector3.new(x,7,-14))
++            target=CFrame.lookAt(roundData.origin+Vector3.new(0,27,13),roundData.origin+Vector3.new(0,7,0))
+         else target=homeCamera() end
+         local plotFolder=workspace:FindFirstChild("ClawEmpirePlots")
+         local ownPlot=plotFolder and plotFolder:FindFirstChild("Arcade_"..player.UserId)
+         if ownPlot then
+             for _,p in ipairs(ownPlot:GetDescendants()) do
+-                if p:IsA("BasePart") and (p.Name=="TopCapOutline" or p.Name=="TopCap" or p.Name=="Header") then
++                if p:IsA("BasePart") and p:GetAttribute("AimOccluder") then
+                     p.LocalTransparencyModifier=if newId then 1 else 0
++                    local surface=p:FindFirstChild("Sign")
++                    if surface and surface:IsA("SurfaceGui") then surface.Enabled=newId==nil end
+                 end
+             end
+         end
+@@ -1124,11 +1511,11 @@
+         play.Active=roundData.phase=="aim"
+         timer.Text=if roundData.phase=="drop" then "FINGERS CROSSED!" else "AIM  /  "..math.ceil(roundData.remaining).."s"
+         cursor.Position=UDim2.fromScale((roundData.x+4)/8,(roundData.z+3)/6)
+-    else play.Text="PLAY "..(if state.machine==1 then "RUSTY" else "CLASSIC").."  &gt;"; play.Active=true end
++    else play.Text="PLAY "..Config.Machines[Economy.selected(state)].short.."  &gt;"; play.Active=true end
+     attempts.Text=data.attempts.." FREE PLAYS  /  "..(if data.attempts&gt;=Config.FreeAttempts then "FULLY CHARGED" else "NEXT PLAY IN "..math.ceil(data.nextAttempt).."s")
+     tutorialBody.Text=(if state.totalCatches&gt;0 then "[OK]" else "1").."  CATCH A PLUSHIE\n"..
+         (if #state.display&gt;0 then "[OK]" else "2").."  DISPLAY IT\n3  COLLECT YOUR INCOME\n"..
+-        (if state.machine&gt;1 then "[OK]  CLASSIC UNLOCKED!" else "4  UNLOCK CLASSIC  $250")
++        (if state.machine&gt;1 then state.machine.." / 25 MACHINES OWNED" else "4  UNLOCK CLASSIC  $250")
+     if data.message then
+         toast(data.message,if data.kind=="error" or data.kind=="miss" then C.pink else C.mint)
+         if data.kind=="catch" then
+@@ -1141,10 +1528,13 @@
+             task.delay(0.9,function() if not (latest and latest.round) then indexMode=false; open("Plushies") end end)
+         end
+     end
+-    local viewKey=panelName and (panelName..":"..#state.inventory..":"..table.concat(state.display,",")..":"..state.machine..":"..state.upgrades.speed..":"..state.upgrades.shelves) or ""
++    local viewKey=panelName and (panelName..":"..#state.inventory..":"..table.concat(state.display,",")..":"..state.machine..":"..Economy.selected(state)..":"..state.upgrades.speed..":"..state.upgrades.shelves) or ""
+     if viewKey~=lastViewKey then lastViewKey=viewKey; rebuild() end
+ end)
+ UIS.InputBegan:Connect(function(input,processed)
++    if not processed and input.KeyCode==Enum.KeyCode.V and latest and not latest.round then
++        overview=not overview; viewButton.Text=if overview then "WALK VIEW" else "MAP VIEW"
++    end
+     if processed or not latest or not latest.round then return end
+     keys[input.KeyCode]=true
+     if input.KeyCode==Enum.KeyCode.Space then request:FireServer("drop") end
+@@ -1167,7 +1557,13 @@
+ local camera=workspace.CurrentCamera
+ RunService:BindToRenderStep("ClawEmpireCamera",Enum.RenderPriority.Camera.Value+1,function()
+     local cam=workspace.CurrentCamera
+-    cam.CameraType=Enum.CameraType.Scriptable; cam.CFrame=cameraState.Value; cam.FieldOfView=60
++    if overview or (latest and latest.round) then
++        cam.CameraType=Enum.CameraType.Scriptable; cam.CFrame=cameraState.Value; cam.FieldOfView=60
++    else
++        cam.CameraType=Enum.CameraType.Custom; cam.FieldOfView=70
++        local hum=player.Character and player.Character:FindFirstChildOfClass("Humanoid")
++        if hum then cam.CameraSubject=hum end
++    end
+ end)
+ gui:GetPropertyChangedSignal("AbsoluteSize"):Connect(function() layout(); if panelName then rebuild() end end)
+ layout()

@@ -1,0 +1,653 @@
+# Complete Note Index
+
+Every source note and generated API/code companion is listed below.
+
+
+## Repository overview (4)
+
+- [Guide for AI assistants (Claude Code, Codex, others)](Source/AI-GUIDE.md) — `AI-GUIDE.md`
+- [Index of everything](Source/INDEX.md) — `INDEX.md`
+- [Open-source libraries, plugins and asset sources](Source/libraries.md) — `libraries.md`
+- [roblox stuff for your ai](Source/README.md) — `README.md`
+
+## animations (35)
+
+- [1. Button Hover Scale](Source/animations/01-button-hover-scale/README.md) — `animations/01-button-hover-scale/README.md`
+- [2. Click Squash and Stretch](Source/animations/02-click-squash-and-stretch/README.md) — `animations/02-click-squash-and-stretch/README.md`
+- [3. Pop-in Spring Open](Source/animations/03-pop-in-spring-open/README.md) — `animations/03-pop-in-spring-open/README.md`
+- [4. Slide Panel](Source/animations/04-slide-panel/README.md) — `animations/04-slide-panel/README.md`
+- [5. Error Shake](Source/animations/05-error-shake/README.md) — `animations/05-error-shake/README.md`
+- [6. Currency Count-up](Source/animations/06-currency-count-up/README.md) — `animations/06-currency-count-up/README.md`
+- [7. Floating Plus-N Popup](Source/animations/07-floating-plus-n-popup/README.md) — `animations/07-floating-plus-n-popup/README.md`
+- [8. Reward Chest Open](Source/animations/08-reward-chest-open/README.md) — `animations/08-reward-chest-open/README.md`
+- [9. Rainbow Gradient Cycle](Source/animations/09-rainbow-gradient-cycle/README.md) — `animations/09-rainbow-gradient-cycle/README.md`
+- [10. Shine Sweep](Source/animations/10-shine-sweep/README.md) — `animations/10-shine-sweep/README.md`
+- [11. Tab Switch](Source/animations/11-tab-switch/README.md) — `animations/11-tab-switch/README.md`
+- [12. Toast Slide](Source/animations/12-toast-slide/README.md) — `animations/12-toast-slide/README.md`
+- [13. Egg Hatch Shake](Source/animations/13-egg-hatch-shake/README.md) — `animations/13-egg-hatch-shake/README.md`
+- [14. Wheel Spin](Source/animations/14-wheel-spin/README.md) — `animations/14-wheel-spin/README.md`
+- [15. Progress Bar Fill](Source/animations/15-progress-bar-fill/README.md) — `animations/15-progress-bar-fill/README.md`
+- [16. Idle Breathing](Source/animations/16-idle-breathing/README.md) — `animations/16-idle-breathing/README.md`
+- [17. Run Cycle Lean](Source/animations/17-run-cycle-lean/README.md) — `animations/17-run-cycle-lean/README.md`
+- [18. Jump Squash](Source/animations/18-jump-squash/README.md) — `animations/18-jump-squash/README.md`
+- [19. Punch Combo](Source/animations/19-punch-combo/README.md) — `animations/19-punch-combo/README.md`
+- [20. Sword Swing Combo](Source/animations/20-sword-swing-combo/README.md) — `animations/20-sword-swing-combo/README.md`
+- [21. Dodge Roll](Source/animations/21-dodge-roll/README.md) — `animations/21-dodge-roll/README.md`
+- [22. Hit Reaction Flinch](Source/animations/22-hit-reaction-flinch/README.md) — `animations/22-hit-reaction-flinch/README.md`
+- [23. Death and Ragdoll](Source/animations/23-death-and-ragdoll/README.md) — `animations/23-death-and-ragdoll/README.md`
+- [24. Emote Dance](Source/animations/24-emote-dance/README.md) — `animations/24-emote-dance/README.md`
+- [25. Victory Pose](Source/animations/25-victory-pose/README.md) — `animations/25-victory-pose/README.md`
+- [26. Tool Equip Animation](Source/animations/26-tool-equip-animation/README.md) — `animations/26-tool-equip-animation/README.md`
+- [27. Cast Spell](Source/animations/27-cast-spell/README.md) — `animations/27-cast-spell/README.md`
+- [28. Block and Parry](Source/animations/28-block-and-parry/README.md) — `animations/28-block-and-parry/README.md`
+- [29. Dash and Slide](Source/animations/29-dash-and-slide/README.md) — `animations/29-dash-and-slide/README.md`
+- [30. Sprint Camera Feel](Source/animations/30-sprint-camera-feel/README.md) — `animations/30-sprint-camera-feel/README.md`
+- [31. Mount and Ride](Source/animations/31-mount-and-ride/README.md) — `animations/31-mount-and-ride/README.md`
+- [32. Boss Telegraph Windup](Source/animations/32-boss-telegraph-windup/README.md) — `animations/32-boss-telegraph-windup/README.md`
+- [33. 2D Sprite Reference Sets](Source/animations/33-2d-sprite-reference-sets/README.md) — `animations/33-2d-sprite-reference-sets/README.md`
+- [Roblox Animation Catalog](Source/animations/ANIMATIONS.md) — `animations/ANIMATIONS.md`
+- [25 additional animation references](Source/animations/EXTRA-REFERENCES.md) — `animations/EXTRA-REFERENCES.md`
+
+## cookbook (24)
+
+- [01-play-with-markers](Source/cookbook/animation/01-play-with-markers.luau.md) — `cookbook/animation/01-play-with-markers.luau.md`
+- [02-combo-client](Source/cookbook/animation/02-combo-client.luau.md) — `cookbook/animation/02-combo-client.luau.md`
+- [01-camera-cutscene](Source/cookbook/cutscene/01-camera-cutscene.luau.md) — `cookbook/cutscene/01-camera-cutscene.luau.md`
+- [02-letterbox](Source/cookbook/cutscene/02-letterbox.luau.md) — `cookbook/cutscene/02-letterbox.luau.md`
+- [03-camera-shake](Source/cookbook/cutscene/03-camera-shake.luau.md) — `cookbook/cutscene/03-camera-shake.luau.md`
+- [04-fov-sprint](Source/cookbook/cutscene/04-fov-sprint.luau.md) — `cookbook/cutscene/04-fov-sprint.luau.md`
+- [Luau cookbook](Source/cookbook/README.md) — `cookbook/README.md`
+- [01-play-with-variation](Source/cookbook/sfx/01-play-with-variation.luau.md) — `cookbook/sfx/01-play-with-variation.luau.md`
+- [02-soundgroup-mix](Source/cookbook/sfx/02-soundgroup-mix.luau.md) — `cookbook/sfx/02-soundgroup-mix.luau.md`
+- [03-positional-sound](Source/cookbook/sfx/03-positional-sound.luau.md) — `cookbook/sfx/03-positional-sound.luau.md`
+- [04-ui-sound-bus](Source/cookbook/sfx/04-ui-sound-bus.luau.md) — `cookbook/sfx/04-ui-sound-bus.luau.md`
+- [01-hover-scale](Source/cookbook/ui/01-hover-scale.luau.md) — `cookbook/ui/01-hover-scale.luau.md`
+- [02-pop-in-open](Source/cookbook/ui/02-pop-in-open.luau.md) — `cookbook/ui/02-pop-in-open.luau.md`
+- [03-count-up](Source/cookbook/ui/03-count-up.luau.md) — `cookbook/ui/03-count-up.luau.md`
+- [04-shine-sweep](Source/cookbook/ui/04-shine-sweep.luau.md) — `cookbook/ui/04-shine-sweep.luau.md`
+- [05-error-shake](Source/cookbook/ui/05-error-shake.luau.md) — `cookbook/ui/05-error-shake.luau.md`
+- [06-responsive-scale](Source/cookbook/ui/06-responsive-scale.luau.md) — `cookbook/ui/06-responsive-scale.luau.md`
+- [07-toast-stack](Source/cookbook/ui/07-toast-stack.luau.md) — `cookbook/ui/07-toast-stack.luau.md`
+- [01-hit-spark](Source/cookbook/vfx/01-hit-spark.luau.md) — `cookbook/vfx/01-hit-spark.luau.md`
+- [02-shockwave-ring](Source/cookbook/vfx/02-shockwave-ring.luau.md) — `cookbook/vfx/02-shockwave-ring.luau.md`
+- [03-lightning-beam](Source/cookbook/vfx/03-lightning-beam.luau.md) — `cookbook/vfx/03-lightning-beam.luau.md`
+- [04-weapon-trail](Source/cookbook/vfx/04-weapon-trail.luau.md) — `cookbook/vfx/04-weapon-trail.luau.md`
+- [05-confetti](Source/cookbook/vfx/05-confetti.luau.md) — `cookbook/vfx/05-confetti.luau.md`
+- [06-tween-particle-numbersequence](Source/cookbook/vfx/06-tween-particle-numbersequence.luau.md) — `cookbook/vfx/06-tween-particle-numbersequence.luau.md`
+
+## cutscenes (20)
+
+- [1. Intro Fly-over](Source/cutscenes/01-intro-fly-over/README.md) — `cutscenes/01-intro-fly-over/README.md`
+- [2. Dolly Tracking Shot](Source/cutscenes/02-dolly-tracking-shot/README.md) — `cutscenes/02-dolly-tracking-shot/README.md`
+- [3. Orbit Reveal](Source/cutscenes/03-orbit-reveal/README.md) — `cutscenes/03-orbit-reveal/README.md`
+- [4. Letterbox Bars](Source/cutscenes/04-letterbox-bars/README.md) — `cutscenes/04-letterbox-bars/README.md`
+- [5. Over-the-Shoulder Dialogue](Source/cutscenes/05-over-the-shoulder-dialogue/README.md) — `cutscenes/05-over-the-shoulder-dialogue/README.md`
+- [6. Boss Intro Cinematic](Source/cutscenes/06-boss-intro-cinematic/README.md) — `cutscenes/06-boss-intro-cinematic/README.md`
+- [7. Round Start Countdown](Source/cutscenes/07-round-start-countdown/README.md) — `cutscenes/07-round-start-countdown/README.md`
+- [8. Victory Podium](Source/cutscenes/08-victory-podium/README.md) — `cutscenes/08-victory-podium/README.md`
+- [9. Killcam](Source/cutscenes/09-killcam/README.md) — `cutscenes/09-killcam/README.md`
+- [10. Impact Hit-Stop](Source/cutscenes/10-impact-hit-stop/README.md) — `cutscenes/10-impact-hit-stop/README.md`
+- [11. Fade Transition](Source/cutscenes/11-fade-transition/README.md) — `cutscenes/11-fade-transition/README.md`
+- [12. Comic Panel Split](Source/cutscenes/12-comic-panel-split/README.md) — `cutscenes/12-comic-panel-split/README.md`
+- [13. Tutorial Camera Guide](Source/cutscenes/13-tutorial-camera-guide/README.md) — `cutscenes/13-tutorial-camera-guide/README.md`
+- [14. Map Reveal Pan](Source/cutscenes/14-map-reveal-pan/README.md) — `cutscenes/14-map-reveal-pan/README.md`
+- [15. Item Reveal Spotlight](Source/cutscenes/15-item-reveal-spotlight/README.md) — `cutscenes/15-item-reveal-spotlight/README.md`
+- [16. Jumpscare Zoom](Source/cutscenes/16-jumpscare-zoom/README.md) — `cutscenes/16-jumpscare-zoom/README.md`
+- [17. Visual-Novel Dialogue Scene](Source/cutscenes/17-visual-novel-dialogue-scene/README.md) — `cutscenes/17-visual-novel-dialogue-scene/README.md`
+- [18. Rig-Animated Scene](Source/cutscenes/18-rig-animated-scene/README.md) — `cutscenes/18-rig-animated-scene/README.md`
+- [Roblox Cutscene Catalog](Source/cutscenes/CUTSCENES.md) — `cutscenes/CUTSCENES.md`
+- [20 additional cinematic references](Source/cutscenes/EXTRA-REFERENCES.md) — `cutscenes/EXTRA-REFERENCES.md`
+
+## logos (2)
+
+- [30 original logo and icon direction references](Source/logos/EXTRA-REFERENCES.md) — `logos/EXTRA-REFERENCES.md`
+- [Roblox game icon / logo reference library](Source/logos/README.md) — `logos/README.md`
+
+## official-docs (249)
+
+- [Animation](Source/official-docs/api/classes/Animation.yaml.md) — `official-docs/api/classes/Animation.yaml.md`
+- [AnimationClip](Source/official-docs/api/classes/AnimationClip.yaml.md) — `official-docs/api/classes/AnimationClip.yaml.md`
+- [AnimationConstraint](Source/official-docs/api/classes/AnimationConstraint.yaml.md) — `official-docs/api/classes/AnimationConstraint.yaml.md`
+- [AnimationController](Source/official-docs/api/classes/AnimationController.yaml.md) — `official-docs/api/classes/AnimationController.yaml.md`
+- [AnimationTrack](Source/official-docs/api/classes/AnimationTrack.yaml.md) — `official-docs/api/classes/AnimationTrack.yaml.md`
+- [Animator](Source/official-docs/api/classes/Animator.yaml.md) — `official-docs/api/classes/Animator.yaml.md`
+- [Atmosphere](Source/official-docs/api/classes/Atmosphere.yaml.md) — `official-docs/api/classes/Atmosphere.yaml.md`
+- [Attachment](Source/official-docs/api/classes/Attachment.yaml.md) — `official-docs/api/classes/Attachment.yaml.md`
+- [AudioAnalyzer](Source/official-docs/api/classes/AudioAnalyzer.yaml.md) — `official-docs/api/classes/AudioAnalyzer.yaml.md`
+- [AudioChannelMixer](Source/official-docs/api/classes/AudioChannelMixer.yaml.md) — `official-docs/api/classes/AudioChannelMixer.yaml.md`
+- [AudioChorus](Source/official-docs/api/classes/AudioChorus.yaml.md) — `official-docs/api/classes/AudioChorus.yaml.md`
+- [AudioCompressor](Source/official-docs/api/classes/AudioCompressor.yaml.md) — `official-docs/api/classes/AudioCompressor.yaml.md`
+- [AudioDeviceInput](Source/official-docs/api/classes/AudioDeviceInput.yaml.md) — `official-docs/api/classes/AudioDeviceInput.yaml.md`
+- [AudioDeviceOutput](Source/official-docs/api/classes/AudioDeviceOutput.yaml.md) — `official-docs/api/classes/AudioDeviceOutput.yaml.md`
+- [AudioDistortion](Source/official-docs/api/classes/AudioDistortion.yaml.md) — `official-docs/api/classes/AudioDistortion.yaml.md`
+- [AudioEcho](Source/official-docs/api/classes/AudioEcho.yaml.md) — `official-docs/api/classes/AudioEcho.yaml.md`
+- [AudioEmitter](Source/official-docs/api/classes/AudioEmitter.yaml.md) — `official-docs/api/classes/AudioEmitter.yaml.md`
+- [AudioEqualizer](Source/official-docs/api/classes/AudioEqualizer.yaml.md) — `official-docs/api/classes/AudioEqualizer.yaml.md`
+- [AudioFader](Source/official-docs/api/classes/AudioFader.yaml.md) — `official-docs/api/classes/AudioFader.yaml.md`
+- [AudioFilter](Source/official-docs/api/classes/AudioFilter.yaml.md) — `official-docs/api/classes/AudioFilter.yaml.md`
+- [AudioFlanger](Source/official-docs/api/classes/AudioFlanger.yaml.md) — `official-docs/api/classes/AudioFlanger.yaml.md`
+- [AudioGate](Source/official-docs/api/classes/AudioGate.yaml.md) — `official-docs/api/classes/AudioGate.yaml.md`
+- [AudioLimiter](Source/official-docs/api/classes/AudioLimiter.yaml.md) — `official-docs/api/classes/AudioLimiter.yaml.md`
+- [AudioListener](Source/official-docs/api/classes/AudioListener.yaml.md) — `official-docs/api/classes/AudioListener.yaml.md`
+- [AudioPitchShifter](Source/official-docs/api/classes/AudioPitchShifter.yaml.md) — `official-docs/api/classes/AudioPitchShifter.yaml.md`
+- [AudioPlayer](Source/official-docs/api/classes/AudioPlayer.yaml.md) — `official-docs/api/classes/AudioPlayer.yaml.md`
+- [AudioReverb](Source/official-docs/api/classes/AudioReverb.yaml.md) — `official-docs/api/classes/AudioReverb.yaml.md`
+- [AudioTremolo](Source/official-docs/api/classes/AudioTremolo.yaml.md) — `official-docs/api/classes/AudioTremolo.yaml.md`
+- [Beam](Source/official-docs/api/classes/Beam.yaml.md) — `official-docs/api/classes/Beam.yaml.md`
+- [BillboardGui](Source/official-docs/api/classes/BillboardGui.yaml.md) — `official-docs/api/classes/BillboardGui.yaml.md`
+- [BloomEffect](Source/official-docs/api/classes/BloomEffect.yaml.md) — `official-docs/api/classes/BloomEffect.yaml.md`
+- [BlurEffect](Source/official-docs/api/classes/BlurEffect.yaml.md) — `official-docs/api/classes/BlurEffect.yaml.md`
+- [Camera](Source/official-docs/api/classes/Camera.yaml.md) — `official-docs/api/classes/Camera.yaml.md`
+- [CanvasGroup](Source/official-docs/api/classes/CanvasGroup.yaml.md) — `official-docs/api/classes/CanvasGroup.yaml.md`
+- [ChorusSoundEffect](Source/official-docs/api/classes/ChorusSoundEffect.yaml.md) — `official-docs/api/classes/ChorusSoundEffect.yaml.md`
+- [Clouds](Source/official-docs/api/classes/Clouds.yaml.md) — `official-docs/api/classes/Clouds.yaml.md`
+- [ColorCorrectionEffect](Source/official-docs/api/classes/ColorCorrectionEffect.yaml.md) — `official-docs/api/classes/ColorCorrectionEffect.yaml.md`
+- [CompressorSoundEffect](Source/official-docs/api/classes/CompressorSoundEffect.yaml.md) — `official-docs/api/classes/CompressorSoundEffect.yaml.md`
+- [ContentProvider](Source/official-docs/api/classes/ContentProvider.yaml.md) — `official-docs/api/classes/ContentProvider.yaml.md`
+- [ContextActionService](Source/official-docs/api/classes/ContextActionService.yaml.md) — `official-docs/api/classes/ContextActionService.yaml.md`
+- [Debris](Source/official-docs/api/classes/Debris.yaml.md) — `official-docs/api/classes/Debris.yaml.md`
+- [DepthOfFieldEffect](Source/official-docs/api/classes/DepthOfFieldEffect.yaml.md) — `official-docs/api/classes/DepthOfFieldEffect.yaml.md`
+- [DistortionSoundEffect](Source/official-docs/api/classes/DistortionSoundEffect.yaml.md) — `official-docs/api/classes/DistortionSoundEffect.yaml.md`
+- [EchoSoundEffect](Source/official-docs/api/classes/EchoSoundEffect.yaml.md) — `official-docs/api/classes/EchoSoundEffect.yaml.md`
+- [EqualizerSoundEffect](Source/official-docs/api/classes/EqualizerSoundEffect.yaml.md) — `official-docs/api/classes/EqualizerSoundEffect.yaml.md`
+- [Explosion](Source/official-docs/api/classes/Explosion.yaml.md) — `official-docs/api/classes/Explosion.yaml.md`
+- [Fire](Source/official-docs/api/classes/Fire.yaml.md) — `official-docs/api/classes/Fire.yaml.md`
+- [ForceField](Source/official-docs/api/classes/ForceField.yaml.md) — `official-docs/api/classes/ForceField.yaml.md`
+- [Frame](Source/official-docs/api/classes/Frame.yaml.md) — `official-docs/api/classes/Frame.yaml.md`
+- [GuiBase2d](Source/official-docs/api/classes/GuiBase2d.yaml.md) — `official-docs/api/classes/GuiBase2d.yaml.md`
+- [GuiObject](Source/official-docs/api/classes/GuiObject.yaml.md) — `official-docs/api/classes/GuiObject.yaml.md`
+- [GuiService](Source/official-docs/api/classes/GuiService.yaml.md) — `official-docs/api/classes/GuiService.yaml.md`
+- [Highlight](Source/official-docs/api/classes/Highlight.yaml.md) — `official-docs/api/classes/Highlight.yaml.md`
+- [Humanoid](Source/official-docs/api/classes/Humanoid.yaml.md) — `official-docs/api/classes/Humanoid.yaml.md`
+- [ImageButton](Source/official-docs/api/classes/ImageButton.yaml.md) — `official-docs/api/classes/ImageButton.yaml.md`
+- [ImageLabel](Source/official-docs/api/classes/ImageLabel.yaml.md) — `official-docs/api/classes/ImageLabel.yaml.md`
+- [Keyframe](Source/official-docs/api/classes/Keyframe.yaml.md) — `official-docs/api/classes/Keyframe.yaml.md`
+- [KeyframeMarker](Source/official-docs/api/classes/KeyframeMarker.yaml.md) — `official-docs/api/classes/KeyframeMarker.yaml.md`
+- [KeyframeSequence](Source/official-docs/api/classes/KeyframeSequence.yaml.md) — `official-docs/api/classes/KeyframeSequence.yaml.md`
+- [LayerCollector](Source/official-docs/api/classes/LayerCollector.yaml.md) — `official-docs/api/classes/LayerCollector.yaml.md`
+- [Lighting](Source/official-docs/api/classes/Lighting.yaml.md) — `official-docs/api/classes/Lighting.yaml.md`
+- [Motor6D](Source/official-docs/api/classes/Motor6D.yaml.md) — `official-docs/api/classes/Motor6D.yaml.md`
+- [ParticleEmitter](Source/official-docs/api/classes/ParticleEmitter.yaml.md) — `official-docs/api/classes/ParticleEmitter.yaml.md`
+- [Path2D](Source/official-docs/api/classes/Path2D.yaml.md) — `official-docs/api/classes/Path2D.yaml.md`
+- [PitchShiftSoundEffect](Source/official-docs/api/classes/PitchShiftSoundEffect.yaml.md) — `official-docs/api/classes/PitchShiftSoundEffect.yaml.md`
+- [Players](Source/official-docs/api/classes/Players.yaml.md) — `official-docs/api/classes/Players.yaml.md`
+- [PointLight](Source/official-docs/api/classes/PointLight.yaml.md) — `official-docs/api/classes/PointLight.yaml.md`
+- [ProximityPrompt](Source/official-docs/api/classes/ProximityPrompt.yaml.md) — `official-docs/api/classes/ProximityPrompt.yaml.md`
+- [ProximityPromptService](Source/official-docs/api/classes/ProximityPromptService.yaml.md) — `official-docs/api/classes/ProximityPromptService.yaml.md`
+- [ReverbSoundEffect](Source/official-docs/api/classes/ReverbSoundEffect.yaml.md) — `official-docs/api/classes/ReverbSoundEffect.yaml.md`
+- [RunService](Source/official-docs/api/classes/RunService.yaml.md) — `official-docs/api/classes/RunService.yaml.md`
+- [ScreenGui](Source/official-docs/api/classes/ScreenGui.yaml.md) — `official-docs/api/classes/ScreenGui.yaml.md`
+- [ScrollingFrame](Source/official-docs/api/classes/ScrollingFrame.yaml.md) — `official-docs/api/classes/ScrollingFrame.yaml.md`
+- [Sky](Source/official-docs/api/classes/Sky.yaml.md) — `official-docs/api/classes/Sky.yaml.md`
+- [Smoke](Source/official-docs/api/classes/Smoke.yaml.md) — `official-docs/api/classes/Smoke.yaml.md`
+- [Sound](Source/official-docs/api/classes/Sound.yaml.md) — `official-docs/api/classes/Sound.yaml.md`
+- [SoundEffect](Source/official-docs/api/classes/SoundEffect.yaml.md) — `official-docs/api/classes/SoundEffect.yaml.md`
+- [SoundGroup](Source/official-docs/api/classes/SoundGroup.yaml.md) — `official-docs/api/classes/SoundGroup.yaml.md`
+- [SoundService](Source/official-docs/api/classes/SoundService.yaml.md) — `official-docs/api/classes/SoundService.yaml.md`
+- [Sparkles](Source/official-docs/api/classes/Sparkles.yaml.md) — `official-docs/api/classes/Sparkles.yaml.md`
+- [SpotLight](Source/official-docs/api/classes/SpotLight.yaml.md) — `official-docs/api/classes/SpotLight.yaml.md`
+- [SunRaysEffect](Source/official-docs/api/classes/SunRaysEffect.yaml.md) — `official-docs/api/classes/SunRaysEffect.yaml.md`
+- [SurfaceGui](Source/official-docs/api/classes/SurfaceGui.yaml.md) — `official-docs/api/classes/SurfaceGui.yaml.md`
+- [SurfaceLight](Source/official-docs/api/classes/SurfaceLight.yaml.md) — `official-docs/api/classes/SurfaceLight.yaml.md`
+- [TextBox](Source/official-docs/api/classes/TextBox.yaml.md) — `official-docs/api/classes/TextBox.yaml.md`
+- [TextButton](Source/official-docs/api/classes/TextButton.yaml.md) — `official-docs/api/classes/TextButton.yaml.md`
+- [TextLabel](Source/official-docs/api/classes/TextLabel.yaml.md) — `official-docs/api/classes/TextLabel.yaml.md`
+- [Trail](Source/official-docs/api/classes/Trail.yaml.md) — `official-docs/api/classes/Trail.yaml.md`
+- [TremoloSoundEffect](Source/official-docs/api/classes/TremoloSoundEffect.yaml.md) — `official-docs/api/classes/TremoloSoundEffect.yaml.md`
+- [Tween](Source/official-docs/api/classes/Tween.yaml.md) — `official-docs/api/classes/Tween.yaml.md`
+- [TweenBase](Source/official-docs/api/classes/TweenBase.yaml.md) — `official-docs/api/classes/TweenBase.yaml.md`
+- [TweenService](Source/official-docs/api/classes/TweenService.yaml.md) — `official-docs/api/classes/TweenService.yaml.md`
+- [UIAspectRatioConstraint](Source/official-docs/api/classes/UIAspectRatioConstraint.yaml.md) — `official-docs/api/classes/UIAspectRatioConstraint.yaml.md`
+- [UIComponent](Source/official-docs/api/classes/UIComponent.yaml.md) — `official-docs/api/classes/UIComponent.yaml.md`
+- [UIConstraint](Source/official-docs/api/classes/UIConstraint.yaml.md) — `official-docs/api/classes/UIConstraint.yaml.md`
+- [UICorner](Source/official-docs/api/classes/UICorner.yaml.md) — `official-docs/api/classes/UICorner.yaml.md`
+- [UIDragDetector](Source/official-docs/api/classes/UIDragDetector.yaml.md) — `official-docs/api/classes/UIDragDetector.yaml.md`
+- [UIFlexItem](Source/official-docs/api/classes/UIFlexItem.yaml.md) — `official-docs/api/classes/UIFlexItem.yaml.md`
+- [UIGradient](Source/official-docs/api/classes/UIGradient.yaml.md) — `official-docs/api/classes/UIGradient.yaml.md`
+- [UIGridLayout](Source/official-docs/api/classes/UIGridLayout.yaml.md) — `official-docs/api/classes/UIGridLayout.yaml.md`
+- [UIGridStyleLayout](Source/official-docs/api/classes/UIGridStyleLayout.yaml.md) — `official-docs/api/classes/UIGridStyleLayout.yaml.md`
+- [UILayout](Source/official-docs/api/classes/UILayout.yaml.md) — `official-docs/api/classes/UILayout.yaml.md`
+- [UIListLayout](Source/official-docs/api/classes/UIListLayout.yaml.md) — `official-docs/api/classes/UIListLayout.yaml.md`
+- [UIPadding](Source/official-docs/api/classes/UIPadding.yaml.md) — `official-docs/api/classes/UIPadding.yaml.md`
+- [UIPageLayout](Source/official-docs/api/classes/UIPageLayout.yaml.md) — `official-docs/api/classes/UIPageLayout.yaml.md`
+- [UIScale](Source/official-docs/api/classes/UIScale.yaml.md) — `official-docs/api/classes/UIScale.yaml.md`
+- [UIShadow](Source/official-docs/api/classes/UIShadow.yaml.md) — `official-docs/api/classes/UIShadow.yaml.md`
+- [UISizeConstraint](Source/official-docs/api/classes/UISizeConstraint.yaml.md) — `official-docs/api/classes/UISizeConstraint.yaml.md`
+- [UIStroke](Source/official-docs/api/classes/UIStroke.yaml.md) — `official-docs/api/classes/UIStroke.yaml.md`
+- [UITableLayout](Source/official-docs/api/classes/UITableLayout.yaml.md) — `official-docs/api/classes/UITableLayout.yaml.md`
+- [UITextSizeConstraint](Source/official-docs/api/classes/UITextSizeConstraint.yaml.md) — `official-docs/api/classes/UITextSizeConstraint.yaml.md`
+- [UserInputService](Source/official-docs/api/classes/UserInputService.yaml.md) — `official-docs/api/classes/UserInputService.yaml.md`
+- [VideoFrame](Source/official-docs/api/classes/VideoFrame.yaml.md) — `official-docs/api/classes/VideoFrame.yaml.md`
+- [ViewportFrame](Source/official-docs/api/classes/ViewportFrame.yaml.md) — `official-docs/api/classes/ViewportFrame.yaml.md`
+- [CFrame](Source/official-docs/api/datatypes/CFrame.yaml.md) — `official-docs/api/datatypes/CFrame.yaml.md`
+- [Color3](Source/official-docs/api/datatypes/Color3.yaml.md) — `official-docs/api/datatypes/Color3.yaml.md`
+- [ColorSequence](Source/official-docs/api/datatypes/ColorSequence.yaml.md) — `official-docs/api/datatypes/ColorSequence.yaml.md`
+- [ColorSequenceKeypoint](Source/official-docs/api/datatypes/ColorSequenceKeypoint.yaml.md) — `official-docs/api/datatypes/ColorSequenceKeypoint.yaml.md`
+- [Font](Source/official-docs/api/datatypes/Font.yaml.md) — `official-docs/api/datatypes/Font.yaml.md`
+- [NumberRange](Source/official-docs/api/datatypes/NumberRange.yaml.md) — `official-docs/api/datatypes/NumberRange.yaml.md`
+- [NumberSequence](Source/official-docs/api/datatypes/NumberSequence.yaml.md) — `official-docs/api/datatypes/NumberSequence.yaml.md`
+- [NumberSequenceKeypoint](Source/official-docs/api/datatypes/NumberSequenceKeypoint.yaml.md) — `official-docs/api/datatypes/NumberSequenceKeypoint.yaml.md`
+- [Rect](Source/official-docs/api/datatypes/Rect.yaml.md) — `official-docs/api/datatypes/Rect.yaml.md`
+- [TweenInfo](Source/official-docs/api/datatypes/TweenInfo.yaml.md) — `official-docs/api/datatypes/TweenInfo.yaml.md`
+- [UDim](Source/official-docs/api/datatypes/UDim.yaml.md) — `official-docs/api/datatypes/UDim.yaml.md`
+- [UDim2](Source/official-docs/api/datatypes/UDim2.yaml.md) — `official-docs/api/datatypes/UDim2.yaml.md`
+- [Vector2](Source/official-docs/api/datatypes/Vector2.yaml.md) — `official-docs/api/datatypes/Vector2.yaml.md`
+- [Vector3](Source/official-docs/api/datatypes/Vector3.yaml.md) — `official-docs/api/datatypes/Vector3.yaml.md`
+- [AnimationPriority](Source/official-docs/api/enums/AnimationPriority.yaml.md) — `official-docs/api/enums/AnimationPriority.yaml.md`
+- [ApplyStrokeMode](Source/official-docs/api/enums/ApplyStrokeMode.yaml.md) — `official-docs/api/enums/ApplyStrokeMode.yaml.md`
+- [AudioFilterType](Source/official-docs/api/enums/AudioFilterType.yaml.md) — `official-docs/api/enums/AudioFilterType.yaml.md`
+- [AutomaticSize](Source/official-docs/api/enums/AutomaticSize.yaml.md) — `official-docs/api/enums/AutomaticSize.yaml.md`
+- [BorderMode](Source/official-docs/api/enums/BorderMode.yaml.md) — `official-docs/api/enums/BorderMode.yaml.md`
+- [CameraType](Source/official-docs/api/enums/CameraType.yaml.md) — `official-docs/api/enums/CameraType.yaml.md`
+- [EasingDirection](Source/official-docs/api/enums/EasingDirection.yaml.md) — `official-docs/api/enums/EasingDirection.yaml.md`
+- [EasingStyle](Source/official-docs/api/enums/EasingStyle.yaml.md) — `official-docs/api/enums/EasingStyle.yaml.md`
+- [FillDirection](Source/official-docs/api/enums/FillDirection.yaml.md) — `official-docs/api/enums/FillDirection.yaml.md`
+- [Font](Source/official-docs/api/enums/Font.yaml.md) — `official-docs/api/enums/Font.yaml.md`
+- [HighlightDepthMode](Source/official-docs/api/enums/HighlightDepthMode.yaml.md) — `official-docs/api/enums/HighlightDepthMode.yaml.md`
+- [HorizontalAlignment](Source/official-docs/api/enums/HorizontalAlignment.yaml.md) — `official-docs/api/enums/HorizontalAlignment.yaml.md`
+- [LineJoinMode](Source/official-docs/api/enums/LineJoinMode.yaml.md) — `official-docs/api/enums/LineJoinMode.yaml.md`
+- [NormalId](Source/official-docs/api/enums/NormalId.yaml.md) — `official-docs/api/enums/NormalId.yaml.md`
+- [ParticleEmitterShape](Source/official-docs/api/enums/ParticleEmitterShape.yaml.md) — `official-docs/api/enums/ParticleEmitterShape.yaml.md`
+- [ParticleEmitterShapeInOut](Source/official-docs/api/enums/ParticleEmitterShapeInOut.yaml.md) — `official-docs/api/enums/ParticleEmitterShapeInOut.yaml.md`
+- [ParticleEmitterShapeStyle](Source/official-docs/api/enums/ParticleEmitterShapeStyle.yaml.md) — `official-docs/api/enums/ParticleEmitterShapeStyle.yaml.md`
+- [ParticleFlipbookLayout](Source/official-docs/api/enums/ParticleFlipbookLayout.yaml.md) — `official-docs/api/enums/ParticleFlipbookLayout.yaml.md`
+- [ParticleFlipbookMode](Source/official-docs/api/enums/ParticleFlipbookMode.yaml.md) — `official-docs/api/enums/ParticleFlipbookMode.yaml.md`
+- [ParticleOrientation](Source/official-docs/api/enums/ParticleOrientation.yaml.md) — `official-docs/api/enums/ParticleOrientation.yaml.md`
+- [ResamplerMode](Source/official-docs/api/enums/ResamplerMode.yaml.md) — `official-docs/api/enums/ResamplerMode.yaml.md`
+- [ReverbType](Source/official-docs/api/enums/ReverbType.yaml.md) — `official-docs/api/enums/ReverbType.yaml.md`
+- [RollOffMode](Source/official-docs/api/enums/RollOffMode.yaml.md) — `official-docs/api/enums/RollOffMode.yaml.md`
+- [ScaleType](Source/official-docs/api/enums/ScaleType.yaml.md) — `official-docs/api/enums/ScaleType.yaml.md`
+- [SizeConstraint](Source/official-docs/api/enums/SizeConstraint.yaml.md) — `official-docs/api/enums/SizeConstraint.yaml.md`
+- [SortOrder](Source/official-docs/api/enums/SortOrder.yaml.md) — `official-docs/api/enums/SortOrder.yaml.md`
+- [TextXAlignment](Source/official-docs/api/enums/TextXAlignment.yaml.md) — `official-docs/api/enums/TextXAlignment.yaml.md`
+- [TextYAlignment](Source/official-docs/api/enums/TextYAlignment.yaml.md) — `official-docs/api/enums/TextYAlignment.yaml.md`
+- [UIFlexMode](Source/official-docs/api/enums/UIFlexMode.yaml.md) — `official-docs/api/enums/UIFlexMode.yaml.md`
+- [VerticalAlignment](Source/official-docs/api/enums/VerticalAlignment.yaml.md) — `official-docs/api/enums/VerticalAlignment.yaml.md`
+- [ZIndexBehavior](Source/official-docs/api/enums/ZIndexBehavior.yaml.md) — `official-docs/api/enums/ZIndexBehavior.yaml.md`
+- [capture](Source/official-docs/guides/animation/capture.md) — `official-docs/guides/animation/capture.md`
+- [curve-editor](Source/official-docs/guides/animation/curve-editor.md) — `official-docs/guides/animation/curve-editor.md`
+- [editor](Source/official-docs/guides/animation/editor.md) — `official-docs/guides/animation/editor.md`
+- [events](Source/official-docs/guides/animation/events.md) — `official-docs/guides/animation/events.md`
+- [expressions](Source/official-docs/guides/animation/expressions.md) — `official-docs/guides/animation/expressions.md`
+- [graph-editor-state-machine](Source/official-docs/guides/animation/graph-editor-state-machine.md) — `official-docs/guides/animation/graph-editor-state-machine.md`
+- [graph-editor](Source/official-docs/guides/animation/graph-editor.md) — `official-docs/guides/animation/graph-editor.md`
+- [index](Source/official-docs/guides/animation/index.md) — `official-docs/guides/animation/index.md`
+- [inverse-kinematics](Source/official-docs/guides/animation/inverse-kinematics.md) — `official-docs/guides/animation/inverse-kinematics.md`
+- [using](Source/official-docs/guides/animation/using.md) — `official-docs/guides/animation/using.md`
+- [assets](Source/official-docs/guides/audio/assets.md) — `official-docs/guides/audio/assets.md`
+- [effects](Source/official-docs/guides/audio/effects.md) — `official-docs/guides/audio/effects.md`
+- [index](Source/official-docs/guides/audio/index.md) — `official-docs/guides/audio/index.md`
+- [objects](Source/official-docs/guides/audio/objects.md) — `official-docs/guides/audio/objects.md`
+- [free-camera](Source/official-docs/guides/camera/free-camera.md) — `official-docs/guides/camera/free-camera.md`
+- [index](Source/official-docs/guides/camera/index.md) — `official-docs/guides/camera/index.md`
+- [adaptive-animation](Source/official-docs/guides/characters/adaptive-animation.md) — `official-docs/guides/characters/adaptive-animation.md`
+- [appearance](Source/official-docs/guides/characters/appearance.md) — `official-docs/guides/characters/appearance.md`
+- [custom-abilities](Source/official-docs/guides/characters/character-controller-library/custom-abilities.md) — `official-docs/guides/characters/character-controller-library/custom-abilities.md`
+- [index](Source/official-docs/guides/characters/character-controller-library/index.md) — `official-docs/guides/characters/character-controller-library/index.md`
+- [quick-start](Source/official-docs/guides/characters/character-controller-library/quick-start.md) — `official-docs/guides/characters/character-controller-library/quick-start.md`
+- [emotes](Source/official-docs/guides/characters/emotes.md) — `official-docs/guides/characters/emotes.md`
+- [index](Source/official-docs/guides/characters/index.md) — `official-docs/guides/characters/index.md`
+- [name-health-display](Source/official-docs/guides/characters/name-health-display.md) — `official-docs/guides/characters/name-health-display.md`
+- [pathfinding](Source/official-docs/guides/characters/pathfinding.md) — `official-docs/guides/characters/pathfinding.md`
+- [beams](Source/official-docs/guides/effects/beams.md) — `official-docs/guides/effects/beams.md`
+- [highlighting](Source/official-docs/guides/effects/highlighting.md) — `official-docs/guides/effects/highlighting.md`
+- [index](Source/official-docs/guides/effects/index.md) — `official-docs/guides/effects/index.md`
+- [light-sources](Source/official-docs/guides/effects/light-sources.md) — `official-docs/guides/effects/light-sources.md`
+- [particle-emitters](Source/official-docs/guides/effects/particle-emitters.md) — `official-docs/guides/effects/particle-emitters.md`
+- [trails](Source/official-docs/guides/effects/trails.md) — `official-docs/guides/effects/trails.md`
+- [atmosphere](Source/official-docs/guides/environment/atmosphere.md) — `official-docs/guides/environment/atmosphere.md`
+- [clouds](Source/official-docs/guides/environment/clouds.md) — `official-docs/guides/environment/clouds.md`
+- [global-wind](Source/official-docs/guides/environment/global-wind.md) — `official-docs/guides/environment/global-wind.md`
+- [index](Source/official-docs/guides/environment/index.md) — `official-docs/guides/environment/index.md`
+- [lighting](Source/official-docs/guides/environment/lighting.md) — `official-docs/guides/environment/lighting.md`
+- [post-processing-effects](Source/official-docs/guides/environment/post-processing-effects.md) — `official-docs/guides/environment/post-processing-effects.md`
+- [skybox](Source/official-docs/guides/environment/skybox.md) — `official-docs/guides/environment/skybox.md`
+- [gamepad](Source/official-docs/guides/input/gamepad.md) — `official-docs/guides/input/gamepad.md`
+- [index](Source/official-docs/guides/input/index.md) — `official-docs/guides/input/index.md`
+- [input-action-system](Source/official-docs/guides/input/input-action-system.md) — `official-docs/guides/input/input-action-system.md`
+- [micro-gamepad](Source/official-docs/guides/input/micro-gamepad.md) — `official-docs/guides/input/micro-gamepad.md`
+- [mobile](Source/official-docs/guides/input/mobile.md) — `official-docs/guides/input/mobile.md`
+- [mouse-and-keyboard](Source/official-docs/guides/input/mouse-and-keyboard.md) — `official-docs/guides/input/mouse-and-keyboard.md`
+- [design](Source/official-docs/guides/performance-optimization/design.md) — `official-docs/guides/performance-optimization/design.md`
+- [identify](Source/official-docs/guides/performance-optimization/identify.md) — `official-docs/guides/performance-optimization/identify.md`
+- [improve](Source/official-docs/guides/performance-optimization/improve.md) — `official-docs/guides/performance-optimization/improve.md`
+- [index](Source/official-docs/guides/performance-optimization/index.md) — `official-docs/guides/performance-optimization/index.md`
+- [index](Source/official-docs/guides/performance-optimization/microprofiler/index.md) — `official-docs/guides/performance-optimization/microprofiler/index.md`
+- [modes](Source/official-docs/guides/performance-optimization/microprofiler/modes.md) — `official-docs/guides/performance-optimization/microprofiler/modes.md`
+- [network](Source/official-docs/guides/performance-optimization/microprofiler/network.md) — `official-docs/guides/performance-optimization/microprofiler/network.md`
+- [tag-table](Source/official-docs/guides/performance-optimization/microprofiler/tag-table.md) — `official-docs/guides/performance-optimization/microprofiler/tag-table.md`
+- [task-scheduler](Source/official-docs/guides/performance-optimization/microprofiler/task-scheduler.md) — `official-docs/guides/performance-optimization/microprofiler/task-scheduler.md`
+- [use-microprofiler](Source/official-docs/guides/performance-optimization/microprofiler/use-microprofiler.md) — `official-docs/guides/performance-optimization/microprofiler/use-microprofiler.md`
+- [monitor](Source/official-docs/guides/performance-optimization/monitor.md) — `official-docs/guides/performance-optimization/monitor.md`
+- [scene-analysis](Source/official-docs/guides/performance-optimization/scene-analysis.md) — `official-docs/guides/performance-optimization/scene-analysis.md`
+- [test-on-hardware](Source/official-docs/guides/performance-optimization/test-on-hardware.md) — `official-docs/guides/performance-optimization/test-on-hardware.md`
+- [dynamic-effects](Source/official-docs/guides/sound/dynamic-effects.md) — `official-docs/guides/sound/dynamic-effects.md`
+- [groups](Source/official-docs/guides/sound/groups.md) — `official-docs/guides/sound/groups.md`
+- [index](Source/official-docs/guides/sound/index.md) — `official-docs/guides/sound/index.md`
+- [objects](Source/official-docs/guides/sound/objects.md) — `official-docs/guides/sound/objects.md`
+- [2D-paths](Source/official-docs/guides/ui/2D-paths.md) — `official-docs/guides/ui/2D-paths.md`
+- [3D-drag-detectors](Source/official-docs/guides/ui/3D-drag-detectors.md) — `official-docs/guides/ui/3D-drag-detectors.md`
+- [9-slice](Source/official-docs/guides/ui/9-slice.md) — `official-docs/guides/ui/9-slice.md`
+- [animation](Source/official-docs/guides/ui/animation.md) — `official-docs/guides/ui/animation.md`
+- [appearance-modifiers](Source/official-docs/guides/ui/appearance-modifiers.md) — `official-docs/guides/ui/appearance-modifiers.md`
+- [buttons](Source/official-docs/guides/ui/buttons.md) — `official-docs/guides/ui/buttons.md`
+- [frames](Source/official-docs/guides/ui/frames.md) — `official-docs/guides/ui/frames.md`
+- [grid-table-layouts](Source/official-docs/guides/ui/grid-table-layouts.md) — `official-docs/guides/ui/grid-table-layouts.md`
+- [in-experience-containers](Source/official-docs/guides/ui/in-experience-containers.md) — `official-docs/guides/ui/in-experience-containers.md`
+- [index](Source/official-docs/guides/ui/index.md) — `official-docs/guides/ui/index.md`
+- [labels](Source/official-docs/guides/ui/labels.md) — `official-docs/guides/ui/labels.md`
+- [list-flex-layouts](Source/official-docs/guides/ui/list-flex-layouts.md) — `official-docs/guides/ui/list-flex-layouts.md`
+- [on-screen-containers](Source/official-docs/guides/ui/on-screen-containers.md) — `official-docs/guides/ui/on-screen-containers.md`
+- [page-layouts](Source/official-docs/guides/ui/page-layouts.md) — `official-docs/guides/ui/page-layouts.md`
+- [position-and-size](Source/official-docs/guides/ui/position-and-size.md) — `official-docs/guides/ui/position-and-size.md`
+- [proximity-prompts](Source/official-docs/guides/ui/proximity-prompts.md) — `official-docs/guides/ui/proximity-prompts.md`
+- [rich-text](Source/official-docs/guides/ui/rich-text.md) — `official-docs/guides/ui/rich-text.md`
+- [scrolling-frames](Source/official-docs/guides/ui/scrolling-frames.md) — `official-docs/guides/ui/scrolling-frames.md`
+- [size-modifiers](Source/official-docs/guides/ui/size-modifiers.md) — `official-docs/guides/ui/size-modifiers.md`
+- [compatibility](Source/official-docs/guides/ui/styling/compatibility.md) — `official-docs/guides/ui/styling/compatibility.md`
+- [css-comparisons](Source/official-docs/guides/ui/styling/css-comparisons.md) — `official-docs/guides/ui/styling/css-comparisons.md`
+- [editor](Source/official-docs/guides/ui/styling/editor.md) — `official-docs/guides/ui/styling/editor.md`
+- [index](Source/official-docs/guides/ui/styling/index.md) — `official-docs/guides/ui/styling/index.md`
+- [text-filtering](Source/official-docs/guides/ui/text-filtering.md) — `official-docs/guides/ui/text-filtering.md`
+- [text-input](Source/official-docs/guides/ui/text-input.md) — `official-docs/guides/ui/text-input.md`
+- [ui-drag-detectors](Source/official-docs/guides/ui/ui-drag-detectors.md) — `official-docs/guides/ui/ui-drag-detectors.md`
+- [video-frames](Source/official-docs/guides/ui/video-frames.md) — `official-docs/guides/ui/video-frames.md`
+- [viewport-frames](Source/official-docs/guides/ui/viewport-frames.md) — `official-docs/guides/ui/viewport-frames.md`
+- [Official Roblox documentation (bundled)](Source/official-docs/README.md) — `official-docs/README.md`
+
+## previews (63)
+
+- [itch.io top results: animated](Source/previews/animated/README.md) — `previews/animated/README.md`
+- [itch.io top results: animation](Source/previews/animation/README.md) — `previews/animation/README.md`
+- [itch.io top results: animation + combat](Source/previews/animation-combat/README.md) — `previews/animation-combat/README.md`
+- [itch.io top results: animation + user-interface](Source/previews/animation-user-interface/README.md) — `previews/animation-user-interface/README.md`
+- [itch.io top results: buttons + user-interface](Source/previews/buttons-user-interface/README.md) — `previews/buttons-user-interface/README.md`
+- [itch.io top results: card-game + user-interface](Source/previews/card-game-user-interface/README.md) — `previews/card-game-user-interface/README.md`
+- [itch.io top results: casual + user-interface](Source/previews/casual-user-interface/README.md) — `previews/casual-user-interface/README.md`
+- [itch.io top results: cinematic](Source/previews/cinematic/README.md) — `previews/cinematic/README.md`
+- [Preview credits](Source/previews/CREDITS.md) — `previews/CREDITS.md`
+- [itch.io top results: cutscene](Source/previews/cutscene/README.md) — `previews/cutscene/README.md`
+- [itch.io top results: cyberpunk + user-interface](Source/previews/cyberpunk-user-interface/README.md) — `previews/cyberpunk-user-interface/README.md`
+- [itch.io top results: dark + user-interface](Source/previews/dark-user-interface/README.md) — `previews/dark-user-interface/README.md`
+- [itch.io top results: effects + explosions](Source/previews/effects-explosions/README.md) — `previews/effects-explosions/README.md`
+- [itch.io top results: effects + impact](Source/previews/effects-impact/README.md) — `previews/effects-impact/README.md`
+- [itch.io top results: effects + lightning](Source/previews/effects-lightning/README.md) — `previews/effects-lightning/README.md`
+- [itch.io top results: fantasy + user-interface](Source/previews/fantasy-user-interface/README.md) — `previews/fantasy-user-interface/README.md`
+- [itch.io top results: fighting + user-interface](Source/previews/fighting-user-interface/README.md) — `previews/fighting-user-interface/README.md`
+- [itch.io top results: glass + user-interface](Source/previews/glass-user-interface/README.md) — `previews/glass-user-interface/README.md`
+- [itch.io top results: gothic + user-interface](Source/previews/gothic-user-interface/README.md) — `previews/gothic-user-interface/README.md`
+- [itch.io top results: hand-drawn + user-interface](Source/previews/hand-drawn-user-interface/README.md) — `previews/hand-drawn-user-interface/README.md`
+- [itch.io top results: horror + user-interface](Source/previews/horror-user-interface/README.md) — `previews/horror-user-interface/README.md`
+- [itch.io top results: icons + user-interface](Source/previews/icons-user-interface/README.md) — `previews/icons-user-interface/README.md`
+- [itch.io top results: idle + user-interface](Source/previews/idle-user-interface/README.md) — `previews/idle-user-interface/README.md`
+- [itch.io top results: intro](Source/previews/intro/README.md) — `previews/intro/README.md`
+- [itch.io top results: loading](Source/previews/loading/README.md) — `previews/loading/README.md`
+- [itch.io top results: low-poly + user-interface](Source/previews/low-poly-user-interface/README.md) — `previews/low-poly-user-interface/README.md`
+- [itch.io top results: medieval + user-interface](Source/previews/medieval-user-interface/README.md) — `previews/medieval-user-interface/README.md`
+- [itch.io top results: minimal + user-interface](Source/previews/minimal-user-interface/README.md) — `previews/minimal-user-interface/README.md`
+- [itch.io top results: mobile + user-interface](Source/previews/mobile-user-interface/README.md) — `previews/mobile-user-interface/README.md`
+- [itch.io top results: music](Source/previews/music/README.md) — `previews/music/README.md`
+- [itch.io top results: nature + user-interface](Source/previews/nature-user-interface/README.md) — `previews/nature-user-interface/README.md`
+- [itch.io top results: neon + user-interface](Source/previews/neon-user-interface/README.md) — `previews/neon-user-interface/README.md`
+- [itch.io top results: paper + user-interface](Source/previews/paper-user-interface/README.md) — `previews/paper-user-interface/README.md`
+- [itch.io top results: pixel-art + user-interface](Source/previews/pixel-art-user-interface/README.md) — `previews/pixel-art-user-interface/README.md`
+- [itch.io top results: racing + user-interface](Source/previews/racing-user-interface/README.md) — `previews/racing-user-interface/README.md`
+- [Preview galleries (itch.io tag listings)](Source/previews/README.md) — `previews/README.md`
+- [itch.io top results: retro + user-interface](Source/previews/retro-user-interface/README.md) — `previews/retro-user-interface/README.md`
+- [itch.io top results: roblox + user-interface](Source/previews/roblox-user-interface/README.md) — `previews/roblox-user-interface/README.md`
+- [itch.io top results: shooter + user-interface](Source/previews/shooter-user-interface/README.md) — `previews/shooter-user-interface/README.md`
+- [itch.io top results: sound-effects + ambience](Source/previews/sound-effects-ambience/README.md) — `previews/sound-effects-ambience/README.md`
+- [itch.io top results: sound-effects + explosions](Source/previews/sound-effects-explosions/README.md) — `previews/sound-effects-explosions/README.md`
+- [itch.io top results: sound-effects + sci-fi](Source/previews/sound-effects-sci-fi/README.md) — `previews/sound-effects-sci-fi/README.md`
+- [itch.io top results: sound-effects + swords](Source/previews/sound-effects-swords/README.md) — `previews/sound-effects-swords/README.md`
+- [itch.io top results: sound-effects + user-interface](Source/previews/sound-effects-user-interface/README.md) — `previews/sound-effects-user-interface/README.md`
+- [itch.io top results: sound-effects + vehicle](Source/previews/sound-effects-vehicle/README.md) — `previews/sound-effects-vehicle/README.md`
+- [itch.io top results: sound-effects + voice](Source/previews/sound-effects-voice/README.md) — `previews/sound-effects-voice/README.md`
+- [itch.io top results: sound-effects + weapons](Source/previews/sound-effects-weapons/README.md) — `previews/sound-effects-weapons/README.md`
+- [itch.io top results: sound-effects + whoosh](Source/previews/sound-effects-whoosh/README.md) — `previews/sound-effects-whoosh/README.md`
+- [itch.io top results: space + user-interface](Source/previews/space-user-interface/README.md) — `previews/space-user-interface/README.md`
+- [itch.io top results: sprite-sheet + animation](Source/previews/sprite-sheet-animation/README.md) — `previews/sprite-sheet-animation/README.md`
+- [itch.io top results: sprite-sheet + effects](Source/previews/sprite-sheet-effects/README.md) — `previews/sprite-sheet-effects/README.md`
+- [itch.io top results: tower-defense + user-interface](Source/previews/tower-defense-user-interface/README.md) — `previews/tower-defense-user-interface/README.md`
+- [itch.io top results: tycoon + user-interface](Source/previews/tycoon-user-interface/README.md) — `previews/tycoon-user-interface/README.md`
+- [itch.io top results: vfx](Source/previews/vfx/README.md) — `previews/vfx/README.md`
+- [itch.io top results: vfx + confetti](Source/previews/vfx-confetti/README.md) — `previews/vfx-confetti/README.md`
+- [itch.io top results: vfx + fire](Source/previews/vfx-fire/README.md) — `previews/vfx-fire/README.md`
+- [itch.io top results: vfx + hit](Source/previews/vfx-hit/README.md) — `previews/vfx-hit/README.md`
+- [itch.io top results: vfx + magic](Source/previews/vfx-magic/README.md) — `previews/vfx-magic/README.md`
+- [itch.io top results: vfx + water](Source/previews/vfx-water/README.md) — `previews/vfx-water/README.md`
+- [itch.io top results: vfx + weather](Source/previews/vfx-weather/README.md) — `previews/vfx-weather/README.md`
+- [itch.io top results: visual-novel + user-interface](Source/previews/visual-novel-user-interface/README.md) — `previews/visual-novel-user-interface/README.md`
+- [itch.io top results: western + user-interface](Source/previews/western-user-interface/README.md) — `previews/western-user-interface/README.md`
+- [itch.io top results: wood + user-interface](Source/previews/wood-user-interface/README.md) — `previews/wood-user-interface/README.md`
+
+## sfx (56)
+
+- [1. Button Click](Source/sfx/01-button-click/README.md) — `sfx/01-button-click/README.md`
+- [2. Button Hover Tick](Source/sfx/02-button-hover-tick/README.md) — `sfx/02-button-hover-tick/README.md`
+- [3. Menu Open Whoosh](Source/sfx/03-menu-open-whoosh/README.md) — `sfx/03-menu-open-whoosh/README.md`
+- [4. Confirm Success Chime](Source/sfx/04-confirm-success-chime/README.md) — `sfx/04-confirm-success-chime/README.md`
+- [5. Error Buzz](Source/sfx/05-error-buzz/README.md) — `sfx/05-error-buzz/README.md`
+- [6. Toggle Switch](Source/sfx/06-toggle-switch/README.md) — `sfx/06-toggle-switch/README.md`
+- [7. Notification Ping](Source/sfx/07-notification-ping/README.md) — `sfx/07-notification-ping/README.md`
+- [8. Purchase Cha-Ching](Source/sfx/08-purchase-cha-ching/README.md) — `sfx/08-purchase-cha-ching/README.md`
+- [9. Coin Pickup Pitch Ladder](Source/sfx/09-coin-pickup-pitch-ladder/README.md) — `sfx/09-coin-pickup-pitch-ladder/README.md`
+- [10. Level-Up Fanfare](Source/sfx/10-level-up-fanfare/README.md) — `sfx/10-level-up-fanfare/README.md`
+- [11. Reward Chest Open](Source/sfx/11-reward-chest-open/README.md) — `sfx/11-reward-chest-open/README.md`
+- [12. Countdown Beep](Source/sfx/12-countdown-beep/README.md) — `sfx/12-countdown-beep/README.md`
+- [13. Typewriter Text Blip](Source/sfx/13-typewriter-text-blip/README.md) — `sfx/13-typewriter-text-blip/README.md`
+- [14. Sword Swing Whoosh](Source/sfx/14-sword-swing-whoosh/README.md) — `sfx/14-sword-swing-whoosh/README.md`
+- [15. Sword Hit Metal](Source/sfx/15-sword-hit-metal/README.md) — `sfx/15-sword-hit-metal/README.md`
+- [16. Punch Impact](Source/sfx/16-punch-impact/README.md) — `sfx/16-punch-impact/README.md`
+- [17. Heavy Slam](Source/sfx/17-heavy-slam/README.md) — `sfx/17-heavy-slam/README.md`
+- [18. Block Parry Clang](Source/sfx/18-block-parry-clang/README.md) — `sfx/18-block-parry-clang/README.md`
+- [19. Projectile Whoosh](Source/sfx/19-projectile-whoosh/README.md) — `sfx/19-projectile-whoosh/README.md`
+- [20. Gunshot](Source/sfx/20-gunshot/README.md) — `sfx/20-gunshot/README.md`
+- [21. Reload Click](Source/sfx/21-reload-click/README.md) — `sfx/21-reload-click/README.md`
+- [22. Explosion](Source/sfx/22-explosion/README.md) — `sfx/22-explosion/README.md`
+- [23. Shield Break](Source/sfx/23-shield-break/README.md) — `sfx/23-shield-break/README.md`
+- [24. Critical Hit Sting](Source/sfx/24-critical-hit-sting/README.md) — `sfx/24-critical-hit-sting/README.md`
+- [25. Hurt Grunt](Source/sfx/25-hurt-grunt/README.md) — `sfx/25-hurt-grunt/README.md`
+- [26. Death Sound](Source/sfx/26-death-sound/README.md) — `sfx/26-death-sound/README.md`
+- [27. Spell Cast Charge](Source/sfx/27-spell-cast-charge/README.md) — `sfx/27-spell-cast-charge/README.md`
+- [28. Magic Impact](Source/sfx/28-magic-impact/README.md) — `sfx/28-magic-impact/README.md`
+- [29. Heal Chime](Source/sfx/29-heal-chime/README.md) — `sfx/29-heal-chime/README.md`
+- [30. Lightning Zap](Source/sfx/30-lightning-zap/README.md) — `sfx/30-lightning-zap/README.md`
+- [31. Fire Whoosh](Source/sfx/31-fire-whoosh/README.md) — `sfx/31-fire-whoosh/README.md`
+- [32. Ice Crackle](Source/sfx/32-ice-crackle/README.md) — `sfx/32-ice-crackle/README.md`
+- [33. Laser Beam](Source/sfx/33-laser-beam/README.md) — `sfx/33-laser-beam/README.md`
+- [34. Teleport Whoosh](Source/sfx/34-teleport-whoosh/README.md) — `sfx/34-teleport-whoosh/README.md`
+- [35. Power-Up Jingle](Source/sfx/35-power-up-jingle/README.md) — `sfx/35-power-up-jingle/README.md`
+- [36. Shield Hum](Source/sfx/36-shield-hum/README.md) — `sfx/36-shield-hum/README.md`
+- [37. Footsteps by Surface](Source/sfx/37-footsteps-by-surface/README.md) — `sfx/37-footsteps-by-surface/README.md`
+- [38. Jump and Land](Source/sfx/38-jump-and-land/README.md) — `sfx/38-jump-and-land/README.md`
+- [39. Swim Splash](Source/sfx/39-swim-splash/README.md) — `sfx/39-swim-splash/README.md`
+- [40. Door and Mechanism](Source/sfx/40-door-and-mechanism/README.md) — `sfx/40-door-and-mechanism/README.md`
+- [41. Wind Ambience Loop](Source/sfx/41-wind-ambience-loop/README.md) — `sfx/41-wind-ambience-loop/README.md`
+- [42. Rain Ambience Loop](Source/sfx/42-rain-ambience-loop/README.md) — `sfx/42-rain-ambience-loop/README.md`
+- [43. Forest Ambience](Source/sfx/43-forest-ambience/README.md) — `sfx/43-forest-ambience/README.md`
+- [44. Cave Reverb](Source/sfx/44-cave-reverb/README.md) — `sfx/44-cave-reverb/README.md`
+- [45. Fire Crackle Loop](Source/sfx/45-fire-crackle-loop/README.md) — `sfx/45-fire-crackle-loop/README.md`
+- [46. Vehicle Engine Loop](Source/sfx/46-vehicle-engine-loop/README.md) — `sfx/46-vehicle-engine-loop/README.md`
+- [47. Crowd and Pet Cute Sounds](Source/sfx/47-crowd-and-pet-cute-sounds/README.md) — `sfx/47-crowd-and-pet-cute-sounds/README.md`
+- [48. Lobby Music Loop](Source/sfx/48-lobby-music-loop/README.md) — `sfx/48-lobby-music-loop/README.md`
+- [49. Adaptive Combat Layers](Source/sfx/49-adaptive-combat-layers/README.md) — `sfx/49-adaptive-combat-layers/README.md`
+- [50. Boss Intro Stinger](Source/sfx/50-boss-intro-stinger/README.md) — `sfx/50-boss-intro-stinger/README.md`
+- [51. Round Start End Stingers](Source/sfx/51-round-start-end-stingers/README.md) — `sfx/51-round-start-end-stingers/README.md`
+- [52. Horror Drone](Source/sfx/52-horror-drone/README.md) — `sfx/52-horror-drone/README.md`
+- [53. Jumpscare Sting](Source/sfx/53-jumpscare-sting/README.md) — `sfx/53-jumpscare-sting/README.md`
+- [54. Heartbeat Low Health](Source/sfx/54-heartbeat-low-health/README.md) — `sfx/54-heartbeat-low-health/README.md`
+- [25 additional sound-design references](Source/sfx/EXTRA-REFERENCES.md) — `sfx/EXTRA-REFERENCES.md`
+- [Roblox SFX and Audio Catalog](Source/sfx/SFX.md) — `sfx/SFX.md`
+
+## thumbnails (2)
+
+- [30 original thumbnail composition references](Source/thumbnails/EXTRA-REFERENCES.md) — `thumbnails/EXTRA-REFERENCES.md`
+- [Roblox thumbnail reference library](Source/thumbnails/README.md) — `thumbnails/README.md`
+
+## ui-styles (115)
+
+- [1. Classic Stud GUI](Source/ui-styles/01-classic-stud-gui/README.md) — `ui-styles/01-classic-stud-gui/README.md`
+- [2. Clean Stud (minimal)](Source/ui-styles/02-clean-stud-minimal/README.md) — `ui-styles/02-clean-stud-minimal/README.md`
+- [3. Ultimate Studded](Source/ui-styles/03-ultimate-studded/README.md) — `ui-styles/03-ultimate-studded/README.md`
+- [4. Stud Candy](Source/ui-styles/04-stud-candy/README.md) — `ui-styles/04-stud-candy/README.md`
+- [5. LEGO-Brick UI](Source/ui-styles/05-lego-brick-ui/README.md) — `ui-styles/05-lego-brick-ui/README.md`
+- [6. Stud Dark](Source/ui-styles/06-stud-dark/README.md) — `ui-styles/06-stud-dark/README.md`
+- [7. Stud Pastel](Source/ui-styles/07-stud-pastel/README.md) — `ui-styles/07-stud-pastel/README.md`
+- [8. Stud Wood/Metal](Source/ui-styles/08-stud-wood-metal/README.md) — `ui-styles/08-stud-wood-metal/README.md`
+- [9. Modern Cartoon Simulator](Source/ui-styles/09-modern-cartoon-simulator/README.md) — `ui-styles/09-modern-cartoon-simulator/README.md`
+- [10. Chunky Candy Buttons](Source/ui-styles/10-chunky-candy-buttons/README.md) — `ui-styles/10-chunky-candy-buttons/README.md`
+- [100. Gamepass Carousel Shop](Source/ui-styles/100-gamepass-carousel-shop/README.md) — `ui-styles/100-gamepass-carousel-shop/README.md`
+- [101. Toast Notifications](Source/ui-styles/101-toast-notifications/README.md) — `ui-styles/101-toast-notifications/README.md`
+- [102. Loading Screen with Tips](Source/ui-styles/102-loading-screen-with-tips/README.md) — `ui-styles/102-loading-screen-with-tips/README.md`
+- [103. Settings Menu](Source/ui-styles/103-settings-menu/README.md) — `ui-styles/103-settings-menu/README.md`
+- [104. Inventory Hotbar](Source/ui-styles/104-inventory-hotbar/README.md) — `ui-styles/104-inventory-hotbar/README.md`
+- [105. Emote Chat Wheel](Source/ui-styles/105-emote-chat-wheel/README.md) — `ui-styles/105-emote-chat-wheel/README.md`
+- [106. Health and Boss Bars](Source/ui-styles/106-health-and-boss-bars/README.md) — `ui-styles/106-health-and-boss-bars/README.md`
+- [107. Minimap Compass](Source/ui-styles/107-minimap-compass/README.md) — `ui-styles/107-minimap-compass/README.md`
+- [108. Damage Numbers](Source/ui-styles/108-damage-numbers/README.md) — `ui-styles/108-damage-numbers/README.md`
+- [109. Tutorial Highlight Arrow](Source/ui-styles/109-tutorial-highlight-arrow/README.md) — `ui-styles/109-tutorial-highlight-arrow/README.md`
+- [11. Glossy Bubble](Source/ui-styles/11-glossy-bubble/README.md) — `ui-styles/11-glossy-bubble/README.md`
+- [110. Limited-Time Offer Popup](Source/ui-styles/110-limited-time-offer-popup/README.md) — `ui-styles/110-limited-time-offer-popup/README.md`
+- [111. Codes Redeem Box](Source/ui-styles/111-codes-redeem-box/README.md) — `ui-styles/111-codes-redeem-box/README.md`
+- [112. Gamepad Focus Navigation](Source/ui-styles/112-gamepad-focus-navigation/README.md) — `ui-styles/112-gamepad-focus-navigation/README.md`
+- [12. Hit-Game Layout (original art)](Source/ui-styles/12-hit-game-layout-original-art/README.md) — `ui-styles/12-hit-game-layout-original-art/README.md`
+- [13. Pet-Collector Grid](Source/ui-styles/13-pet-collector-grid/README.md) — `ui-styles/13-pet-collector-grid/README.md`
+- [14. Rebirth/Prestige Panel](Source/ui-styles/14-rebirth-prestige-panel/README.md) — `ui-styles/14-rebirth-prestige-panel/README.md`
+- [15. Daily Reward Calendar](Source/ui-styles/15-daily-reward-calendar/README.md) — `ui-styles/15-daily-reward-calendar/README.md`
+- [16. Garden/Farm Cozy](Source/ui-styles/16-garden-farm-cozy/README.md) — `ui-styles/16-garden-farm-cozy/README.md`
+- [17. Tycoon Cash HUD](Source/ui-styles/17-tycoon-cash-hud/README.md) — `ui-styles/17-tycoon-cash-hud/README.md`
+- [18. Idle/Clicker Orb](Source/ui-styles/18-idle-clicker-orb/README.md) — `ui-styles/18-idle-clicker-orb/README.md`
+- [19. Gacha/Egg Hatch](Source/ui-styles/19-gacha-egg-hatch/README.md) — `ui-styles/19-gacha-egg-hatch/README.md`
+- [20. Obby Checkpoint Bar](Source/ui-styles/20-obby-checkpoint-bar/README.md) — `ui-styles/20-obby-checkpoint-bar/README.md`
+- [21. Glowing Fantasy](Source/ui-styles/21-glowing-fantasy/README.md) — `ui-styles/21-glowing-fantasy/README.md`
+- [22. Modern Medieval](Source/ui-styles/22-modern-medieval/README.md) — `ui-styles/22-modern-medieval/README.md`
+- [23. Parchment Scroll](Source/ui-styles/23-parchment-scroll/README.md) — `ui-styles/23-parchment-scroll/README.md`
+- [24. Stone Dungeon](Source/ui-styles/24-stone-dungeon/README.md) — `ui-styles/24-stone-dungeon/README.md`
+- [25. Elven Nature](Source/ui-styles/25-elven-nature/README.md) — `ui-styles/25-elven-nature/README.md`
+- [26. Souls-like Minimal](Source/ui-styles/26-souls-like-minimal/README.md) — `ui-styles/26-souls-like-minimal/README.md`
+- [27. Anime RPG Sidebar](Source/ui-styles/27-anime-rpg-sidebar/README.md) — `ui-styles/27-anime-rpg-sidebar/README.md`
+- [28. Gacha Character Cards](Source/ui-styles/28-gacha-character-cards/README.md) — `ui-styles/28-gacha-character-cards/README.md`
+- [29. Skill Tree Web](Source/ui-styles/29-skill-tree-web/README.md) — `ui-styles/29-skill-tree-web/README.md`
+- [30. Quest Journal](Source/ui-styles/30-quest-journal/README.md) — `ui-styles/30-quest-journal/README.md`
+- [31. Neon Cyberpunk](Source/ui-styles/31-neon-cyberpunk/README.md) — `ui-styles/31-neon-cyberpunk/README.md`
+- [32. Holographic HUD](Source/ui-styles/32-holographic-hud/README.md) — `ui-styles/32-holographic-hud/README.md`
+- [33. Military Tactical](Source/ui-styles/33-military-tactical/README.md) — `ui-styles/33-military-tactical/README.md`
+- [34. Space Station](Source/ui-styles/34-space-station/README.md) — `ui-styles/34-space-station/README.md`
+- [35. Terminal/Hacker](Source/ui-styles/35-terminal-hacker/README.md) — `ui-styles/35-terminal-hacker/README.md`
+- [36. Mecha Cockpit](Source/ui-styles/36-mecha-cockpit/README.md) — `ui-styles/36-mecha-cockpit/README.md`
+- [37. Synthwave](Source/ui-styles/37-synthwave/README.md) — `ui-styles/37-synthwave/README.md`
+- [38. Glitch](Source/ui-styles/38-glitch/README.md) — `ui-styles/38-glitch/README.md`
+- [39. Vector Minimal Tech](Source/ui-styles/39-vector-minimal-tech/README.md) — `ui-styles/39-vector-minimal-tech/README.md`
+- [40. Futuristic Racing](Source/ui-styles/40-futuristic-racing/README.md) — `ui-styles/40-futuristic-racing/README.md`
+- [41. Glassmorphism](Source/ui-styles/41-glassmorphism/README.md) — `ui-styles/41-glassmorphism/README.md`
+- [42. Flat Material](Source/ui-styles/42-flat-material/README.md) — `ui-styles/42-flat-material/README.md`
+- [43. Dark Mode Pro](Source/ui-styles/43-dark-mode-pro/README.md) — `ui-styles/43-dark-mode-pro/README.md`
+- [44. iOS-Soft](Source/ui-styles/44-ios-soft/README.md) — `ui-styles/44-ios-soft/README.md`
+- [45. Neumorphism](Source/ui-styles/45-neumorphism/README.md) — `ui-styles/45-neumorphism/README.md`
+- [46. Brutalist](Source/ui-styles/46-brutalist/README.md) — `ui-styles/46-brutalist/README.md`
+- [47. Minimal Monochrome](Source/ui-styles/47-minimal-monochrome/README.md) — `ui-styles/47-minimal-monochrome/README.md`
+- [48. Pill-Tab Dashboard](Source/ui-styles/48-pill-tab-dashboard/README.md) — `ui-styles/48-pill-tab-dashboard/README.md`
+- [49. Compact Mobile HUD](Source/ui-styles/49-compact-mobile-hud/README.md) — `ui-styles/49-compact-mobile-hud/README.md`
+- [50. Gamepad Radial](Source/ui-styles/50-gamepad-radial/README.md) — `ui-styles/50-gamepad-radial/README.md`
+- [51. Backrooms Liminal](Source/ui-styles/51-backrooms-liminal/README.md) — `ui-styles/51-backrooms-liminal/README.md`
+- [52. Gothic Horror](Source/ui-styles/52-gothic-horror/README.md) — `ui-styles/52-gothic-horror/README.md`
+- [53. VHS/Found Footage](Source/ui-styles/53-vhs-found-footage/README.md) — `ui-styles/53-vhs-found-footage/README.md`
+- [54. Asylum Paper](Source/ui-styles/54-asylum-paper/README.md) — `ui-styles/54-asylum-paper/README.md`
+- [55. Minimal Survival HUD](Source/ui-styles/55-minimal-survival-hud/README.md) — `ui-styles/55-minimal-survival-hud/README.md`
+- [56. Cursed Glitch Dark](Source/ui-styles/56-cursed-glitch-dark/README.md) — `ui-styles/56-cursed-glitch-dark/README.md`
+- [57. Pixel Art Retro](Source/ui-styles/57-pixel-art-retro/README.md) — `ui-styles/57-pixel-art-retro/README.md`
+- [58. 8-bit Arcade](Source/ui-styles/58-8-bit-arcade/README.md) — `ui-styles/58-8-bit-arcade/README.md`
+- [59. 16-bit JRPG Box](Source/ui-styles/59-16-bit-jrpg-box/README.md) — `ui-styles/59-16-bit-jrpg-box/README.md`
+- [60. Comic/Manga](Source/ui-styles/60-comic-manga/README.md) — `ui-styles/60-comic-manga/README.md`
+- [61. Hand-Drawn Sketch](Source/ui-styles/61-hand-drawn-sketch/README.md) — `ui-styles/61-hand-drawn-sketch/README.md`
+- [62. Paper Craft](Source/ui-styles/62-paper-craft/README.md) — `ui-styles/62-paper-craft/README.md`
+- [63. Claymation](Source/ui-styles/63-claymation/README.md) — `ui-styles/63-claymation/README.md`
+- [64. Low-Poly Faceted](Source/ui-styles/64-low-poly-faceted/README.md) — `ui-styles/64-low-poly-faceted/README.md`
+- [65. Sports Broadcast](Source/ui-styles/65-sports-broadcast/README.md) — `ui-styles/65-sports-broadcast/README.md`
+- [66. Fighting Game](Source/ui-styles/66-fighting-game/README.md) — `ui-styles/66-fighting-game/README.md`
+- [67. Shooter Tactical HUD](Source/ui-styles/67-shooter-tactical-hud/README.md) — `ui-styles/67-shooter-tactical-hud/README.md`
+- [68. Racing Dashboard](Source/ui-styles/68-racing-dashboard/README.md) — `ui-styles/68-racing-dashboard/README.md`
+- [69. Roleplay Town](Source/ui-styles/69-roleplay-town/README.md) — `ui-styles/69-roleplay-town/README.md`
+- [70. Tower Defense](Source/ui-styles/70-tower-defense/README.md) — `ui-styles/70-tower-defense/README.md`
+- [71. Horror Co-op Lobby](Source/ui-styles/71-horror-co-op-lobby/README.md) — `ui-styles/71-horror-co-op-lobby/README.md`
+- [72. Holiday/Seasonal](Source/ui-styles/72-holiday-seasonal/README.md) — `ui-styles/72-holiday-seasonal/README.md`
+- [73. Steampunk Brass](Source/ui-styles/73-steampunk-brass/README.md) — `ui-styles/73-steampunk-brass/README.md`
+- [74. Kawaii Pastel](Source/ui-styles/74-kawaii-pastel/README.md) — `ui-styles/74-kawaii-pastel/README.md`
+- [75. Cozy Farm Wood](Source/ui-styles/75-cozy-farm-wood/README.md) — `ui-styles/75-cozy-farm-wood/README.md`
+- [76. Frozen Ice](Source/ui-styles/76-frozen-ice/README.md) — `ui-styles/76-frozen-ice/README.md`
+- [77. Volcanic Lava](Source/ui-styles/77-volcanic-lava/README.md) — `ui-styles/77-volcanic-lava/README.md`
+- [78. Tropical Beach](Source/ui-styles/78-tropical-beach/README.md) — `ui-styles/78-tropical-beach/README.md`
+- [79. Candy Land](Source/ui-styles/79-candy-land/README.md) — `ui-styles/79-candy-land/README.md`
+- [80. Deep Ocean](Source/ui-styles/80-deep-ocean/README.md) — `ui-styles/80-deep-ocean/README.md`
+- [81. Desert Egyptian](Source/ui-styles/81-desert-egyptian/README.md) — `ui-styles/81-desert-egyptian/README.md`
+- [82. Samurai Japanese](Source/ui-styles/82-samurai-japanese/README.md) — `ui-styles/82-samurai-japanese/README.md`
+- [83. Pirate Parchment](Source/ui-styles/83-pirate-parchment/README.md) — `ui-styles/83-pirate-parchment/README.md`
+- [84. Wild West](Source/ui-styles/84-wild-west/README.md) — `ui-styles/84-wild-west/README.md`
+- [85. Cosmic Cartoon Space](Source/ui-styles/85-cosmic-cartoon-space/README.md) — `ui-styles/85-cosmic-cartoon-space/README.md`
+- [86. Toy Plastic](Source/ui-styles/86-toy-plastic/README.md) — `ui-styles/86-toy-plastic/README.md`
+- [87. Graffiti Street](Source/ui-styles/87-graffiti-street/README.md) — `ui-styles/87-graffiti-street/README.md`
+- [88. Zen Garden Minimal](Source/ui-styles/88-zen-garden-minimal/README.md) — `ui-styles/88-zen-garden-minimal/README.md`
+- [89. Brainrot Meme Chaos](Source/ui-styles/89-brainrot-meme-chaos/README.md) — `ui-styles/89-brainrot-meme-chaos/README.md`
+- [90. Anime Fighter Menu](Source/ui-styles/90-anime-fighter-menu/README.md) — `ui-styles/90-anime-fighter-menu/README.md`
+- [91. Card Battle Deck](Source/ui-styles/91-card-battle-deck/README.md) — `ui-styles/91-card-battle-deck/README.md`
+- [92. Roleplay Phone OS](Source/ui-styles/92-roleplay-phone-os/README.md) — `ui-styles/92-roleplay-phone-os/README.md`
+- [93. Dress-Up Boutique](Source/ui-styles/93-dress-up-boutique/README.md) — `ui-styles/93-dress-up-boutique/README.md`
+- [94. Rainbow Obby](Source/ui-styles/94-rainbow-obby/README.md) — `ui-styles/94-rainbow-obby/README.md`
+- [95. Admin Dev Panel](Source/ui-styles/95-admin-dev-panel/README.md) — `ui-styles/95-admin-dev-panel/README.md`
+- [96. Trading Window](Source/ui-styles/96-trading-window/README.md) — `ui-styles/96-trading-window/README.md`
+- [97. Battle Pass Track](Source/ui-styles/97-battle-pass-track/README.md) — `ui-styles/97-battle-pass-track/README.md`
+- [98. Leaderboard Podium](Source/ui-styles/98-leaderboard-podium/README.md) — `ui-styles/98-leaderboard-podium/README.md`
+- [99. Quest Board](Source/ui-styles/99-quest-board/README.md) — `ui-styles/99-quest-board/README.md`
+- [40 additional UI composition references](Source/ui-styles/EXTRA-REFERENCES.md) — `ui-styles/EXTRA-REFERENCES.md`
+- [Roblox GUI Style Catalog (112 styles)](Source/ui-styles/GUI-STYLES.md) — `ui-styles/GUI-STYLES.md`
+- [Image credits](Source/ui-styles/IMAGE-CREDITS.md) — `ui-styles/IMAGE-CREDITS.md`
+
+## vfx (38)
+
+- [1. Hit Spark](Source/vfx/01-hit-spark/README.md) — `vfx/01-hit-spark/README.md`
+- [2. Slash Arc Trail](Source/vfx/02-slash-arc-trail/README.md) — `vfx/02-slash-arc-trail/README.md`
+- [3. Impact Ring Shockwave](Source/vfx/03-impact-ring-shockwave/README.md) — `vfx/03-impact-ring-shockwave/README.md`
+- [4. Speed Lines Dash](Source/vfx/04-speed-lines-dash/README.md) — `vfx/04-speed-lines-dash/README.md`
+- [5. Anime Impact Frame](Source/vfx/05-anime-impact-frame/README.md) — `vfx/05-anime-impact-frame/README.md`
+- [6. Muzzle Flash](Source/vfx/06-muzzle-flash/README.md) — `vfx/06-muzzle-flash/README.md`
+- [7. Shield Bubble](Source/vfx/07-shield-bubble/README.md) — `vfx/07-shield-bubble/README.md`
+- [8. Blood Splat Stylised](Source/vfx/08-blood-splat-stylised/README.md) — `vfx/08-blood-splat-stylised/README.md`
+- [9. Magic Circle Cast](Source/vfx/09-magic-circle-cast/README.md) — `vfx/09-magic-circle-cast/README.md`
+- [10. Heal Aura](Source/vfx/10-heal-aura/README.md) — `vfx/10-heal-aura/README.md`
+- [11. Lightning Bolt](Source/vfx/11-lightning-bolt/README.md) — `vfx/11-lightning-bolt/README.md`
+- [12. Ice Shatter](Source/vfx/12-ice-shatter/README.md) — `vfx/12-ice-shatter/README.md`
+- [13. Water Splash](Source/vfx/13-water-splash/README.md) — `vfx/13-water-splash/README.md`
+- [14. Fireball Explosion](Source/vfx/14-fireball-explosion/README.md) — `vfx/14-fireball-explosion/README.md`
+- [15. Black Hole Vortex](Source/vfx/15-black-hole-vortex/README.md) — `vfx/15-black-hole-vortex/README.md`
+- [16. Meteor Impact](Source/vfx/16-meteor-impact/README.md) — `vfx/16-meteor-impact/README.md`
+- [17. Teleport Portal](Source/vfx/17-teleport-portal/README.md) — `vfx/17-teleport-portal/README.md`
+- [18. Poison Cloud](Source/vfx/18-poison-cloud/README.md) — `vfx/18-poison-cloud/README.md`
+- [19. Rain and Snow](Source/vfx/19-rain-and-snow/README.md) — `vfx/19-rain-and-snow/README.md`
+- [20. Dust Footsteps](Source/vfx/20-dust-footsteps/README.md) — `vfx/20-dust-footsteps/README.md`
+- [21. Smoke Puff](Source/vfx/21-smoke-puff/README.md) — `vfx/21-smoke-puff/README.md`
+- [22. Torch Fire](Source/vfx/22-torch-fire/README.md) — `vfx/22-torch-fire/README.md`
+- [23. God Rays Light Shafts](Source/vfx/23-god-rays-light-shafts/README.md) — `vfx/23-god-rays-light-shafts/README.md`
+- [24. Fireflies Ambient](Source/vfx/24-fireflies-ambient/README.md) — `vfx/24-fireflies-ambient/README.md`
+- [25. Rocket Smoke Trail](Source/vfx/25-rocket-smoke-trail/README.md) — `vfx/25-rocket-smoke-trail/README.md`
+- [26. Level-Up Burst](Source/vfx/26-level-up-burst/README.md) — `vfx/26-level-up-burst/README.md`
+- [27. Coin Gem Sparkle](Source/vfx/27-coin-gem-sparkle/README.md) — `vfx/27-coin-gem-sparkle/README.md`
+- [28. Rarity Glow Beam](Source/vfx/28-rarity-glow-beam/README.md) — `vfx/28-rarity-glow-beam/README.md`
+- [29. Confetti Celebration](Source/vfx/29-confetti-celebration/README.md) — `vfx/29-confetti-celebration/README.md`
+- [30. Damage Number Pop](Source/vfx/30-damage-number-pop/README.md) — `vfx/30-damage-number-pop/README.md`
+- [31. Screen Damage Vignette](Source/vfx/31-screen-damage-vignette/README.md) — `vfx/31-screen-damage-vignette/README.md`
+- [32. Glitch Chromatic Pulse](Source/vfx/32-glitch-chromatic-pulse/README.md) — `vfx/32-glitch-chromatic-pulse/README.md`
+- [33. Powerup Aura Flames](Source/vfx/33-powerup-aura-flames/README.md) — `vfx/33-powerup-aura-flames/README.md`
+- [34. Spawn Dissolve](Source/vfx/34-spawn-dissolve/README.md) — `vfx/34-spawn-dissolve/README.md`
+- [35. Particle Texture Library](Source/vfx/35-particle-texture-library/README.md) — `vfx/35-particle-texture-library/README.md`
+- [36. Cartoon VFX Spritesheets](Source/vfx/36-cartoon-vfx-spritesheets/README.md) — `vfx/36-cartoon-vfx-spritesheets/README.md`
+- [25 additional visual feedback references](Source/vfx/EXTRA-REFERENCES.md) — `vfx/EXTRA-REFERENCES.md`
+- [Roblox VFX Catalog](Source/vfx/VFX.md) — `vfx/VFX.md`
+
+## visual-refs (5)
+
+- [Animation reference links](Source/visual-refs/animation-refs/LINKS.md) — `visual-refs/animation-refs/LINKS.md`
+- [Animation style briefs](Source/visual-refs/animation-refs/STYLE-BRIEFS.md) — `visual-refs/animation-refs/STYLE-BRIEFS.md`
+- [visual-refs](Source/visual-refs/README.md) — `visual-refs/README.md`
+- [Import status — actual stud UI screenshots](Source/visual-refs/studs-ui/IMPORT-STATUS.md) — `visual-refs/studs-ui/IMPORT-STATUS.md`
+- [Authentic Roblox stud UI references](Source/visual-refs/studs-ui/README.md) — `visual-refs/studs-ui/README.md`

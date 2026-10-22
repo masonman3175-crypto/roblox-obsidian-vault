@@ -1,0 +1,77 @@
+{
+  "baseline": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"camera\":{\"type\":\"Fixed\",\"cframe\":{\"1\":-41.3100471496582,\"3\":-33.15898513793945,\"2\":29.611717224121095,\"5\":0.3129655718803406,\"4\":-0.7061503529548645,\"7\":-0,\"6\":-0.635141134262085,\"9\":0.4420031011104584,\"8\":0.8970135450363159,\"12\":-0.6334264278411865,\"11\":0.312120646238327,\"10\":0.708061933517456}},\"baseline\":\"BASELINE_PASS empty-script-place existing-world-preserved\",\"workspace\":{\"1\":{\"name\":\"Camera\",\"class\":\"Camera\"},\"4\":{\"name\":\"SpawnLocation\",\"class\":\"SpawnLocation\"},\"3\":{\"name\":\"Terrain\",\"class\":\"Terrain\"},\"2\":{\"name\":\"Baseplate\",\"class\":\"Part\"}},\"gameId\":0,\"serverScripts\":0,\"placeId\":0,\"lighting\":{\"ClockTime\":14.5,\"Brightness\":3,\"Ambient\":{\"1\":0.27450981736183169,\"3\":0.27450981736183169,\"2\":0.27450981736183169},\"OutdoorAmbient\":{\"1\":0.27450981736183169,\"3\":0.27450981736183169,\"2\":0.27450981736183169}},\"clientScripts\":0}"
+      }
+    ],
+    "isError": false
+  },
+  "compile": {
+    "content": [
+      {
+        "type": "text",
+        "text": "COMPILE_PASS scripts=7"
+      }
+    ],
+    "isError": false
+  },
+  "contracts": {
+    "content": [
+      {
+        "type": "text",
+        "text": "CONTRACTS_PASS checks=78 loop=catch-display-income-collect-classic persistence=fault-injected purchases=disabled"
+      }
+    ],
+    "isError": false
+  },
+  "finalSmoke": {
+    "content": [
+      {
+        "type": "text",
+        "text": "FINAL_ENGINE_SMOKE_PASS catch=Goofy_Duck display=1 income=$5/sec source=final"
+      }
+    ],
+    "isError": false
+  },
+  "finalLoop": {
+    "content": [
+      {
+        "type": "text",
+        "text": "FINAL_ENGINE_LOOP_PASS input=mouse catch=1 display=1 income=$5/sec collect=earned next_machine=Classic source=final"
+      }
+    ],
+    "isError": false
+  },
+  "remoteValidation": {
+    "content": [
+      {
+        "type": "text",
+        "text": "REMOTE_VALIDATION_PASS foreign_id nan infinity unknown_upgrade unknown_action inventory_wallet_unchanged"
+      }
+    ],
+    "isError": false
+  },
+  "installedSourceCompare": {
+    "content": [
+      {
+        "type": "text",
+        "text": "FINAL_SOURCE_COMPARE_PASS installed=7 local=7 exact_match=true"
+      }
+    ],
+    "isError": false
+  },
+  "rollback": {
+    "studio": "STUDIO_ROLLBACK_PASS namespaces=removed original-baseplate-and-spawn=preserved lighting-camera=restored",
+    "postcheck": "ENGINE_ROLLBACK_PASS original=empty-script-place baseplate=present spawn=present camera=Fixed",
+    "reinstalled": true
+  },
+  "captures": [
+    "CME_Laptop_FinalHUD",
+    "CME_iPhone_Aim",
+    "CME_Final_Portrait_HUD",
+    "CME_Shop_Closed"
+  ],
+  "finalState": "Edit; build installed; preview present; device=default"
+}

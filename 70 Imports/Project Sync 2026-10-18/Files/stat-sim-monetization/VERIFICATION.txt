@@ -1,0 +1,44 @@
+TARGET: ultimate slopp v1 / place 98823628319724 / Roblox Studio Edit DataModel
+CHANGED BRANCH/FIELD: ReplicatedStorage.Shared.Config.Monetization.Passes[*].Price/Id and Products[*].Price/Id; added Products.UltraEgg and Eggs.List.Ultra. Receipt, purchase, egg, shop, HUD, logo and hatch controllers updated in 10 live Luau sources. StudioPurchase remote removed. Source rollback clones: ServerStorage.MonetizationRollback_20261018.
+
+MODIFIED_FILE: C:\Users\mason\OneDrive\Desktop\slopshitv1\stat-sim-monetization\modified\src\Monetization.luau
+DIFF_FILE: C:\Users\mason\OneDrive\Desktop\slopshitv1\stat-sim-monetization\DIFF_FILE.patch
+VERIFICATION.txt: C:\Users\mason\OneDrive\Desktop\slopshitv1\stat-sim-monetization\VERIFICATION.txt
+ROLLBACK.sh: C:\Users\mason\OneDrive\Desktop\slopshitv1\stat-sim-monetization\ROLLBACK.sh (mode 755)
+
+ORIGINAL_SHA256 Monetization.luau: 0AAC1935B267FB95D765135DE814F263FF5378F05BEFC464F9ADEE6AD62C250D
+MODIFIED_SHA256 Monetization.luau: A37ECC4E8CD3C78573C0A4A8ACB2BE5FF481D50782BEBFAA91A2E271EC809D15
+
+BASELINE exact command/input: python stat-sim-monetization\validate.py baseline
+BASELINE literal output: BASELINE PASS: 13 passes, 13 products, free StudioPurchase present, Ultra absent
+BASELINE exit status: 0
+
+MODIFIED exact command/input: python stat-sim-monetization\validate.py modified
+MODIFIED literal output: MODIFIED PASS: 13 passes, 14 products, max R$99, paid egg odds 100%, StudioPurchase removed
+MODIFIED exit status: 0
+
+STUDIO BASELINE command/input: execute_luau(Edit) with assertions for 13 passes, 13 products, StudioPurchase path, and no Ultra egg.
+STUDIO BASELINE literal result: BASELINE PASS: 13 passes, 13 products, free StudioPurchase present, Ultra absent
+STUDIO BASELINE tool status: 0
+
+STUDIO MODIFIED command/input: execute_luau(Edit) with fresh loadstring of Monetization and Eggs, asserts 13/14 items, four bound IDs, max R$99, each paid egg odds=100%, and no StudioPurchase remote/source path.
+STUDIO MODIFIED literal result: MODIFIED PASS: 13 passes, 14 products, 4 live IDs, max R$99, paid egg odds 100%, StudioPurchase removed
+STUDIO MODIFIED tool status: 0
+
+STUDIO COMPILE command/input: execute_luau(Edit) loadstring on all 10 modified source modules.
+STUDIO COMPILE literal result: COMPILE PASS 10 Luau sources
+STUDIO COMPILE tool status: 0
+
+STUDIO PLAYTEST: Play mode loaded ShopGui and Hud; inspected Passes and Eggs tabs visually. Ultra Egg logo, 65/25/10 odds, R$99 SETUP, and custom wordmark logos rendered. Client Purchase.Pass('Double') and Purchase.Product('UltraEgg') both returned false with 'Listing not set up'; no free test purchase. Real Robux checkout was not exercised.
+
+CREATOR DASHBOARD: Four developer products were created in private experience 10771586872 and MarketplaceService:GetProductInfo returned matching prices and IsForSale=true:
+StrengthSmall 3719745475 R$5; StrengthMedium 3719749527 R$15; StrengthLarge 3719749718 R$49; CoinsSmall 3719749809 R$5.
+All other listing IDs remain 0 and blocked pending creation. See Creator-Dashboard-Status.md. The Windows browser automation stopped because it could not confidently determine the current browser URL. No further browser UI action was taken. Studio cloud save of the edited place was not verified; the live Edit session and local modified sources retain the changes.
+
+ROLLBACK exact command/input: & 'C:\Program Files\Git\bin\bash.exe' 'C:\Users\mason\OneDrive\Desktop\slopshitv1\stat-sim-monetization\ROLLBACK.sh' 'C:\Users\mason\OneDrive\Desktop\slopshitv1\stat-sim-monetization\rollback-copy'
+ROLLBACK literal output: BASELINE PASS: 13 passes, 13 products, free StudioPurchase present, Ultra absent
+ROLLBACK literal output: ROLLBACK PASS: original source behavior restored in target copy
+ROLLBACK exit status: 0
+RESTORED behavior/status: isolated rollback-copy matches original 13-pass/13-product Studio test behavior and has no UltraEgg; installed MODIFIED_FILE and Studio Edit state stay changed. Last explicit checks: MODIFIED_STILL_HAS_ULTRA=True; ROLLBACK_COPY_HAS_ULTRA=False.
+
+Remaining: Create 10 developer products and 13 passes at configured prices, bind their IDs, save the Studio place to Roblox, then validate actual checkout/receipt in a private session. Never claim these steps completed until observed.

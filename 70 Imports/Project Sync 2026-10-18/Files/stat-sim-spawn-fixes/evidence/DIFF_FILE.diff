@@ -1,0 +1,345 @@
+--- baseline/scene.json
++++ evidence/modified-scene.json
+@@ -1,13 +1,13 @@
+ {
+   "effects": {
+     "Bloom": {
+-      "Threshold": 1.2000000476837158,
+-      "Intensity": 1,
+-      "Size": 28
++      "Threshold": 1.7999999523162842,
++      "Intensity": 0.14000000059604645,
++      "Size": 16
+     },
+     "SlopColor": {
+-      "Saturation": 0.3499999940395355,
+-      "Contrast": 0.11999999731779099
++      "Saturation": 0.1599999964237213,
++      "Contrast": 0.05999999865889549
+     }
+   },
+   "scripts": {
+@@ -53,183 +53,208 @@
+     "ReplicatedStorage.Shared.Config.Stats": "5f6f29c4b30cf9d6bb95537a1dab8f3b6ba45ee91b093ad900895b9d2cbf5f1d"
+   },
+   "lighting": {
+-    "ExposureCompensation": 0,
+-    "Brightness": 2.5999999046325684
++    "ExposureCompensation": -0.11999999731779099,
++    "Brightness": 2.1500000953674316
+   },
+   "dummyParts": [
+     {
+       "class": "Part",
+       "name": "Torso",
+-      "transparency": 0
+-    },
+-    {
+-      "class": "Part",
+-      "name": "Left Arm",
+-      "transparency": 0
+-    },
+-    {
+-      "class": "Part",
+-      "name": "Left Leg",
+-      "transparency": 0
+-    },
+-    {
+-      "class": "Part",
+-      "name": "Right Arm",
+-      "transparency": 0
+-    },
+-    {
+-      "class": "Part",
+-      "name": "Right Leg",
++      "transparency": 1
++    },
++    {
++      "class": "MeshPart",
++      "name": "Punch_Eye_L.001",
++      "transparency": 0
++    },
++    {
++      "class": "MeshPart",
++      "name": "Punch_Eye_R.001",
++      "transparency": 0
++    },
++    {
++      "class": "MeshPart",
++      "name": "Punch_Eye_lash.001",
++      "transparency": 0
++    },
++    {
++      "class": "MeshPart",
++      "name": "Punch_Lower_Teeth.001",
++      "transparency": 0
++    },
++    {
++      "class": "MeshPart",
++      "name": "Punch_PperTeeth.001",
++      "transparency": 0
++    },
++    {
++      "class": "MeshPart",
++      "name": "Punch_Shoe.001",
++      "transparency": 0
++    },
++    {
++      "class": "MeshPart",
++      "name": "Punch_Tongue.001",
++      "transparency": 0
++    },
++    {
++      "class": "MeshPart",
++      "name": "Punch_asian_boy.002",
++      "transparency": 0
++    },
++    {
++      "class": "MeshPart",
++      "name": "Punch_asian_boy.003",
+       "transparency": 0
+     }
+   ],
+   "boardPivot": [
+-    0,
+-    0,
+-    0,
+-    -1,
+-    0,
+-    -1.5099580252808664e-7,
+-    0,
++    -100,
++    10.799988746643066,
++    31,
+     1,
+     0,
+-    1.5099580252808664e-7,
+-    0,
+-    -1
++    2.384185791015625e-7,
++    0,
++    1,
++    0,
++    -2.384185791015625e-7,
++    0,
++    1
+   ],
+   "parts": [
+     {
+-      "value": 1.2000000476837158,
+-      "path": "Workspace.Map.Hub.PunchArena.LightTower.Lens.SpotLight",
+-      "property": "Brightness"
+-    },
+-    {
+-      "value": "Neon",
++      "value": 0.6000000238418579,
++      "path": "Workspace.Map.Hub.PunchArena.LightTower.Lens.SpotLight",
++      "property": "Brightness"
++    },
++    {
++      "value": "SmoothPlastic",
+       "path": "Workspace.Map.Hub.PunchArena.StandTrim",
+       "property": "Material"
+     },
+     {
+-      "value": 1.2000000476837158,
+-      "path": "Workspace.Map.Hub.PunchArena.LightTower.Lens.SpotLight",
+-      "property": "Brightness"
+-    },
+-    {
+-      "value": "Neon",
++      "value": 0.6000000238418579,
++      "path": "Workspace.Map.Hub.PunchArena.LightTower.Lens.SpotLight",
++      "property": "Brightness"
++    },
++    {
++      "value": "SmoothPlastic",
+       "path": "Workspace.Map.Hub.PunchArena.StandTrim",
+       "property": "Material"
+     },
+     {
+-      "value": 1.2000000476837158,
+-      "path": "Workspace.Map.Hub.PunchArena.LightTower.Lens.SpotLight",
+-      "property": "Brightness"
+-    },
+-    {
+-      "value": "Neon",
++      "value": 0.6000000238418579,
++      "path": "Workspace.Map.Hub.PunchArena.LightTower.Lens.SpotLight",
++      "property": "Brightness"
++    },
++    {
++      "value": "SmoothPlastic",
+       "path": "Workspace.Map.Hub.PunchArena.PunchStripe",
+       "property": "Material"
+     },
+     {
+-      "value": "Neon",
++      "value": "SmoothPlastic",
+       "path": "Workspace.Map.Hub.PunchArena.Screen",
+       "property": "Material"
+     },
+     {
+-      "value": 1.2000000476837158,
+-      "path": "Workspace.Map.Hub.PunchArena.LightTower.Lens.SpotLight",
+-      "property": "Brightness"
+-    },
+-    {
+-      "value": 0.800000011920929,
++      "value": 0.6000000238418579,
++      "path": "Workspace.Map.Hub.PunchArena.LightTower.Lens.SpotLight",
++      "property": "Brightness"
++    },
++    {
++      "value": 0.4000000059604645,
+       "path": "Workspace.Map.Hub.Gym.Tier1.BayLight.PointLight",
+       "property": "Brightness"
+     },
+     {
+-      "value": 0.800000011920929,
++      "value": 0.4000000059604645,
+       "path": "Workspace.Map.Hub.Gym.Tier6.BayLight.PointLight",
+       "property": "Brightness"
+     },
+     {
+-      "value": 0.800000011920929,
++      "value": 0.4000000059604645,
+       "path": "Workspace.Map.Hub.Gym.Tier4.BayLight.PointLight",
+       "property": "Brightness"
+     },
+     {
+-      "value": 0.800000011920929,
++      "value": 0.4000000059604645,
+       "path": "Workspace.Map.Hub.Gym.Tier3.BayLight.PointLight",
+       "property": "Brightness"
+     },
+     {
+-      "value": 0.800000011920929,
++      "value": 0.4000000059604645,
+       "path": "Workspace.Map.Hub.Gym.Tier5.BayLight.PointLight",
+       "property": "Brightness"
+     },
+     {
+-      "value": "Neon",
++      "value": "SmoothPlastic",
+       "path": "Workspace.Map.Hub.Gym.Tier5.Screen",
+       "property": "Material"
+     },
+     {
+-      "value": 0.800000011920929,
++      "value": 0.4000000059604645,
+       "path": "Workspace.Map.Hub.Gym.Tier2.BayLight.PointLight",
+       "property": "Brightness"
+     },
+     {
+-      "value": 1,
++      "value": 0.5,
+       "path": "Workspace.Map.Hub.EggPlaza.MegaBase.Glow.PointLight",
+       "property": "Brightness"
+     },
+     {
+-      "value": 0.6000000238418579,
+-      "path": "Workspace.Map.Hub.Lamps.Lamp.Bulb.PointLight",
+-      "property": "Brightness"
+-    },
+-    {
+-      "value": 0.6000000238418579,
+-      "path": "Workspace.Map.Hub.Lamps.Lamp.Bulb.PointLight",
+-      "property": "Brightness"
+-    },
+-    {
+-      "value": 0.6000000238418579,
+-      "path": "Workspace.Map.Hub.Lamps.Lamp.Bulb.PointLight",
+-      "property": "Brightness"
+-    },
+-    {
+-      "value": 0.6000000238418579,
+-      "path": "Workspace.Map.Hub.Lamps.Lamp.Bulb.PointLight",
+-      "property": "Brightness"
+-    },
+-    {
+-      "value": 0.6000000238418579,
+-      "path": "Workspace.Map.Hub.Lamps.Lamp.Bulb.PointLight",
+-      "property": "Brightness"
+-    },
+-    {
+-      "value": 0.6000000238418579,
+-      "path": "Workspace.Map.Hub.Lamps.Lamp.Bulb.PointLight",
+-      "property": "Brightness"
+-    },
+-    {
+-      "value": 0.6000000238418579,
+-      "path": "Workspace.Map.Hub.Lamps.Lamp.Bulb.PointLight",
+-      "property": "Brightness"
+-    },
+-    {
+-      "value": 0.6000000238418579,
+-      "path": "Workspace.Map.Hub.Lamps.Lamp.Bulb.PointLight",
+-      "property": "Brightness"
+-    },
+-    {
+-      "value": 0.6000000238418579,
+-      "path": "Workspace.Map.Hub.Lamps.Lamp.Bulb.PointLight",
+-      "property": "Brightness"
+-    },
+-    {
+-      "value": 0.6000000238418579,
+-      "path": "Workspace.Map.Hub.Lamps.Lamp.Bulb.PointLight",
+-      "property": "Brightness"
+-    },
+-    {
+-      "value": 0.6000000238418579,
++      "value": 0.30000001192092896,
++      "path": "Workspace.Map.Hub.Lamps.Lamp.Bulb.PointLight",
++      "property": "Brightness"
++    },
++    {
++      "value": 0.30000001192092896,
++      "path": "Workspace.Map.Hub.Lamps.Lamp.Bulb.PointLight",
++      "property": "Brightness"
++    },
++    {
++      "value": 0.30000001192092896,
++      "path": "Workspace.Map.Hub.Lamps.Lamp.Bulb.PointLight",
++      "property": "Brightness"
++    },
++    {
++      "value": 0.30000001192092896,
++      "path": "Workspace.Map.Hub.Lamps.Lamp.Bulb.PointLight",
++      "property": "Brightness"
++    },
++    {
++      "value": 0.30000001192092896,
++      "path": "Workspace.Map.Hub.Lamps.Lamp.Bulb.PointLight",
++      "property": "Brightness"
++    },
++    {
++      "value": 0.30000001192092896,
++      "path": "Workspace.Map.Hub.Lamps.Lamp.Bulb.PointLight",
++      "property": "Brightness"
++    },
++    {
++      "value": 0.30000001192092896,
++      "path": "Workspace.Map.Hub.Lamps.Lamp.Bulb.PointLight",
++      "property": "Brightness"
++    },
++    {
++      "value": 0.30000001192092896,
++      "path": "Workspace.Map.Hub.Lamps.Lamp.Bulb.PointLight",
++      "property": "Brightness"
++    },
++    {
++      "value": 0.30000001192092896,
++      "path": "Workspace.Map.Hub.Lamps.Lamp.Bulb.PointLight",
++      "property": "Brightness"
++    },
++    {
++      "value": 0.30000001192092896,
++      "path": "Workspace.Map.Hub.Lamps.Lamp.Bulb.PointLight",
++      "property": "Brightness"
++    },
++    {
++      "value": 0.30000001192092896,
+       "path": "Workspace.Map.Hub.Lamps.Lamp.Bulb.PointLight",
+       "property": "Brightness"
+     }

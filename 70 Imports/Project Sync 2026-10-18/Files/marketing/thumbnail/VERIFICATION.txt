@@ -1,0 +1,10 @@
+Final artifact: C:\Users\mason\OneDrive\Desktop\slopshitv1\marketing\thumbnail\Punch-Charlie-Brown-1920x1080.jpg
+Format: JPEG
+Dimensions: 1920x1080
+Aspect ratio: 16:9
+Size: 684342 bytes (668.3 KiB), below 3 MB
+Pillow open / verify / dimension and byte-limit assertions: PASS, exit 0
+Literal output: PASS: JPEG, 1920x1080, 16:9, 684342 bytes, under 3 MB, decoded successfully
+Final JPG reopened and visually inspected. Title spelling and character silhouettes checked.
+Image generated with built-in image_gen; generation prompt saved in GENERATION.txt.
+No upload or moderation approval claimed.

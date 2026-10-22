@@ -1,0 +1,195 @@
+# ROBLOX GAME BUILD PROMPT — +1 FAT EVERY SECOND 🍔⚡
+
+Build a complete, playable Roblox simulator called **“+1 FAT EVERY SECOND: CASEOH CHAOS!”**
+
+The game should combine viral meme humor, incremental growth, random anime-inspired powers, satisfying progression, giant transformations, and multiplayer chaos.
+
+The finished result should feel like a polished Roblox simulator, not just a basic prototype. Build the actual gameplay systems, UI, map, effects, and progression—not just a design document.
+
+## 1. CORE GAMEPLAY LOOP
+
+Players spawn as small cartoon characters in a colorful food-themed world.
+
+- Gain +1 Size automatically every second.
+- Eating food pickups grants bonus Size.
+- Display current Size prominently above the player's character and in the HUD.
+- As Size increases, scale the character visually while keeping movement and collision functional.
+- Earn Coins from gameplay, challenges, and reaching milestones.
+- Unlock new zones, powers, character cosmetics, and transformations.
+- Include rebirths that reset Size in exchange for permanent growth multipliers.
+- Make the gameplay easy to understand within the first 10 seconds.
+
+Make growth satisfying with squash-and-stretch effects, particles, funny sounds, screen feedback, and increasingly ridiculous character proportions.
+
+## 2. CASEOH MEME BOSS
+
+Include a large, exaggerated, streamer-meme-inspired boss encounter themed around the internet meme of CaseOh.
+
+- Create a giant, humorous boss character with an over-the-top entrance.
+- Give the boss dramatic stomps, shockwaves, funny voice-style announcements using original dialogue, and exaggerated reactions.
+- Build a boss arena with food props, destructible-looking obstacles, and spectator areas.
+- Trigger special events when the boss appears, such as “THE GIANT HAS ARRIVED!”
+- Let players cooperate to dodge attacks and complete challenges.
+- Reward participation with Coins, XP, titles, and cosmetic drops.
+- Add a dramatic boss health bar and clear attack warnings.
+
+Do not use ripped assets, unauthorized recordings, or impersonated voice clips. Use original, meme-inspired visuals and dialogue. Keep the character modular so an officially authorized CaseOh likeness can be added later if permission is obtained.
+
+## 3. RANDOM ANIME-INSPIRED POWERS
+
+Create a random power-awarding system with a GUI button labeled “ROLL POWER.”
+
+Each roll awards a randomly selected power from a configurable rarity pool. Use original anime-inspired abilities rather than copying protected anime characters, names, logos, or signature designs.
+
+Example powers:
+
+COMMON:
+- Super Jump: launch high into the air.
+- Speed Burst: run faster for a short duration.
+- Energy Punch: send nearby objects flying.
+- Dash: quickly move forward.
+
+RARE:
+- Lightning Dash: dash with lightning particles.
+- Gravity Flip: reverse gravity briefly in a designated arena.
+- Energy Wave: send a visible wave across the ground.
+- Shadow Clone: create temporary visual decoys.
+
+EPIC:
+- Meteor Slam: jump and create a dramatic impact.
+- Dragon Aura: surround the character with a fiery energy effect.
+- Time Bubble: briefly slow eligible arena hazards.
+- Titan Mode: temporarily become enormous.
+
+LEGENDARY:
+- Cosmic Breaker: create a huge colorful energy explosion.
+- Thunder God Mode: transform with lightning and enhanced movement.
+- Reality Glitch: distort nearby visual effects and arena props.
+- Colossal Awakening: transform into a giant form with a dramatic animation.
+
+MYTHIC:
+- Universe Burst: unleash a large, visually impressive energy attack.
+- Infinite Growth: receive a temporary growth multiplier.
+- Celestial Titan: transform into a colossal glowing character.
+
+Balance all powers for multiplayer fairness. Include cooldowns, readable attack telegraphs, server-side damage validation, and safe zones. Make all power effects appropriate for a general audience.
+
+## 4. POWER INVENTORY AND ROLL UI
+
+Build a polished, responsive interface featuring:
+
+- Current Size.
+- Coins and rebirth count.
+- Current equipped power.
+- A ROLL POWER button.
+- An inventory showing unlocked powers.
+- Power rarity, icon, description, and cooldown.
+- A power equip button.
+- A collection index showing discovered powers.
+- A clear reveal animation when a power is unlocked.
+
+Use a colorful neon anime aesthetic with purple, blue, orange, and gold accents.
+
+Important: Random power rolls must be free gameplay rewards initially. If paid random items are ever added, implement them only after verifying applicable Roblox policies, eligibility restrictions, and disclosure requirements. Prefer direct cosmetic purchases instead.
+
+## 5. MAP AND ZONES
+
+Build a connected, colorful world containing:
+
+ZONE 1 — BEGINNER FOOD TOWN
+- Spawn area, tutorial signs, burger pickups, and starter challenges.
+
+ZONE 2 — ANIME TRAINING GROUNDS
+- Jump platforms, training dummies, power tutorials, and timed challenges.
+
+ZONE 3 — GIANT FOOD CITY
+- Oversized burgers, giant buildings, destructible-looking props, and size challenges.
+
+ZONE 4 — COSMIC ARENA
+- Floating platforms, energy effects, boss battles, and advanced power challenges.
+
+ZONE 5 — COLOSSAL WORLD
+- Giant-scale obstacles, rare collectibles, and endgame challenges.
+
+Unlock zones through achievable gameplay milestones. Show the required Size and Coins on locked entrances.
+
+## 6. PROGRESSION AND REWARDS
+
+Implement:
+- Persistent player Size, Coins, XP, rebirths, and unlocked powers.
+- Daily optional challenges without punitive streak resets.
+- Achievements for growth milestones, boss participation, and power discovery.
+- Cosmetic titles such as “Tiny Menace,” “Burger Titan,” and “Cosmic Giant.”
+- Rebirth multipliers and additional zones.
+- A leaderboard for legitimate Size records and challenge scores.
+
+Use secure server-side validation and reliable DataStore handling. Never trust client-provided Coins, Size, damage, or purchase ownership.
+
+## 7. MONETIZATION
+
+Build an optional, child-friendly cosmetic shop featuring:
+- Burger and anime-inspired outfits.
+- Funny growth animations.
+- Aura colors and trails.
+- Emotes and victory poses.
+- Cosmetic nameplates.
+- Optional VIP lounge with cosmetic perks.
+
+All core gameplay, basic powers, and progression must remain playable for free.
+
+Use transparent prices. Do not implement gambling-style purchases, paid random power rolls, misleading countdowns, or aggressive purchase popups. Any monetization must comply with current Roblox policies.
+
+## 8. TECHNICAL IMPLEMENTATION
+
+Use Roblox Studio conventions and Luau.
+
+Organize code into reusable modules for:
+- GrowthService
+- PowerService
+- BossService
+- CoinService
+- RebirthService
+- DataService
+- PurchaseService
+- RoundService
+- UIController
+
+Use RemoteEvents and RemoteFunctions appropriately, validating all important requests on the server. Keep random roll selection, rewards, damage, growth, and purchases server-authoritative.
+
+Use configurable ModuleScripts for power definitions, rarity weights, cooldowns, Size thresholds, rewards, and zone requirements.
+
+Ensure character respawns, missing assets, DataStore failures, and disconnects are handled gracefully.
+
+## 9. VISUAL QUALITY
+
+Use:
+- Bright, saturated colors.
+- Oversized cartoon food.
+- Smooth UI transitions.
+- Funny character animations.
+- Original anime-style energy effects.
+- Large milestone notifications.
+- Satisfying growth sounds and particle effects.
+- Mobile-friendly buttons and layouts.
+- Performance-conscious effects that work on lower-end devices.
+
+Use original assets or assets properly licensed for Roblox. Never leave important features as nonfunctional placeholder buttons.
+
+## 10. ACCEPTANCE TESTS
+
+Before considering the game complete, verify:
+
+1. Players gain Size every second.
+2. Food pickups grant the correct bonus.
+3. Character scaling does not break movement.
+4. Random power rolls work and update the inventory.
+5. Equipped powers activate correctly and respect cooldowns.
+6. Boss attacks work and rewards cannot be exploited.
+7. Coins, Size, powers, and rebirths save and load correctly.
+8. Multiplayer players see synchronized events.
+9. The UI works on desktop and mobile.
+10. Players can complete the initial gameplay loop without purchasing anything.
+
+Build the working game in stages, starting with the core growth loop and one functional power. Test each system before expanding. If a feature requires an external asset, permission, or unsupported capability, clearly identify that dependency and implement a functional fallback.
+
+**Priority:** A fun, playable core loop first; random powers second; the boss encounter third; monetization and advanced content after everything works.

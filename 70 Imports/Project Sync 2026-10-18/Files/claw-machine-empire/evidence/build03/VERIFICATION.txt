@@ -1,0 +1,80 @@
+BUILD 03 - VERIFIED LOCAL/STUDIO TRANSACTION
+
+Changed fields/branches: Config.Build 02 -> 03; Config.Bounds {70,-94,105} -> {150,-210,230}; Config.PlotSpacing 190 -> 360; Config.DropSeconds 2.6 -> 4.2; Config.Machines positions use 52x72-stud district grid; Config.clawPose is deterministic cosmetics only. World architecture/decorations expanded; World.aim articulated, cable telescopes; World.animate carries/release visuals. Bootstrap sends reward metadata, uses Heartbeat choreography, keeps delayed exactly-once Economy.grant, validates owned-machine travel. Main client walking HUD is wallet/menu/play, context-only controls, one menu, reduced motion, cleaned local sparkles and centered 3D reward reveal.
+Foundation: 142x204=28968 -> 300x440=132000 square studs (4.556752x). Cabinets=25, species=25, native-studded tiles=330.
+
+MODIFIED_FILE: C:\Users\mason\OneDrive\Desktop\slopshitv1\claw-machine-empire\Claw Machine Empire.rbxlx
+DIFF_FILE: C:\Users\mason\OneDrive\Desktop\slopshitv1\claw-machine-empire\evidence\build03\DIFF_FILE.diff
+VERIFICATION: C:\Users\mason\OneDrive\Desktop\slopshitv1\claw-machine-empire\evidence\build03\VERIFICATION.txt
+ROLLBACK: C:\Users\mason\OneDrive\Desktop\slopshitv1\claw-machine-empire\evidence\build03\ROLLBACK.sh
+
+ORIGINAL PACKAGE SHA256: d3dfa5677697e97d503f102de2ede4dddb8e05b8352012e49de0df9b27760f49
+MODIFIED PACKAGE SHA256: bc0e7ea8946020ea6cff8b3712798cf50081c742b6206327d5b72c5685d088f3
+DIFF SHA256: e73a6b06fd4b9b628a3cb0fc091c094443da2c3c9468185e933af961c5fb3ca2
+All 16 original guarded files are retained, byte-for-byte, in evidence/build03/baseline. Builds01/02 recovery artifacts were not replaced.
+
+WORKING DIRECTORY for shell commands: C:\Users\mason\OneDrive\Desktop\slopshitv1\claw-machine-empire
+
+BASELINE exact command: & 'C:\Python314\python.exe' tools/verify_build03.py baseline
+Input: BASELINE_SHA256.json and retained Build02 files (25-machine smaller arcade).
+Literal stdout: BUILD03_BASELINE_PASS machines=25 backup_hashes=preserved
+Exit status: 0
+
+MODIFIED exact command: & 'C:\Python314\python.exe' tools/verify_build03.py modified
+Input: current generated place, sealed 16 file hashes, source, diff/recovery paths.
+Literal stdout: BUILD03_MODIFIED_PASS machines=25 authored_skins=25 area=132000 animation=choreographed hud=3 source_sync=true
+Exit status: 0
+
+ROLLBACK exact command: & 'C:\Program Files\Git\bin\bash.exe' -c 'chmod +x evidence/build03/ROLLBACK.sh && ./evidence/build03/ROLLBACK.sh --test'
+Input: --test (disposable copy only; known current hashes, retained Build02 source).
+Literal stdout: BUILD03_ROLLBACK_PASS copy_restored=Build02 later_edit_guard=true live_machines=25
+Exit status: 0
+Restored behavior/status: disposable copy equals all retained Build02 hashes; 25 machines, smaller 96-tile map, prior UI and crane. An unrelated file is preserved, a later World edit cancels restoration before any writes. Live MODIFIED_FILE remains Build03. chmod +x and actual execution of ROLLBACK.sh succeeded.
+
+PACKAGING exact command: & 'C:\Python314\python.exe' tools/build.py
+Literal stdout: BUILD_PASS scripts=7 place_xml=valid installer=generated baseline=preserved
+Exit status: 0
+
+ENGINE BASELINE command: execute_luau(studio_id=e61098e4-d8d3-49ef-9f97-283fdbc2c530, datamodel_type=Edit, code=contents of evidence/build03/baseline/tests/RUN_IN_STUDIO.luau).
+Literal result: CONTRACTS_PASS checks=389 machines=25 silhouettes=25 pools=25 legacy=compatible purchases=disabled
+Exit status: MCP isError=false (not an OS process).
+
+ENGINE MODIFIED command: execute_luau(same studio_id, datamodel_type=Edit, code=contents of tests/RUN_IN_STUDIO.luau).
+Literal result: CONTRACTS_PASS checks=649 machines=25 silhouettes=25 pools=25 legacy=compatible purchases=disabled
+Exit status: MCP isError=false (not an OS process).
+
+ENGINE SCENE command: execute_luau(same studio_id, datamodel_type=Server, code=contents of tests/scene_build03.luau).
+Input: isolated ServerStorage scene, all 25 cabinets, 8 animated poses each, original species pools.
+Literal result: SCENE_PASS cabinets=25 geometry_unique=25 target_claw_prompt_checks=25 studded_tiles=330 area=132000 districts=5 live_player_data=unchanged
+Exit status: MCP isError=false. Fixture is destroyed; no player grants.
+
+ENGINE ROLLBACK command: execute_luau(same studio_id, datamodel_type=Edit, code=contents of evidence/build03/STUDIO_ROLLBACK.luau).
+Literal result: BUILD03_STUDIO_ROLLBACK_PASS restored=Build02 cabinets=25 backup=retained
+Restored behavior assertion: RESTORED_BEHAVIOR_PASS build=02 machines=25 tiles=96 previous_hud=true
+Build02 pure tests were rerun and returned the same 389-check pass. Then Build03 was reinstalled, its 649-check suite reran, and all seven Studio Source fields were compared to the bundle.
+Literal result: STUDIO_SOURCE_SYNC_PASS scripts=7 portable=matching
+Exit status for each engine call: MCP isError=false. Final installed state: Build03, Play active.
+
+LIVE INTERACTION RESULTS (exact literal results, successful MCP calls):
+CATCH03_PASS before=11 after=12 replay_grants=0 reveal_models=1
+REVEAL_DISPLAY_PASS item=12 shelves=2 overlay=closed
+MISS03_PASS clamped=4,3 grants=0 reveal=false FX_cleaned=true
+COLLECT03_PASS UI_clicked=true bank_transferred=true income_continues=true
+FINAL_BUILD03_PASS grant=once reveal=centered FX=cleaned movement=restored
+FINAL_PHONE03_PASS display=46 keep=44 safe_bounds=true preview=centered
+FINAL_PORTRAIT03_PASS wallet_menu_play=inside_safe_canvas default_touch=restored
+DEVICE_FINAL_PASS simulation=default orientation=landscape
+
+Additional verified actions: menu travel to owned Rusty and physical held E started its round; real Space completed it; local sparkles cleaned up; Humanoid speed restored to 24. Actual menu collection was verified by coin/bank delta after a separate click (the initial combined open-and-click action failed child lookup and is not treated as a collection pass).
+
+PHONE: iPhone 17 Pro preset 874x402. Actual landscape safe GUI 749x323; portrait safe GUI 401x719. CoreUISafeInsets, ScreenOrientation Sensor. Final reveal Display46/Keep44 native pixel targets and card fit asserted; portrait walking groups fit, default TouchGui hidden/restored in the relevant context. Simulator returned to default landscape. No physical-device or FPS benchmark is implied.
+
+CONSOLE: full final capture in CONSOLE.json. CME_SERVER_READY / CME_CLIENT_READY report 03 - PLUSHIE PARK, profile reports STUDIO_SESSION_ONLY. Existing Roblox CorePackages FoundationProvider and avatar asset203785492 warnings remain. No game-source error appeared in the final capture.
+
+DATA: original user snapshot (4 owned machines, selected Candy, 11 catches) retained separately. Rebuilds used validated explicit Studio-only resume snapshots. Final stored resume: 14 catches, original items9/10/11 plus QA items12/13/14, displays9/12, four owned machines, collected wallet about12.6K. Current Play also contains a later QA catch. It is not saved into the portable place. Published DataStore validation is not claimed.
+
+OBSIDIAN: Build03 note and Game Hub updated; eight screenshots copied under Assets. Historical research/design/Build01/02 notes retained. VAULT_LINKS_PASS links=70 unresolved=0.
+
+REMAINING: real multiplayer/device performance, published persistence/outage/rejoin and economy balance are release work. Purchases remain disabled, no game was published.
+
+Screenshots in evidence/build03: Expanded Map.jpg; Arcade Plaza.jpg; Simple Walking HUD.jpg; One Arcade Menu.jpg; Articulated Claw Lift.jpg; 3D Prize Reveal.jpg; Phone Landscape.jpg; Phone Portrait.jpg. Wide-map shots illustrate the layout; the entrance fountain was subsequently moved from z192 to z212 to clear the lounge shelves. Final reveal/phone screenshots were refreshed from the final source.

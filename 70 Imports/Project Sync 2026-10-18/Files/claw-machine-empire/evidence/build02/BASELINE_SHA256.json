@@ -1,0 +1,18 @@
+{
+  "Claw Machine Empire.rbxlx": "1fcc341c3c64d813e0f7498e76eb53a82e5ed1751dc804f4ece9d748e28a962e",
+  "INSTALL.luau": "d0b8379a2fc271d2b9a0407bec1f34ebe4af1a30a299774c30a1bcd4690ec9c1",
+  "README.md": "8595994358deb7f4bdc037f8d20fdc0ed0697b01692c3f1358353f62b9d0fe1d",
+  "ROLLBACK.sh": "944f5fbd7975f86c23b3b26d0abb5c08dae8fbab888a3ff4f53fcfff2490efb2",
+  "STUDIO_ROLLBACK.luau": "9a00dd2f8ce6e91183275607b1c862bdf775c9132c74ee0902d4a33f4c1cbeee",
+  "tests/contracts.luau": "f7e7482aa035873e173a0c5e1f84d75f5a4e1ca65b72236f0ba622979e5d7525",
+  "tests/RUN_IN_STUDIO.luau": "de721c06eb220330b93badf165cd5dca6c0106db4e3a68a05fe18c2613a4f819",
+  "tools/build.py": "6209bb8c2ff1c80f52c8d1d2d5129effc3fa67d449cb2f3ff1085964e8bf870c",
+  "tools/verify.py": "2f2c6a225864efa6eff03d51476cec4746c5311b114b57be0f3dbad03a60c76e",
+  "src/client/Main.client.luau": "67c3ea25814cd127bbf2296e0caa0d5aa84f96d500276dea4a14f5c098ce8adf",
+  "src/server/Bootstrap.server.luau": "dd3603ccc83d712fcc7764f6b89b5c6d2632a0ee9c05dd26e8e87d638e50c342",
+  "src/server/ProfileStore.luau": "15450ef08fb4a75df2ae4f66ed7bf4e913c06a449d21262ae8c13f5b2fa6ac15",
+  "src/server/World.luau": "2ebf2e2cf20d7778cebfcf9c7e561797c6485468ee425196561182a14b7c3448",
+  "src/shared/BigNumber.luau": "f2df05ccecb028894d022f1bb01aafa7b33fa627c662cadf6dc6fe2805170f6d",
+  "src/shared/Config.luau": "17f2d31579007b349932f691ceca4f215e9815b311ce6721cbab6f3807d753db",
+  "src/shared/Economy.luau": "73b51585044b317e94b5b23c915af495921ce4b02deb639cd6b647532a18059f"
+}

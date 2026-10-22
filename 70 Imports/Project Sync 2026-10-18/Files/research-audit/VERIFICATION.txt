@@ -1,0 +1,104 @@
+Research expansion verification — 2026-10-17 America/Los_Angeles
+Changed branch/field: research_pack=slop-lab-v2; 297 new research notes; built-in graph colorGroups/search/forces; corrected initial video review label.
+
+MODIFIED_FILE: C:\Users\mason\OneDrive\Desktop\slopshitv1\slopshit\START HERE - Slop Game Lab.md
+DIFF_FILE: C:\Users\mason\OneDrive\Desktop\slopshitv1\.research-audit\DIFF_FILE.diff
+VERIFICATION: C:\Users\mason\OneDrive\Desktop\slopshitv1\.research-audit\VERIFICATION.txt
+ROLLBACK: C:\Users\mason\OneDrive\Desktop\slopshitv1\ROLLBACK.sh
+
+ORIGINAL HASHES (preserved bytes in .research-backups/expansion-20261017):
+Initial hub SHA256: 56780ef65e676902c3ec1e733b91fa7f10cdddaf02509f3eb0f3911ad2184fc3
+Initial graph SHA256: 0a1731109a463cef407301c10999b8529849d1b0c640827e4cf66a6cec7ea9ac
+Original manifest: C:\Users\mason\OneDrive\Desktop\slopshitv1\.research-audit\original-hashes.json
+
+BASELINE — historical command executed before expansion
+Command: python .research-tools/audit_vault.py --root slopshit
+Input: the initial vault containing three Markdown files.
+Literal output values (JSON whitespace compacted only):
+{
+  "markdown_notes": 3,
+  "managed_notes": 0,
+  "source_notes": 0,
+  "unique_undirected_links": 0,
+  "broken_links": [["Welcome.md", "create a link"]],
+  "managed_components": [],
+  "managed_orphans": [],
+  "approximate_words": 0,
+  "duplicate_titles": {}
+}
+Exit status: 0
+
+The initial strict audit exposed a dotted-title resolution bug in the validator (creation.dev). The validator was corrected; no research link was removed to hide it.
+Current baseline-independent checks follow. Commands run from: C:\Users\mason\OneDrive\Desktop\slopshitv1
+
+MODIFIED
+Command: python .research-tools/audit_vault.py --root slopshit --strict
+Input: current saved vault or deterministic synthetic model fixtures.
+Literal output:
+{
+  "markdown_notes": 300,
+  "managed_notes": 297,
+  "source_notes": 100,
+  "unique_undirected_links": 1486,
+  "broken_links": [
+    [
+      "Welcome.md",
+      "create a link"
+    ]
+  ],
+  "managed_broken_links": [],
+  "managed_components": [
+    297
+  ],
+  "managed_orphans": [],
+  "approximate_words": 53426,
+  "duplicate_titles": {}
+}
+Exit status: 0
+
+MODEL
+Command: python .research-tools/test_economy_model.py
+Input: current saved vault or deterministic synthetic model fixtures.
+Literal output:
+test_event_expected_value (__main__.EconomyTests.test_event_expected_value) ... ok
+test_exact_spend (__main__.EconomyTests.test_exact_spend) ... ok
+test_expected_value (__main__.EconomyTests.test_expected_value) ... ok
+test_failed_save_not_acknowledged (__main__.EconomyTests.test_failed_save_not_acknowledged) ... ok
+test_failed_then_retried (__main__.EconomyTests.test_failed_then_retried) ... ok
+test_future_timestamp (__main__.EconomyTests.test_future_timestamp) ... ok
+test_invalid_weights (__main__.EconomyTests.test_invalid_weights) ... ok
+test_no_overdraft (__main__.EconomyTests.test_no_overdraft) ... ok
+test_nonfinite (__main__.EconomyTests.test_nonfinite) ... ok
+test_offline_cap (__main__.EconomyTests.test_offline_cap) ... ok
+test_payback (__main__.EconomyTests.test_payback) ... ok
+test_receipt_replay (__main__.EconomyTests.test_receipt_replay) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.000s
+
+OK
+Exit status: 0
+
+ROLLBACK
+Command: python .research-tools/rollback_pack.py --test
+Input: current saved pack; rollback uses only separate temporary copies.
+Literal output:
+ROLLBACK_TEST_OK restored=2 removed_new_files=298 unrelated_preserved=true later_edit_guard=true live_vault_unchanged=true
+Exit status: 0
+
+SHELL ENTRY POINT
+Command: & 'C:\Program Files\Git\bin\bash.exe' -lc 'chmod +x ./ROLLBACK.sh && ./ROLLBACK.sh --test'
+Input: temporary copies; never --restore on the live vault during verification.
+Literal output: ROLLBACK_TEST_OK restored=2 removed_new_files=298 unrelated_preserved=true later_edit_guard=true live_vault_unchanged=true
+Exit status: 0 (executed after approval; the final Python test above re-verifies the same implementation after the final graph/document changes).
+
+Restored behavior/status: copied initial hub and graph bytes restored; 298 added files absent in the test copy; unrelated files unchanged; later-edit guard blocks the entire transaction before modifying files. Live MODIFIED_FILE remains changed.
+Original Welcome example has one unresolved link; it is pre-existing and excluded from the research graph. New research has zero unresolved links and zero orphan notes.
+VISUAL QA: Actual slopshit Obsidian graph opened, saved color groups loaded through the app reload command, and whole-graph view inspected. Proof: C:\Users\mason\OneDrive\Desktop\slopshitv1\.research-audit\Obsidian-graph.jpg
+No workspace JSON was programmatically replaced; the app saved its own normal tab/graph view state.
+Three video transcripts reviewed with timestamps; full playback is not claimed. 11 inherited references remain explicitly unverified. 86 official/maintainer references have individual inspection statuses.
+Model tests validate illustrative arithmetic only, not a running Roblox game. No place published, real products created, assets uploaded, or ads purchased.
+
+FINAL SUMMARY
+297 new notes; 100 reference records; 1486 unique undirected links; one connected research component; zero broken research links.
+All claimed notes reopened by the audit parser. This report supersedes the initial vault-root VERIFICATION.txt; the earlier report is retained as prior history, not reused as evidence.

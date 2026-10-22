@@ -1,0 +1,33 @@
+{
+  "totalCatches": 9,
+  "upgrades": {
+    "speed": 0,
+    "shelves": 0
+  },
+  "machine": 3,
+  "coins": {
+    "m": 1.3372570159999884,
+    "e": 3
+  },
+  "nextId": 10,
+  "inventory": [
+    {
+      "id": 9,
+      "species": "mochi"
+    }
+  ],
+  "discovered": {
+    "frog": true,
+    "duck": true,
+    "mochi": true
+  },
+  "display": [
+    9
+  ],
+  "selected": 3,
+  "schema": 1,
+  "bank": {
+    "m": 3.9171809280000174,
+    "e": 2
+  }
+}

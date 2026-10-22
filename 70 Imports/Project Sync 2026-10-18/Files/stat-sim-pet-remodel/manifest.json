@@ -1,0 +1,29 @@
+{
+  "paths": {
+    "PetDesigns": "ReplicatedStorage.Shared.Config.PetDesigns",
+    "PetModelBuilder": "ReplicatedStorage.Shared.Util.PetModelBuilder",
+    "EggVisual": "ReplicatedStorage.Shared.Util.EggVisual",
+    "PetVisual": "ReplicatedStorage.Shared.Util.PetVisual",
+    "PetController": "StarterPlayer.StarterPlayerScripts.Controllers.PetController",
+    "PetsController": "StarterPlayer.StarterPlayerScripts.Controllers.PetsController",
+    "HatchController": "StarterPlayer.StarterPlayerScripts.Controllers.HatchController",
+    "EggService": "ServerScriptService.Services.EggService"
+  },
+  "source_sha256": {
+    "PetDesigns": "7be9ac9ad64bb9b76d497c256afbf3f4501a1cae07c800b557e483d3e1921a4e",
+    "PetModelBuilder": "593d9d420515837abb7a7476a17db7157909fc7ea194edea1b3ca77a33256770",
+    "EggVisual": "18768ac06c410fe2a68e7d4b3313ecd1a2ebe6ede4145092fe96d2fcb1705479",
+    "PetVisual": "fdb42980ea311ef46085ae97b5ba5f3f046bb6b3da47ef2bd96a1e3849a0b670",
+    "PetController": "29054a4f0a17d3e1b9d547a1d78d83a9acfbd6d6d9f805ce9196e9b0a1c38dbc",
+    "PetsController": "dc48718198bbc35ccb245f5a8dae15a4af19b972e9d4b1a056f9f530012d3e22",
+    "HatchController": "29072feecb1daed72a6369b559f0a011c8db7722671b863451d8a6f3a2fe8284",
+    "EggService": "84fe0c31479b475fc2fde7158a77a8892baf5d3081f8abd34542e7beaacb8e36"
+  },
+  "original_sha256": {
+    "PetVisual": "e38e58f53a525ea3f3e464c500352724c26675b784cf2b2b6ce97bbbd50e185f",
+    "PetController": "b5b2dbde66036921c8d3a285f682b1144d9511c9e359136865de953f4bad779b",
+    "PetsController": "a1a2559d0efa7e2e26d2e03d2ea244fad9eb8ea9546830ed4e148819ec27433b",
+    "HatchController": "afc6e40b8a84202a2ed6622143016c85a9b7784430dcebfe4a42a2186678dd6d",
+    "EggService": "0383ca1bc94529383ece92aa0de7d69d2d39df517e92f9ca902f79c685eae2fd"
+  }
+}

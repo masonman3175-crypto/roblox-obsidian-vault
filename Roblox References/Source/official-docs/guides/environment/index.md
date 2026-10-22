@@ -1,0 +1,63 @@
+---
+title: Lighting and effects
+description: Create more immersive environments through lighting, atmospheres, and special effects.
+---
+
+The `Class.Lighting` container services let you control and customize a game's environment such as [lighting](#global-lighting), [atmosphere](#atmospheric-effects), and [clouds](#clouds-and-skies). You can also apply [post-processing effects](#post-processing-effects) to adjust how the game appears on the screen.
+
+## Global lighting
+
+The `Class.Lighting` service contains properties that you can adjust to update the global lighting in a game, such as the `Class.Lighting.ClockTime|ClockTime` and `Class.Lighting.Brightness|Brightness`.
+
+<Tabs>
+<TabItem label="ClockTime = 0">
+<img src="../assets/lighting-and-effects/lighting-properties/TimeOfDay-0.jpg" width="800" height="450" alt="Lighting with ClockTime of 0 (TimeOfDay of 00:00:00)" />
+</TabItem>
+<TabItem label="ClockTime = 6.3">
+<img src="../assets/lighting-and-effects/lighting-properties/TimeOfDay-6.3.jpg" width="800" height="450" alt="Lighting with ClockTime of 6.3 (TimeOfDay of 06:18:00)" />
+</TabItem>
+<TabItem label="Brightness = 0.5">
+<img src="../assets/lighting-and-effects/lighting-properties/Brightness-0.5.jpg" width="800" height="450" alt="Lighting with Brightness property of 0.5" />
+</TabItem>
+<TabItem label="Brightness = 3.75">
+<img src="../assets/lighting-and-effects/lighting-properties/Brightness-3.75.jpg" width="800" height="450" alt="Lighting with Brightness property of 3.75" />
+</TabItem>
+</Tabs>
+
+<Alert severity="info">
+In addition to global lighting, you can create and attach [light sources](../effects/light-sources.md) to parts or attachments to simulate objects like lamps, torches, spotlights, or TV screens.
+</Alert>
+
+## Atmospheric effects
+
+[Atmospheric effects](atmosphere.md) simulate realistic environments by scattering sunlight in unique ways. Using the `Class.Atmosphere` object in the `Class.Lighting` service, you can control air particle [density](atmosphere.md#density), simulate [haze](atmosphere.md#haze) or [glare](atmosphere.md#glare), set an atmosphere's [color](atmosphere.md#color), and more.
+
+<figure>
+<img src="../assets/lighting-and-effects/atmosphere/Showcase.jpg" width="800" alt="Atmospheric effects used to render a brilliant sunset scene" />
+<figcaption>Atmospheric effects used to render a brilliant sunset scene</figcaption>
+</figure>
+
+## Clouds and skies
+
+By default, the `Class.Sky` object forms a [skybox](skybox.md) with celestial bodies such as a sun, moon, and stars. In addition, you can adjust the cloud cover, density, and color properties of the `Class.Clouds` object to render realistic, [dynamic clouds](clouds.md) that drift slowly across the sky through [global wind](global-wind.md).
+
+<figure>
+<video src="../assets/lighting-and-effects/clouds/Showcase.mp4" controls width="800" alt="Video of wind blowing dynamic clouds across the sky"></video>
+<figcaption>Wind blowing dynamic clouds across the sky</figcaption>
+</figure>
+
+## Post-processing effects
+
+**Post-processing effects** are customizable filters that allow you to quickly
+enrich the visuals of your game. Using the post-processing effect objects
+in the `Class.Lighting` service or `Class.Camera`, you can:
+
+- Simulate a camera viewing a bright light and exaggerate its glow.
+- Apply a Gaussian blur to the entirety of your game or add a blur to parts of your game that aren't in focus.
+- Enhance an environment's appearance to create a specific mood through hue.
+- Render a halo of light that moves with the sun.
+
+<figure>
+<img src="../assets/lighting-and-effects/post-processing/DepthOfFieldEffect-With.jpg" width="800" alt="Landscape with depth-of-field effect applied, simulating distance blur" />
+<figcaption>Landscape with depth-of-field effect applied, simulating distance blur</figcaption>
+</figure>

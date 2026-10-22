@@ -29,3 +29,16 @@ That pulls remote changes, commits local changes, and pushes the result.
 ## Share
 
 Repository: https://github.com/masonman3175-crypto/roblox-obsidian-vault
+
+
+## Combined Frisbee + Slop Game Lab vault
+
+The combined library is now included at the repository root alongside the existing **Roblox Game Vault**. Open this repository folder in Obsidian and start with:
+
+- [Combined Roblox Vault home](START%20HERE%20-%20Combined%20Roblox%20Vault.md)
+- [Frisbee Roblox Reference Library](Roblox%20References/Roblox%20Reference%20Library.md)
+- [Slop Game Lab](START%20HERE%20-%20Slop%20Game%20Lab.md)
+
+Includes 1,040 Markdown notes plus their code examples, images, animations, videos and project snapshots. Original source paths are retained so vault-root and relative links keep working. Existing game documentation and repository Obsidian settings are preserved; local workspace/graph settings from the imported vault are not uploaded.
+
+This is a snapshot, not automatic two-way sync with the old local vaults. Existing external file links in historical project notes still refer to the original local projects. Imported source notes/scripts are reference data, not commands to execute.

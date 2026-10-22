@@ -1,0 +1,142 @@
+[
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ReplicatedStorage\\Shared\\Config\\Eggs.luau",
+    "Hash": "720934F391E7FCFD1032001D63896704A561D3807F68C26B09EBBE176A551610"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ReplicatedStorage\\Shared\\Config\\Gym.luau",
+    "Hash": "75E84B574CEAB72EECC32BC4D1EDCA89E7F68B8918E52F7B7B7C5293777F548F"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ReplicatedStorage\\Shared\\Config\\Monetization.luau",
+    "Hash": "05D0453D7D8D015D2E5ABC50E60B03E8189432387C26771985079970A8823505"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ReplicatedStorage\\Shared\\Config\\PetDesigns.luau",
+    "Hash": "1D298959FFECFBBB3F9F116747AA79BA202DEB76F3170A9AD4795A1E678C002C"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ReplicatedStorage\\Shared\\Config\\Pets.luau",
+    "Hash": "0DC42B4E22D0633C787CF04F43397F41EDDA33F61D54F3B4594DD1C1A76C7185"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ReplicatedStorage\\Shared\\Config\\Punch.luau",
+    "Hash": "F9320E659614080069DA19FFEBEAC637EF67993A23D33C63020EA66544F86274"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ReplicatedStorage\\Shared\\Config\\Rebirth.luau",
+    "Hash": "5EBB42F66FEBC7DEDFD206AD94BA7B152AB1E35804329B231D3D1632641498B5"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ReplicatedStorage\\Shared\\Config\\Stats.luau",
+    "Hash": "306FF6576C30FB24C70D19EBC4576AD5BAA44DF34698FB0C0EBCA25C213D7DBA"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ReplicatedStorage\\Shared\\Config\\TrackExtensionCatalog.luau",
+    "Hash": "6F1ED75610004B448013BE729B9553FF7FD7AD4464C2C335B289533593156DCF"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ReplicatedStorage\\Shared\\Config\\Zones.luau",
+    "Hash": "117A2C66DF2B47E1EF1E02BEC594EA87BB58DEB49E262A5E09B4713A4E57D00C"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ReplicatedStorage\\Shared\\Util\\EggVisual.luau",
+    "Hash": "8225A8EB885C1993543336356BC761AFA7C2B32F2D5FBD821B87760BBEA9B1C0"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ReplicatedStorage\\Shared\\Util\\Format.luau",
+    "Hash": "1863D77F34B3462BA58BDC9C6E3B9A8E6975807E75583B28D021782893AD7966"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ReplicatedStorage\\Shared\\Util\\PetModelBuilder.luau",
+    "Hash": "36B592C9ADD184C900AA67F2100A1AC16CE13DA0F51F551B0D9D6F99DE078D46"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ReplicatedStorage\\Shared\\Util\\PetVisual.luau",
+    "Hash": "1536C6A82339C0568A384450C81350718D7BC9A98A05FB359F931E81661E94A9"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ReplicatedStorage\\Shared\\Util\\Purchase.luau",
+    "Hash": "851929187B08666EF09BD151A5C8F9B05BD201AF1FCDAD33ABF7BA03FECDBC49"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ReplicatedStorage\\Shared\\Util\\TrackLandscapeBuilder.luau",
+    "Hash": "D365D3475885A4BF0C951074E49F89C743B3DC4675B8C58B110C1A748D3E19E1"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ServerScriptService\\Main.luau",
+    "Hash": "0C93EA0985C9C9F03F30F0DCFA01901B5CB328050854F48605C14D4C2CC04D33"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ServerScriptService\\TrackExtensionRuntime.luau",
+    "Hash": "E5A5F21BBBEEA531789C46945D2DB37E4D4ECA6CEB7B271A128A99E5FE9244F9"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ServerScriptService\\Services\\DataService.luau",
+    "Hash": "A7E3187558D248FA743500F0F078962EF7AFE1B5320657E85A908C1ADDD8ED33"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ServerScriptService\\Services\\EggService.luau",
+    "Hash": "0D94636954D242D66874259B6CE9C1013573D44E0D6AE980A8A282D26C6E9CC7"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ServerScriptService\\Services\\LeaderboardService.luau",
+    "Hash": "281EB8CDE794F2F329D419C489A14352FB3266419C58533F330B5EB7ECB3F609"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ServerScriptService\\Services\\MonetizationService.luau",
+    "Hash": "D6FDF40EABF2372B402B91302B417BD53A168171BEE03AB91EB1DBB639BDAD43"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ServerScriptService\\Services\\PunchService.luau",
+    "Hash": "91CD4EDF24FDE9F80243E92CA55D69709621A7BFEA5C63F82069E4BD3B9F563B"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ServerScriptService\\Services\\RebirthService.luau",
+    "Hash": "9EC8313C92512DAB412788F7F712407420A8DDA55155AFC4E43B6340D6C20CAD"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ServerScriptService\\Services\\StatService.luau",
+    "Hash": "83B1A7E2B847CD1DF8A874FB36B7FC0A79886CAA00D9E22C80A4844234D57353"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ServerScriptService\\Services\\TrainingService.luau",
+    "Hash": "6252FFAFA0E63634DBD9F5C596ADE975587D1909C69E55AE019969AB666603AA"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\ServerScriptService\\Services\\ZoneService.luau",
+    "Hash": "DC3CF5B92BA3390264164A1EB98C2D964C24C527D23A0CBDEC585304D0EE95F3"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\StarterPlayer\\StarterPlayerScripts\\Controllers\\HatchController.luau",
+    "Hash": "377C1D78872B5BA511B196F3E412E4BE96AB074C02466B730CF6826AAE5B4CEC"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\StarterPlayer\\StarterPlayerScripts\\Controllers\\HudController.luau",
+    "Hash": "143B4491DF8E2BFA81A1CE34C3F7F75E5460128D4DEB78A17BC06483361202B0"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\StarterPlayer\\StarterPlayerScripts\\Controllers\\PetController.luau",
+    "Hash": "A41B4F4074699E2562E86C9F8DE487954A400384F41784020399643A053EBDA9"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\StarterPlayer\\StarterPlayerScripts\\Controllers\\PetsController.luau",
+    "Hash": "777326FAC2A68A4BDE66C50D59C72B7AA954C3AF9AA7CF2737FAD651B75EED94"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\StarterPlayer\\StarterPlayerScripts\\Controllers\\PunchFxController.luau",
+    "Hash": "883C5CF83BAE6D7F447F397188298B67841E8031FACAD2AB47B72EA7D4105D0C"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\StarterPlayer\\StarterPlayerScripts\\Controllers\\ShopController.luau",
+    "Hash": "AC3DE636C7AD3AD03E217FA8F76FC38CD21DB83E714C98DB5CA546500442F88E"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\StarterPlayer\\StarterPlayerScripts\\Controllers\\TrackExtensionController.luau",
+    "Hash": "495FC09D9B44FBBBC569B354C91D62961014575D3560193F4186F4C674F1A340"
+  },
+  {
+    "Path": "C:\\Users\\mason\\OneDrive\\Desktop\\slopshitv1\\stat-sim-release-fixes\\baseline\\StarterPlayer\\StarterPlayerScripts\\Controllers\\UiStyle.luau",
+    "Hash": "38D984B105C208A70AA2699AAC9C5DA462AD8E2E9F04155B2B7588DF9AA39B5A"
+  }
+]

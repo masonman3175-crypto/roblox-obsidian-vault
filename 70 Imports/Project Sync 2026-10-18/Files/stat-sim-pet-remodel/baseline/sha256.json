@@ -1,0 +1,12 @@
+{
+  "scene.rbxm": "583642f56a7c36386717eb13fb2c63bfb3f0b78b01cb0db84a255d13e955344c",
+  "scene.rbxm.b64": "bb51f74cb11692ce20de78af480be159aae9e52097c1df6aa77bb5b49b87370e",
+  "sources.json": "f08498a8f4db56e0c87acf1859a7449ea371f37f35e78f5973809f8000eabdbf",
+  "src\\ReplicatedStorage.Shared.Config.Eggs.luau": "5fb44e4fa0947145463f872ba3674e1ee31a0c634c45def47bc3856638dde7aa",
+  "src\\ReplicatedStorage.Shared.Config.Pets.luau": "2daef4d58bf0734723f2ec4e6aff7e076c33f09408f37a426015a7f79daeabbe",
+  "src\\ReplicatedStorage.Shared.Util.PetVisual.luau": "00701cc7394c1c9223a979094ca969e1356b768eca2c3b5ace7b2528556d30a0",
+  "src\\ServerScriptService.Services.EggService.luau": "9864a14b135ffddd4790996965472d76f5aebd56c2c0bda7ead4ddc0d9ec38c2",
+  "src\\StarterPlayer.StarterPlayerScripts.Controllers.HatchController.luau": "8db04098e1a3616dfbf8cbdd6fbfa28bc2692322269c1713dc136b8f2208bb0f",
+  "src\\StarterPlayer.StarterPlayerScripts.Controllers.PetController.luau": "d67eb391b54492e501a1c6c7224ab6fac0ba2442dbe9400cec1b36d742e0b9b7",
+  "src\\StarterPlayer.StarterPlayerScripts.Controllers.PetsController.luau": "b8193c677064711d08e5aa0917cbb702c9954999d7fcd8b2c54148988a8f2dcf"
+}

@@ -1,0 +1,76 @@
+--- baseline/PunchFxController.luau
++++ modified/PunchFxController.luau
+@@ -6,6 +6,7 @@
+ local ReplicatedStorage = game:GetService("ReplicatedStorage")
+ local RunService = game:GetService("RunService")
+ local TweenService = game:GetService("TweenService")
++local SoundService = game:GetService("SoundService")
+ 
+ local PunchConfig = require(ReplicatedStorage.Shared.Config.Punch)
+ local TrackExtension = require(script.Parent.TrackExtensionController)
+@@ -19,6 +20,32 @@
+ local flying = false
+ local inCutscene = false
+ local gui = nil
++
++-- Replace this with an uploaded, experience-permitted two-second voice clip ID.
++-- Until then, every punch uses the licensed Creator Store cartoon hit below.
++local MEME_CLIP_ASSET_ID = ""
++local WHOOSH_ID = "rbxassetid://9120709477"
++local HIT_ID = "rbxassetid://7468131335"
++local BOING_ID = "rbxassetid://75314486373846"
++
++local function playOneShot(assetId, volume, speed, maxSeconds)
++    if assetId == "" then return end
++    local sound = Instance.new("Sound")
++    sound.SoundId = assetId
++    sound.Volume = volume
++    sound.PlaybackSpeed = speed
++    sound.RollOffMaxDistance = 80
++    sound.Parent = SoundService
++    sound.Ended:Connect(function() sound:Destroy() end)
++    sound:Play()
++    task.delay(maxSeconds, function()
++        if sound.Parent then sound:Stop(); sound:Destroy() end
++    end)
++end
++
++local function impactAudio()
++    playOneShot(if MEME_CLIP_ASSET_ID ~= "" then MEME_CLIP_ASSET_ID else HIT_ID, 0.75, 1, 2)
++end
+ 
+ local function setVisible(model, visible)
+ 	for _, d in model:GetDescendants() do
+@@ -208,6 +235,7 @@
+ 	task.wait(0.5)
+ 
+ 	-- PUNCH
++	playOneShot(WHOOSH_ID, 0.32, 1.15, 1)
+ 	if joint then
+ 		animateJoint(joint, baseC0 * rot(math.rad(95)), 0.08)
+ 	end
+@@ -215,6 +243,7 @@
+ 	task.wait(0.08)
+ 
+ 	-- impact freeze frame
++	impactAudio()
+ 	flash()
+ 	local pow = bigText("POW!", Color3.fromRGB(255, 230, 60), 0.28, 0.4)
+ 	pow.Rotation = math.random(-12, 12)
+@@ -232,6 +261,7 @@
+ 	-- chase cam
+ 	camera.FieldOfView = 70
+ 	local lastBiome = 0
++	playOneShot(BOING_ID, 0.36, 1.05, 1.8)
+ 	local ghost, cleanup = fly(dummy, feet, trackX, function(pos)
+ 		local goal = CFrame.lookAt(pos + Vector3.new(-28, 12, 34), pos)
+ 		camera.CFrame = camera.CFrame:Lerp(goal, 0.25)
+@@ -307,6 +337,8 @@
+ 			return
+ 		end
+ 		if puncher == player then
++			impactAudio()
++			playOneShot(BOING_ID, 0.28, 1, 1.8)
+ 			coinPopup("\u{1F44A} " .. Format.Number(feet) .. " FT  +" .. Format.Number(coins) .. " Coins")
+ 		end
+ 		if not flying and not inCutscene then

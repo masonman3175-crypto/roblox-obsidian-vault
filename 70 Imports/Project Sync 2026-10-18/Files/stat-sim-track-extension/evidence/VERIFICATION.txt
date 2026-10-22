@@ -1,0 +1,82 @@
+VERIFICATION — original-six-plus-sixty
+Target: ultimate slopp v1 / place 98823628319724 / Studio 7997c1e7-846e-48c9-8d6e-d9de612fece5
+Date: 2026-10-18
+Final state: installed in Edit; original six retained; 60 appended worlds; no publishing operation.
+Changed branch/fields: Punch.Progress/TrackX/BiomeAt/FeetAtX/Threshold preserve original six mapping and extend after 10M FT; PunchFx only adds streaming hooks and Motor6D shoulder guards; four new modules/runtime. Map.Track.Finish removed and OuterSpace.Scenery.SpaceBackdrop.BackdropEnd.Transparency=1, matching opening panels appended. All other original biome geometry/colors/meshes/signs unchanged.
+
+FOUR ARTIFACT PATHS
+C:/Users/mason/OneDrive/Desktop/slopshitv1/stat-sim-track-extension/MODIFIED_FILE.luau
+C:/Users/mason/OneDrive/Desktop/slopshitv1/stat-sim-track-extension/evidence/DIFF_FILE.diff
+C:/Users/mason/OneDrive/Desktop/slopshitv1/stat-sim-track-extension/evidence/VERIFICATION.txt
+C:/Users/mason/OneDrive/Desktop/slopshitv1/stat-sim-track-extension/evidence/ROLLBACK.sh
+
+BASELINE
+Command (working directory C:/Users/mason/OneDrive/Desktop/slopshitv1/stat-sim-track-extension): C:\Python314\python.exe tools/build.py baseline
+Input: baseline/ and evidence/BASELINE_SHA256.json.
+Literal output: BASELINE_FILES_PASS originals=6 original_scripts=29 engine_backup_hash=preserved
+Exit status: 0.
+Engine command: Roblox_Studio.execute_luau(datamodel_type=Edit, code=contents of tests/baseline.luau, studio_id=7997c1e7-846e-48c9-8d6e-d9de612fece5).
+Literal result: BASELINE_ENGINE_PASS scripts=29 track_descendants=3754 original_max_x=6040 backup=preserved
+MCP status: isError=false (engine call has no process exit code).
+Original EngineBackup.rbxm SHA256: 568b309ae9cdcf7232a858c5d2523532e70d1356d4127fdecbce0bab6afe3dc2
+
+MODIFIED
+Command: C:\Python314\python.exe tools/build.py verify
+Input: sealed 33 source files, installer, Studio rollback, contract runner (36 hashes); baseline hashes.
+Literal output:
+BASELINE_FILES_PASS originals=6 original_scripts=29 engine_backup_hash=preserved
+MODIFIED_FILES_PASS originals=6 appended=60 original_track_not_rebuilt=true runtime_budget=8
+Exit status: 0.
+Engine commands below use the same authorized studio_id and Edit execute_luau with exact named file contents.
+MODIFIED_FILE.luau:
+APPEND_INSTALL_PASS originals=6 added=60 total=66 original_landscapes=retained
+tests/RUN_IN_STUDIO.luau:
+CONTRACTS_PASS checks=502 originals=6 appended=60 original_mapping=preserved former_max=removed rewards=unchanged
+tests/originals.luau:
+ORIGINALS_PASS worlds=6 original_descendants=3531 geometry_colors_meshes_signs=preserved distance_boards=preserved exception=outer_end_backdrop_opened
+tests/scene.luau:
+SCENE_PASS originals=6 appended=60 contiguous_length=60000 lane_clear=true extra_parts=32072 landmark_parts=4200
+All four MCP statuses: isError=false. Scene test checks 20 native ground strips/world, contiguous placement, original-style base folders, no scenery scripts, anchored parts and added landmarks clear of the flight lane.
+Final source comparison of all sources.json entries with Studio .Source:
+SOURCE_SYNC_PASS scripts=33 temporary_QA=removed
+MCP status: isError=false.
+
+PLAY INPUT AND OBSERVED RESULTS
+Installed tests/runtime.client.luau temporarily as StarterPlayerScripts.TrackAppend_QA; started Play. Server teleported character to CFrame.lookAt(Vector3.new(27,4,0),Vector3.new(34,4,0)). Client user_keyboard_input: E keyDown; wait300ms; E keyUp; wait9000ms. Server moved character back to (0,5,0); client set LocalPlayer.TrackQA_Start=true. The actual LocalScript/game VM executes the streaming checks, not an isolated plugin require cache.
+Literal result:
+RUNTIME_PASS original_worlds=6 streamed_stages=7,8,12,66,67,126,1000 max_extra_worlds=5 max_extra_parts=2696 manual_punch=true coins_increased=true camera_dummy_prompt=restored extension_errors=0
+Literal detail JSON: {"manual":1,"errors":[],"automatic":0,"best":137,"coins":80}
+MCP statuses isError=false. Real server Coins=80 and BestPunch=137 observed after the E input. No persistent profile modifications were introduced.
+Additional visual-only input: Server Remotes.PunchFx:FireClient(player,player,8e12,0,65540,false). This does not award rewards. Wait9seconds, then assert Custom camera, unanchored player, visible dummy and enabled prompt:
+LATE_FLIGHT_PASS stage=66 camera_custom=true root_released=true dummy_prompt_restored=true
+Final session console contained no TrackExtension/PunchFx failure or C0 error. Play stopped; QA bridge removed. Real client/server behavior is observed; screenshot immediately after FireClient was still at the hub, not proof of a mid-flight view.
+
+ROLLBACK — LOCAL DISPOSABLE COPY
+Command: ./evidence/ROLLBACK.sh --test
+Exact Windows invocation: & 'C:\Program Files\Git\bin\bash.exe' -c 'chmod +x evidence/ROLLBACK.sh && ./evidence/ROLLBACK.sh --test'
+Input: sealed modified sources copied to a fresh evidence/rollback-fixtures/copy-* temporary directory.
+Literal output: ROLLBACK_PASS copy_scripts=29 unrelated=preserved later_edit_guard=true live_append=retained
+Exit status: 0.
+Observed restored behavior/status: 29 exact original sources restored in the copy; four added sources removed; unrelated file preserved; deliberate later-edit fixture rejected before restoration; live modified files unchanged. Executable Bash wrapper ran successfully. Initial sandboxed Bash failed with NtCreateDirectoryObject 0xC0000022, then the authorized non-sandboxed self-test passed.
+Equivalent Python command: C:\Python314\python.exe tools/build.py rollback --test
+Literal output: ROLLBACK_PASS copy_scripts=29 unrelated=preserved later_edit_guard=true live_append=retained
+Exit status: 0.
+
+ROLLBACK — ACTUAL STUDIO SCENE
+Command: Edit execute_luau with evidence/STUDIO_ROLLBACK.luau.
+Literal result: APPEND_STUDIO_ROLLBACK_PASS originals=6 old_finish=restored original_scripts=29
+MCP status: isError=false.
+Follow-up input: count source containers in RS/SSS/StarterPlayer, assert Track descendants3754 and original Punch.TrackX(1e15)==6040.
+Literal result: ROLLBACK_BEHAVIOR_PASS scripts=29 track_descendants=3754 former_max_x=6040 originals=restored
+MCP status: isError=false.
+Re-applied MODIFIED_FILE.luau afterward; installation, original-geometry and appended-scene tests passed again. Modified installation remains active, not rolled back.
+
+VISUAL QA / BOUNDARIES
+Inspected OriginalGrass.jpg, AppendedJungle.jpg, AppendedAurora.jpg: original-sized landscape strip, same original trees/ground/props, new macro landforms. Preserved source snapshot and original engine backup; rejected compact replacement retained separately in ServerStorage for recovery.
+60 appended named themes are original-style landscape variants with new landform combinations, not 60 independently sculpted mesh libraries. Later worlds reuse deterministic frontier variants. No artificial list-length clamp; normal finite-number and floating-point coordinate limits remain.
+Studio DataStore API access is disabled; persistent saves were not tested or enabled. Existing asset type warnings were present. Mobile frame rate and multiplayer load were not measured.
+A runtime test initially found Luau multiple-return expansion in math.max(7,Punch.BiomeAt(x)); fixed by parenthesizing the call. An earlier client-only plugin teleport did not place the real player correctly, so its manual-punch assertion failed; the final server-teleported E-input test passed. These failed tests were not counted as successful.
+
+CODING ROBOT PROMPT
+Continue the append-only track. Preserve the six original biome folders, their geometry, progression, Hub and unrelated systems. Add scenery after Outer Space using the existing full-size landscape templates and new natural landmarks; keep the stream budget <=8. Read README and DIFF before editing. Re-run original, contract, scene, manual-punch and rollback checks. Do not replace original worlds or overwrite imported historical Obsidian sources.
+

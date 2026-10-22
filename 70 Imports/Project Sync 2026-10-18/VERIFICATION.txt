@@ -1,0 +1,48 @@
+OBSIDIAN PROJECT SYNC — 2026-10-18
+
+Vault: C:\Users\mason\OneDrive\Desktop\slopshitv1\slopshit
+Changed field: START HERE navigation now links the complete project snapshot; all 419 other pre-existing files are unchanged.
+MODIFIED_FILE: C:\Users\mason\OneDrive\Desktop\slopshitv1\slopshit\70 Imports\Project Sync 2026-10-18\MODIFIED_FILE.md
+DIFF_FILE: C:\Users\mason\OneDrive\Desktop\slopshitv1\slopshit\70 Imports\Project Sync 2026-10-18\DIFF_FILE.diff
+VERIFICATION: C:\Users\mason\OneDrive\Desktop\slopshitv1\slopshit\70 Imports\Project Sync 2026-10-18\VERIFICATION.txt
+ROLLBACK: C:\Users\mason\OneDrive\Desktop\slopshitv1\slopshit\70 Imports\Project Sync 2026-10-18\ROLLBACK.sh
+User entry point: C:\Users\mason\OneDrive\Desktop\slopshitv1\slopshit\70 Imports\Project Sync 2026-10-18\Project Sync - Start Here.md
+
+BASELINE / COPY
+Command: & 'C:\Users\mason\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' '.\obsidian-sync-stage\sync_vault.py' sync
+Input: existing slopshit vault, 15 project folders, research audit, supplied attachments and current Studio source snapshot.
+Literal output:
+BASELINE PASS: 420 existing vault files hashed; START HERE backup retained.
+SYNC PASS: 794 files copied byte-for-byte; 39 Studio sources exported; 27 offers indexed.
+Exit status: 0
+Original SHA256 map: original-hashes.json and manifest.json baseline map. Original START HERE bytes: START-HERE.original.md.
+
+MODIFIED
+Command: & 'C:\Users\mason\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' '.\obsidian-sync-stage\sync_vault.py' verify
+Input: synced vault and manifest.json; copied-file hashes, old-file hashes and newly authored wiki links.
+Literal output:
+VERIFY PASS: {"copied_files":794,"copied_bytes":200427070,"snapshot_markdown_files":75,"project_scripts":37,"engine_reference_scripts":2,"original_files_preserved":419,"missing_supplied_files":[]}
+Exit status: 0
+39 exported sources = 37 project scripts + 2 auto-inserted engine sound scripts, explicitly marked reference-only. Runtime snapshot taken without stopping the user's playtest. Runtime PlaceVersion 0 is not asserted as a cloud version.
+
+ROLLBACK
+Command: & 'C:\Program Files\Git\bin\bash.exe' -c 'chmod +x "slopshit/70 Imports/Project Sync 2026-10-18/ROLLBACK.sh" && test -x "slopshit/70 Imports/Project Sync 2026-10-18/ROLLBACK.sh"'
+Exit status: 0; executable shell script verified.
+Command: & 'C:\Users\mason\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' '.\obsidian-sync-stage\sync_vault.py' rollback-test
+Input: an isolated rollback-fixture copy under obsidian-sync-stage; NOT the active vault.
+Literal output:
+ROLLBACK PASS: original START HERE hash restored; snapshot removed only from target copy.
+ACTIVE VAULT PASS: modified navigation and full synced snapshot remain intact.
+Exit status: 0
+Restored behavior/status: isolated copy returns to original navigation hash and contains no generated snapshot. Active vault remains synced and modified.
+Initial Git Bash run hit a sandbox MSYS named-object denial. The same bounded copy-only check succeeded after an approved execution escalation. No active-vault rollback was run.
+
+MEDIA
+Copied PNG reopened and decoded; exact dimensions 1920x1080, 774813 bytes (<3 MB).
+Copied World-Trailer-10s.mp4 fully decoded using FFmpeg, exit 0.
+Literal outputs:
+MEDIA PASS: copied thumbnail decodes at 1920x1080 under 3 MB
+MEDIA PASS: copied cinematic fully decodes
+
+All 794 copies match source hashes. Supplied attachments missing: none. Older prototype builds, baselines and tests remain archives, not claimed as current release. Unfinished publishing, banner public rendering, listing bindings and cloud persistence verification are documented in Current Status and Remaining Work.md.
+Dependency/runtime caches, Obsidian workspace settings and Git internals are excluded. The separate O Blah Warfare vault in Documents was not modified. This is a local Obsidian sync, not a Git remote push.

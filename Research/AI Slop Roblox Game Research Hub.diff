@@ -1,0 +1,122 @@
+diff --git "a/slopshit\\Research\\AI Slop Roblox Game Research Hub.baseline.md" "b/slopshit\\Research\\AI Slop Roblox Game Research Hub.md"
+index 3cec6a5..2f96dcc 100644
+--- "a/slopshit\\Research\\AI Slop Roblox Game Research Hub.baseline.md"	
++++ "b/slopshit\\Research\\AI Slop Roblox Game Research Hub.md"	
+@@ -1 +1,116 @@
+-# Baseline placeholder before research hub creation`n
++---
++title: AI Slop Roblox Game Research Hub
++tags: [roblox, game-design, monetization, ui, references]
++created: 2026-10-17
++---
++# AI Slop Roblox Game Research Hub
++
++## North star
++Build an original, colorful, absurd collection-and-raiding Roblox game inspired by the **genre pattern** of “Steal an Egg,” not a clone. The player loop should be easy to understand in 10 seconds, satisfying without spending, and expandable with new collectibles, areas, events, cosmetics, and social chaos.
++
++Working concept: **Snatch a Snack** — players collect weird snack-creatures from a shared conveyor, carry them to their own neon display, defend their stash, and trade/upgrade through short risk-reward runs. Use original names, models, sounds, UI art, and mechanics.
++
++## Reference image
++![[Assets/reference-gameplay.png]]
++
++What to borrow at the high level: bright green playfield, oversized collectible silhouettes, strong rarity colors, left-side shop/index buttons, large currency readouts, and a readable bottom hotbar. Do not copy assets, exact layouts, logos, names, thumbnails, or character designs.
++
++## Three video references reviewed
++1. [ChatGPT vs Claude Make A Viral Roblox Game](https://www.youtube.com/watch?v=elqpTtfFD40) — user-provided reference. Study the rapid prototyping, AI-assisted iteration, thumbnail/UI readability, and how the core loop is communicated. Treat it as inspiration, not a blueprint.
++2. [STEAL AN EGG](https://www.youtube.com/watch?v=kMGzsqBMqOs) — Yaszoca Games. Study the spectacle of oversized collectibles, readable rarity fantasy, and the social “steal/defend” premise.
++3. [Roblox Tycoon Scripting Tutorial](https://www.youtube.com/watch?v=m-fN3ww_PzU) — AlvinBlox. Study the beginner-friendly decomposition of plots, purchase buttons, unlock order, and server-owned progression. [Part 2](https://www.youtube.com/watch?v=muULrxFFP4Y) covers button setup and plot placement.
++4. [STEAL A WHOLE EGG (ROBLOX)](https://www.youtube.com/watch?v=lxzd6g8Hv6Q) — Chuy Mine. Use as a second gameplay reference for pacing, comedic framing, and player-facing clarity.
++
++## Product brief for the coding robot
++- Genre: colorful social collection + light base defense + short-session simulator.
++- Core loop: spot a snack-creature → risk a short grab/carry route → return to base → display it for passive income → upgrade capacity/defense → unlock stranger zones.
++- Session loop: daily quest, rotating event, 3–5 minute objective, social steal/defend moment, clear reward.
++- Long-term loop: collection index, rebirth/prestige, themed zones, cosmetic loadout, seasonal track.
++- Tone: loud, silly, toy-like, non-scary, original.
++- Platforms: mobile first, then desktop/controller; every important action must work with touch and controller focus.
++- Technical rule: client requests intent; server validates currency, ownership, inventory, cooldowns, trades, and purchases.
++
++## Colorful UI system
++- Palette: electric green playfield, cobalt panels, hot pink accent, orange warning, yellow reward, rarity gradients.
++- Use a consistent token set: `ColorPrimary`, `ColorPanel`, `ColorAccent`, `ColorSuccess`, `ColorWarning`, `ColorText`, `RadiusSmall`, `RadiusLarge`, `SpacingUnit`.
++- HUD: currencies, current carried item, objective, shop, collection index, event timer, settings.
++- UX: one primary action per panel, large touch targets, high contrast, readable text, reduced-motion option, no fake urgency.
++- Build with `ScreenGui`, `GuiObject`, `UIListLayout`/grid, `UIStroke`, `UIGradient`, and a reusable component module.
++
++## Ethical monetization plan
++Use optional value, not pressure. Keep the entire core loop playable for free.
++
++- Developer products: small bundles of soft currency, cosmetic rerolls with disclosed odds only where permitted, temporary convenience boosts, event tickets with a free path.
++- Passes: VIP cosmetics, extra display slots, emotes, private-server perks, inventory convenience; avoid unbeatable power.
++- Subscription: monthly cosmetic club with transparent recurring benefits.
++- Season pass: free and premium tracks; show every reward, use realistic timeframes, never fake a countdown.
++- Cosmetics: trails, carry animations, base themes, nameplates, emotes, sparkle effects.
++- Ads: only if the experience design supports them and Roblox policy allows; never interrupt critical play.
++
++### Non-negotiable policy implementation
++- Do not sell paid random items without showing every final outcome and exact numerical odds totaling 100%.
++- Query `PolicyService:GetPolicyInfoForPlayerAsync()` and hide/replace restricted paid-random features per player.
++- Never use false scarcity, misleading discounts, or pressure language aimed at minors.
++- Store purchase grants and owned items reliably with `DataStoreService`; process receipts server-side and make grants idempotent.
++- Add an unpaid acquisition path or direct-purchase fallback for restricted random systems.
++
++## MVP build order
++1. Shared spawn lane and three original collectible families.
++2. Grab/carry/return state machine with server validation.
++3. Personal base, display slots, passive income, sell/upgrade loop.
++4. Collection index with rarity and discoverable silhouettes.
++5. Shop UI with mock products and server-owned purchase service.
++6. Data persistence, receipt handling, reconnect recovery.
++7. Mobile/controller UX pass and performance budget.
++8. Tutorial, daily quest, one timed event, analytics funnel.
++9. Playtest with no monetization first; then add optional cosmetics/convenience.
++
++## Suggested Roblox architecture
++- `ReplicatedStorage/Shared/Config.lua`: currencies, rarity tables, prices, cooldowns.
++- `ReplicatedStorage/Remotes`: intent-only RemoteEvents/RemoteFunctions.
++- `ServerScriptService/Services`: InventoryService, CurrencyService, CollectibleService, BaseService, PurchaseService, SaveService, AnalyticsService.
++- `StarterPlayerScripts/Client`: HUDController, ShopController, IndexController, InputController.
++- `ServerStorage/Collectibles`: original models tagged by rarity.
++- Server validates every state change; client only renders state and sends intent.
++
++## Metrics to instrument
++Track onboarding step completion, first collectible, first return-to-base, first upgrade, first index discovery, first social interaction, D1/D7/D30 retention, average session time, payer conversion, ARPPU, purchase refund/error rate, and performance by device.
++
++## Originality checklist
++- Replace “egg” with a distinct collectible fantasy and naming system.
++- Create original models, textures, UI icons, sounds, animations, thumbnail, and title.
++- Avoid copying exact map layout, rarity names, shop placement, scripts, or marketing language.
++- Prototype one small room and test whether the action is fun before adding a giant world.
++
++## Build prompt to paste into the coding robot
++> Build an original Roblox experience called “Snatch a Snack,” a colorful social collection-and-base-defense game. Do not copy Steal an Egg or any other game’s names, assets, scripts, map, UI, or exact mechanics. Implement the MVP in small verified slices: server-authoritative collectible spawning and carry/return state machine; personal base with display slots and passive income; collection index; upgrade shop; mobile/controller-friendly colorful HUD; DataStore persistence; idempotent MarketplaceService receipt handling; and analytics funnel events. Keep core play free. Monetization may add cosmetics, convenience, private-server perks, and a clearly disclosed season pass, but never pressure users, use false scarcity, or gate the fun. For any paid random item, show all final outcomes and exact odds and use PolicyService for restrictions. After each slice, provide files changed, test steps, and a rollback note. Prefer original placeholder assets and a clean modular architecture.
++
++## References index
++### Official Roblox Creator Hub
++- [Core curriculum](https://create.roblox.com/docs/tutorials/curriculums/core) — Studio fundamentals and iterative playtesting.
++- [User interface](https://create.roblox.com/docs/ui) — GuiObjects, layout, styling, and interaction.
++- [UI and UX design](https://create.roblox.com/docs/production/game-design/ui-ux-design) — prioritization, attention, visual language, conventions, consistency.
++- [Monetization](https://create.roblox.com/docs/production/monetization) — products, subscriptions, private servers, transparent presentation, PolicyService.
++- [How do I make money?](https://create.roblox.com/docs/get-started/monetization) — Dev Products, passes, subscriptions, Creator Rewards, DevEx.
++- [Passes](https://create.roblox.com/docs/production/monetization/passes) — one-time Robux privileges and implementation entry points.
++- [Paid random items policy](https://create.roblox.com/docs/production/monetization/paid-random-items) — odds disclosure, restrictions, and required fallbacks.
++- [Monetization foundations](https://create.roblox.com/docs/production/game-design/monetization-foundations) — shop design and season-pass clarity.
++- [Analytics](https://create.roblox.com/docs/production/analytics) — growth, engagement, retention, monetization.
++- [Get started with analytics](https://create.roblox.com/docs/production/analytics/get-started) — metrics-driven iteration and onboarding signals.
++- [Retention](https://create.roblox.com/docs/production/analytics/retention) — D1/D7/D30 cohorts and progression analysis.
++- [Analytics dashboard](https://create.roblox.com/docs/production/analytics/analytics-dashboard) — KPI categories and benchmarks.
++- [Acquisition](https://create.roblox.com/docs/production/analytics/acquisition) — metadata, discovery, retention before acquisition.
++
++### Tutorials and design references
++- [How to Make a Simulator Game on Roblox: Developer Guide](https://www.creation.dev/learn/how-to-make-simulator-roblox) — collect → upgrade → expand, pets, rebirths, persistence.
++- [How to Make a Simulator Game in Roblox Studio](https://www.rocode.app/guides/roblox-simulator-game) — server validation, click limits, config modules, DataStore.
++- [How to Design Engaging Roblox Game Loops](https://santozstudios.com/blog/roblox-game-loop-design-guide/) — core, engagement, and progression loops; feedback; playtest small.
++- [Working Gamepass Shop GUI tutorial](https://devforum.roblox.com/t/tutorial-easy-how-to-make-a-working-gamepass-shop-gui/970082) — basic shop wiring reference.
++- [How To Make A TYCOON On Roblox 2024](https://www.classcentral.com/course/youtube-how-to-make-a-tycoon-on-roblox-2024-288726) — six-part tycoon scripting course listing.
++- [Roblox clone coverage](https://www.windowscentral.com/gaming/how-roblox-theft-is-becoming-a-big-problem) — reminder to differentiate instead of cloning.
++- [USENIX study on monetization design](https://www.usenix.org/system/files/soups2025_full-proceedings-interior.pdf) — critical reading on manipulative patterns; use to avoid exploitative UX.
++
++### Source notes
++- All links above were collected on 2026-10-17.
++- The attached image is a visual mood reference only and is stored at `Assets/reference-gameplay.png`.
++- Video notes are directional observations for prototyping, not a claim that any referenced game should be replicated.
