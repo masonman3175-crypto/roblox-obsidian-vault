@@ -98,7 +98,7 @@ Coin packs: 1,000 = R$29 · 3,500 = R$89 · 10,000 = R$219 · 30,000 = R$549.
   - The 4 lobby weather pads and their 4 signs are removed from `SkylineLobby` (moved to `ServerStorage.LobbyWeatherPadsBackup`, so they can be restored). The wall subtitle now reads "READY UP • DRAFT TEAMS • EQUIP POWERS".
   - The lobby panel shows match info tiles (mode, to win, weather random, powers) instead of weather cards, and the weather chip is hidden.
 - **Loadout + ability bar (Valorant style):**
-  - You can equip up to 3 owned powers. They're stored in the `Loadout` attribute (comma list); `EquippedPower` mirrors slot 1.
+  - You can equip up to 3 owned powers. They're stored in the `Loadout` attribute (comma list).
   - Keys are Q / F / C. E is catch, so it's not used.
   - `AbilityClient` draws the bar at bottom center: slot art, rarity stripe, key cap, cooldown sweep with seconds, a pop when ready, and a ready pulse. It hides while the lobby or shop is open.
   - `AbilityService` (server) validates the slot, ownership, alive state and cooldown (by rarity: 10 / 12 / 14 / 18 / 25s, or `power.cooldown`). It publishes the `Ready_<id>` attribute and fires `ReplicatedStorage.AbilitySystem.Activated(player, powerId)`.
@@ -124,6 +124,22 @@ Coin packs: 1,000 = R$29 · 3,500 = R$89 · 10,000 = R$219 · 30,000 = R$549.
     - The disabled default SpawnLocation was deleted.
     - The Baseplate is kept, since it's the ground under the stadium.
     - The ServerStorage backups are kept.
+
+## Review fixes (2026-10-21, all 7 review findings)
+1. **Shutdown:** `BindToClose` waits until every save finishes, up to 25s.
+2. **Session lock:** each save records the server using it (a GUID plus a time), written with `UpdateAsync`.
+   - A new server waits (10 tries, 3s apart) while another server still holds the save.
+   - A lock older than 180s (a crashed server) is taken over.
+   - A server never writes over a save another server took.
+   - Leaving releases the lock, so a rejoin loads instantly (checked by stopping and restarting Play).
+3. **Catch payouts:** only the first 10 catches per player per match pay coins, so passing back and forth can't farm them.
+4. **Retries:** every DataStore call retries 3 times. Autosave now runs every 60s and refreshes the lock.
+5. **SelfTests:** now covers saving with fake stores:
+   - A failed load never writes.
+   - A save held by another server is neither loaded nor overwritten.
+   - A stale lock is taken over.
+6. **Leaving mid-load:** a player who leaves during loading has the lock released and no state kept.
+7. **`EquippedPower` removed:** nothing read it. `Loadout` is the only source.
 
 ## Lobby and copy pass (2026-10-21)
 **Rule (Cade):** no explanatory UI copy. That means no taglines, no hints that restate a button, no info screens on join, and no footers. Labels and real content only.
