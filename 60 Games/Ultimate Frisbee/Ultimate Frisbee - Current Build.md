@@ -41,6 +41,28 @@ Backups in ServerStorage: `FrisbeeUIBackup`, `FrisbeeRevisionBackup`, `RoundSyst
 - **Score:** a catch in the endzone gives +1, first to 5. Teams are Cyan and Pink.
 - **Reset (R):** sends a loose disc back to midfield.
 
+## Power shop (added 2026-10-21, playtested)
+Matches the existing HUD style (dark navy panels, purple outline, Gotham Black, pill gradient buttons).
+
+| Script | Where | Job |
+| --- | --- | --- |
+| ShopConfig | ReplicatedStorage.ShopSystem | Catalog: 8 placeholder powers + 4 coin packs, prices, rarities, `thumbnail` and `productId` slots |
+| Request | ReplicatedStorage.ShopSystem | RemoteFunction: `Buy` / `Equip` / `Unequip` + power id |
+| ShopService | ServerScriptService | Owns coins and unlocks, validates every request, `award(player, amount)` for match payouts |
+| ShopServer | ServerScriptService | Starts the service |
+| ShopClient | StarterPlayerScripts | Coin wallet + SHOP button (top right), shop panel with Powers and Coin Packs tabs |
+
+- **Player state:** `Coins` attribute, `EquippedPower` attribute (`""` = none), `OwnedPowers` folder of BoolValues. All set by the server.
+- **For the powers side (partner):** read `player:GetAttribute("EquippedPower")` to know which power to give. Power ids are in ShopConfig.
+- **Placeholders:** power names, initials-as-thumbnails ("ART SOON"), and every `productId = 0`, so the Robux buttons show "coming soon".
+- **Studio test coins:** 2,500 in Studio, 0 live.
+- **Tested:** open/close, select, buy with coins (2,500 → 1,500), equip/unequip, not-enough-coins message, Coin Packs tab, no console errors.
+
+**Not done yet:**
+- Coins aren't saved (no DataStore yet), so they reset when you rejoin.
+- Matches don't pay coins yet. Call `ShopService.award` from RoundService on catch, score and win.
+- No Robux handling: no Developer Products and no `ProcessReceipt` yet. That needs DataStore first so paid items can't get lost.
+
 ## Gaps vs the design
 - No movement tech (sprint, slide, dive, dash)
 - No powers

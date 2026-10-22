@@ -97,9 +97,10 @@ Balance rules:
 - Kill-feed style play feed: "Blink → Magnet 42yd SCORE".
 - Replay of the last point's throw on score (later).
 
-## Progression and monetization (cosmetic only)
-- XP per catch, assist, score, block → levels → unlock kits, disc skins, trails, dive effects, celebration emotes.
-- Shop: disc skins, trails, jerseys, endzone celebrations. **No paid stats, no paid kits, no loot boxes.**
+## Progression and monetization
+- **Cade's call (2026-10-21):** anime powers are sold in a shop. Buy them with **coins** earned from match performance, or directly with **Robux**. Coin packs are also sold for Robux. The partner is building the powers; the shop UI is built (see [[Ultimate Frisbee - Current Build]]).
+- XP per catch, assist, score, block → levels, plus cosmetics: disc skins, trails, dive effects, celebration emotes.
+- No paid random loot boxes.
 - Daily challenges ("3 diving catches", "2 hammers that land").
 
 ## Controls summary
