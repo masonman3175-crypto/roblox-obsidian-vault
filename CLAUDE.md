@@ -1,5 +1,7 @@
 # O Blah Warfare (Roblox) - Claude Code rules
 
+> **Ultimate Frisbee sessions (2026-10-21+):** Cade's new game. Read `60 Games/Ultimate Frisbee/Ultimate Frisbee - Game Hub.md` and its linked Design / Current Build / Roadmap notes instead of the O Blah Warfare files below. Studio place: Untitled Experience, placeId `81684535279790`. The git sync and code rules below still apply.
+
 Read first every session:
 1. Latest file in `Roblox Game Vault/08 AI Workflow/Session Logs/`
 2. `Roblox Game Vault/01 Game Design/O Blah Warfare Design.md`

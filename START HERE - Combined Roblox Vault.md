@@ -14,6 +14,7 @@ One place for **Frisbee / Roblox references** and **Slop Game Lab**.
 | Slopshit game-design vault | [[START HERE - Slop Game Lab|Slop Game Lab]] |
 | Every Roblox source note and API/code companion | [[Roblox References/Complete Note Index|Complete Note Index]] |
 | Images, GIFs and videos | [[Roblox References/Media Index|Media Index]] |
+| Ultimate Frisbee game (Cade, 2026-10-21) | [[60 Games/Ultimate Frisbee/Ultimate Frisbee - Game Hub|Ultimate Frisbee - Game Hub]] |
 | Slop Game Lab project handoff | [[70 Imports/Project Sync 2026-10-18/Project Sync - Start Here|Project Sync - Start Here]] |
 
 ## Design and build across both libraries
