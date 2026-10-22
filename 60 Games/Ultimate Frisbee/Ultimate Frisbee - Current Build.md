@@ -60,7 +60,16 @@ The first version (dark purple pills) was rejected as bland.
 | Legendary | + rotating light rays + pulsing glow |
 | Mythic | + rainbow border + rising sparkles |
 
-- **Unlock reveal:** buying a power plays a full-screen burst (flash, rays, sparks scaled by rarity, "MYTHIC UNLOCKED!").
+- **Unlock reveal** (the "10x" pass). It scales with rarity:
+  1. **Blackout:** the screen goes dark and the 3D world desaturates.
+  2. **Charge-up:** a shrinking ring and orb climb through the rarity colors (Common → up to the real rarity), with light streaks pulling in, the camera FOV zooming and a growing shake.
+  3. **Impact:** a white flash, a world color grade in the rarity color, an FOV kick, and 1-3 shockwave rings.
+  4. **Burst:** two counter-rotating ray layers, sparks, and a confetti rain (Legendary/Mythic).
+  5. **Text:** "LEGENDARY!" slams in from 3x size (rainbow on Mythic), then the power name, then "TAP TO CONTINUE".
+- **Buy buttons:** coin price and Robux price sit side by side under COINS / ROBUX headers. The "BEST DEAL" tag was removed.
+- **Coin pack art tiers:** 1,000 = one coin, 3,500 = a stack, 10,000 = a stockpile (image `85434636773071`), 30,000 = a vault door (`918689343`) with an overflowing chest (`108290137907113`). Each has spinning light rays behind it.
+- **Shared style:** `ReplicatedStorage.UIStyle` has the palette, the fonts, `glow()`, and `pattern()` (color wash + drifting diagonal stripes + halftone dot corner). ShopClient and RoundClient both use it.
+- **Lobby restyle:** RoundClient (lobby panel, round bar, weather chip, weather cards, draft) now uses the UIStyle helpers. Only its look changed; the logic is untouched.
 - **Prices:** coins went up and Robux went down. Rule: buying a power directly with Robux is always cheaper than buying coin packs for it.
 
 | Rarity | Coins | Robux |
