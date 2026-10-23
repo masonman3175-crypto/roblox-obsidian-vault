@@ -125,6 +125,23 @@ Coin packs: 1,000 = R$29 · 3,500 = R$89 · 10,000 = R$219 · 30,000 = R$549.
     - The Baseplate is kept, since it's the ground under the stadium.
     - The ServerStorage backups are kept.
 
+## Dressed look pass (2026-10-22)
+- **`UIStyle.dress(o, color, radius)`** is the basketball-reference look:
+  - a color gradient fill
+  - a black outer edge (3px)
+  - a color rim (2px)
+  - a thin white inner line
+  - a soft glow
+
+  A button's own text moves to a child `DressText` label, since gradients tint text. It's used by the lobby tiles, collapse arrow, level box, leaderboard header and emote key, the Ready Up and Practice Court bars, GRAB DISC, the ability slots, and every shop button and wallet.
+- **Fonts back to sporty:** `Style.HEAVY` = Sarpanch Heavy and `Style.BOLD` = Oswald Bold. The partner had switched them to BuilderSans.
+- **Nameplate:** smaller (4.4 × 1.05 studs). It shows a **level badge** and name only (no W-L), styled by the equipped **Nameplate** cosmetic.
+  - New kind in `MonetizationConfig.CosmeticKinds`: Gold, Sakura (Rare), Inferno, Toxic (Epic) and Galaxy (Legendary) plates, sold in Store → Skins.
+- **Top bar in speed mode while waiting:** "WAITING FOR PLAYERS" and "Round starts when a player joins", instead of "SPEED FRISBEE / WARM UP".
+- **GRAB DISC:** the separate shadow frame is gone (it didn't follow the hover pop).
+- **Cooldowns:** a blue-tinted fill drains away with a cyan scan line on its top edge, and a bigger count with a blue outline.
+- **Not checked:** the nameplate while the partner's Titan test is active. It turns every player into a giant model that hides the plate.
+
 ## Lobby HUD (2026-10-22): copies visual-refs/sports/Basketball-GUI.png
 `StarterPlayerScripts.LobbyHUD` handles the lobby screen. It only shows when you're not in a match.
 - **Left:** a 2-column grid of square neon tiles (icon and label), with a collapse arrow:
