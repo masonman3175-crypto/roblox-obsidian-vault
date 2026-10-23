@@ -125,6 +125,29 @@ Coin packs: 1,000 = R$29 · 3,500 = R$89 · 10,000 = R$219 · 30,000 = R$549.
     - The Baseplate is kept, since it's the ground under the stadium.
     - The ServerStorage backups are kept.
 
+## Lobby HUD (2026-10-22): copies visual-refs/sports/Basketball-GUI.png
+`StarterPlayerScripts.LobbyHUD` handles the lobby screen. It only shows when you're not in a match.
+- **Left:** a 2-column grid of square neon tiles (icon and label), with a collapse arrow:
+
+| Tile | Opens | Icon |
+| --- | --- | --- |
+| STORE | Store | glossy basket |
+| POWERS | Power Shop | vault upgrade arrows, `75733335081970` |
+| PASSES | Store's Passes tab | vault gold key, `132285102544675` |
+| RAMEN | Ichi's Ramen | 🍜 |
+
+  - PASSES shows a red "!" badge until the Starter Pack is bought.
+  - Tiles call `ShopSystem.Open:Fire(shop, tab)`.
+- **Bottom-left:** an orange-edged **LEVEL** box. Level is season tier + 1 (`MonetizationConfig.seasonTier`), and the side meter shows XP toward the next tier. Under it: a big coin and the gold coin count, on a fading dark strip. The top-right wallet chip is hidden.
+- **Top-right, under the round bar:** the LEADERBOARD: LOBBY pill, then avatar, name and WINS for up to 8 players, refreshed every second.
+- **Right:** the "Emote [G]" key hint (the partner's emote key).
+- **Bottom-right:** dark bars, like the reference's "View Courts" and "Practice Court".
+  - The partner's arena button (`ArenaTravelClient`) is now the **Practice Court** bar. RoundClient's own practice button is hidden.
+  - RoundClient's Ready Up is a dark bar too, but the partner's speed mode hides it.
+- **Nameplates:** a W-L record under each player's feet (BillboardGui on the HRP), shown in the lobby only.
+  - `Wins` and `Losses` are new saved stats (ShopService data), counted at full time in RoundService.
+- **Not built** (no real feature behind them): the reference's spinner, season pass, inventory, stats, clans, settings, "coins in 14:04" timer and server list.
+
 ## Shops pass (2026-10-22): one shell for three shops
 - **One UI:** `ShopClient` is the single sports-neon shell (solid neon edges, 6px corners, dark panel, no pattern, no floating icon). The stall prompts open it:
 
