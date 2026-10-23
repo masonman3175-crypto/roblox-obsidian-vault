@@ -313,6 +313,7 @@ Coin packs: 1,000 = R$29 · 3,500 = R$89 · 10,000 = R$219 · 30,000 = R$549.
 - **Trails** now show as a trail on the player (rainbow works), not only on the thrown disc.
 - **Teams:** a cyan or pink ring under each player in a game. Jerseys stay as skins.
 - **Lobby tiles:** STORE, POWERS, LOADOUT (opens MY POWERS to pick equipped powers), PASSES, RAMEN (new bowl icon). Collapse arrow removed.
+- **Ramen icon:** Cade's bowl art with an even dark plus white outline, `rbxassetid://106701095190894` (source `raw/2026-10-22-ramen-icon.png`).
 - **No shop in a game:** shops won't open while in a match or warmup and close when one starts.
 - **Not checked:** the nameplate and ring from another player's view (Studio screenshots don't show billboards). Small shop plate tiles still wrap the sample text.
 
