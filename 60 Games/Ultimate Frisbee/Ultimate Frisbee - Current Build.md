@@ -125,6 +125,31 @@ Coin packs: 1,000 = R$29 · 3,500 = R$89 · 10,000 = R$219 · 30,000 = R$549.
     - The Baseplate is kept, since it's the ground under the stadium.
     - The ServerStorage backups are kept.
 
+## Spec pass (2026-10-22): built to [[Ultimate Frisbee - Basketball GUI Spec]]
+- **Fonts:** only two now.
+  - `Style.HEAVY` = Gotham Bold for labels, buttons and titles. `Style.BOLD` = Gotham Medium for names.
+  - **`Style.NUM`** = Oswald Bold for every number: level, coins, wallet, leaderboard values, cooldown seconds and nameplate level.
+- **`Style.dress(o, color, radius, color2)`**:
+  - a dark fill in the tile's own color, and an outer outline in that same dark color
+  - a bright 2px border fading `color` → `color2`
+  - a glow
+  - no white inner line
+- **`Style.neonIcon`:** an icon with a faint larger copy behind it as a glow.
+- **Tiles:**
+
+| Tile | Border fades |
+| --- | --- |
+| STORE | red → orange |
+| POWERS | purple → pink |
+| PASSES | pink → purple |
+| RAMEN | orange → yellow |
+
+- **Collapse arrow:** a navy square with a light gray border and a blue-violet chevron.
+- **Level box:** near-black brown with an orange-brown border, a white condensed number, an orange "LVL" label and an orange meter.
+- **Leaderboard:** a navy header with a light-blue title and orange stat, a gray LOBBY pill, and dark rows. **Rows update in place** now, which fixes the blinking (it used to rebuild every second).
+- **Bottom-right bars** (Ready Up, Practice Court): plain near-black navy with a faint edge, like the reference.
+- **Nameplate:** a dressed frame in the equipped plate's color, with a dark inner panel holding the level (Oswald) and the name (Gotham).
+
 ## Dressed look pass (2026-10-22)
 - **`UIStyle.dress(o, color, radius)`** is the basketball-reference look:
   - a color gradient fill
