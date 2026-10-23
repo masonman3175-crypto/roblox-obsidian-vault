@@ -126,13 +126,19 @@ Coin packs: 1,000 = R$29 · 3,500 = R$89 · 10,000 = R$219 · 30,000 = R$549.
     - The ServerStorage backups are kept.
 
 ## Base movement (2026-10-22)
-- **Running:** everyone runs (`StarterPlayer.CharacterWalkSpeed` 24). Super Saiyan sprint and boost multiply on top.
-- **Pivot:** the disc holder isn't anchored anymore. They can shuffle at speed 7 inside a 3-stud circle around where they caught it (`FrisbeeConfig.PivotRadius` / `PivotSpeed`).
-  - The client turns them to face the aim and keeps them in the circle.
-  - The server pulls them back if they get more than 4.5 studs out.
-- **Jump:** `MovementClient` blocks jumping for 1.8s from takeoff during a match. You can jump to catch or block, but not spam.
-- **Slide:** Ctrl, or B on a controller. A 46-speed push that eases back to run speed over 0.55s, with a 1.6s cooldown. It's ground-only, and you can't slide while holding the disc.
-- **Not built yet:** a slide animation, a mobile slide button, and server-side speed checks.
+- **Running:** everyone runs at 24, using Roblox's **Ninja run** animation (`656118852`) for both walk and run. Shift sprint and its stamina are removed.
+- **Footsteps:** grass footsteps loop `9083837523`, swapped on every character in `MovementClient`.
+- **Jump:** jumping is blocked for 1.8s from takeoff during a match.
+- **Default abilities** (in `AbilityClient`, everyone has them):
+  - **F Dash:** a 72-speed burst that holds, then eases to run speed over 0.32s. Superhero run animation at 2.2x and a +14 camera FOV kick. 4s cooldown.
+  - **C High Jump:** a launch at 80 (about 16 studs, vs ~7 for a normal jump) with the Ninja jump flip and a +8 FOV kick. Ground only, 7s cooldown.
+  - Both are blocked while holding the disc. Cooldowns are client-side (marked `shortcut:` in the code).
+- **Shop power keys:** now **Q and V**, 2 slots. G is the partner's emote key. X is the Super Saiyan ultimate.
+- **Pivot:**
+  - The holder can shuffle inside a 1.2-stud circle.
+  - The server adds an `IKControl` (IK is Roblox's built-in way to hold a limb in place) that pins the **left foot** to the ground under the plant spot. It's removed on release.
+  - Checked in Play: the foot stays on its pin (0.04 studs off) after shuffling.
+- **Removed:** the Ctrl slide (replaced by F Dash).
 
 ## Review fixes (2026-10-21, all 7 review findings)
 1. **Shutdown:** `BindToClose` waits until every save finishes, up to 25s.
