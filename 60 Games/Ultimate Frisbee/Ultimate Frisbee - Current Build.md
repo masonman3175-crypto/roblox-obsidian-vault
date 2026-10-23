@@ -125,6 +125,37 @@ Coin packs: 1,000 = R$29 · 3,500 = R$89 · 10,000 = R$219 · 30,000 = R$549.
     - The Baseplate is kept, since it's the ground under the stadium.
     - The ServerStorage backups are kept.
 
+## Shops pass (2026-10-22): one shell for three shops
+- **One UI:** `ShopClient` is the single sports-neon shell (solid neon edges, 6px corners, dark panel, no pattern, no floating icon). The stall prompts open it:
+
+| Prompt | Shop | Tabs |
+| --- | --- | --- |
+| `OpenPowerShop` | **Power Shop** | POWERS |
+| `OpenStore` | **Store** | SKINS, PASSES, COINS |
+| `RamenChat` (Ichi) | **Ichi's Ramen** | RAMEN |
+
+  - `ReplicatedStorage.ShopSystem.Open` (BindableEvent) opens it from other UI. The partner's STORE button fires it.
+  - The partner's old store panel no longer opens.
+- **Skins:** come from `MonetizationConfig.Cosmetics`, sorted cheapest first. They show the coin price with the coin icon, plus a Robux button.
+  - Buying and equipping go through `MonetizationSystem.Request` (`BuyCosmetic` / `Equip`).
+  - Discs and trails without art get a color-swatch placeholder.
+- **Passes:** Starter Pack R$15, 2x Coins R$29, VIP R$25. All Robux only.
+  - VIP is now cosmetic: a gold VIP disc, VIP trail and the lounge. `VIPCoinBonus` = 0, since 2x Coins is the coin pass.
+- **Coins:** Pouch 1,000 = R$10, Sack 3,500 = R$25, Chest 10,000 = R$49, Vault 30,000 = R$99. No bonus percentages.
+- **Robux prices by rarity** (powers and skins): Common 5, Rare 10, Epic 15, Legendary 25, Mythic 39.
+- **Ramen** (`ShopConfig.Ramen`):
+
+| Bowl | Coins | Boost (next match) |
+| --- | --- | --- |
+| Shoyu | 30 | +25% |
+| Miso | 60 | +50% |
+| Spicy Tonkotsu | 120 | 2x |
+
+  - One bowl at a time. `ShopService` `BuyRamen` sets the `RamenBoost` attribute, `award` applies it, and RoundService clears it at full time.
+- **Not shown anymore:** the Anime Cup subscription, the season pass and the capsule. The capsule is a paid random roll, which breaks the "no paid loot boxes" rule. The partner's server code for them is still there.
+- **Stalls:** the placeholder-icon back walls are gone.
+- **Icons:** they're now placed inside a rarity glow instead of cropped. Real art is parked in [[Ultimate Frisbee - Parked Work]].
+
 ## Base movement (2026-10-22, second pass)
 - **Bar (Valorant style), exactly 4 slots:**
 
