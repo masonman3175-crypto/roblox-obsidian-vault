@@ -317,6 +317,19 @@ Coin packs: 1,000 = R$29 · 3,500 = R$89 · 10,000 = R$219 · 30,000 = R$549.
 - **No shop in a game:** shops won't open while in a match or warmup and close when one starts.
 - **Not checked:** the nameplate and ring from another player's view (Studio screenshots don't show billboards). Small shop plate tiles still wrap the sample text.
 
+## Loadout, emotes and stadium pass (2026-10-22)
+- **Slot types:** every power has a `slot` in `ShopConfig` (E jump/throw, F movement, C defense, X ultimate). `Loadout` is now positional `"E,F,C,X"`. E and F fall back to High Jump and Dash when empty (`AbilityClient`). Old 2-slot saves re-sort themselves on load.
+  - E: Rasengan, Water Breathing, Gravity Pull. F: Flash Step, Shadow Clone, Thunder Dash. C: Infinity, Wind Slash, Ice Burst. X: Super Saiyan, Titan, Dragon Aura, Time Stop.
+  - Shop cards show the key in a small chip; the detail line reads e.g. `EPIC / E JUMP / THROW`.
+- **LOADOUT tile** opens a LOADOUT shop mode with POWERS and EMOTES tabs. The power shop only sells now.
+- **Emotes:** free emotes (Freestyle, Wave, Point) are real `MonetizationConfig` cosmetics with `free=true`. LOADOUT > EMOTES toggles which ones are on the wheel (max 6, at least 1). Saved as `profile.emoteWheel`, published as the `EmoteWheel` attribute; `MonetizationConfig.emoteWheel()` is the shared rule.
+- **EMOTES tile** on the left opens the wheel (G still works). The wheel uses the tile style. The right-side "Emote G" label and the extra EMOTES buttons are hidden.
+- **HUD:** Practice Court has 4px corners like the tiles. Nameplate W / L are plain white. Ramen icon drawn bigger.
+- **No more mystery labels:** the top "SPEED FRISBEE" box only shows when it has something to say (waiting for players, draft, etc.). Every "Skyline" sign now says ULTIMATE FRISBEE (disc stamp: ULTIMATE). The two deck name signs moved to `ServerStorage.RemovedSigns`.
+- **Walk around the stadium:** the sky deck now opens onto the existing upper concourse ring. Glass rails (same look as the deck's) run along both edges all the way round, with invisible 8-stud colliders, in `StadiumUpgrade.Concourse`.
+- **Crowd:** 2,276 blocky fans became one pill each (Rocket League style, team colours), tagged `CrowdFan`. `CrowdAnimator` bobs them and makes the scoring side jump. The old crowd is in `ServerStorage.CrowdBlocky`.
+- **Not checked:** walking the full ring in play, and other players' views. The rest of the stadium (facade, canopies, city) is unchanged.
+
 ## Gaps vs the design
 - No movement tech (sprint, slide, dive, dash)
 - No powers
