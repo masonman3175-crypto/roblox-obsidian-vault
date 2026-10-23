@@ -125,6 +125,15 @@ Coin packs: 1,000 = R$29 · 3,500 = R$89 · 10,000 = R$219 · 30,000 = R$549.
     - The Baseplate is kept, since it's the ground under the stadium.
     - The ServerStorage backups are kept.
 
+## Base movement (2026-10-22)
+- **Running:** everyone runs (`StarterPlayer.CharacterWalkSpeed` 24). Super Saiyan sprint and boost multiply on top.
+- **Pivot:** the disc holder isn't anchored anymore. They can shuffle at speed 7 inside a 3-stud circle around where they caught it (`FrisbeeConfig.PivotRadius` / `PivotSpeed`).
+  - The client turns them to face the aim and keeps them in the circle.
+  - The server pulls them back if they get more than 4.5 studs out.
+- **Jump:** `MovementClient` blocks jumping for 1.8s from takeoff during a match. You can jump to catch or block, but not spam.
+- **Slide:** Ctrl, or B on a controller. A 46-speed push that eases back to run speed over 0.55s, with a 1.6s cooldown. It's ground-only, and you can't slide while holding the disc.
+- **Not built yet:** a slide animation, a mobile slide button, and server-side speed checks.
+
 ## Review fixes (2026-10-21, all 7 review findings)
 1. **Shutdown:** `BindToClose` waits until every save finishes, up to 25s.
 2. **Session lock:** each save records the server using it (a GUID plus a time), written with `UpdateAsync`.
