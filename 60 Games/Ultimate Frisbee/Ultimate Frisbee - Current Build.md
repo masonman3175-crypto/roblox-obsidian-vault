@@ -125,20 +125,32 @@ Coin packs: 1,000 = R$29 · 3,500 = R$89 · 10,000 = R$219 · 30,000 = R$549.
     - The Baseplate is kept, since it's the ground under the stadium.
     - The ServerStorage backups are kept.
 
-## Base movement (2026-10-22)
-- **Running:** everyone runs at 24, using Roblox's **Ninja run** animation (`656118852`) for both walk and run. Shift sprint and its stamina are removed.
-- **Footsteps:** grass footsteps loop `9083837523`, swapped on every character in `MovementClient`.
-- **Jump:** jumping is blocked for 1.8s from takeoff during a match.
-- **Default abilities** (in `AbilityClient`, everyone has them):
-  - **F Dash:** a 72-speed burst that holds, then eases to run speed over 0.32s. Superhero run animation at 2.2x and a +14 camera FOV kick. 4s cooldown.
-  - **C High Jump:** a launch at 80 (about 16 studs, vs ~7 for a normal jump) with the Ninja jump flip and a +8 FOV kick. Ground only, 7s cooldown.
-  - Both are blocked while holding the disc. Cooldowns are client-side (marked `shortcut:` in the code).
-- **Shop power keys:** now **Q and V**, 2 slots. G is the partner's emote key. X is the Super Saiyan ultimate.
+## Base movement (2026-10-22, second pass)
+- **Bar (Valorant style), exactly 4 slots:**
+
+| Key | Slot | Rule |
+| --- | --- | --- |
+| E | **High Jump** | default ability |
+| F | **Dash** | default ability |
+| C | shop ability | Common / Rare / Epic |
+| X | shop ultimate | Legendary / Mythic |
+
+  - The `Loadout` attribute is positional (`"<C id>,<X id>"`). Equipping a power replaces whatever is in its slot (`Config.slotFor`).
+  - Super Saiyan is a shop ultimate. SaiyanService refuses Transform unless it's equipped, and the ability bar sends it from X.
+- **Catch:** right-click (and X on a controller). The GRAB DISC key cap reads RMB.
+- **Coins:** Studio tops up to 100,000 every join, for testing. New live players start with 5,000.
+  - **Not built yet:** the first-join shop tutorial.
+- **Run:** Roblox's Rthro run (`2510198475`), upright, for walk and run. Grass footsteps.
+- **Jump:** the normal jump locks after leaving the ground, for 1.6s.
+  - The High Jump flip now plays once (`Looped=false`) and stops on landing. It used to loop, which looked like jumping in place.
+- **Dash:**
+  - The client does the movement (72-speed burst) and fires `AbilitySystem.Dash`. The server stamps the `DashAt` attribute, rate-limited.
+  - Every client then layers a low lunge pose on that character (extra joint rotations in `MovementClient`, the same method as `SaiyanPose`) and adds 3 white speed-line trails. So other players see it too.
 - **Pivot:**
-  - The holder can shuffle inside a 1.2-stud circle.
-  - The server adds an `IKControl` (IK is Roblox's built-in way to hold a limb in place) that pins the **left foot** to the ground under the plant spot. It's removed on release.
-  - Checked in Play: the foot stays on its pin (0.04 studs off) after shuffling.
-- **Removed:** the Ctrl slide (replaced by F Dash).
+  - The holder has WalkSpeed 0, so there's no run animation.
+  - The server IK pins the left foot on the ground under the plant spot (`PlantPosition` = pin).
+  - The client turns the body around that foot to face the aim (hips sit 0.5 right of the foot), and WASD leans up to 1.2 studs.
+  - Checked: the foot stays on its pin (0.07 studs off).
 
 ## Review fixes (2026-10-21, all 7 review findings)
 1. **Shutdown:** `BindToClose` waits until every save finishes, up to 25s.
