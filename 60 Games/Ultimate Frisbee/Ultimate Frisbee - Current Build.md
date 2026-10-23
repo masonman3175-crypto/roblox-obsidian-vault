@@ -306,6 +306,16 @@ Coin packs: 1,000 = R$29 · 3,500 = R$89 · 10,000 = R$219 · 30,000 = R$549.
 - Matches don't pay coins yet. Call `ShopService.award` from RoundService on catch, score and win.
 - No Robux handling: no Developer Products and no `ProcessReceipt` yet. That needs DataStore first so paid items can't get lost.
 
+## Skins pass (2026-10-22)
+- **Disc skins look real now:** `MonetizationClient.applyDisc` recolors the disc, puts the skin's image on top (`SkinTop`), adds a rim outline and sparkles. Sakura is white with flowers, Galaxy is a galaxy, Ice Crystal is tinted icy blue.
+- **Skin images** live in `MonetizationConfig` (`image`, optional `tint`, `rim`, `sparkle`). Shop tiles draw the same images.
+- **Nameplates:** Sakura Plate has flowers, Galaxy Plate is a nebula. The plate shows `wins NAME losses` (green / red), fades out past ~28 studs and hides in a game.
+- **Trails** now show as a trail on the player (rainbow works), not only on the thrown disc.
+- **Teams:** a cyan or pink ring under each player in a game. Jerseys stay as skins.
+- **Lobby tiles:** STORE, POWERS, LOADOUT (opens MY POWERS to pick equipped powers), PASSES, RAMEN (new bowl icon). Collapse arrow removed.
+- **No shop in a game:** shops won't open while in a match or warmup and close when one starts.
+- **Not checked:** the nameplate and ring from another player's view (Studio screenshots don't show billboards). Small shop plate tiles still wrap the sample text.
+
 ## Gaps vs the design
 - No movement tech (sprint, slide, dive, dash)
 - No powers
