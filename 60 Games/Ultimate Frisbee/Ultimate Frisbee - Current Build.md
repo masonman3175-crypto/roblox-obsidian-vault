@@ -428,3 +428,13 @@ Cade's feedback on the first summon version: the magic circles had nothing to fo
   - Sounds: `FlashStep` (synth swish pitched down), `FlashCrack` (boom pitched up).
 - **Tested (practice arena):** bar visible with avatars posed, F moved 22.6 studs, 5 afterimages + 3 beams spawned, 7s cooldown shown, no console errors.
 - **Not done:** real uploaded animations (procedural joint poses only; real ones need Cade to publish from his account), how the sounds actually sound.
+
+## Locomotion animations (2026-10-24)
+- Rig: R15 avatars, Roblox's default Animate script (no custom one). MovementClient swaps the Animate ids on spawn.
+- All picks are **Roblox-owned bundle animations** (verified with GetProductInfo, creator Roblox), so they play in any game with no publishing:
+  - Run: `656118852` Ninja_Run (low forward-leaning anime sprint). Alternates: `616140816` Sway_Run (Stylish), `2510198475` Rthro Run (old).
+  - Walk: `616146177` Sway_Walk (relaxed swagger). Alternates: `1070017263` Confident Walk, `2510202577` Rthro Walk.
+  - Idle: `2510196951` Rthro Idle1 (weight 9) + `2510197257` Rthro Idle2 (1) + `1069987858` Confident Look Around (1). Alternates: `616136790` Sway_Idle, `656117400` Ninja_Idle.
+  - Rejected: Cartoony / Toy (too bouncy/goofy for the vibe), Mage, Superhero (stiff).
+- Dash: no Roblox dash animation exists, so it's a keyframed joint-pose dash in MovementClient (`DASH_KEYS`): load (sink + lean) -> push-off (back leg extended, front knee driven, arms pumping) -> recover, smoothstepped over 0.45s. The dasher's locomotion tracks drop to 8% weight during it so the launch reads clean (weights replicate). Ability bar Dash card uses the push-off key.
+- Not done: strafe-aware running for shift lock (sideways still plays the forward run); a real uploaded dash animation would need Cade to publish it.
