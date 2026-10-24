@@ -387,3 +387,12 @@ Cade's feedback on the first summon version: the magic circles had nothing to fo
 
 ## Related
 [[Ultimate Frisbee - Game Hub]] · [[Ultimate Frisbee - Design]] · [[Ultimate Frisbee - Roadmap]]
+
+## Feedback pass (2026-10-23, third)
+- **Reveal music removed** (felt corporate). Epic/Legendary/Mythic now use the purchase chime at rising pitch + the deep boom. Sound Lab: dropped Click 3, Close 2, CrateBurst 2 (too loud). Confirm 1 stays.
+- **Emote previews:** a plain gray R15 rig (`ShopSystem.EmoteDummy`, built from a default HumanoidDescription) plays each emote in the shop cards and the reveal.
+- **Mystery items** are now dressed tiles in the rarity color with a white "?" (same look as the lobby tiles), everywhere.
+- **Disc rarity FX in game:** Epic+ discs glow (PointLight in rim color), Legendary+ add a soft aura (VFX Studio flare `9841273835`), Mythic adds flames (`1058335870`). Rarer disc trails glow brighter and last longer.
+- **Player trails:** textured energy band (VFX Studio `magic_band` `1379899761`), brighter/longer by rarity.
+- **Waiting on Blender:** new crate model, new disc models (Kitsune, Gold Rush, Neon Pulse called ugly), a real SKINS tile icon (now a galaxy texture, placeholder).
+- **Idea (Cade):** a full cutscene for Legendary/Mythic pulls. Not built.
