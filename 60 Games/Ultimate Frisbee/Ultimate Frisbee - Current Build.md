@@ -438,3 +438,11 @@ Cade's feedback on the first summon version: the magic circles had nothing to fo
   - Rejected: Cartoony / Toy (too bouncy/goofy for the vibe), Mage, Superhero (stiff).
 - Dash: no Roblox dash animation exists, so it's a keyframed joint-pose dash in MovementClient (`DASH_KEYS`): load (sink + lean) -> push-off (back leg extended, front knee driven, arms pumping) -> recover, smoothstepped over 0.45s. The dasher's locomotion tracks drop to 8% weight during it so the launch reads clean (weights replicate). Ability bar Dash card uses the push-off key.
 - Not done: strafe-aware running for shift lock (sideways still plays the forward run); a real uploaded dash animation would need Cade to publish it.
+
+## Fake R6 (2026-10-24, replaces the Ninja/Sway/Rthro picks)
+- Cade rejected the bundle animations. Kept R15 (so catalog emotes still work) but made it look R6:
+  - `ServerScriptService.AvatarNormalizer`: on spawn, ApplyDescription with Height/Width/Depth/Head = 1, Proportion and BodyType = 0 (classic blocky proportions, normal size, own parts/clothes/accessories kept) and clears bundle animations. Sets `Normalized`. Checked: height 5.81.
+  - Custom hinge-style KeyframeSequences in `ReplicatedStorage.Animations` (Run, Walk, Idle, Jump, Fall): limbs swing on one axis only, elbows/knees locked straight, R6 feel. Run = big arm/leg swing, forward lean, torso twist and bob, 0.56s cycle.
+  - `MovementClient` sets the Animate ids after `Normalized`. `ANIM_IDS` is empty, so for now only Studio plays them (registered from the KeyframeSequences); live games use Roblox defaults.
+- **Cade must publish** (Claude's upload was blocked): right-click each KeyframeSequence in `ReplicatedStorage.Animations` > Save to Roblox, then paste the 5 ids into `ANIM_IDS` in MovementClient.
+- Dash stays the keyframed launch pose in MovementClient.
