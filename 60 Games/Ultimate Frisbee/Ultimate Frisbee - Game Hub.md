@@ -2,7 +2,7 @@
 kind: game-project
 game: ultimate-frisbee
 status: prototype
-updated: 2026-10-21
+updated: 2026-10-24
 tags: [roblox, game-project, ultimate-frisbee]
 ---
 
@@ -26,6 +26,9 @@ Playable prototype: lobby → captain draft → warmup (random weather) → matc
 - **Not built yet:** the powers themselves (partner), movement tech, and the real ultimate rules (possession, stall).
 
 See [[Ultimate Frisbee - Current Build]] and the latest session log.
+
+## Status (2026-10-24)
+Crates (one per skin type, Blender models), skins shop, hype emotes with music, Volleyball Legends style ability bar, and Flash Step are in. See the latest session log.
 
 ## Related
 [[START HERE - Combined Roblox Vault]] · [[Roblox Reference Library]] · [[MOC - Systems]]
