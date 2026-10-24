@@ -100,7 +100,7 @@ Balance rules:
 ## Progression and monetization
 - **Cade's call (2026-10-21):** anime powers are sold in a shop. Buy them with **coins** earned from match performance, or directly with **Robux**. Coin packs are also sold for Robux. The partner is building the powers; the shop UI is built (see [[Ultimate Frisbee - Current Build]]).
 - XP per catch, assist, score, block → levels, plus cosmetics: disc skins, trails, dive effects, celebration emotes.
-- No paid random loot boxes.
+- **Cade's call (2026-10-23):** cosmetics come from **anime summons**, one banner per type (discs, trails, nameplates, emotes, effects). Each summon costs coins or Robux. Commons and Rares can still be bought directly; Epic, Legendary and Mythic are summon-only. Odds always shown, free tickets every 3 matches, pity: the 10th summon without an Epic+ is guaranteed Epic+. Details: [[Ultimate Frisbee - Current Build]].
 - Daily challenges ("3 diving catches", "2 hammers that land").
 
 ## Controls summary

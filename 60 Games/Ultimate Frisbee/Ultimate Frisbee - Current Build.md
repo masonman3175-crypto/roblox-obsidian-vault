@@ -2,7 +2,7 @@
 kind: game-build
 game: ultimate-frisbee
 status: prototype
-updated: 2026-10-21
+updated: 2026-10-23
 tags: [roblox, ultimate-frisbee, implementation]
 ---
 
@@ -217,7 +217,7 @@ Coin packs: 1,000 = R$29 · 3,500 = R$89 · 10,000 = R$219 · 30,000 = R$549.
 | Spicy Tonkotsu | 120 | 2x |
 
   - One bowl at a time. `ShopService` `BuyRamen` sets the `RamenBoost` attribute, `award` applies it, and RoundService clears it at full time.
-- **Not shown anymore:** the Anime Cup subscription, the season pass and the capsule. The capsule is a paid random roll, which breaks the "no paid loot boxes" rule. The partner's server code for them is still there.
+- **Not shown anymore:** the Anime Cup subscription and the season pass. The capsule was replaced by anime summons (2026-10-23, see below).
 - **Stalls:** the placeholder-icon back walls are gone.
 - **Icons:** they're now placed inside a rarity glow instead of cropped. Real art is parked in [[Ultimate Frisbee - Parked Work]].
 
@@ -329,6 +329,34 @@ Coin packs: 1,000 = R$29 · 3,500 = R$89 · 10,000 = R$219 · 30,000 = R$549.
 - **Walk around the stadium:** the sky deck now opens onto the existing upper concourse ring. Glass rails (same look as the deck's) run along both edges all the way round, with invisible 8-stud colliders, in `StadiumUpgrade.Concourse`.
 - **Crowd:** 2,276 blocky fans became one pill each (Rocket League style, team colours), tagged `CrowdFan`. `CrowdAnimator` bobs them and makes the scoring side jump. The old crowd is in `ServerStorage.CrowdBlocky`.
 - **Not checked:** walking the full ring in play, and other players' views. The rest of the stadium (facade, canopies, city) is unchanged.
+
+## Anime summons (2026-10-23)
+Replaces the hidden Mystery Disc Capsule. Cade's call: the cool cosmetics come from RNG, not a buy button.
+- **Open it:** new **SUMMON** tile in the lobby (red "!" when you have a ticket) opens the shop shell in `Summon` mode. One tab per banner:
+
+| Banner | Kinds | Coins | Robux |
+| --- | --- | --- | --- |
+| DISCS | DiscSkin | 2,000 | R$10 |
+| TRAILS | Trail | 2,000 | R$10 |
+| PLATES | Nameplate | 1,500 | R$10 |
+| EMOTES | Emote | 1,500 | R$10 |
+| EFFECTS | ThrowFX + Celebration | 2,500 | R$15 |
+
+  Prices are placeholders. Each banner has its own `productId` (0 = Robux button says "coming soon").
+- **Odds** (`MonetizationConfig.SummonRarityOdds`): Common 50, Rare 30, Epic 14, Legendary 5, Mythic 1. Each rarity's share is split evenly between that banner's items. The right side of the banner lists every item with its exact %.
+- **Pool:** every cosmetic of the banner's kinds that isn't `free` or `exclusive`. Adding a cosmetic to `M.Cosmetics` puts it in its banner automatically. A startup check asserts odds add to 100 and each banner has an Epic+.
+- **Direct buy:** only Common and Rare keep `coins`/`robux`. Epic, Legendary and Mythic are summon-only (Store > Skins hides them).
+- **Pity:** `SummonPity = 10`. The 10th summon in a row without an Epic+ rolls only Epic/Legendary/Mythic. Saved per banner in `profile.pity`, shown as "EPIC+ IN N" (`Pity_<key>` attribute).
+- **Duplicates:** turn into coins (Common 150, Rare 300, Epic 700, Legendary 1,500, Mythic 4,000), shown in the reveal and odds panel.
+- **Tickets:** free summon ticket every 3 matches + season track rewards. Saved as `capsuleTokens` (old name kept for saves), shown as `SummonTickets`.
+- **Server** (`MonetizationService`): `Summon` (banner key, "Ticket"/"Coins") and `PromptSummon` (Robux, prompted by the server). Coin and Robux summons are refused where `RandomItemsRestricted` is true; the client hides those buttons (fails closed). Robux receipts roll the banner and fire `Notify("Summon", result)` so the client plays the reveal.
+- **Saves are batched:** `saveSoon` saves at most once every 3s per player.
+- **Reveal:** the existing rarity reveal plus two spinning magic circles from the VFX Studio texture library (`127817121` outer, `102790439571584` inner) that open up, speed up and climb the rarity colors during the charge. Bottom line: `NEW / NAME` or `NAME / DUPLICATE +X COINS`. You can't start another summon until the reveal closes.
+- **New items (24):** discs Lime, Sky (C), Ocean (R), Neon Pulse (E), Kitsune Flame (M, fire texture `883906867`); trails Mint, Bubblegum (C), Toxic (E), Dragon Spirit (M, 3-color gradient); plates Steel, Mint (C), Celestial (M, magic-circle art); emotes Laugh, Shrug, Clap (C), Salute, Tilt (R), Disco, Happy (E), Hype Dance (L), Breakdance (M) (all official Roblox animations, checked with GetProductInfo); effects Spark Release, Confetti Goal (C), Supernova Goal (M). Prism Disc is now a Legendary in the disc banner.
+- **Trails** can have `colors={...}` for a gradient (`MonetizationConfig.trailColor`, used by LobbyHUD and MonetizationClient).
+- **Emotes** with `loop=false` now stay one-shot (EmoteController).
+- **Tested:** 15 disc summons (coin charge, dupes, pity reset on Epic), one summon on each other banner, ticket with none, bad banner, Robux with no product. UI screenshots of the banner and the reveal. No console errors.
+- **Not done:** x10 summon, real Robux product IDs, a 3D summon portal in the lobby, the Mythic effects look the same as other effects (only color differs).
 
 ## Gaps vs the design
 - No movement tech (sprint, slide, dive, dash)

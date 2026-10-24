@@ -39,7 +39,7 @@ Both devs edit this vault at the same time, so sync constantly. No need to ask b
 - Placeholder IDs for products/passes in one config module.
 
 ## Content
-No real gang names, hand signs, real locations, gore, or blood. Cosmetic-only monetization, no pay-to-win, no paid random loot boxes.
+No real gang names, hand signs, real locations, gore, or blood. Cosmetic-only monetization, no pay-to-win. Paid random items (summons) are allowed only as Cade set them up on 2026-10-23: cosmetics only, exact odds always shown, hidden where PolicyService restricts paid random items, free tickets from play, and a pity timer.
 
 ## Wiki schema (LLM-wiki pattern)
 Based on Karpathy's LLM-wiki gist. The AI keeps a compounding wiki of what we learn (references, techniques, tools) so we never re-research the same thing. Same section lives in `AGENTS.md`; change both together.
