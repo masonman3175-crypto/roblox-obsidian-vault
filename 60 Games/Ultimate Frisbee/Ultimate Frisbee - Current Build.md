@@ -396,3 +396,12 @@ Cade's feedback on the first summon version: the magic circles had nothing to fo
 - **Player trails:** textured energy band (VFX Studio `magic_band` `1379899761`), brighter/longer by rarity.
 - **Waiting on Blender:** new crate model, new disc models (Kitsune, Gold Rush, Neon Pulse called ugly), a real SKINS tile icon (now a galaxy texture, placeholder).
 - **Idea (Cade):** a full cutscene for Legendary/Mythic pulls. Not built.
+
+## Blender models + button FX (2026-10-23, fourth pass)
+- **Blender MCP on this PC:** `uv` (winget) + add-on `C:\Users\cases\blender-mcp\addon.py`, registered as user MCP `blender`. Claude can launch Blender with `--python` that calls `bpy.ops.blendermcp.start_server()`. Source file: `60 Games/Ultimate Frisbee/Models/UltimateFrisbee_Skins.blend` (+ FBX exports and renders).
+- **Models in Studio:** `ReplicatedStorage.ShopSystem.Models`: `Crate_Disc` (duffel, frisbee bursting out of a half-open zipper), `Crate_Trail` (comet egg), `Crate_Plate` (red trophy shield), `Crate_Emote` (green boombox), `Crate_Effect` (purple gift box), and hero discs `DiscNeon`, `DiscGold`, `DiscKitsune`. Each MeshPart is named after its Blender material and colored in Studio (Neon on glow parts, attribute `Glow`). Lid parts sit in a child model `Lid`. Fronts face -Z. Imported 1 unit = 1 stud.
+- **Wired in:** `ItemPreview.crate(key)` / `discModel` use the models (procedural fallback if missing), `fitDistance` frames any size. Shop crate card + crate opening use the real crate; reveal/shop use the real discs. In matches, `MonetizationClient.applyDisc` welds the skin model over `MatchDisc` locally and hides the plain disc (checked with Gold Rush held: 310 parts hidden, light + aura on).
+- **Shop crate card:** UI sparkles rise behind the crate (ViewportFrames can't show ParticleEmitters).
+- **ButtonFX (`ReplicatedStorage.ButtonFX`):** press = icon copies + sparkles burst out from behind the button; hover = icon spins, a white gleam band runs around the border (rotating `Rim.Edge.Fade` gradient), button pops; always = label shimmer like a Minecraft enchant (faster on hover). On every lobby tile and the crate OPEN button (coins burst).
+- **Tested:** shop Discs tab screenshot, tile hover/press state checks, full Disc crate opening with a Mythic reveal (real Kitsune disc), Gold Rush welded in a match, no console errors.
+- **Not done:** per-crate custom lid animations (all lids fly up and spin), Roblox outline (Highlight) on crates in 3D, SKINS tile icon upload (render at `Models/icon_skins.png`, waiting on Cade's OK).
