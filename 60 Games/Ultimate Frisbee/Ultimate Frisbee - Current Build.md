@@ -358,6 +358,26 @@ Replaces the hidden Mystery Disc Capsule. Cade's call: the cool cosmetics come f
 - **Tested:** 15 disc summons (coin charge, dupes, pity reset on Epic), one summon on each other banner, ticket with none, bad banner, Robux with no product. UI screenshots of the banner and the reveal. No console errors.
 - **Not done:** x10 summon, real Robux product IDs, a 3D summon portal in the lobby, the Mythic effects look the same as other effects (only color differs).
 
+## Crates + skins rework (2026-10-23, second pass)
+Cade's feedback on the first summon version: the magic circles had nothing to focus on, too short, the ticket button was confusing, "summon" didn't read, and skins/summons should live together. Rebuilt:
+- **Name:** summons are **crates** in the UI (DISC CRATE, TRAIL CRATE, PLATE CRATE, EMOTE CRATE, EFFECT CRATE). Code keeps the `Summon` names.
+- **One SKINS shop:** the lobby **SKINS** tile (and the store stall prompt) opens `Skins` mode with tabs DISCS, TRAILS, PLATES, EMOTES, EFFECTS, JERSEYS. Store mode is now just COINS and PASSES.
+  - Left: the crate card: a slowly spinning 3D crate (neon edges in the crate color), the two rarest items hidden as glowing "?" orbs with their %, rarity odds chips, ODDS button (full per-item list overlay), "EPIC OR BETTER IN N", OPEN (coins) and R$ buttons.
+  - Right: every item of that type. Owned: EQUIP / EQUIPPED (emotes: ON WHEEL). Common/Rare: coin price, tap twice to buy (BUY? confirm). Crate-only and not owned: "???" mystery card, status CRATE.
+  - This also fixes crate wins not being equippable anywhere.
+- **No ticket button:** with a free ticket the OPEN button says FREE (or FREE x2).
+- **Opening (`ReplicatedStorage.ShopSystem.CrateOpening`):** blur + desaturate, the 3D crate drops in, shakes harder and harder with rays building behind it, the lid blows off (flash, shockwaves, sparks), then a reel of 58 cards (weighted by the real odds, Legendary/Mythic shown as "?") spins past a gold marker for ~5.5s and slows down. 60% of non-Legendary rolls stop right before a Legendary/Mythic card (near miss). A mystery card shakes before it cracks. Then the reveal: rays, shockwaves, sparks, confetti (Legendary+), the rarity slam, the item name and NEW! or DUPLICATE +coins. About 12s total. Tap to close after the reveal, auto-closes after 10s.
+- **Item art (`ReplicatedStorage.ShopSystem.ItemPreview`):** discs are real 3D discs (3 cylinders + skin decal; spinning in the reveal), emotes play on **your own avatar** in the reveal, nameplates show your name, trails/effects/jerseys are drawn. The magic circles are gone.
+- **Tested:** Skins page screenshots (discs, emotes), a full emote crate opening, a forced Mythic opening (landed on a mystery card, avatar breakdancing in the reveal), no console errors.
+
+## Sound pass (2026-10-23)
+- **UI:** Roblox's official RBLX UI set: hover (every button, new), select (click), back (close), swipe (tabs), purchase (confirm), delete (shop errors, `Deny`).
+- **Footsteps (MovementClient):** the old looping grass recording is muted (default Running/Jumping/Landing sounds forced to volume 0). Now one random sample per step, timed to speed (`4.6/speed`, 0.2-0.55s), random pitch 0.93-1.07, soft set on grass/dirt/sand/snow and hard set on everything else, a heavier double step on landing, a swish on jump. Other players' steps are quieter and 3D. Checked: 8 steps over 1.6s of running at speed 24.
+- **Crate sounds:** whoosh in, thud land, rattles while shaking, wood break + deep boom on burst, a tick for every card passing the marker, stop click, then a rarity sting (Common/Rare: purchase chime, Epic/Legendary/Mythic: APM stings + boom), NEW / duplicate chime, close.
+- **Sound Lab (Studio only):** `StarterPlayerScripts.SoundLab` puts a SOUND LAB button at the top of the screen in Studio. It lists cues with numbered alternates (`AudioConfig.Alts`, the starred one is current). Cade listens and picks; then swap the ids in `AudioConfig`.
+- Voice limits raised (UI 6, total 14) so crate layers don't cut each other.
+- **Not verified:** how any of it actually sounds (Claude can't hear). Footstep samples are user uploads (grass: Robloxmastermanyay, hard: Diman_x86).
+
 ## Gaps vs the design
 - No movement tech (sprint, slide, dive, dash)
 - No powers
