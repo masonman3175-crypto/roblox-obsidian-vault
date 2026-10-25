@@ -25,6 +25,30 @@ Run 2026-10-25 in Studio solo playtest via MCP. Inputs injected with a test attr
 | T19 Respawn | Partial | Dummies respawn after timers, no connection leak audit done |
 | T20 Anim graphs | PASS | F3 graphs show smooth target vs actual for roll, pitch, drift |
 
+## V2 tests (2026-10-25, solo playtest, injected input)
+| Test | Result | What was seen |
+|---|---|---|
+| Rapid accel | PASS | 0-30 in 0.45s, 0-60 in 1.4s, 0-90 in 2.1s (V1: 0-45 took 1.7s) |
+| Max speed | PASS | 115 studs/s reached |
+| Wide turn | PASS | Roll ~10.5 deg at 112 studs/s, half lock, holds |
+| Corner recovery | PASS | Back to 0 in ~0.75s, tiny undershoot (-0.5 deg) |
+| Drift | PASS | Slip to 48 deg; L to R switch rolls -17 to +19 deg smoothly; total speed kept ~110 |
+| Camera accel | PASS | Distance 17 to 37, FOV 67 to 95, eases back on braking |
+| Speed lines | PASS | Intensity 0 at rest, 1.0 above ~110, fades as speed drops |
+| Tire marks | PASS | Two curved continuous trails seen in screenshots, pool counts rising and recycling |
+| Single dummy | PASS | Instant launch from prediction, popup, burst |
+| Horde | PASS | 11 of 13 dummies in one drift pass, group intensity 0.88, NICE! banner |
+| Drift into horde | PASS | Slow-mo reached full blend once in that pass |
+| Slow motion | PASS (by design) | Driving uses real dt, only cosmetics use TimeScale |
+| Vehicle model | PASS | Blender mesh: curved fender flares, bevelled shell, wheel wells |
+| Wheel animation | PASS | Front wheels steer and all 4 spin on the Blender wheels (screenshot) |
+| UI | PASS | Custom fonts, score pill, speed bar |
+| Audio | PASS | No custom sounds created |
+| Multiplayer | NOT TESTED | Solo only. Slow-mo and TimeScale are local by design |
+| Performance | PASS | 16.7 ms frames with Blender mesh, 180 dummies, skids |
+
+Comparison vs V1: speed feel, steering, drift, lean and camera are all clearly bigger in the numbers. "Feels better" still needs Cade on a keyboard.
+
 ## Bugs found and fixed during testing
 - Client read `PrimaryPart` before it streamed in: now waits for `Chassis`.
 - Place has no PlayerModule: control disable now skips it after 5s.

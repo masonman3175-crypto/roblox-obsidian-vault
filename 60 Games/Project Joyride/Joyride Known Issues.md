@@ -2,11 +2,11 @@
 
 Back to [[Project Joyride - Game Hub]].
 
-- **Multiplayer not tested.** Code supports a truck per player (spawn slots, per-player ownership and score) but MCP playtests are solo. Test with Studio's 2-player local server.
-- **No client hit prediction.** Dummies fly when the server confirms. Instant in Studio, but with ~100ms ping the truck passes a dummy before it launches.
-- **No engine or skid sound.** Built-in Roblox sounds have none. Put asset ids in `Config.Effects.Sounds.Engine` / `.Skid`. Impact, pop, milestone and wind use built-in sounds.
-- **Source only lives in Studio.** The spec asked for a Rojo tree. Rojo isn't installed, so scripts were written straight into Studio. Save the place, or export the scripts to files.
+- **Multiplayer not tested.** Code supports a truck per player but MCP playtests are solo. Test with Studio's 2-player local server.
+- **EditableMesh in a published game (unverified).** The Blender truck is built at runtime with EditableMesh. It works in Studio. Published games may need the account to meet Roblox's Editable API rules. If it fails, the parts truck shows instead (fallback is built in). The safer long-term path is importing `joyride_truck.fbx` with the 3D Importer.
+- **Blender body is 17k triangles.** The boolean arch cuts on bevelled shells add a lot. Fine at 60 fps here; could be trimmed.
+- **Source only lives in Studio.** No Rojo export. Save the place.
 - **Place is unsaved** (Place2). Save it in Studio.
-- **Roll looks small in normal turns** (about 4.6 deg at half lock). Raise `Roll.MaxDegrees` or lower `ReferenceLateralAccel` if Cade wants more lean.
-- **Truck is built from parts.** A Blender body could replace it later.
-- Debug text box is taller than its text (cosmetic).
+- **Audio is off** on purpose (V2). Set `Config.Audio.Enabled = true` and add ids to bring it back.
+- **Drift roll overshoots** about 3 deg past the 16 deg cap.
+- Feel tuning was done from numbers and screenshots, not by a human driving.
